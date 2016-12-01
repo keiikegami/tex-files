@@ -1,6 +1,10 @@
 \documentclass{article}
 \usepackage[margin = .7in]{geometry}
 \usepackage{multirow,array}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
 
 \begin{document}
 \title{ECON106/2214\ Games and Decisions\\ 2016 Term Paper}
@@ -52,6 +56,7 @@ The most important point of this paper is the definition of the success of this 
 
 	\subsection{One side quality gap case}
 	I assume that the quality gap can be viewed by the other group. And the gap exists in the men group without loss of generality. Then H (high quality) and L (low quality) are the two men. By using the same notation of the previous setting, I can express the payoffs in the figure 2, where $x_h$ is the payoff of matching with the high quality man and $x_l$ is one of that with the low quality ($x_h > x_l$).
+	
 	\begin{table}[h]
 		\begin{center}
                 \setlength{\extrarowheight}{2pt}
@@ -66,6 +71,7 @@ The most important point of this paper is the definition of the success of this 
                 \end{center}
                 \caption{difference vs no difference}
           \end{table}
+          
           \par
           With "Sekigae", by the same logic of the previous setting, men put the same probability on each choice, i.e. $P_H(a) = P_L(a) = \frac{1}{2}$. Then all rows in the figure 2 happen with a probability of quarter 1. In this situation the payoff matrix of the women side can be expressed as figure 3 due to the calculation of the expected value from figure 2.
 
@@ -85,6 +91,11 @@ The most important point of this paper is the definition of the success of this 
                 \caption{women's payoff matrix with Sekigae}
   	\end{table}
 	
+	\par
+	Since $x_h > x_l$, H is a strict dominance strategy for both a and b. This means that $[H, H]$ is realized in figure 2. Then two matching can never be achieved in this case.
+	\par
+	Next I consider no "Sekigae" case. Let the talk pair be "H - a" and "L - b" without loss of generality and $\theta$ be the probability gain by the longer talks ($-\frac{1}{2} \leq \theta \leq \frac{1}{2}$). Given that $P_H(a) = P_L(b) = \frac{1}{2} + \theta$, women side have the payoff matrix expressed in figure 4.
+		
 	\begin{table}[h]
                 \begin{center}
                 \begingroup
@@ -99,6 +110,19 @@ The most important point of this paper is the definition of the success of this 
                 \end{center}
                 \caption{women's payoff matrix without Sekigae}
   	\end{table}
+	
+	\par
+	For example, I calculate the payoffs of the case in which both a and b chooses H.
+	\begin{align*}
+	\text{a's payoff} = (\frac{1}{2} + \theta)(\frac{1}{2} - \theta)x_h + (\frac{1}{2} + \theta)(\frac{1}{2} + \theta)x_h + (\frac{1}{2} - \theta)(\frac{1}{2} - \theta)y + (\frac{1}{2} - \theta)(\frac{1}{2} + \theta)y = (x_h - y)\theta + \frac{h_h + y}{2} \\[10pt]
+	\text{b's payoff} = (\frac{1}{2} + \theta)(\frac{1}{2} - \theta)y + (\frac{1}{2} + \theta)(\frac{1}{2} + \theta)y + (\frac{1}{2} - \theta)(\frac{1}{2} - \theta)x_h + (\frac{1}{2} - \theta)(\frac{1}{2} + \theta)x_h = (y - x_h)\theta + \frac{h_h + y}{2}
+	\end{align*}
+	the rest of all components in figure 4 can be calculated by this logic.
+	\par
+	For simplicity let $\theta > 0$. And I assume that $x_h > x_l > y$. This is the key assumption. Now H strictly dominates L for a by the assumption. Thus if b's payoff of choosing L is bigger than one of H, $[H, L]$ can be achieved. The condition is as follows.
+	\begin{align*}
+	k
+	\end{align*}
 	
 	\begin{table}[h]
 	\begin{center}
