@@ -13,21 +13,104 @@
 
 \section{Analysis}
 	
-	\begin{table}[hbtp]
+	\begin{table}[h]
 	\begin{center}
                 \setlength{\extrarowheight}{2pt}
                 \begin{tabular}{*{16}{c|}}
                   \multicolumn{2}{c}{} & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Women}\\\cline{3-6}
                   \multicolumn{1}{c}{} &  & $[A, A]$  & $[A, B]$ & $[B, A]$ & $[B.B]$\\\cline{2-6}
-                  \multirow{4}*{Men}  & $(a,a)$ & $(x,y,x,y)$ & $(x,y,x,y))$ & $(y,x,x,y)$ & $(y,x,x,y)$\\\cline{2-6}
+                  \multirow{4}*{Men}  & $(a,a)$ & $(x,y,x,y)$ & $(x,y,x,y)$ & $(y,x,x,y)$ & $(y,x,x,y)$\\\cline{2-6}
                   & $(a,b)$ & $(x,y,x,y)$ & $(x,x,x,x)$ & $(y,y,y,y)$ & $(y,x,y,x)$\\\cline{2-6}
                   & $(b,a)$ & $(x,y,y,x)$ & $(y,y,y,y)$ & $(x,x,x,x)$ & $(y,x,x,y)$\\\cline{2-6}
                   & $(b,b)$ & $(x,y,y,x)$ & $(y,x,y,x)$ & $(x,y,y,x)$ & $(y,x,y,x)$\\\cline{2-6}
                 \end{tabular}
-                \caption{no difference vs no difference}
         \end{center}
+        \caption{no difference vs no difference}
   	\end{table}
+	
+	\begin{table}[h]
+		\begin{center}
+                \setlength{\extrarowheight}{2pt}
+                \begin{tabular}{*{16}{c|}}
+                  \multicolumn{2}{c}{} & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Women}\\\cline{3-6}
+                  \multicolumn{1}{c}{} &  & $[H, H]$  & $[H, L]$ & $[H, L]$ & $[L.L]$\\\cline{2-6}
+                  \multirow{4}*{Men}  & $(a,a)$ & $(x,y,x_h,y)$ & $(x,y,x_h,y)$ & $(y,x,x_l,y)$ & $(y,x,x_l,y)$\\\cline{2-6}
+                  & $(a,b)$ & $(x,y,x_h,y)$ & $(x,x,x_h,x_l)$ & $(y,y,y,y)$ & $(y,x,y,x_l)$\\\cline{2-6}
+                  & $(b,a)$ & $(x,y,y,x_h)$ & $(y,y,y,y)$ & $(x,x,x_l,x_h)$ & $(y,x,x_l,y)$\\\cline{2-6}
+                  & $(b,b)$ & $(x,y,y,x_h)$ & $(y,x,y,x_l)$ & $(x,y,y,x_h)$ & $(y,x,y,x_l)$\\\cline{2-6}
+                \end{tabular}
+                \end{center}
+                \caption{difference vs no difference}
+          \end{table}
+
+	\begin{table}[h]
+		\begin{center}
+		\begingroup
+                \renewcommand{\arraystretch}{1.5}
+                \setlength{\extrarowheight}{2pt}
+                \begin{tabular}{*{4}{c|}}
+                  \multicolumn{2}{c}{} & \multicolumn{2}{c}{b}\\\cline{3-4}
+                  \multicolumn{1}{c}{} &  & $H$  & $L$ \\\cline{2-4}
+                  \multirow{2}*{a}  & $H$ & $(\frac{x_h+y}{2}, \frac{x_h+y}{2})$ & $(\frac{x_h+y}{2}, \frac{x_l+y}{2})$ \\\cline{2-4}
+                  & $L$ & $(\frac{x_l+y}{2}, \frac{x_h+y}{2})$ & $(\frac{x_l+y}{2}, \frac{x_l+y}{2})$ \\\cline{2-4}
+                \end{tabular}
+                \endgroup
+                \end{center}
+                \caption{women's payoff matrix with change seats}
+  	\end{table}
+	
+	\begin{table}[h]
+                \begin{center}
+                \begingroup
+                \renewcommand{\arraystretch}{1.8}
+                \begin{tabular}{*{4}{c|}}
+                  \multicolumn{2}{c}{} & \multicolumn{2}{c}{b}\\\cline{3-4}
+                  \multicolumn{1}{c}{} &  & $H$  & $L$ \\\cline{2-4}
+                  \multirow{2}*{a}  & $H$ & $((x_h - y)\theta + \frac{x_h+y}{2}, (y - x_h)\theta + \frac{x_h+y}{2})$ & $((x_h - y)\theta+\frac{x_h+y}{2}, (x_l - y)\theta + \frac{x_l+y}{2})$ \\\cline{2-4}
+                  & $L$ & $((y-x_l)\theta + \frac{x_l+y}{2}, (y-x_h)\theta + \frac{x_h+y}{2})$ & $((y-x_l)\theta + \frac{x_l+y}{2}, (x_l - y)\theta + \frac{x_l+y}{2})$ \\\cline{2-4}
+                \end{tabular}
+                \endgroup
+                \end{center}
+                \caption{women's payoff matrix without change seats}
+  	\end{table}
+	
+	\begin{table}[h]
+	\begin{center}
+                \setlength{\extrarowheight}{2pt}
+                \begin{tabular}{*{16}{c|}}
+                  \multicolumn{2}{c}{} & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Women}\\\cline{3-6}
+                  \multicolumn{1}{c}{} &  & $[H, H]$  & $[H, L]$ & $[H, L]$ & $[L.L]$\\\cline{2-6}
+                  \multirow{4}*{Men}  & $(h,h)$ & $(x_h,y,x_h,y)$ & $(x_h,y,x_h,y)$ & $(y,x_h,x_l,y)$ & $(y,x_h,x_l,y)$\\\cline{2-6}
+                  & $(h,l)$ & $(x_h,y,x_h,y)$ & $(x_h,x_l,x_h,x_l)$ & $(y,y,y,y)$ & $(y,x_l,y,x_l)$\\\cline{2-6}
+                  & $(l,h)$ & $(x_l,y,y,x_h)$ & $(y,y,y,y)$ & $(x_l,x_h,x_l,x_h)$ & $(y,x_h,x_l,y)$\\\cline{2-6}
+                  & $(l,l)$ & $(x_l,y,y,x_h)$ & $(y,x_l,y,x_l)$ & $(x_l,y,y,x_h)$ & $(y,x_l,y,x_l)$\\\cline{2-6}
+                \end{tabular}
+        \end{center}
+        \caption{difference vs difference}
+  	\end{table}
+
+
+
 
 \section{Conclusion}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
