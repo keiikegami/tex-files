@@ -26,7 +26,7 @@ This trade off arises the strategic situation on the happy party. Then I analyze
 The most important point of this paper is the definition of the success of this party. I define the success in this case by "all participants can get the partner" rather than "the expected number of members getting the partner". This is because almost all participants actually want their one-night stand rather than their companion for life through the party, and so the most essential purpose in the meeting is that all members have so good an experience that they are looking forward to the next party. According to this purpose, the success is "all participants can get the partner".
 
 \section{Analysis}
-	\subsection{No quality gap}
+	\subsection{No quality gap case}
 	\par
 	First I formalize both group have no quality gap in each group.
 	\par
@@ -46,11 +46,12 @@ The most important point of this paper is the definition of the success of this 
         \caption{no difference vs no difference}
   	\end{table}
 	\par
-	Given the communication skills of members are same, with "Sekigae", all members have the same amount of information about the other sex members. Then, letting $P_\alpha(\beta)$ be the probability of $\alpha$ chooses $\beta$, $P_A(a)= P_B(a) = P_a(A) = P_b(A) = \frac{1}{2}$. In this case, the probability of achieving $\left( (a, b), [A, B] \right)$ or $\left( (b, a), [B, A] \right)$ is $2 \left(\frac{1}{2}\right)^4 = \frac{1}{8}$.
+	Given the communication skills of members are same, with "Sekigae", all members have the same amount of information about the other sex members. Then, letting $P_\alpha(\beta)$ be the probability of $\alpha$ chooses $\beta$, $P_A(a)= P_B(a) = P_a(A) = P_b(A) = \frac{1}{2}$. Now I assume that the decision of each person is independent. In this case, the probability of achieving $\left( (a, b), [A, B] \right)$ or $\left( (b, a), [B, A] \right)$ is $2 \left(\frac{1}{2}\right)^4 = \frac{1}{8}$.
 	\par
-	
+	Next I consider without "Sekigae" case. I can set the talk pair as "A - a" and "B - b" without loss of generality and let $\theta$ be the probability gain by longer time talking, i.e. $P_A(a)= P_B(b) = P_a(A) = P_b(B) = \frac{1}{2} + \theta$, where $-\frac{1}{2} \leq\theta \leq \frac{1}{2}$. Because the decision of each person is independent, $P((a,b)) = P([A, B]) = \left( \frac{1}{2} + \theta \right) \left( \frac{1}{2} + \theta\right)$ and $P((b, a)) = P([B, A]) =  \left( \frac{1}{2} - \theta \right) \left( \frac{1}{2} - \theta\right)$. This leads to that the probability of achieving $\left( (a, b), [A, B] \right)$ or $\left( (b, a), [B, A] \right)$ is $ \left( \frac{1}{2} + \theta \right)^4 + \left( \frac{1}{2} - \theta\right)^4 = 2\theta^4 + 3\theta^2 + \frac{1}{8}$.
+	By the above discussion, the probability of the success is bigger when "Sekigae" is not carried out since $\theta^2$ and $\theta^4 \geq 0$. Furthermore this says that $\theta$ can be negative, or the talk can be used as the tool of giving their own negative impression. And note that I assume that $\theta$ is equal among all members.
 
-	
+	\subsection{One side quality gap case}
 	\begin{table}[h]
 		\begin{center}
                 \setlength{\extrarowheight}{2pt}
@@ -79,7 +80,7 @@ The most important point of this paper is the definition of the success of this 
                 \end{tabular}
                 \endgroup
                 \end{center}
-                \caption{women's payoff matrix with change seats}
+                \caption{women's payoff matrix with Sekigae}
   	\end{table}
 	
 	\begin{table}[h]
@@ -94,7 +95,7 @@ The most important point of this paper is the definition of the success of this 
                 \end{tabular}
                 \endgroup
                 \end{center}
-                \caption{women's payoff matrix without change seats}
+                \caption{women's payoff matrix without Sekigae}
   	\end{table}
 	
 	\begin{table}[h]
