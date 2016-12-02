@@ -183,11 +183,28 @@ The most important point of this paper is the definition of the success of this 
 	\par
 	In no "Sekigae" case, I write the payoff gain from the longer time of talking as $\tau$, but it ends up to the same result under the common idea assumptions provided in the previous setting however $\tau$ is large. Thus next I relieve the assumption and consider the general case equilibriums.
 	\par
-	I derive the mixed strategy Nash equilibrium in "Sekigae" case. Let $P_\alpha(\beta)$ be the probability that $\alpha$ chooses $\beta$. And denote $P_H(h) = a, P_L(h) = b, P_h(H) = c, P_l(H) = d$. Then the expected payoff of $H$ when he chooses h is as follows.
-	\begin{align*}
-	k
-	\end{align*}
-	
+	I derive the mixed strategy Nash equilibrium in "Sekigae" case. Let $P_\alpha(\beta)$ be the probability that $\alpha$ chooses $\beta$. And denote $P_H(h) = a, P_L(h) = b, P_h(H) = c, P_l(H) = d$. Then the expected payoff of $H$ when he chooses $h$ is as follows. 
+	\begin{align}
+	&bcdx_h + bc(1-d)x_h + b(1-c)dy + b(1-c)(1-d)y \nonumber \\&+ (1-b)cdx_h + (1-b)c(1-d)x_h + (1-b)(1-c)dy + (1-b)(1-c)(1-d)y
+	\end{align}
+	When he chooses $l$, the payoff is as follows.
+	\begin{align}
+	&bcdx_l + bc(1-d)y + b(1-c)dx_l + b(1-c)(1-d)y \nonumber \\&+ (1-b)cdx_l + (1-b)c(1-d)y + (1-b)(1-c)dx_l + (1-b)(1-c)(1-d)y
+	\end{align}
+	these can be calculated from table 5. Now the border between the two choices is 
+	\begin{align}
+	(1) - (2) &=  cd(x_h - x_l) + c(1-d)(x_h - y) + (1-c)d(y - x_l) \nonumber \\
+	&= cd(x_h - x_l - x_h + y -y + x_l) + c(x_h - y) + d(y - x_l) \nonumber\\
+	&= c(x_h - y) + d(y - x_l) = 0 \nonumber\\
+	&\Leftrightarrow \frac{c}{d} = \frac{x_l - y}{x_h - y}
+	\end{align}
+	The same logic can be used for $L$ case. Thus I omit the detail and get the below border.
+	\begin{align}
+	&c(1 - d)(y - x_l) + (1 - c)d(x_h - y) + (1-c)(1-d)(x_h - x_l) \nonumber \\
+	&= cd(x_l - y + y -x_h + x_h - x_l) + c(y - x_l) + d(x_h - y) + (x_h - x_l) - c(x_h - x_l) - d(x_h - x_l)\nonumber \\
+	&= c(y - x_h) + d(x_l - y) + (x_h - y) + (y - x_l) = (x_h - y)(1 - c) + (y - x_l)(1 - d) = 0 \nonumber \\
+	&\Leftrightarrow \frac{1-c}{1-d} = \frac{x_l - y}{x_h - y}
+	\end{align}
 
 
 
