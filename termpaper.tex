@@ -205,6 +205,34 @@ The most important point of this paper is the definition of the success of this 
 	&= c(y - x_h) + d(x_l - y) + (x_h - y) + (y - x_l) = (x_h - y)(1 - c) + (y - x_l)(1 - d) = 0 \nonumber \\
 	&\Leftrightarrow \frac{1-c}{1-d} = \frac{x_l - y}{x_h - y}
 	\end{align}
+	Then I get the best response function about $a$ and $b$ as follows.
+	\begin{align*}
+            	\begin{cases}
+            	a = 1, b= 0 & \left( \frac{x_l - y}{x_h - y}(d-1) + 1 < c \leq 1 \right) \\[8pt]
+            	a = 1, 0 \leq b \leq 1 & \left( c = \frac{x_l - y}{x_h - y}(d-1) + 1 \right) \\[8pt]
+		a = 1, b = 1 & \left( \frac{x_l - y}{x_h - y}d < c < \frac{x_l - y}{x_h - y}(d-1) + 1 \right) \\[8pt]
+		0 \leq a \leq 1, b = 1 & \left( c = \frac{x_l - y}{x_h - y}d \right) \\[8pt]
+		a = 0, b = 1 & \left( 0 \leq c < \frac{x_l - y}{x_h - y}d \right)
+            	\end{cases}
+	\end{align*}
+	And the same logic is applied to calculate the best response function about $c$ and $d$.
+	\begin{align*}
+            	\begin{cases}
+            	c = 1, d= 0 & \left( \frac{x_l - y}{x_h - y}(b-1) + 1 < a \leq 1 \right) \\[8pt]
+            	c = 1, 0 \leq d \leq 1 & \left( a = \frac{x_l - y}{x_h - y}(b-1) + 1 \right) \\[8pt]
+		c = 1, d = 1 & \left( \frac{x_l - y}{x_h - y}b < a < \frac{x_l - y}{x_h - y}(b-1) + 1 \right) \\[8pt]
+		0 \leq c \leq 1, d = 1 & \left( a = \frac{x_l - y}{x_h - y}b \right) \\[8pt]
+		c = 0, d = 1 & \left( 0 \leq a < \frac{x_l - y}{x_h - y}b \right)
+            	\end{cases}
+	\end{align*}
+	The mixed strategy Nash equilibriums are the the pairs of the probabilities which respond mutually best. Thus There are 4 mixed strategy Nash equilibriums by the above best response functions.
+	\begin{align}
+	&(a = 1, b = 0, c = 1, d = 0)\\
+	&(a = 1, b = 1, c =1, d = 1)\\
+	&\left(a = \frac{x_l - y}{x_h - y}, b = 1, c = \frac{x_l - y}{x_h - y}, d = 1 \right)\\
+	&(a = 0, b = 1, c = 0, d = 1)
+	\end{align}
+	
 
 
 
