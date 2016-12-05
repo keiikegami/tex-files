@@ -38,7 +38,7 @@ The important point is the definition of the success of this party. I define the
 
 
 \section{Analysis}
-	\subsection{No quality gap case}
+	\subsection{No quality gap setting}
 	\par
 	Let A and B be men, and a and b be women. Then each man have two choices, i.e. a or b. And each woman also have two choices, i.e. A or B. In order to summarize the payoff, I write $[\alpha, \beta]$ indicating "$a$ chooses $\alpha$ and $b$ chooses $\beta$ " and $(\alpha, \beta)$ insisting "$A$ chooses $\alpha$ and $B$ chooses $\beta$ ". The payoff matrix can be expressed as Table1, where $x$ is the payoff of getting the partner and $y$ is the payoff of no matching. And $(\alpha, \beta, \gamma, \delta)$ means that $A$ get $\alpha$, $B$ get $\beta$, $a$ get $\gamma$, and $b$ get $\delta$. These notations are used in the below discussion with slight differences.
 	\begin{table}[h]
@@ -53,7 +53,7 @@ The important point is the definition of the success of this party. I define the
                   & $(b,b)$ & $(x,y,y,x)$ & $(y,x,y,x)$ & $(x,y,y,x)$ & $(y,x,y,x)$\\\cline{2-6}
                 \end{tabular}
         \end{center}
-        \caption{no quality gap detting}
+        \caption{no quality gap setting}
   	\end{table}
 	\par
 	Given the communication skills of members are same, with "Sekigae", all members have the same amount of information about the other sex members. Then, letting $P_\alpha(\beta)$ be the probability of $\alpha$ chooses $\beta$, $P_A(a)= P_B(a) = P_a(A) = P_b(A) = \frac{1}{2}$. Now I consider "no quality gap setting", thenthe decision of each person is independent. In this case, the probability of achieving $\left( (a, b), [A, B] \right)$ or $\left( (b, a), [B, A] \right)$ is $2 \left(\frac{1}{2}\right)^4 = \frac{1}{8}$.
@@ -61,7 +61,7 @@ The important point is the definition of the success of this party. I define the
 	Next I consider without "Sekigae" case. I can set the talk pair as "$A - a$" and "$B - b$" without loss of generality and let $\theta$ be the probability gain by longer time talking, i.e. $P_A(a)= P_B(b) = P_a(A) = P_b(B) = \frac{1}{2} + \theta$, where $-\frac{1}{2} \leq\theta \leq \frac{1}{2}$. Because the decision of each person is independent, $P((a,b)) = P([A, B]) = \left( \frac{1}{2} + \theta \right) \left( \frac{1}{2} + \theta\right)$ and $P((b, a)) = P([B, A]) =  \left( \frac{1}{2} - \theta \right) \left( \frac{1}{2} - \theta\right)$. This leads to that the probability of achieving $\left( (a, b), [A, B] \right)$ or $\left( (b, a), [B, A] \right)$ is $ \left( \frac{1}{2} + \theta \right)^4 + \left( \frac{1}{2} - \theta\right)^4 = 2\theta^4 + 3\theta^2 + \frac{1}{8}$.
 	Thus the probability of the success is bigger when "Sekigae" is not carried out since $\theta^2$ and $\theta^4 \geq 0$. Furthermore this says that $\theta$ can be negative, or the talk can be used as the tool of giving their own negative impression. And note that I assume that $\theta$ is equal among the pairs.
 
-	\subsection{One side quality gap case}
+	\subsection{One side quality gap setting}
 	$H$ (high quality) and $L$ (low quality) are men. By using the same notation of the previous setting, I can express the payoffs in the Table2, where $x_h$ is the payoff of matching with the high quality man and $x_l$ is one of that with the low quality ($x_h > x_l$).
 	
 	\begin{table}[h]
@@ -76,7 +76,7 @@ The important point is the definition of the success of this party. I define the
                   & $(b,b)$ & $(x,y,y,x_h)$ & $(y,x,y,x_l)$ & $(x,y,y,x_h)$ & $(y,x,y,x_l)$\\\cline{2-6}
                 \end{tabular}
                 \end{center}
-                \caption{difference vs no difference}
+                \caption{one side quality gap setting}
           \end{table}
           
           \par
@@ -150,9 +150,9 @@ The important point is the definition of the success of this party. I define the
 	\end{align*}
 	This means that one side gap setting gives the bigger probability of success than no gap setting if $\frac{1}{2} > \theta > \frac{x_h - x_l}{2} \frac{1}{x_h + x_l - 2y}$ and "Sekigae" is not carried out.
 	
-	\subsection{Two side quality gap case}
-	In this case, all the players know which of the other group members is high quality or low quality and know that among their own group. This is a highly strategic situation. The payoffs are summarized in figure 5, where $x_h$ is the payoff for matching with a high quality person and $x_l$ is one with a low quality person ($x_h > x_l$). I assume that $x_l > y$. This is the same assumption in the previous setting and plays a big roll. Note that $[\alpha, \beta]$ means "high quality woman chooses $\alpha$ quality man and low quality woman chooses $\beta$ quality man". The same notation is used for $(\alpha, \beta)$.
-	
+	\subsection{Two side quality gap setting}
+	In this case, all the players know which of the other group members is high quality or low quality and know the same among their own group. This is a highly strategic situation. The payoffs are summarized in Table5, where $x_h$ is the payoff for matching with a high quality person and $x_l$ is one with a low quality person ($x_h > x_l> y$). The notations in the previous settings are used in Table5.
+		
 	\begin{table}[h]
 	\begin{center}
                 \setlength{\extrarowheight}{2pt}
@@ -165,7 +165,7 @@ The important point is the definition of the success of this party. I define the
                   & $(l,l)$ & $(x_l,y,y,x_h)$ & $(y,x_l,y,x_l)$ & $(x_l,y,y,x_h)$ & $(y,x_l,y,x_l)$\\\cline{2-6}
                 \end{tabular}
         \end{center}
-        \caption{difference vs difference}
+        \caption{two side quality gap setting}
   	\end{table}
 
 	\par
