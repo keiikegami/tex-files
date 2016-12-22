@@ -1,0 +1,96 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+
+
+\begin{document}
+\title{給付型奨学金の効果検証}
+\author{Kei Ikegami}
+\maketitle
+
+\section{事実}
+    \begin{itemize}
+    	\item Jassoの予約採用募集時期は5,6月に1種2種、10,11月に2種のみ。在学採用は毎年春。ただし詳しい時期や回数は高校に一任されている。
+    \end{itemize}
+    
+\section{モデルの設定}
+	\subsection{モデル1：池上/12/22}
+	ナイーブなモデルを設定する。
+	\par
+	全国の高校生は3年生の5、6月に、以下のプロセスをバックワードに意思決定する。
+	\begin{enumerate}
+		\item 進学するか否か
+		\item 受験する学校（職場）のセットは何か
+	\end{enumerate}
+	受験する学校のセットは以下のように決定される。$A$を国公立4年生大学、$B$を私立4年生大学、$C$を専門学校の集合とする。$A,B,C$の各学校は奨学金ありと奨学金なしで2パターンずつ存在する。受験生は$A$の中から効用を最大化する選択肢を1つ選び、$B,C$については効用の高い順にランク付けする。$A$から選んだものも含めてすべての選択肢についてのランキングを作成した後、受験生が住んでいる都道府県での受験校平均だけ上から取り出したものを受験校のセットとする（ただし正の値のもののみを含むようにする）。
+	\par
+	生徒$i$が学校$n$の奨学金なしパターンを選択する効用を$u_n^i$とすると、
+	\begin{align*}
+		u_n^i = (I_n - H^i - T_n) r_n^i
+	\end{align*}
+	ただし、$I_n$は学校$n$を卒業した人の平均生涯賃金、$H^i$は$i$さんが住んでいる都道府県の高卒者平均生涯賃金、$T_n$は学校$n$の学費の割引現在価値、$r_n^i$は$i$さんが学校$n$に受かる確率である。\par
+	奨学金ありパターンを選択する効用を${u_n^i}^{*}$とすると、
+	\begin{align*}
+		{u_n^i}^{*} = (u_n^i + S_n^i - P^i - C - \infty * {\bf 1}(X_i \in Q)) r_n^i d^i
+	\end{align*}
+	ただし、$S_n^i$は$i$さんが学校$n$に進学した際にもらえる奨学金の合計金額の割引現在価値、$P^i$は$i$さんが返済する金額の割引現在価値、$C$は奨学金に申し込むコスト、$X_i$は$i$さんのdemographicで$Q$が奨学金をもらえないdemographicの集合である。また、$d_n^i$は$i$さんの奨学金採用確率である。
+	\par
+	上で述べた通り、学生は各学校について上の二つの効用を比べ、効用最大化問題を解いている。
+	\par
+	進学せずに就職するやつの数を、「受験校のセットが空集合の受験生の数」+「(各学校に対する合格率で当落を判定し、すべて不合格になった受験生の数)×$\ w$」（ただし$w$は全落ちしたやつが浪人せずに就職する確率）で推定する。上の効用をパラメトライズして、この高卒就職組の数を高校別or県別に出してMLEをすればいい？
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
