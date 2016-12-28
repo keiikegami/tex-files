@@ -125,9 +125,22 @@
 	今、$u_i$を$i$さんが就職する際の効用として、誤差項にType 1 extreme value distributionを仮定すれば離散選択モデルとして高卒就職を意図的に選択する人のシェアを出すことができる。
 	\par
 	最後に今まで扱ってきた効用を以下のようにパラメトライズする。$i$さんが学校$j$に奨学金なしで進学し、そこで学位をとることの効用を$u_{i, j}$とし、$i$さんが学校$j$に奨学金付きで進学しそこで学位をとることの効用を$\dot{u_{i, j}}$とする。この時以下のようである。
-	\begin{align*}
-		u_{i, j} = 
-	\end{align*}
+	\begin{align}
+		&u_{i, j} = \alpha_i \sum_{n = 1}^{L_j} \left\{ h^n (y_i^n - t_j - w_i^n) \right\} + \alpha_i \sum_{n = L_j + 1}^{\infty} \left\{ h^n (y_i^n + z_j^n - w_i^n) \right\} + \beta_i d_j + \delta_i C_{i, j} \\
+		&\dot{u_{i, j}} = \alpha_i \sum_{n = 1}^{L_j} \left\{ h^n (y_i^n - t_j - w_i^n + s_i) \right\} + \alpha_i \sum_{n = L_j + 1}^{\infty} \left\{ h^n (y_i^n + z_j^n - w_i^n - r_i^n) \right\} + \beta_i d_j + \delta_i C_{i, j} 
+	\end{align}
+	ここで、
+	\begin{description}
+		\item[$y_i^n$] 世帯$i$の$n$年後の世帯収入
+		\item[$w_i^n$] $i$さんが高卒で就職した際の$n$年後の収入
+		\item[$r_i^n$] $i$さんが大学進学して$n$年後に返済する奨学金の額
+		\item[$z_j^n$] $j$校を卒業した学生が$n$年後に稼いでいる年収
+		\item[$d_j$] $j$校の「格」を示すカテゴリー変数（ダミーにしても良い）
+		\item[$C_{i, j}$] $i$さんが$j$校に「合格」し、「学位を所得」するまでに必要な勉強コスト（必要な時間でバイトした時の収入増加分の割引現在価値）
+		\item[$L_j$] $j$校で学位をとるまでに必要な年限
+		\item[$h$] 割引率
+	\end{description}
+	である。
 \end{document}
 
 
