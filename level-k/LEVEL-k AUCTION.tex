@@ -49,21 +49,32 @@
 	\subsection{Overview}
 		\begin{frame}\frametitle{General Model}
 			\begin{itemize}
-			\item 
+			\item $N$ bidders bid for a single object.
+			\item $X_i$ is bidder $i$'s private signal. $X = (X_1, \dots, X_N)$.
+			\item $S_j$ is additional random variable which is informative about the value of the object. $S = (S_1, \dots, S_M)$.
+			\item $V_i = u_i(S, X)$ is bidder $i$'s value of the object, where $u_i$ is symmetric across $i$.
+			\item $V_i - p$ is the payoff for the bidder $i$ winning the auction by paying $p$.
+			\item $Y$ is the highest signal among bidders other than $i$.
+			\item $\upsilon(x, y) = E\left[ V_i | X_i = x, Y = y \right]$ is the expected value conditional on winning.
+			\item $r(x) = E\left[ V_i | X_i = x \right]$ is the unconditional expected value.
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Classification of Auctions}
 			\begin{itemize}
-			\item 
+			\item First price auction vs Second price auction
+			\item Independent private value auction(i.p.v) vs Common value auction(c.v)
+			\item In i.p.v, the signals and values are independent among bidders.
+			\item In c.v, the information of $i$ and $j$ is not independent and learning about the other bidders' information can cause the bidder to reassess his estimate of the value of the object. (e.g. Timber auction)
 			\end{itemize}
 		\end{frame}
 		
 	\subsection{Equilibrium}
 		\begin{frame}\frametitle{First Price Auction}
 			\begin{itemize}
-			\item 
+			\item In c.v, the optimal bidding strategy is calculated as follows 
 			\end{itemize}
+			
 		\end{frame}
 		
 		\begin{frame}\frametitle{Second Price Auction}
