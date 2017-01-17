@@ -158,7 +158,7 @@
 			\begin{itemize}
 			\item This optimal bidding strategy is common in i.p.v and c.v.
 			\item There are two differences from the optimal bidding strategy in equilibrium.
-			\item One is that $r(x)$ replaces $\upsilon(x,x)$, which reflects the fact that Random L1 think winning conveys no information about the value of the object even in c.v. (difference in value adjustment)
+			\item One is that $r(x)$ replaces $\upsilon(x,x)$, which reflects the fact that Random L1 think winning conveys no information about the value of the object even in c.v. (difference in value adjustment). Since in general $r(x) > \upsilon(x,x)$, Random L1 tends to overbid due to the value adjustment.
 			\item Second is that the integral in (7) is over $Z$ rather than $Y$ (see (1) in paper). This is caused by L1 use nonequilibrium belief to evaluate the bidding trade-off.  (difference in bidding trade-off)
 			\end{itemize}
 		\end{frame}
@@ -176,7 +176,7 @@
 		
 		\begin{frame}\frametitle{Random L1 in Second Price Auction}
 			\begin{itemize}
-			\item One difference from equilibrium case is $r(x)$ replaces $\upsilon(x,x)$. (difference in value adjustment)
+			\item One difference from equilibrium case is $r(x)$ replaces $\upsilon(x,x)$. (difference in value adjustment). And this leads to overbidding in c.v.
 			\item Second difference from equilibrium case is that the player use nonequilibrium belief. However note that this does not result in the deviating from truthful bidding as in first price auction.
 			\item In other words, we have no bidding trade-off term in the optimal bidding strategy just as in the equilibrium case.
 			\item (10) coincides with (6) when $\chi = 1$, i.e. fully cursed equilibrium.
@@ -216,13 +216,28 @@
 				&\max_b \int_\underline{x}^{b_{k-1}^{-1}(b)} (\upsilon(x, y) - b_{k-1}(y)) f_Y(y | x) \mathrm{y} \\
 				&b = \upsilon(x, b_{k-1}^{-1}(b))
 			\end{align}
-			
+		\end{frame}
+		
+		\begin{frame}[shrink]\frametitle{Strategic Substitutability}
+			\begin{itemize}
+			\item Value adjustment (using $\upsilon(x,x)$) tends to make bidders' bids strategic substitutes.
+			\item level-kが、周囲の奴らが均衡よりもoverbidしていると考えているとする。
+			\item この時、もしその状態（overbidの状態）が均衡だった時に想定される彼らのprivate signalよりも、実際に彼らが受け取っているprivate signalは小さい（弱い）と考えられる。
+			\item その分のvalue adjustmentをlevel-k bidderが行う。この際の修正は、均衡bidよりも少し低いbidとなる。なぜなら質が周囲のbid状況から想定されるほど良くないぞという情報を受け取っているから。
+			\item こうして、周囲がoverbidなら自分はunderbid、という戦略的代替が成り立つことがわかった。
+			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Random L2 in First Price Auction}
 			\begin{itemize}
-			\item 
+			\item $a_2^r(x)$ is determined by (12) with $a_1^{r^{-1}}(a)$ replacing $a_{k-1}^{-1}(a)$.
+			\item Given the strategic substitutability of value adjustment, L2 underbid because L1 overbid relative to the equilibrium level.
 			\end{itemize}
+			
+			\begin{align}
+				(\upsilon(x, a_{k-1}^{-1}(a)) - a)f_Y(a_{k-1}^{-1}(a) | x) \frac{\partial a_{k-1}^{-1}(a)}{\partial a} - F_Y(a_{k-1}^{-1}(a) | x) = 0
+			\end{align}
+			
 		\end{frame}
 		
 		\begin{frame}\frametitle{Random L2 in Second Price Auction}
