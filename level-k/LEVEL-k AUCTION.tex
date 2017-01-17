@@ -8,6 +8,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{comment}
+\usepackage{amsmath}
 \newenvironment<>{varblock}[2][.9\textwidth]{%
   \setlength{\textwidth}{#1}
   \begin{actionenv}#3%
@@ -72,52 +73,113 @@
 	\subsection{Equilibrium}
 		\begin{frame}\frametitle{First Price Auction}
 			\begin{itemize}
-			\item In c.v, the optimal bidding strategy is calculated as follows 
+			\item In c.v, the optimal bidding strategy is calculated as (1).
+			\item In i.p.v, the optimal bidding strategy is calculated as (2), because $\upsilon(x,x) = x$ and $Y$ is independent of $X$.
 			\end{itemize}
+			
+			\begin{align}
+				a_*(x) &= \upsilon(x, x) - \int_{\underline{x}}^{x} \exp \left( -\int_{y}^{x} \frac{f_Y(t|t)}{F_Y(t|t)} \mathrm{d}t \right) \mathrm{d} (\upsilon(y,y)) \\[10pt]
+				a_*(x) &= x - \int_{\underline{x}}^{x} \frac{F_Y(y)}{F_Y(x)} \mathrm{d}y
+				= E\left[ Y | Y < X \right]
+			\end{align}			
+		\end{frame}
+		
+		\begin{frame}\frametitle{Second Price Auction}
+			\begin{itemize}
+			\item In c.v, the optimal bidding strategy is calculated as (3). This is not a weakly dominant strategy.
+			\item In i.p.v, the optimal bidding strategy is calculated as (4), because $\upsilon(x,x) = x$. This is a weakly dominant strategy.
+			\end{itemize}
+			
+			\begin{align}
+				b_*(x) &= \upsilon(x,x) \\
+				b_*(x) &= x
+			\end{align}
 			
 		\end{frame}
 		
-		\begin{frame}\frametitle{Second Price Auction}
-			\begin{itemize}
-			\item 
-			\end{itemize}
-		\end{frame}
-		
 	\subsection{Cursed Equilibrium}
-		\begin{frame}\frametitle{Points}
+		\begin{frame}[shrink]\frametitle{Points}
 			\begin{itemize}
-			\item 
+			\item $\chi$ is the parameter denoting the probability that the bidder think the other bidders bid independently of signals. 
+			\item Cursed equilibrium for a given $\chi$ value is called $\chi$-cursed equilibrium.
+			\item In ER's(2002, 2006), $\chi$-cursed equilibrium is the same as one in a hypothetical "$\chi$-virtual game", in which players believe that, with probability $\chi$, other's bid is independent of types.
+			\item In i.p.v, the players bid independently of others' signals by definition, then the optimal bidding strategy in $\chi$-cursed equilibrium is the same as one in equilibrium ($\upsilon(x, x) = r(x) = x$).
+			\item In c.v, since $\upsilon(x,x) \neq r(x)$, cursed equilibrium differs from equilibrium.
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}\frametitle{First Price Auction}
+		\begin{frame}[shrink]\frametitle{Common Value Auction}
 			\begin{itemize}
-			\item 
+			\item In first price auction, the optimal bidding strategy is calculated as (5).
+			\item In second price auction, the optimal bidding strategy is calculated as (6).
+			\item These calculations are exactly the same as ones in equilibrium.
 			\end{itemize}
-		\end{frame}
-		
-		\begin{frame}\frametitle{Second Price Auction}
-			\begin{itemize}
-			\item 
-			\end{itemize}
+			
+			\begin{align}
+				a_{\chi}(x) &= \left\{ (1 - \chi)\upsilon(x,x) + \chi r(x) \right\} \nonumber \\
+				&\quad - \int_{\underline{x}}^x \exp \left( - \int_y^x \frac{f_Y(t|t)}{F_Y(t|t)} \mathrm{d}t \right) \mathrm{d}\left\{ (1 - \chi)\upsilon(y,y) + \chi r(y) \right\} \\
+				b_{\chi}(x) &= (1 - \chi)\upsilon(x,x) + \chi r(x)
+			\end{align}
+			
 		\end{frame}
 		
 	\subsection{Nonequilibrium Level-k Models}
-		\begin{frame}\frametitle{Points}
+		\begin{frame}[shrink]\frametitle{Points}
 			\begin{itemize}
-			\item 
+			\item Level-k model allows behavior to be heterogeneous, but assumes that each player's behavior is drawn from the common distribution over the k types.
+			\item In this paper there are 3 types (denoted by L k) which best response to the lower type. i.e. L1 best responses to L0, and L2 best responses to L1.
+			\item The key assumption is the behavior of L0.  One is Random L0, in which the L0 bids uniformly randomly independent of its own signal. The other is Truthful L0, in which L0 bids the value suggested by its own signal.
+			\item L1 and L2 are called Random L1 and L2 when L0 is set to Random L0.
+			\item L1 and L2 are called Truthful L1 and L2 when L0 is set to Truthful L0. 
+			\item In the latter slides I show the optimal bidding strategies of each player in each case one by one.
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}\frametitle{Random L0}
+			\begin{itemize}
+			\item This player bids i.i.d. uniformly over the range $[\underline{z}, \bar{z}]$, which is determined by its private signal and the value $V_i = u_i (S, X)$.
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Random L1 in First Price Auction}
 			\begin{itemize}
-			\item 
+			\item Random L1 plays in the belief that all other players follow Random L0. 
+			\item Let $Z$ be the highest bid among the others, the distribution function of $Z$ be $F_z (z)$, and the pdf be $f_z(z)$ (these two are from the ordered statistics).
+			\item The optimal bidding strategy of L1 ($a_1^r(x)$) solves (7) and is characterized by (8).
+			\end{itemize}
+			
+			\begin{align}
+				\max_a \int_\underline{z}^a (r(x) - a) f_z(z) \mathrm{d}z \\
+				(r(x) - a)f_z(a) - F_z(a) = 0
+			\end{align}
+		\end{frame}
+		
+		\begin{frame}\frametitle{Random L1 in First Price Auction}
+			\begin{itemize}
+			\item This optimal bidding strategy is common in i.p.v and c.v.
+			\item There are two differences from the optimal bidding strategy in equilibrium.
+			\item One is that $r(x)$ replaces $\upsilon(x,x)$, which reflects the fact that Random L1 think winning conveys no information about the value of the object even in c.v. (difference in value adjustment)
+			\item Second is that the integral in (7) is over $Z$ rather than $Y$ (see (1) in paper). This is caused by L1 use nonequilibrium belief to evaluate the bidding trade-off.  (difference in bidding trade-off)
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Random L1 in Second Price Auction}
 			\begin{itemize}
-			\item 
+			\item The optimal bidding strategy ($b_1^r(x)$) solves (9)'s maximization problem. And get (10).
+			\end{itemize}
+			
+			\begin{align}
+				&\max_b \int_\underline{z}^b (r(x) - z) f_z(z)\mathrm{d}z\\
+				&b_1^r(x) = r(x)
+			\end{align}
+		\end{frame}
+		
+		\begin{frame}\frametitle{Random L1 in Second Price Auction}
+			\begin{itemize}
+			\item One difference from equilibrium case is $r(x)$ replaces $\upsilon(x,x)$. (difference in value adjustment)
+			\item Second difference from equilibrium case is that the player use nonequilibrium belief. However note that this does not result in the deviating from truthful bidding as in first price auction.
+			\item In other words, we have no bidding trade-off term in the optimal bidding strategy just as in the equilibrium case.
+			\item (10) coincides with (6) when $\chi = 1$, i.e. fully cursed equilibrium.
 			\end{itemize}
 		\end{frame}
 		
@@ -160,6 +222,13 @@
 
 \section{Comparing}
 	\subsection{Optimal Bidding Strategy Comparing}
+	
+		\begin{frame}\frametitle{Value Adjustment and Bidding Trade-Off}
+			\begin{itemize}
+			\item 二つの言葉の定義を書く
+			\end{itemize}
+		\end{frame}
+	
 		\begin{frame}\frametitle{Summary Table}
 			\begin{itemize}
 			\item Table 1を挿入
