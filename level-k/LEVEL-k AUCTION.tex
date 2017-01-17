@@ -188,21 +188,35 @@
 			\begin{itemize}
 			\item Random L2 best responses to L1.
 			\item (8) and (10) tell that L1's bidding strategy is an increasing function of its private signal both in first and second price auction.
-			\item For L2 in this case, the high bid among the other players conveys the information about the value of the object, then L2 adjust its own estimated value according to the information.
+			\item For L2 in this case, the high bid among the other players conveys the information about the value of the object, then L2 adjust its own estimated value according to the information. This means that we use $\upsilon(x, y)$ rather than $r(x)$.
 			\item This structure is common in Truthful L1 and Truthful L2. Thus I provide the general bidding strategy which can be applied to the three cases.
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}\frametitle{General Bidding for the three Cases in First Price Auction}
+		\begin{frame}\frametitle{General Bidding in First Price Auction}
 			\begin{itemize}
-			\item 
+			\item Suppose that a level-k bidder expects others to bid according to the monotonically increasing bidding strategy $a_{k-1}(x)$.
+			\item The bidder's optimal bidding strategy with $V_i$ and $X_i$ solves (11), and is characterized by the first order condition (12). 
 			\end{itemize}
+			
+			\begin{align}
+				&\max_a \int_\underline{x}^{a_{k-1}^{-1}(a)} (\upsilon(x, y) - a) f_Y(y | x) \mathrm{y} \\
+				&(\upsilon(x, a_{k-1}^{-1}(a)) - a)f_Y(a_{k-1}^{-1}(a) | x) \frac{\partial a_{k-1}^{-1}(a)}{\partial a} - F_Y(a_{k-1}^{-1}(a) | x) = 0
+			\end{align}
+			
 		\end{frame}
 		
-		\begin{frame}\frametitle{General Bidding for the three Cases in Second Price Auction}
+		\begin{frame}\frametitle{General Bidding in Second Price Auction}
 			\begin{itemize}
-			\item 
+			\item Suppose that a level-k bidder expects others to bid according to the monotonically increasing bidding strategy $b_{k-1}(x)$.
+			\item The bidder's optimal bidding strategy with $V_i$ and $X_i$ solves (13), and is characterized by the first order condition (14). 
 			\end{itemize}
+			
+			\begin{align}
+				&\max_b \int_\underline{x}^{b_{k-1}^{-1}(b)} (\upsilon(x, y) - b_{k-1}(y)) f_Y(y | x) \mathrm{y} \\
+				&b = \upsilon(x, b_{k-1}^{-1}(b))
+			\end{align}
+			
 		\end{frame}
 		
 		\begin{frame}\frametitle{Random L2 in First Price Auction}
