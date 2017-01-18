@@ -313,10 +313,10 @@
 \section{Comparing}
 	\subsection{Optimal Bidding Strategy Comparing}
 	
-		\begin{frame}\frametitle{Auction Examples: KL}
+		\begin{frame}\frametitle{Auction Example: KL}
 			\begin{itemize}
-			\item KL(Kagel and Levin 1986) is an example of common value auction.
-			\item $S$ is uniformly distributed on a subset of $[\underline{s}, \bar{s}]$.
+			\item KL(Kagel and Levin 1986) is an example of first price common value auction.
+			\item $V_i = S$ is uniformly distributed on a subset of $[\underline{s}, \bar{s}]$.
 			\item $X|S$ is conditionally uniformly i.i.d. on the interval $[s - \frac{a}{2}, s + \frac{a}{2}]$ with $a > 0$.
 			\item Thus $f_{X|S} = \frac{1}{a}$ and $F_{X|S} = \frac{x-s}{a} + \frac{1}{2}$. And $E[X|S] = s$.
 			\item Then the value adjustment for no information by winning is calculated as (21).
@@ -343,7 +343,7 @@
 			\end{align*}
 		\end{frame}
 		
-		\begin{frame}\frametitle{Auction Examples: KL}
+		\begin{frame}\frametitle{Auction Example: KL}
 			\begin{itemize}
 			\item The value adjustment for the information revealed by winning is calculated as in (23).
 			\item The derivation of (23) is in the web appendix.
@@ -359,13 +359,32 @@
 			\normalsize
 		\end{frame}
 		
-		\begin{frame}\frametitle{Auction Examples: AK}
+		\begin{frame}[shrink]\frametitle{Auction Example: AK}
+			
 			\begin{itemize}
-			\item 
+			\item AK (Avery and Kagel 1997) is an example of second price common value auction.
+			\item $V_i = \sum_{i=1}^N X_i$, with $X_i$ i.i.d. uniformly distributed on the interval $[\underline{x}, \bar{x}]$.
+			\item Each value adjustment can be calculated as follows.
+			\item $\upsilon(x,x) > (<) r(x) \Leftrightarrow x > (<) \frac{(N-1)\bar{x} + \underline{x}}{N}$. i.e. $\upsilon(x,x) > r(x)$ with high signals and $\upsilon(x,x) < r(x)$ with low signals.
+			\item Then, in cursed equilibrium, high signal bidders underbid relative to equilibrium and low signal bidders overbid relative to equilibrium.
+			\end{itemize}
+			
+			\begin{align}
+				r(x) &= x + (N - 1)\frac{\bar{x} + \underline{x}}{2} \\[10pt]
+				\upsilon(x,y) &= x + y\frac{N}{2} + \frac{N-2}{2}\underline{x}
+			\end{align}
+		\end{frame}
+		
+		\begin{frame}\frametitle{Auction Example: AK}
+			\begin{itemize}
+			\item In AK, $N$ is set to be $2$ and $[\underline{x}, \bar{x}] = [1, 4]$.
+			\item Thus $r(x) = x + \frac{5}{2}$ and $\upsilon(x,x) = 2x$.
+			\item $r(x) < \upsilon(x,x)$ when $x > \frac{5}{2}$.
+			\item $r(x) > \upsilon(x,x)$ when $x < \frac{5}{2}$. 
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}\frametitle{Auction Examples: GHP}
+		\begin{frame}\frametitle{Auction Example: GHP}
 			\begin{itemize}
 			\item 
 			\end{itemize}
