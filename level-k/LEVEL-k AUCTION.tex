@@ -83,7 +83,8 @@
 				a_*(x) &= \upsilon(x, x) - \int_{\underline{x}}^{x} \exp \left( -\int_{y}^{x} \frac{f_Y(t|t)}{F_Y(t|t)} \mathrm{d}t \right) \mathrm{d} (\upsilon(y,y)) \\[10pt]
 				a_*(x) &= x - \int_{\underline{x}}^{x} \frac{F_Y(y)}{F_Y(x)} \mathrm{d}y
 				= E\left[ Y | Y < X \right]
-			\end{align}			
+			\end{align}
+						
 		\end{frame}
 		
 		\begin{frame}\frametitle{Second Price Auction}
@@ -110,18 +111,20 @@
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}[shrink]\frametitle{Common Value Auction}
+		\begin{frame}\frametitle{Common Value Auction}
 			\begin{itemize}
 			\item In first price auction, the optimal bidding strategy is calculated as (5).
 			\item In second price auction, the optimal bidding strategy is calculated as (6).
 			\item These calculations are exactly the same as ones in equilibrium.
 			\end{itemize}
 			
+			\footnotesize
 			\begin{align}
 				a_{\chi}(x) &= \left\{ (1 - \chi)\upsilon(x,x) + \chi r(x) \right\} \nonumber \\
 				&\quad - \int_{\underline{x}}^x \exp \left( - \int_y^x \frac{f_Y(t|t)}{F_Y(t|t)} \mathrm{d}t \right) \mathrm{d}\left\{ (1 - \chi)\upsilon(y,y) + \chi r(y) \right\} \\
 				b_{\chi}(x) &= (1 - \chi)\upsilon(x,x) + \chi r(x)
 			\end{align}
+			\normalsize
 			
 		\end{frame}
 		
@@ -201,10 +204,12 @@
 			\item The bidder's optimal bidding strategy with $V_i$ and $X_i$ solves (11), and is characterized by the first order condition (12). 
 			\end{itemize}
 			
+			\footnotesize
 			\begin{align}
 				&\max_a \int_\underline{x}^{a_{k-1}^{-1}(a)} (\upsilon(x, y) - a) f_Y(y | x) \mathrm{y} \\
 				&(\upsilon(x, a_{k-1}^{-1}(a)) - a)f_Y(a_{k-1}^{-1}(a) | x) \frac{\partial a_{k-1}^{-1}(a)}{\partial a} - F_Y(a_{k-1}^{-1}(a) | x) = 0
 			\end{align}
+			\normalsize
 			
 		\end{frame}
 		
@@ -310,8 +315,32 @@
 	
 		\begin{frame}\frametitle{Auction Examples: KL}
 			\begin{itemize}
-			\item 
+			\item KL(Kagel and Levin 1986) is an example of common value auction.
+			\item $S$ is uniformly distributed on a subset of $[\underline{s}, \bar{s}]$.
+			\item $X|S$ is conditionally uniformly i.i.d. on the interval $[s - \frac{a}{2}, s + \frac{a}{2}]$ with $a > 0$.
+			\item Thus $f_{X|S} = \frac{1}{a}$ and $F_{X|S} = \frac{x-s}{a} + \frac{1}{2}$. And $E[X|S] = s$.
+			\item Then the value adjustment for no information by winning is calculated as (21).
 			\end{itemize}
+			
+			\begin{align}
+				r(x) \equiv E[S|X = x] = x
+			\end{align}
+		\end{frame}
+		
+		\begin{frame}\frametitle{Derivation of (21)}
+			Let the range of $S$ be $R_S$ and its length be $l_S$.
+			\footnotesize
+			\begin{align}
+			E[S | X = x] &= \int_{R_S} s\cdot f_{S|X = x}(s) \mathrm{d}s = \int_{R_S} S \frac{f_{X=x|S}(x) f_S(s)}{\int_{R_S} f_{X=x|S}(x) f_S(s) \mathrm{d}s} \mathrm{d}s
+			\end{align}
+			\normalsize
+			Now $\int_{R_S} f_{X=x|S}(x) f_S(s) \mathrm{d}s = \int_{x-\frac{a}{2}}^{x + \frac{a}{2}} \frac{f_S(s)}{a} \mathrm{d}s = \frac{1}{a\cdot l_S} a = \frac{1}{l_S}$
+			\par
+			Then
+			\begin{align*}
+			(22) &= \int_{R_S} s\cdot l_S\cdot f_{X=x|S}(x) f_S(s) \mathrm{d}s = \int_{R_S} s\cdot f_{X=x|S}(x) \mathrm{d}s\\
+			&= \frac{1}{a}\int_{x-\frac{a}{2}}^{x + \frac{a}{2}} s\ \mathrm{d}s = \frac{1}{a}ax = x
+			\end{align*}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Auction Examples: AK}
