@@ -462,14 +462,57 @@
 				
 		\begin{frame}\frametitle{Preparation for Comparing}
 			\begin{itemize}
-			\item 
+			\item Because learning can lead even unsophisticated persons to equilibrium, strategic thinking appears most clearly before they see the others' responses. So in this paper they focus on the unexperienced subjects in all the three experiments.
+			\item Due to the small sample size, the first 5 responses are regarded as intial responses for each individual.
+			\item In first price indipendent private value auction (GHP), the cursed equilibrium coincides with equilibrium, so they use QRE (quantal response equilibrium) instead of cursed equilibrium to explain overbidding.
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{How to Compare}
 			\begin{itemize}
-			\item 
+			\item There are three types, i.e. $k$ indexing level-k types ($k = 1,2, \dots, K$), cursed types, and QRE types. And denote each type by $k$.
+			\item Denote each game by $g = 1,2,3,4$.
+			\item $\lambda_{ik}$ is the logistic error term indexed by subject $i$ and type $k$.
+			\item There are three error structures, i.e. the error varying with $i$ and $k$, the error specific to $k$, and the constant error.
+			\item $c_{it}^g$ is the observed bidding of subject $i$ in game $g$ at time $t$. And $c_k^g(x)$ is the calculated optimal bidding strategy of the player with type$k$ whose signal is $x$ in game $g$.
 			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}\frametitle{How to Compare}
+			\begin{itemize}
+			\item Let $S_k^g(c | x)$ be the expected payoff of type $k$ player with signal $x$ by bidding $c$ in game $g$, which is defined in advance.
+			\item The probability of observing bidding $c$ for type $k$ is computed as follows.
+			\end{itemize}
+			
+			\begin{align}
+				Pr(c | k,x,g,\lambda) = \frac{\exp(\lambda S_k^g(c | x))}{\int_{\underline{c}}^{\bar{c}} \exp(\lambda S_k^g(e | x)) \mathrm{d}e}
+			\end{align}
+		\end{frame}
+		
+		\begin{frame}\frametitle{How to Compare}
+			\begin{itemize}
+			\item Let $c_i^g = (c_{i1}^g, c_{i2}^g, c_{i3}^g, c_{i4}^g, c_{i5}^g)$.
+			\item Let $\pi_k$ denote the proportion of type $k$ in the population.
+			\item With independent errors, by using (26), the type specific likelihood of $c_i^g$ for subject $i$ of type $k$ with signal $x$ and error $\lambda_{ik}$ in game $g$ is (27).
+			\item Furthermore the same likelihood unconditional on type is (28).
+			\end{itemize}
+			
+			\begin{align}
+				&L_k(c_i^g | k,x,g,\lambda_{ik}) = \Pi_{t = 1}^5 Pr(c_{it}^g | k,x,g,\lambda) \\
+				&\sum_{k=1}^K \pi_k L_k(c_i^g | k,x,g,\lambda_{ik}) = \sum_{k=1}^K \pi_k \Pi_{t = 1}^5 Pr(c_{it}^g | k,x,g,\lambda)
+			\end{align}
+			
+		\end{frame}
+		
+		\begin{frame}\frametitle{How to Compare}
+			\begin{itemize}
+			\item $N_g$ is the number of subjects in the game $g$.
+			\item Let $c^g = (c_1^g, c_2^g, \dots, c_{N_g}^g)$, and the model's likelihood is (29).
+			\end{itemize}
+			
+			\begin{align}
+				L(\pi, \Lambda | c^g) = \Pi_{i=1}^{N_g} \sum_{k=1}^K \pi_k L_k(c_i^g | k,x,g,\lambda_{ik})
+			\end{align}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Table3a}
