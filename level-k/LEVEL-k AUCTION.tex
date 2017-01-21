@@ -32,19 +32,6 @@
 	\begin{frame}\frametitle{Index}
 	\tableofcontents
 	\end{frame}
-
-\section{Introduction}
-	\begin{frame}\frametitle{Purpose}
-	\end{frame}
-	
-	\begin{frame}\frametitle{Precedents}
-	\end{frame}
-	
-	\begin{frame}\frametitle{What's new}
-	\end{frame}
-	
-	\begin{frame}\frametitle{Result}
-	\end{frame}
 	
 \section{Models}
 	\subsection{Overview}
@@ -193,7 +180,7 @@
 			\begin{itemize}
 			\item Random L2 best responses to Random L1.
 			\item (8) and (10) tell that Random L1's bidding strategy is an increasing function of its private signal both in first and second price auction.
-			\item For Random L2 in this case, the high bid among the other players conveys the information about the value of the object, then Random L2 adjust its own estimated value according to the information. This means that we use $\upsilon(x, y)$ rather than $r(x)$.
+			\item For Random L2 in this case, the highest bid among the other players conveys the information about the value of the object, then Random L2 adjusts its own estimated value according to the information. This means that it uses $\upsilon(x, y)$ rather than $r(x)$.
 			\item This structure is common in Truthful L1 and Truthful L2. Thus I provide the general bidding strategy which can be applied to the three cases.
 			\end{itemize}
 		\end{frame}
@@ -227,13 +214,19 @@
 		
 		\begin{frame}[shrink]\frametitle{Strategic Substitutability}
 			\begin{itemize}
-			\item What does mean "Value adjustment (using $\upsilon(x,x)$) tends to make bidders' bids strategic substitutes" ?
-			\item level-kが、周囲の奴らが均衡よりもoverbidしていると考えているとする。
+			\item "Value adjustment (using $\upsilon(x,x)$) tends to make bidders' bids strategic substitutes"  means that a player underbids when the others overbid and vice versa.
+			\item The player who thinks the others overbid regards their private signals as smaller than ones estimated when the bidding is equilibrium.
+			\item He adjusts the value of the object following his own estimated private signals of others. Then the bidding is less than equilibrium due to the small private signals.
+			\item Thus He underbids when he thinks that the others overbid.
+			\end{itemize}
+		\end{frame}
+		
+		\begin{comment}
+		\item level-kが、周囲の奴らが均衡よりもoverbidしていると考えているとする。
 			\item この時、もしその状態（overbidの状態）が均衡だった時に想定される彼らのprivate signalよりも、実際に彼らが受け取っているprivate signalは小さい（弱い）と考えられる。
 			\item その分のvalue adjustmentをlevel-k bidderが行う。この際の修正は、均衡bidよりも少し低いbidとなる。なぜなら質が周囲のbid状況から想定されるほど良くないぞという情報を受け取っているから。
 			\item こうして、周囲がoverbidなら自分はunderbid、という戦略的代替が成り立つことがわかった。
-			\end{itemize}
-		\end{frame}
+		\end{comment}
 		
 		\begin{frame}\frametitle{Random L2 in First Price Auction}
 			\begin{itemize}
@@ -522,47 +515,53 @@
 			\end{itemize}
 		\end{frame}
 		
+		\begin{frame}\frametitle{Note}
+			\begin{itemize}
+			\item Truthful L0 is omitted because truthful bidding is very rare in first price auction and truthful bidding can not be optimal under any belief.
+			\item ($\sim X$) means the bidding strategy of the type is not separated from one of type $X$, so the estimation of the parameters is done about the mixed type. This notation is used in the following tables.
+			\item BIC is used because there are a lot of parameters in subject specific precisions specification.
+			\end{itemize}
+		\end{frame}
+		
 		\begin{frame}\frametitle{Table3a}
 			\begin{itemize}
-			\item 
+			\item KL first price example.
+			\item Likelihood ratio test reject the constant or type specific precisions.
+			\item Cursed equilibrium has a modest advantage over level-k plus equilibrium model in both likelihood and BIC.
+			\item This is due to the tractability of cursed equilibrium model about the types with intermediate cursedness.
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Table3c}
 			\begin{itemize}
-			\item 
+			\item Ak second price example.
+			\item The estimated frequency of Random L0 is 0\%, which implies that Random L0 exists in the minds of Random L1.
+			\item Level-k plus equilibrium model has substantial advantages in likelihood and BIC over cursed equilibrium model.
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Table3d}
 			\begin{itemize}
-			\item 
+			\item GHP first price example.
+			\item Level-k plus equilibrium model has substantial advantages in likelihood and BIC over cursed equilibrium model.
+			\item The frequencies of each type in level-k model in Table $a,c,d$ are very stable.
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}\frametitle{Table3b}
 			\begin{itemize}
-			\item 他と比率が違う理由もかく
+			\item KL second price example.
+			\item Level-k plus equilibrium model has substantial advantages in likelihood and BIC over cursed equilibrium model.
+			\item The estimated frequencies of each type are very different from those of the other examples. This is mainly because the frequency of Truthful L2 is estimated highly.
+			\item This wrong estimation occurs since, through estimation procedure, the subjects bidding above equilibrium who just make a mistake about the optimal bidding strategy in second price auction are captured as Truthful L2, which thinks the other players underbid relative to the equilibrium.
 			\end{itemize}
 		\end{frame}
-		
-		\begin{frame}\frametitle{Summary: Could Level-k Model really Improve?}
-			\begin{itemize}
-			\item 
-			\end{itemize}
-		\end{frame}
-	
 	
 \section{Conclusion}
-	\begin{frame}\frametitle{Summary}
+	\begin{frame}\frametitle{Conclusion}
 		\begin{itemize}
-		\item
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}\frametitle{Implication}
-		\begin{itemize}
-		\item
+		\item Level-k model has the potential to improve the explanation about the non optimal biddings in the variable types of auctions which were previously studied.
+		\item And the estimation of the parameters coincides with the results of previous studies.
 		\end{itemize}
 	\end{frame}
 	
