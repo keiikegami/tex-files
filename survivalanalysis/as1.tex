@@ -121,17 +121,23 @@ Thus I get $F_Y(y) = 1 - \exp(-(\lambda + \theta)y)$, which means $Y$ has a expo
 \subsection{(c)}
 Consider the marginal distribution of $Y$ when $\delta = 1$ as follows,
 \begin{align*}
-	f(Y, \delta) = \lim_{h \to 0} \frac{{\rm Pr}(y \leq Y \leq y + h, \delta = 1)}{h}
+	f(Y, \delta = 1) = \lim_{h \to 0} \frac{{\rm Pr}(y \leq Y \leq y + h, \delta = 1)}{h}
 \end{align*}
 Now the denominator of this can be decomposed, because of the independence of $T, C$, 
 \begin{align*}
 	{\rm Pr}(y \leq Y \leq y + h, \delta = 1) &= {\rm Pr}(y \leq Y \leq y + h, T < C) = {\rm Pr}(y \leq T \leq y + h, y \leq C) \\
 	&= {\rm Pr}(y \leq T \leq y + h) {\rm Pr}(y \leq C) = \exp(-\lambda y) (1 - \exp(-\lambda h)) \exp(-\theta y) \\
 \end{align*}
-Then the marginal distribution is 
-
+Then, by using L'Hopital rule, the marginal distribution is 
+\begin{align*}
+	f(Y, \delta = 1) &= \exp(-(\lambda+\theta)y) \lim_{h \to 0} \frac{1 - \exp(-\lambda h)}{h}\\
+	&= \lambda \exp(-(\lambda+\theta)y) = \left(\frac{\lambda}{\lambda+ \theta}\right) (\lambda+\theta)\exp(-(\lambda+\theta)y)
+\end{align*}
+The same is true of $\delta = 0$ case, so the joint probability distribution function is expressed as the multiplication of random variable's probability distribution function. This means that the two random variables are independent from each pther.
 
 \subsection{(d)}
+
+
 \subsection{(e)}
 \subsection{(f)}
 \subsection{(g)}
