@@ -96,8 +96,41 @@ And this odds ratio is independent of $t$.
 
 \section{Q5}
 \subsection{(a)}
+Just calculate as follows,
+\begin{align*}
+	P(T_i < C_i) &= \int_0^{\infty} \left( \int_0^c \lambda \exp\left( -\lambda t \right) \mathrm{d}t\right) \theta \exp \left( -\theta c \right) \mathrm{d}c = 1 - \int_0^{\infty} \theta \exp \left( -(\lambda+\theta)c \right) \mathrm{d}c \\
+	&= 1 - \frac{\theta}{\theta + \lambda} = \frac{\lambda}{ \theta + \lambda}
+\end{align*}
+Then the probability distribution of $\delta$ is
+\begin{equation}
+	\delta = 
+	\begin{cases}
+		1 & \text{with probability $\frac{\lambda}{\lambda + \theta}$} \\
+		0 & \text{with probability $\frac{\theta}{\lambda + \theta}$} \\
+		\text{otherwise} & \text{with probability $0$}
+	\end{cases} \nonumber
+\end{equation}
+
 \subsection{(b)}
+Let $F_Y(y),\ f_Y(y)$ be the distribution function and probability distribution function of $Y$. Then, due to the independence of $T$ and $C$,
+\begin{align*}
+	1 - F_Y(y) = 1- {\rm Pr} (\min(T, C) < y) = {\rm Pr}(y \leq \min(T,C)) = {\rm Pr}(y \leq T) {\rm Pr}(y \leq C) = \exp(-(\lambda + \theta)y)
+\end{align*}
+Thus I get $F_Y(y) = 1 - \exp(-(\lambda + \theta)y)$, which means $Y$ has a exponential distribution with parameter $\lambda + \theta$.
+
 \subsection{(c)}
+Consider the marginal distribution of $Y$ when $\delta = 1$ as follows,
+\begin{align*}
+	f(Y, \delta) = \lim_{h \to 0} \frac{{\rm Pr}(y \leq Y \leq y + h, \delta = 1)}{h}
+\end{align*}
+Now the denominator of this can be decomposed, because of the independence of $T, C$, 
+\begin{align*}
+	{\rm Pr}(y \leq Y \leq y + h, \delta = 1) &= {\rm Pr}(y \leq Y \leq y + h, T < C) = {\rm Pr}(y \leq T \leq y + h, y \leq C) \\
+	&= {\rm Pr}(y \leq T \leq y + h) {\rm Pr}(y \leq C) = \exp(-\lambda y) (1 - \exp(-\lambda h)) \exp(-\theta y) \\
+\end{align*}
+Then the marginal distribution is 
+
+
 \subsection{(d)}
 \subsection{(e)}
 \subsection{(f)}
@@ -107,6 +140,24 @@ And this odds ratio is independent of $t$.
 \subsection{(j)}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
