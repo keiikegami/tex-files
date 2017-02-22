@@ -210,6 +210,14 @@ Then, let $z_{\alpha}$ be the $97.5\%$ quantile, since normal distribution is sy
 	{\rm Pr}\left( -z_{\alpha} \leq \frac{\sqrt{n}(\hat{\lambda} - \lambda)}{\sqrt{\lambda(\lambda+\theta)}} \leq z_{\alpha}\right) = 0.95
 \end{align*}
 Thus the $95\%$ confidence interval for $\lambda$ is $\left[ \hat{\lambda} - z_{\alpha} \sqrt{\frac{\hat{\lambda} (\hat{\lambda}+\theta)}{n}}, \hat{\lambda} + z_{\alpha} \sqrt{\frac{\hat{\lambda} (\hat{\lambda}+\theta)}{n}}\right]$, because of continuous mapping theorem.
+\par
+Next I try to construct the confidence interval for the median of $T$. Let $m$ be the median of $T$, then 
+\begin{align*}
+	\int_0^m \lambda \exp(-\lambda t) \mathrm{d}t =1-\exp(-\lambda m) = \frac{1}{2} \Leftrightarrow m = \frac{1}{\lambda} {\rm log}\ 2
+\end{align*}
+So, I get the result by inserting $\frac{{\rm log}\ 2}{m}$ into $\lambda$ in the above confidence interval. 
+\par
+Thus the confidence interval for m is $\left[ m - \frac{{\rm log}\ 2}{\hat{\lambda} + z_{\alpha}\sqrt{\frac{\hat{\lambda}(\hat{\lambda}+\theta)}{n}}}, m + \frac{{\rm log}\ 2}{\hat{\lambda} + z_{\alpha}\sqrt{\frac{\hat{\lambda}(\hat{\lambda}+\theta)}{n}}} \right]$
 
 \subsection{(i)}
 \begin{align*}
