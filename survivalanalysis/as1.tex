@@ -146,6 +146,21 @@ Consider the distribution function of $W_2$, denote its distribution function as
 Then, by taking derivative of the above, I get the pdf $f(w) = \lambda^2 w \exp(-\lambda w)$.
 
 \subsection{(e)}
+Let $L$ be the likelihood, then
+\begin{align*}
+	L = \Pi_{i=1}^n \left[ (\lambda \exp(-\lambda y_i))^{\delta_i} (\exp(-\lambda y_i))^{1-\delta_i} \right] \left[ (\theta \exp(-\theta y_i))^{\delta_i} (\exp(-\theta y_i))^{1-\delta_i} \right]
+\end{align*}
+Let $l$ be the loglikelihood, then
+\begin{align*}
+	l &= \sum_{i=1}^n \delta_i ({\rm log}\ \lambda - \lambda y_i - \theta y_i) + (1 - \delta_i) ({\rm log}\ \theta - \lambda y_i - \theta y_i)\\
+	&= n {\rm log}\ \theta - (\lambda+\theta) \sum_{i=1}^n y_i + {\rm log} \frac{\lambda}{\theta} \sum_{i=1}^n \delta_i
+\end{align*}
+Thus the MLE is obtained as follows.
+\begin{align*}
+	\quad \frac{\partial l}{\partial \lambda} = 0 &\quad \Leftrightarrow \quad -\sum_{i=1}^n y_i + \frac{\theta}{\lambda} \frac{1}{\theta} \sum_{i=1}^n \delta_i = 0 \\[10pt]
+	&\quad \Leftrightarrow \quad \lambda = \frac{\sum_{i=1}^n \delta_i}{\sum_{i=1}^n y_i}
+\end{align*}
+
 \subsection{(f)}
 \subsection{(g)}
 \subsection{(h)}
