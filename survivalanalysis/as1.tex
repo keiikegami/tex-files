@@ -144,6 +144,10 @@ Consider the distribution function of $W_2$, denote its distribution function as
 	&= 1 - \exp(-\lambda w) - w \lambda \exp(-\lambda w)
 \end{align*}
 Then, by taking derivative of the above, I get the pdf $f(w) = \lambda^2 w \exp(-\lambda w)$.
+And the same way shows that $W_m$ has an gamma distribution with the parameter $m, \lambda$. i.e.
+\begin{align*}
+	f(w_m) =\frac{\lambda^m (w_m)^{m-1} \exp(-\lambda w_m)}{\Gamma(m)}
+\end{align*}
 
 \subsection{(e)}
 Let $L$ be the likelihood, then
@@ -162,7 +166,20 @@ Thus the MLE is obtained as follows.
 \end{align*}
 
 \subsection{(f)}
+\begin{align*}
+	E[\hat{\lambda}] = E\left[ \frac{\sum_{i=1}^n \delta_i }{\sum_{i=1}^n y_i} \right] = E\left[\frac{1}{\sum_{i=1}^n y_i} \right]\ (E[\delta_1] + E[\delta_2] + \dots + E[\delta_n]) = E\left[\frac{1}{\sum_{i=1}^n y_i} \right] \frac{n\lambda}{\lambda + \theta}
+\end{align*}
+The last equality is from that $E[\delta_i] = \frac{\lambda}{\lambda+\theta}$ for all $i$. Now, from (d), the last expectation can be calculated as follows. (let $z$ represent the summation of $y$)
+\begin{align*}
+	E\left[\frac{1}{\sum_{i=1}^n y_i} \right] &= \int_0^{\infty} \frac{1}{z} \frac{(\lambda+\theta)^n z^{n-1} \exp(-(\lambda+\theta)z)}{\Gamma(n)} \mathrm{d}z\\[10pt]
+	&= \frac{\Gamma(n-1)}{\Gamma(n)} (\lambda+\theta) \int_0^{\infty} \frac{(\lambda+\theta)^{n-1} z^{(n-1) -1} \exp(-(\lambda+\theta)z)}{\Gamma(n-1)} \mathrm{d}z\\[10pt]
+	&= \frac{\lambda+\theta}{n-1}
+\end{align*}
+By the above computation, we get $E[\hat{\lambda}] = \frac{\lambda+\theta}{n-1} \frac{n\lambda}{\lambda+\theta} = \frac{n\lambda}{n-1}$. And the limit is clearly $\lambda$.
+
 \subsection{(g)}
+
+
 \subsection{(h)}
 \subsection{(i)}
 \subsection{(j)}
