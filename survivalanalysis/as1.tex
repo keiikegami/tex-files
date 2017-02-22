@@ -32,10 +32,39 @@ Since $\int_0^t F(T) \mathrm{d}T = \int_0^t (-S(T) + 1) \mathrm{d}T = -\int_0^t 
 	m(t) &= \frac{1}{S(t)} \int_0^{\infty} (T - t) f(T) \mathrm{d}T = \frac{1}{S(t)} \left( \int_{0}^{\infty} (T-t) f(T) \mathrm{d}T - \int_0^t (T-t) f(T) \mathrm{d}T \right)\\
 	&= \frac{1}{S(t)} \left( \mu - t + \int_0^t F(T) \mathrm{d}T \right) = \frac{1}{S(t)} \left( \mu - \int_0^t S(u) \mathrm{d}u \right)
 \end{align*}
+Now, when $T$ has an exponential distribution with $\mu = \frac{1}{\lambda}$,
+\begin{align*}
+	m(t) = \exp(\lambda t) \left( \mu + \frac{1}{\lambda} \exp(-\lambda t) - \frac{1}{\lambda} \right) = \frac{1}{\lambda} = \mu
+\end{align*}
+because $\int_0^{\infty} t \lambda \exp(-\lambda t) \mathrm{d} t = \frac{1}{\lambda}$.
 
 \subsection{(c)}
+First I consider the mean,
+\begin{align*}
+	\lim_{t \to 0} m(t) = \lim_{t \to 0} E[T | T > t] = E[T] = 1
+\end{align*}
+Now let $\delta = med(T)$, then $F(\delta) = \frac{1}{2}$ and $\lambda(\delta) = \frac{2}{\delta + 1}$ due to (a). Then by using (b) I get the below calculation.
+\begin{align*}
+	\frac{2}{\delta + 1} = 2 \left( 1 - \int_0^{\delta} (1 - F(u))\mathrm{d}u \right)
+	\Leftrightarrow \int_0^{\delta} (1 - F(u)) \mathrm{d}u = \frac{\delta}{\delta + 1}
+\end{align*}
+By taking derivative of both sides about $\delta$, I get the result as follows.
+\begin{align*}
+	1 - F(\delta) = \frac{1}{(\delta+1)^2} \quad \Leftrightarrow \quad \frac{1}{2} = \frac{1}{(\delta+1)^2} \quad \Leftrightarrow \quad \delta = \sqrt{2} -1
+\end{align*}
+
 \subsection{(d)}
+First I have the below representation of $m(t)$.
+\begin{align*}
+	m(t) \frac{\mu - \int_0^t S(u) \mathrm{d}u}{S(t)} = \frac{\int_t^{\infty} S(u) \mathrm{d}u}{S(t)}
+\end{align*}
+Since the limits of the both of enumerator and denominator are 0 as $t \to \infty$. By using L'Hopital's rule twice, I get the below result,
+\begin{align*}
+	\lim_{t \to \infty} m(t) = \lim_{t \to \infty} \frac{-S(t)}{-f(t)} = \lim_{t \to \infty} \frac{f(t)}{-f^{'}(t)} = \lim_{t \to \infty} \left( -\frac{\mathrm{d}}{\mathrm{d}t} {\rm log} f(t) \right)^{-1}
+\end{align*}
+
 \subsection{(e)}
+
 
 \section{Q3}
 \subsection{(a)}
@@ -55,3 +84,23 @@ Since $\int_0^t F(T) \mathrm{d}T = \int_0^t (-S(T) + 1) \mathrm{d}T = -\int_0^t 
 \subsection{(j)}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
