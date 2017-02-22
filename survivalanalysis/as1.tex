@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage{multirow,array}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+
+\begin{document}
+\title{STAT3811/3955\ Survival\ Analysis\\ Assignment 1}
+\author{Kei Ikegami}
+\maketitle
+
+\section{Q1}
+\subsection{(a)}
+\begin{align*}
+	E[T | T > t] &= \int_{t}^{\infty} T f(T|T > t) \mathrm{d}T = \int_{t}^{\infty} T \frac{f(T)}{1-F(t)} \mathrm{d}T\\
+	&= \frac{1}{1 - F(t)} \left( \int_{0}^{\infty} T f(T) \mathrm{d}T - \int_0^t T f(T) \mathrm{d}T \right) = \frac{1}{1 - F(t)} \left( \mu - t F(t) + \int_0^t F(T) \mathrm{d}T \right) \\
+\end{align*}
+So I get the below derivative of $m(t)$.
+\begin{align*}
+	m^{'}(t) = \frac{1}{(1 - F(t))^2} \left\{ \left( -F(t) - tf(t) + F(t) \right)(1 - F(t)) + (\mu - tF(t) + \int_0^t F(T) \mathrm{d}T) f(t) \right\} -1
+\end{align*} 
+Then the following calculation leads to the result.
+\begin{align*}
+	\frac{1 + m^{'}(t)}{m(t)} = \frac{f(t)\left(\mu - tF(t) + \int_0^t F(T) \mathrm{d}T - t(1- F(t)) \right)}{(1-F(t)) \left(\mu - tF(t) + \int_0^t F(T) \mathrm{d}T \right) - t(1 - F(t))^2} = \frac{f(t)}{1-F(t)} = \lambda(t)
+\end{align*}
+
+\subsection{(b)}
+Since $\int_0^t F(T) \mathrm{d}T = \int_0^t (-S(T) + 1) \mathrm{d}T = -\int_0^t S(T) \mathrm{d}T + t$, then
+\begin{align*}
+	m(t) &= \frac{1}{S(t)} \int_0^{\infty} (T - t) f(T) \mathrm{d}T = \frac{1}{S(t)} \left( \int_{0}^{\infty} (T-t) f(T) \mathrm{d}T - \int_0^t (T-t) f(T) \mathrm{d}T \right)\\
+	&= \frac{1}{S(t)} \left( \mu - t + \int_0^t F(T) \mathrm{d}T \right) = \frac{1}{S(t)} \left( \mu - \int_0^t S(u) \mathrm{d}u \right)
+\end{align*}
+
+\subsection{(c)}
+\subsection{(d)}
+\subsection{(e)}
+
+\section{Q3}
+\subsection{(a)}
+\subsection{(b)}
+\subsection{(c)}
+
+\section{Q5}
+\subsection{(a)}
+\subsection{(b)}
+\subsection{(c)}
+\subsection{(d)}
+\subsection{(e)}
+\subsection{(f)}
+\subsection{(g)}
+\subsection{(h)}
+\subsection{(i)}
+\subsection{(j)}
+
+\end{document}
