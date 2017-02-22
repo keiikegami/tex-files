@@ -178,9 +178,39 @@ The last equality is from that $E[\delta_i] = \frac{\lambda}{\lambda+\theta}$ fo
 By the above computation, we get $E[\hat{\lambda}] = \frac{\lambda+\theta}{n-1} \frac{n\lambda}{\lambda+\theta} = \frac{n\lambda}{n-1}$. And the limit is clearly $\lambda$.
 
 \subsection{(g)}
-
+By using (f)'s notation, and from the previous results, I get 
+\begin{align*}
+	&Var(\delta_1) = \frac{\lambda\theta}{(\lambda+\theta)^2}\\[10pt]
+	&E[(\sum_{i=1}^n \delta_i)^2] = Var(\sum_{i=1}^n \delta_i) + (E[\sum_{i=1}^n \delta_i])^2 = n\ Var(\delta_1) + (\frac{n\lambda}{\lambda+\theta})^2 = \frac{n\lambda\theta + n^2\lambda^2}{(\lambda+\theta)^2}\\[10pt]
+	&E\left[ \frac{1}{z^2}\right] = \int_0^{\infty} \frac{1}{z^2} \frac{(\lambda+\theta)^n z^{n-1} \exp(-(\lambda+\theta)z)}{\Gamma(n)} \mathrm{d}z = \frac{(\lambda+\theta)^2}{(n-1)(n-2)}
+\end{align*}
+Then the result is as follows.
+\begin{align*}
+	Var(\hat{\lambda}) &= E[\hat{\lambda}^2] - (E[\hat{\lambda}])^2 = E\left[ \frac{1}{(\sum_{i=1}^n y_i)^2} \right] E[(\sum_{i=1}^n \delta_i)^2] - (E[\hat{\lambda}])^2\\
+	&= \frac{n\lambda\theta + n^2 \lambda^2}{(n-1)(n-2)} - \frac{n^2\lambda^2}{(n-1)^2}
+\end{align*}
 
 \subsection{(h)}
+First I have to calculate the asymptotic variance of this estimator, which is the inverse of the expected Fisher information from the available data. By using the loglikelihood, the Fisher information of a data point about $\lambda$ is as follows.
+\begin{align*}
+	I(\lambda) &= E\left[ -\frac{\mathrm{d}^2}{\mathrm{d}\lambda^2} ({\rm log}\ \theta - \lambda y_i - \theta y_i + \delta_i {\rm log}\ \frac{\lambda}{\theta}) \right]\\
+	&= E\left[ \frac{\mathrm{d}}{\mathrm{d}\lambda} (-y_i + \frac{\delta_i}{\lambda}) \right]\\
+	&= E[\delta_i \lambda^{-2}] = \frac{1}{\lambda(\lambda+\theta)}
+\end{align*}
+Then the Fisher information of full data is the summation of a data point ones, and from consistency and asymptotic normality of MLE, the asymptotic distribution of $\hat{\lambda}$ is
+\begin{align*}
+	\hat{\lambda} \stackrel{d}{\longrightarrow} N \left(\lambda, \frac{\lambda(\lambda+\theta)}{n} \right)
+\end{align*}
+Then by standardization,
+\begin{align*}
+	\frac{\hat{\lambda} - \lambda}{\sqrt{\frac{\lambda(\lambda+\theta)}{n}}} \stackrel{d}{\longrightarrow} N(0, 1)
+\end{align*}
+Then, let $z_{\alpha}$ be the $97.5\%$ quantile, since normal distribution is symmetric, in large sample,
+\begin{align*}
+	{\rm Pr}\left( -z_{\alpha} \leq \frac{\sqrt{n}(\hat{\lambda} - \lambda)}{\sqrt{\lambda(\lambda+\theta)}} \leq z_{\alpha}\right) = 0.95
+\end{align*}
+Thus the $95\%$ confidence interval for $\lambda$ is $\left[ \hat{\lambda} - z_{\alpha} \sqrt{\frac{\hat{\lambda} (\hat{\lambda}+\theta)}{n}}, \hat{\lambda} + z_{\alpha} \sqrt{\frac{\hat{\lambda} (\hat{\lambda}+\theta)}{n}}\right]$, because of continuous mapping theorem.
+
 \subsection{(i)}
 \subsection{(j)}
 
