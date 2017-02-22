@@ -64,12 +64,35 @@ Since the limits of the both of enumerator and denominator are 0 as $t \to \inft
 \end{align*}
 
 \subsection{(e)}
-
+In this case, $f(t) = \frac{1}{\sqrt{2\pi} \sigma t} \exp(\frac{{\rm log} t - \mu}{2\sigma^2})$, I use (d) to get the result.
+\begin{align*}
+	\left( \frac{\mathrm{d}}{\mathrm{d}t} {\rm log} f(t) \right)^{-1} = -\frac{f(t)}{f^{'}(t)} = - \frac{\sigma^2 t}{\mu - {\rm log}t - \sigma^2}\\
+	\lim_{t \to \infty} -\frac{\sigma^2 t}{\mu - {\rm log}t - \sigma^2} = \lim_{t \to \infty} -\frac{1}{-\frac{1}{t}} = \infty
+\end{align*}
 
 \section{Q3}
 \subsection{(a)}
+By definition, $S(t|z) = 1 - F(t|z)$. Thus I calculate $F(t|z)$ as follows.
+\begin{align*}
+	F(t|z) = {\rm Pr}(Y \leq {\rm log}t |z) = {\rm Pr}(w \leq \frac{{\rm log}\ t - \mu- \beta z}{\sigma} |z)
+\end{align*}
+Because $\int_{-\infty}^{\omega} \frac{\exp(u)}{(1 + \exp(u))^2} \mathrm{d}u = \frac{\exp(\omega)}{1 + \exp(\omega)}$, then by the above calculation,
+\begin{align*}
+	S(t|z) = 1- F(t|z) = \frac{1}{1 + \exp(\frac{{\rm log}\ t - \mu- \beta z}{\sigma})}
+\end{align*}
+
 \subsection{(b)}
+By (a),
+\begin{align*}
+	\frac{S(t|z)}{1 - S(t|z)} = \frac{1}{\exp(\frac{{\rm log}\ t - \mu- \beta z}{\sigma})} = \exp \left(- \frac{{\rm log}\ t - \mu- \beta z}{\sigma} \right)
+\end{align*}
+
 \subsection{(c)}
+By (b), let $Odds_i$ be the odds for $z_i$,
+\begin{align*}
+	\frac{Odds_1}{Odds_2} = \exp \left(\frac{\beta}{\sigma} \right)
+\end{align*}
+And this odds ratio is independent of $t$.
 
 \section{Q5}
 \subsection{(a)}
