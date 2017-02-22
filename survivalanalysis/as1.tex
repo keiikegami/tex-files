@@ -136,7 +136,14 @@ Then, by using L'Hopital rule, the marginal distribution is
 The same is true of $\delta = 0$ case, so the joint probability distribution function is expressed as the multiplication of random variable's probability distribution function. This means that the two random variables are independent from each pther.
 
 \subsection{(d)}
-
+Consider the distribution function of $W_2$, denote its distribution function as $F_W(w)$,
+\begin{align*}
+	F_W(w) &= {\rm Pr}(T_1 + T_2 < w) = {\rm Pr}(T_1 < w - T_2)\\
+	&= \int_0^w \left( \int_0^{w - t_2} \lambda \exp(-\lambda t_1) \mathrm{d}t_1 \right) \lambda \exp(-\lambda t_2) \mathrm{d}t_2
+	=(1 - \exp(-\lambda w)) - \int_0^w \lambda \exp(-\lambda w) \mathrm{d}t_2 \\
+	&= 1 - \exp(-\lambda w) - w \lambda \exp(-\lambda w)
+\end{align*}
+Then, by taking derivative of the above, I get the pdf $f(w) = \lambda^2 w \exp(-\lambda w)$.
 
 \subsection{(e)}
 \subsection{(f)}
