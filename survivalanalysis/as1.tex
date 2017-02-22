@@ -212,9 +212,25 @@ Then, let $z_{\alpha}$ be the $97.5\%$ quantile, since normal distribution is sy
 Thus the $95\%$ confidence interval for $\lambda$ is $\left[ \hat{\lambda} - z_{\alpha} \sqrt{\frac{\hat{\lambda} (\hat{\lambda}+\theta)}{n}}, \hat{\lambda} + z_{\alpha} \sqrt{\frac{\hat{\lambda} (\hat{\lambda}+\theta)}{n}}\right]$, because of continuous mapping theorem.
 
 \subsection{(i)}
+\begin{align*}
+	&\hat{\theta} = \frac{n - \sum_{i=1}^n \delta_i}{\sum_{i=1}^n y_i}\\[10pt]
+	&E[\hat{\theta}] = \frac{n\theta}{n-1} \\[10pt]
+	&Var(\hat{\theta}) = \frac{n\lambda\theta + n^2\theta^2}{(n-1)(n-2)} - \frac{n^2\theta^2}{(n-1)^2}
+\end{align*}
+
 \subsection{(j)}
+In order to utilize the data about $\delta_i$, I use the inverse of the observed Fisher information for the variance of each estimator.The observed Fisher information of $\lambda$ is as follows.
+\begin{align*}
+	\sum -\left( \frac{\partial^2}{\partial \lambda^2} ({\rm log}\ \theta - (\lambda+\theta) y_i + \delta_i {\rm log}\ \frac{\lambda}{\theta}) \right) = \frac{\sum \delta_i}{\lambda} = \frac{6}{\lambda^2}
+\end{align*}
+And the same calculation shows the observed Fisher information of $\theta$ is $\frac{4}{\theta^2}$.
+\par
+Now from the setting $\hat{\lambda} = \frac{1}{10}, \ \hat{\theta} = \frac{1}{15}$. By the invariance of MLE, the estimator of $\lambda + \theta$ is $\hat{\lambda}+ \hat{\theta} = \frac{1}{6}$. Furthermore I have $\hat{\lambda} \sim N(\lambda, \frac{\hat{\lambda}}{6})$ and $\hat{\theta} \sim N(\theta, \frac{\hat{\theta}}{4})$, then by the normal distribution's reproductive property I get $\hat{\lambda}+ \hat{\theta} \sim N(\lambda+\theta, \frac{\hat{\lambda}}{6}+\frac{\hat{\theta}}{4})$. This standard deviation is $\sqrt{\frac{\hat{\lambda}}{6}+\frac{\hat{\theta}}{4}} = \frac{\sqrt{10}}{60}$.
+\par
+Then the $95\%$ confidence interval is $[\frac{1}{6} - z_{\alpha} \frac{\sqrt{10}}{60}, \frac{1}{6} + z_{\alpha} \frac{\sqrt{10}}{60}]$ 
 
 \end{document}
+
 
 
 
