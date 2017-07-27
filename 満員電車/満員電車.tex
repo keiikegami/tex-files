@@ -1,0 +1,54 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{卒論テーマ候補 }
+\author{池上　慧}
+\maketitle
+
+\section{元の分布を再現する}
+ある駅から通勤する人々の行動を考える。$a,b\in \mathbb{R}_{+}$として、区間$[a, b]$を以下のように$R$この小区間に分割するような電車の発車時間が与えられているとする。
+\begin{align*}
+	\Delta = \left\{ [\delta_{t-1}, \delta_t)\ |\ a \leq \delta_i \leq b,\ i = 1, \dots, R \right\}
+\end{align*}
+ここで電車の発車時間は$\delta_i$で表現されている。$\Delta_t \in \Delta$は電車$t-1$が発車してから電車$t$が発車するまでの時間であり、この間に改札を通過した通勤者は電車$t$に乗るものとする。
+
+改札の通過時刻から観察された、実際に区間$\Delta_t$に改札を通過した人の数を$\tilde{N}_t$と表記する。しかしこの観測される人数は各個人にとって本来望ましい行動の結果として得られているものではないことが予想される。なぜならば、通勤者はなるべく空いている電車に乗りたいという望みを持っているからだ。通勤電車に混雑という現象が伴っていない時には個人$i$は自身にとって最適な時間である電車$t_i$を選択し、区間$\Delta_{t_i}$に改札を通過すれば良い。しかし、現実には同じ駅から通勤電車に乗る人々の通勤時間帯はほぼ同じになるため、特定の時間帯のみ満員電車が発生してしまう。満員電車はすなわち乗客が多いためそれ自体が遅延の原因となる可能性も高く、また単純に人が密集した不快な空間であるために可能であれば避けたい存在である。
+
+このような状況で人々は「大多数の人と共通である自分にとっての最適な通勤電車からなるべく離れないようにしながら、かつ乗客の少ない電車に乗りたい」という問題を解いていることが想定される。ここではこのような意思決定を人々が行っているか否かの検証と、そうであるならば本来はどの通勤時間を望んでいるのかの推定、そしてダイヤ改正に伴う変化の予測と最適なダイヤ改正のフレームワークの提示を行う。
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
