@@ -48,7 +48,7 @@
 ただし、$\epsilon_i^t$は第1種極値分布に従う確率変数で、個人と電車に対して独立であるとする。この時もともと各区間に属する人ごとに、その区間よりも前の区間についての選択確率がかける。区間$t$が本来望ましいものである人がそれよりも前の区間$t^{'}$を選ぶ確率を$s_{t^{'}}^t$で表記することにする。
 
 この時、実際に観測される各区間の人数は以下のようにかける。
-\begin{align*}
+\begin{align}
 	\begin{cases}
 	\hat{N_1} = N_1 + \sum_{l = 1}^{n-1}N_{1+l}\ s_1^{1+l} \\
 	\vdots \\
@@ -56,17 +56,17 @@
 	\vdots \\
 	\hat{N_n} = N_n \left( 1 - \sum_{l = 1}^{n-1}\ s_l^n \right)
 	\end{cases}
-\end{align*}
+\end{align}
 
 このn本の連立方程式を元の分布である$N_1\ \dots\ N_n$について解くことができ、以下のように記述できる。$m = 1, \dots, n$として、
 
-\begin{align*}
+\begin{align}
 	s_m^m\ N_m &= \left( \sum_{i = 0}^{n} \hat{N_{m+i}} \gamma_i^m \right) \\[10pt]
 	\text{where}\quad \gamma_i^m &= - \sum_{j = 0}^{i-1} \gamma_j^{m+i-j} \frac{s_m^{m+i-j}}{s_{m+i-j}^{m+i-j}}
-\end{align*}
+\end{align}
 
 これを行列で表記すると以下のようである。
-\begin{align*}
+\begin{align}
 	\begin{pmatrix}
 	s_n^n\ N_n\\[8pt]
 	s_{n-1}^{n-1}\ N_{n-1}\\[8pt]
@@ -91,8 +91,46 @@
 	\hat{N_2}\\[8pt]
 	\hat{N_1}
 	\end{pmatrix}
-\end{align*}
+\end{align}
+この掛け合わせる行列を$\Gamma_n$と表記する。$\Gamma_n$の$k$列目の中で0ではないようその部分を$\Gamma_{n.k}$と置く。すなわち以下のようである。
 
+\begin{align}
+	\Gamma_{n, k} =
+	\begin{pmatrix}
+		1\\[8pt]
+		\gamma_1^{n-k}\\[8pt]
+		\gamma_2^{n-k+1}\\[8pt]
+		\vdots\\[8pt]
+		\gamma_{n-k+1}^2\\[8pt]
+		\gamma_{n-k}^1
+	\end{pmatrix}
+\end{align}
+
+$(3)$式を用いると$\Gamma_{n,k}$の要素については以下のような関係式が成立していることがわかる。
+
+\begin{align}
+	\begin{pmatrix}
+		\gamma_1^{n-k}\\[8pt]
+		\gamma_2^{n-k+1}\\[8pt]
+		\vdots\\[8pt]
+		\gamma_{n-k+1}^2\\[8pt]
+		\gamma_{n-k}^1
+	\end{pmatrix} = -
+	\begin{pmatrix}
+		\frac{s_{n-k}^{n-k+1}}{s_{n-k+1}^{n-k+1}} & 0 &0 &\cdots & 0\\[8pt]
+		\frac{s_{n-k-1}^{n-k+1}}{s_{n-k+1}^{n-k+1}} & \frac{s_{n-k-1}^{n-k}}{s_{n-k}^{n-k}} & 0& \cdots & 0\\[8pt]
+		 &\vdots && \ddots & \vdots\\[8pt]
+		\frac{s_{2}^{n-k+1}}{s_{n-k+1}^{n-k+1}} & \frac{s_{2}^{n-k}}{s_{n-k}^{n-k}} & \cdots & \frac{s_2^3}{s_3^3} & 0\\[8pt]
+		\frac{s_{1}^{n-k+1}}{s_{n-k+1}^{n-k+1}} & \frac{s_{1}^{n-k}}{s_{n-k}^{n-k}} & \cdots & \frac{s_1^3}{s_3^3} & \frac{s_1^2}{s_2^2}\\[8pt]
+	\end{pmatrix}
+	\begin{pmatrix}
+		1\\[8pt]
+		\gamma_1^{n-k}\\[8pt]
+		\vdots\\[8pt]
+		\gamma_{n-k-2}^{3}\\[8pt]
+		\gamma_{n-k+1}^2
+	\end{pmatrix}
+\end{align}
 
 \end{document}
 
