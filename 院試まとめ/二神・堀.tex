@@ -1,0 +1,83 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{二神・堀まとめ}
+\author{池上慧}
+\maketitle
+
+\section{1章}
+\subsection{国民経済計算と三面等価}
+三面等価の関係とは、GDI（分配面）とGDP（生産面）と支出側GDP（支出面)の三つの値が一致することを指す。ここでGDIは国内総所得であり、「GDI = （間接税-補助金）+固定資本減耗+雇用者報酬+営業余剰+混合所得」である。またGDPは国内総生産であり、「GDP = 純付加価値+固定資本減耗」である。最後に支出側GDPは「C+I+G+EX - IM」でかける。ただしEX-IMは純輸出であり、NXで表記する。
+
+\subsection{国際収支統計}
+先では基本的に国内での経済活動に関する統計を見た。次に海外との取引を扱う統計、すなわち国際収支統計を見る。これは経常収支、金融収支、資本移転等収支の三つより構成されている。経常収支は「NX + 第1次所得収支 + 第2次所得収支」で定義される。ここで第1次所得収支は「海外からの所得受け取り-海外への所得支払い」で、第2次所得収支は「海外からの寄付等受け取り - 海外への寄付等支払い」で定義されるものである。
+　資本移転等収支は、ODAなどの対価の受け取りをともなわない固定資本の移転などを指す。金融収支は「資本流出 - 資本流入 + 資本移転等収支」で定義される。ここで資本流出は海外資産の購入金額を指し、資本流入は国内資産が海外によって購入されることを指す。
+　ここで「対外純資産の増加 = 金融収支 - 資本移転等収支」である。また経常収支は対外純資産の増加と等しいので、「経常収支 + 資本移転等収支= 金融収支」なる等式が成立する。
+
+\subsection{物価水準の測定}
+基準年を0で表すとし、t年度の物価測定を考える。経済にはN財あるとすると、
+\begin{align*}
+	GDPdeflator = \frac{Nominal GDP}{Real GDP} &= \frac{p_t^1 q_t^1 + \dots + p_t^N q_t^N}{p_0^1q_t^1 + \dots + p_0^Nq_t^N}\\
+	&= \frac{p_0^1q_t^1}{p_0^1q_t^1 + \dots + p_0^Nq_t^N}\frac{p_t^1}{p_0^1} + \dots + \frac{p_0^Nq_t^N}{p_0^1q_t^1 + \dots + p_0^Nq_t^N}\frac{p_t^N}{p_0^N}
+\end{align*}
+で定義されるものがGDPデフレーターである。これは各財の物価上昇の加重平均である。加重平均を取る際のウェイトとなる部分に現在の数量が用いられる指数をパーシェ指数と呼び、ウェイトに基準年の数量を指数をラスパイレス指数と呼ぶ。ラスパイレス指数の例としてはCPI（消費者物価指数）などがある。
+
+\section{第3章}
+\subsection{新古典派の投資理論}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
