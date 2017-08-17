@@ -1,0 +1,111 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{Lemke Howson と PPAD}
+\author{池上慧}
+\maketitle
+
+\section{Lemke Howson}
+2人ゲームを想定する。$(A, B)$がそれぞれプレイヤー1とプレイヤー2の利得に対応する行列とする。symmetric gameとは$B = A^T$が成立するゲームを指すものであり、symmetric Nash equilibriumとは両者が同じ混合戦略を用いてそれがナッシュ均衡となるその混合戦略を指す。
+
+一般の2人ゲーム$(A,B)$について
+\begin{align}
+	C = \begin{pmatrix}
+			0 & A \\
+			B^T & 0 
+		\end{pmatrix}
+\end{align}
+なる利得行列を構成することを考える。この利得行列で表現されるsymmetric gameに対してsymmetric equilibrium $(x, y)$が得られたとする。この時$(x, y)$はそれぞれAに対応する部分の確率ベクトルとBに対応する部分の確率ベクトルである。
+
+この$(x, y)$は$(A, B)$で表現される元の一般的な2人ゲームにおいて混合戦略を構成するプレイや-1の混合戦略とプレイヤー2の混合戦略であると解釈できるので（例で書き下すと分かりやすい）、symmetric gameがefficientに解ければ一般的なゲームにおけるナッシュ均衡もefficientに求めることができる、ということになる。この事実を指して本文中では"There is a polynomial reduction from Nash to SYMMETRIC Nash"と言っている。
+
+でも、$(x, y)$って全体で混合戦略だから$x$や$y$ごとには足して1じゃないし各プレイヤーの混合戦略ということはできなくね？
+
+以上より「n×nの要素が全て正な利得行列Aで表現される2人対称ゲーム」におけるナッシュ均衡を求めることに集中すれば良いことがわかった。これを解くアルゴリズムとしてLemke-Howson Algorithmを与える。
+
+長さ$n$のベクトル$z$を用いて、以下の$2n$個の不等式を満たす多面体$P$を定義する。
+\begin{align}
+	Az &\leq 1\\
+	z &\geq 0
+\end{align}
+この多面体はnondegenerateである、すなわちこの多面体の頂点は全てがn個の制約が等式で成立する点として表されていることを仮定する。また、これは全ての頂点がn個の隣接する頂点を持つことを担保するものである。
+
+この多面体の頂点を$z$で書く。ここで「戦略$i$が頂点$z$で表現されている」ことを以下で定義する。
+\begin{align}
+	z_i = 0\quad \text{or}\quad A_i z = 1
+\end{align}
+ただし$A_i$は$A$の$i$列目を指すとする。
+
+これより、「全ての戦略が頂点$z$で表現されている」とは
+\begin{enumerate}
+	\item $z_i = 0$ for any $i$
+	\item $z_i = 0$ for some $i$ and $A_i z = 1$ for other $i$
+\end{enumerate}
+のいずれかである。このうちの2番目のケースで$x_i = \frac{z_i}{\sum_i z_i}$とすれば、これによってられる$x$は確率ベクトルを構成し、「サポート内の全ての戦略が最適反応になっている」というナッシュ均衡の特徴づけを満たすことになる。
+
+多面体の頂点でもある原点は上の1番目のケースに対応している。この原点からスタートして、2番目の性質を満たす多面体の頂点までの軌跡を描くアルゴリズムがLemke-Howson Algorithmである。具体的には以下の手順で進行する。
+
+\begin{enumerate}
+	\item 原点から出発
+	\item 現在の頂点でbindingな制約のうち一つを外して別のbindingでない制約を（2）か（3）から取ってきてbindingにする。これは隣接する頂点への移動に対応している。
+	\item その頂点が全ての戦略を表現していたらアルゴリズムを終える。
+	\item もしそうでないなら、その頂点は何らかの戦略についてdoubly bindingである。すなわち、ある$i$について$z_i = 0$かつ$A_i z = 1$都なっている。この時は二つのうちどちらかを外して別の制約を課し、別の頂点へと移動する。
+\end{enumerate}
+
+doubly bindingな制約を外すことでいける頂点は必ず2つ存在し、元いたものとは別の頂点へと進めばいいので、以上のアルゴリズムがループしてしまうことはない。すなわち混合戦略ナッシュ均衡は必ず存在する。
+
+
+\section{PPAD}
+Lemke-Howsonのように、ある頂点から別の頂点までの軌跡を描くタイプの問題として特徴づけられるクラスをPPADと呼ぶ。この章での主張は「Nash均衡を求めるのはPPAD-completeである」ということである。これはPPADに属するクラスの問題は全てNash均衡を求める問題に帰着できることを意味する。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
