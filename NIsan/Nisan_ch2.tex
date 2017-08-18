@@ -30,6 +30,7 @@
 \maketitle
 
 \section{Lemke Howson}
+
 2人ゲームを想定する。$(A, B)$がそれぞれプレイヤー1とプレイヤー2の利得に対応する行列とする。symmetric gameとは$B = A^T$が成立するゲームを指すものであり、symmetric Nash equilibriumとは両者が同じ混合戦略を用いてそれがナッシュ均衡となるその混合戦略を指す。
 
 一般の2人ゲーム$(A,B)$について
@@ -76,12 +77,33 @@
 	\item もしそうでないなら、その頂点は何らかの戦略についてdoubly bindingである。すなわち、ある$i$について$z_i = 0$かつ$A_i z = 1$都なっている。この時は二つのうちどちらかを外して別の制約を課し、別の頂点へと移動する。
 \end{enumerate}
 
-doubly bindingな制約を外すことでいける頂点は必ず2つ存在し、元いたものとは別の頂点へと進めばいいので、以上のアルゴリズムがループしてしまうことはない。すなわち混合戦略ナッシュ均衡は必ず存在する。
+doubly bindingな制約を外すことでいける頂点は必ず2つ存在し、元いたものとは別の頂点へと進めばいいので、以上のアルゴリズムがループしてしまうことはない。すなわち混合戦略ナッシュ均衡は必ず存在する。ただしこのアルゴリズムは多面体の頂点が指数的に大きくなるという点で効率的なアルゴリズムでないことに注意。
 
 
 \section{PPAD}
-Lemke-Howsonのように、ある頂点から別の頂点までの軌跡を描くタイプの問題として特徴づけられるクラスをPPADと呼ぶ。この章での主張は「Nash均衡を求めるのはPPAD-completeである」ということである。これはPPADに属するクラスの問題は全てNash均衡を求める問題に帰着できることを意味する。
 
+PPADは、Polynomial Parity Argument on Directed Graphsの略。会の存在が保障されている問題に対してその回をグラフ上で探索する一連の問題群を指し、具体的には以下の性質を満たす問題のクラスを指すものである。
+\begin{enumerate}
+	\item 指数的に大きな有限この頂点上に有向グラフを描く
+	\item 描かれた有向グラフ上の頂点のindegreeもoutdegreeも最大で1
+	\item 1つの頂点がそのグラフ上に存在するかは容易に判断できる
+	\item 1つの頂点に対して隣接する頂点が容易に得られる（simplex pivoting）
+	\item グラフの方向が容易に判定できる
+	\item incoming edgesが存在しない頂点が存在する（これをstandard sourceと呼ぶ）
+	\item outgoing edgesが存在しない頂点とstandard source以外のsourceが問題の解である
+\end{enumerate}
+
+PPADの定義としては以下も採用される。
+\begin{itemize}
+	\item[Def] Any problem A is in PPAD if there is a polynomial time reduction from A to the End-of-Line problem, i.e. $A \leq_q B$, where $B ≡ End-of-Line Problem$
+\end{itemize}
+
+ここで"End-of-Line Problem"とは以下のような問題である。
+
+G  is a (possibly exponentially large) directed graph with no isolated vertices, and with every vertex having at most one predecessor and one successor. G is specified by giving a polynomial-time computable function $f(v)$ (polynomial in the size of v) that returns the predecessor and successor (if they exist) of the vertex v. Given a vertex s in G with no predecessor, find a vertex $t \neq s$ with no predecessor or no successor. (The input to the problem is the source vertex s and the function $f(v)$). In other words, we want any source or sink of the directed graph other than s.
+
+
+Lemke-Howsonよりナッシュ均衡を求める問題はこのPPADというクラスに属することはイメージできるが、より正確にはナッシュ均衡を求める問題からBrouwer's fixed point theoremを介して、PPADに属することが明らかなSperner's Lemmaと呼ばれる問題へのpolynomial reductionが存在することからこの事実が判明する。
 
 
 
