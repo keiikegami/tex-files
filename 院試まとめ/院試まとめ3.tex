@@ -1,0 +1,122 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{ascmac}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{院試まとめ3}
+\author{池上慧}
+\maketitle
+
+\section{Definitions and Equations}
+\subsection{Consumer theory definitions}
+\begin{itembox}[l]{パレート効率的}
+	$x^{*} \in \Pi_i^I x_i$ is Pareto efficient, if there is no feasible allocation $x$ which Pareto dominates $x^{*}$. \\
+	where 
+	\begin{itemize}
+		\item $x$ is feasible allocation if $x \in \left\{ x \in \Pi_i^I x_i | \sum_i^I x_i \leq \bar{\omega} \right\}$
+		\item $x$ Pareto Dominates $x^*$ if $\exists \ i\ \text{s.t.}\ x_i \succ_i x_i^*$ and $\forall \ i \ x_i \succeq_i x_i^*$
+	\end{itemize}
+\end{itembox}
+
+\begin{itembox}[l]{ワルラス均衡}
+	$(p^*, x^*) \in R^L\ \times \ \Pi_i^I x_i$ is Walrasian Equilibrium, if\\
+	\begin{enumerate}
+		\item $\forall_i \ \ x_i^* \succeq_i x_i\ \text{s.t.}\ x_i \in \left\{ x \in \Pi_i^I x_i | \sum_i^I x_i \leq \bar{\omega} \right\}$
+		\item $\sum_i^I x_i = \bar{\omega}$
+	\end{enumerate}
+\end{itembox}
+
+\begin{itembox}[l]{コア}
+	$x$ is Core, if $x$ is Pareto efficient and $x$ is individually rational\\
+	where $x$ is individually rational if $\forall  \ i \ x_i \succeq_i \omega_i$
+\end{itembox}
+
+\subsection{Equations}
+$p,w,u$をそれぞれ価格、所得、効用水準とする。
+\begin{itemize}
+	\item 需要関数：$x(p, w)$
+	\item 間接効用関数：$v(p, w)$
+	\item 補償需要関数：$h(p, u)$
+	\item 支出関数：$e(p, u)$
+\end{itemize}
+前の二つが効用最大化、後半二つが支出最小化。
+\begin{itembox}[l]{スラツキー方程式（横）}
+	$D_p x(p,w) = D_p h(p, u) - D_w x(p, w) x(p, w)^{T}$, where $u = V(p, w)$
+\end{itembox}
+
+\begin{itembox}[l]{ロワの恒等式（縦）}
+	$x_l (p, w) = -\frac{\frac{\partial v(p, w)}{\partial p_l}}{\frac{\partial v(p, w)}{\partial w}}$
+\end{itembox}
+
+\begin{itembox}[l]{支出関数を微分したら補償需要関数（縦）}
+	$\Delta_p e(p, u) = h(p, u)$
+\end{itembox}
+
+\begin{itembox}[l]{双対性（中）}
+	\begin{itemize}
+		\item $x(p, w) = h(p. v(p, w))$
+		\item $h(p, u) = x(p, e(p, u))$
+		\item $e(p, v(p, w)) = w$
+		\item $v(p, e(p, u)) = u$
+	\end{itemize}
+\end{itembox}
+
+\subsection{Game theory}
+標準形ゲーム$G = (N, S, u)$を考える。ただし$S = \Pi_{i \in N} S_i$は戦略の組の集合であり、$u = (u_i)_{i \in N}$は効用の組、ただし$u_i : S \to R$で効用関数を表す。
+\begin{itembox}[l]{ナッシュ均衡}
+	$s^* \in S$ is Nash equilibrium, if \\
+	$\quad \forall \ i \in N$ and $\forall \ s_i \in S_i$, $u_i(s^*) \geq u_i(s_i, s_{-i}^*)$\\
+	where $s_{-i}$ is the strategies of the players other than $i$.
+\end{itembox}
+
+\begin{itembox}[l]{弱支配戦略}
+	$s_i^* \in S_i$ is a weak dominant strategy, if \\
+	$\forall \ s_{-i} \in S_{-i}$ and $\forall \ s_i \in S_i$, $u_i(s_i^*, s_{-i}) \geq u_i(s_i, s_{-i})$
+\end{itembox}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
