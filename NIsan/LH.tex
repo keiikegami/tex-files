@@ -88,6 +88,10 @@ Pについて要素を書き下すと、
 $\mathbb{R}^3$を考える。この空間上の点$x$において先の5つの制約のうち等式で成立するものがある場合、等式で成立した制約の番号をその点のラベルとして与える。いずれの制約も等式で成立しない場合、その点は1つのラベルもつかないとする。例えば$x = (0, \frac{1}{4}, \frac{1}{6})$はラベル1,4
 \end{frame}
 
+\begin{frame}\frametitle{ラベル}
+slack variableも含めて、変数が0になるということは、いずれかの制約不等式が等式で成立することに対応している。例えば$s_1 = 0$はラベル4に対応する。すなわち、nonbasic variableにはいることは、対応する不等式が等式で成立するようになること、そして対応するラベルを獲得することを意味する。
+\end{frame}
+
 \begin{frame}\frametitle{Qについて}
 QについてもPと同様に考える。Qの制約についても同じように番号をつけて$\mathbb{R}^2$上の点$y$についてのラベルとして利用するが、その際に$(x, y)$がcompletely labeledの時に混合戦略ナッシュ均衡とあるようにするため、以下のように番号を振る。
 \setcounter{equation}{0}
@@ -116,12 +120,24 @@ QについてもPと同様に考える。Qの制約についても同じよう�
 \end{frame}
 
 \section{その他トピック}
-\begin{frame}\frametitle{なんでcompletely labeledならNEなの？}
-
+\begin{frame}\frametitle{なんでcompletely labeledを探すの？}
+	\begin{itemize}
+		\item 現在位置している混合戦略の組$(x, y)$にラベル2が欠けてるとする。
+		\item この時P側、player1の立場では、戦略2が正の確率で取られることを意味する。すなわち現在player1がとっている混合戦略のサポートに戦略2が入っている。
+		\item 一方でQ側、player2の立場では、player 1の戦略2に対する期待利得が1より小さいことを意味する。これは相手のサポートに入っている戦略に対しては等しく期待利得の最大化がなされている、というBest Response Conditionに反する。
+		\item よってこれはNEではない。
+		\item 以上よりNEならcompletely labeled。
+		\item また、completely labeledなら各純戦略がbest responseかサポートに入っていないということなのでNE。
+	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{NEの数は？}
-
+\begin{itemize}
+	\item missing labelを$k$で固定した時、原点から辿り着くNEは一つである。
+	\item たどり着いたNEから同じ$k$をmissing labelとしてLHを行うと原点に戻る。
+	\item LHはどのNEからでも始められるので、原点も含めてpathの終点は偶数個である。
+	\item 原点はNEではないので、nondegenerate gameでは奇数個のNEが存在することがわかる。
+\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Degenerate Game}
