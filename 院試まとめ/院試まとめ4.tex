@@ -26,76 +26,9 @@
 }
 
 \begin{document}
-\title{院試まとめ3}
+\title{院試まとめ4}
 \author{池上慧}
 \maketitle
-
-\section{Definitions and Equations}
-\subsection{Consumer theory definitions}
-\begin{itembox}[l]{パレート効率的}
-	$x^{*} \in \Pi_i^I x_i$ is Pareto efficient, if there is no feasible allocation $x$ which Pareto dominates $x^{*}$. \\
-	where 
-	\begin{itemize}
-		\item $x$ is feasible allocation if $x \in \left\{ x \in \Pi_i^I x_i | \sum_i^I x_i \leq \bar{\omega} \right\}$
-		\item $x$ Pareto Dominates $x^*$ if $\exists \ i\ \text{s.t.}\ x_i \succ_i x_i^*$ and $\forall \ i \ x_i \succeq_i x_i^*$
-	\end{itemize}
-\end{itembox}
-
-\begin{itembox}[l]{ワルラス均衡}
-	$(p^*, x^*) \in R^L\ \times \ \Pi_i^I x_i$ is Walrasian Equilibrium, if\\
-	\begin{enumerate}
-		\item $\forall_i \ \ x_i^* \succeq_i x_i\ \text{s.t.}\ x_i \in \left\{ x \in \Pi_i^I x_i | \sum_i^I x_i \leq \bar{\omega} \right\}$
-		\item $\sum_i^I x_i = \bar{\omega}$
-	\end{enumerate}
-\end{itembox}
-
-\begin{itembox}[l]{コア}
-	$x$ is Core, if $x$ is Pareto efficient and $x$ is individually rational\\
-	where $x$ is individually rational if $\forall  \ i \ x_i \succeq_i \omega_i$
-\end{itembox}
-
-\subsection{Equations}
-$p,w,u$をそれぞれ価格、所得、効用水準とする。
-\begin{itemize}
-	\item 需要関数：$x(p, w)$
-	\item 間接効用関数：$v(p, w)$
-	\item 補償需要関数：$h(p, u)$
-	\item 支出関数：$e(p, u)$
-\end{itemize}
-前の二つが効用最大化、後半二つが支出最小化。
-\begin{itembox}[l]{スラツキー方程式（横）}
-	$D_p x(p,w) = D_p h(p, u) - D_w x(p, w) x(p, w)^{T}$, where $u = V(p, w)$
-\end{itembox}
-
-\begin{itembox}[l]{ロワの恒等式（縦）}
-	$x_l (p, w) = -\frac{\frac{\partial v(p, w)}{\partial p_l}}{\frac{\partial v(p, w)}{\partial w}}$
-\end{itembox}
-
-\begin{itembox}[l]{支出関数を微分したら補償需要関数（縦）}
-	$\Delta_p e(p, u) = h(p, u)$
-\end{itembox}
-
-\begin{itembox}[l]{双対性（中）}
-	\begin{itemize}
-		\item $x(p, w) = h(p. v(p, w))$
-		\item $h(p, u) = x(p, e(p, u))$
-		\item $e(p, v(p, w)) = w$
-		\item $v(p, e(p, u)) = u$
-	\end{itemize}
-\end{itembox}
-
-\subsection{Game theory}
-標準形ゲーム$G = (N, S, u)$を考える。ただし$S = \Pi_{i \in N} S_i$は戦略の組の集合であり、$u = (u_i)_{i \in N}$は効用の組、ただし$u_i : S \to R$で効用関数を表す。
-\begin{itembox}[l]{ナッシュ均衡}
-	$s^* \in S$ is Nash equilibrium, if \\
-	$\quad \forall \ i \in N$ and $\forall \ s_i \in S_i$, $u_i(s^*) \geq u_i(s_i, s_{-i}^*)$\\
-	where $s_{-i}$ is the strategies of the players other than $i$.
-\end{itembox}
-
-\begin{itembox}[l]{弱支配戦略}
-	$s_i^* \in S_i$ is a weak dominant strategy, if \\
-	$\forall \ s_{-i} \in S_{-i}$ and $\forall \ s_i \in S_i$, $u_i(s_i^*, s_{-i}) \geq u_i(s_i, s_{-i})$
-\end{itembox}
 
 \section{渡辺マクロまとめ}
 \subsection{ホニャホニャデフレーター}
@@ -222,39 +155,17 @@ $k = \frac{w}{1 -w} a$として、両辺から${\rm log}P_{t-1}$を引くこと�
 	\item しかしデフレが長期化すると、企業側のロスが、リストラや賃金カットといった形でインサイダーへも波及してくる可能性が高くなる。（まとめると、デフレの初期は実質賃金の高止まりで予期せぬ所得移転が生じ労働分配率が上昇するが、長期のデフレの下では企業利潤の減少が賃金カットやリストラでインサイダーへも波及することで労働分配率が減少する。）
 \end{itemize}
 
-\section{Auctions}
-\subsection{First Price Auction}
-$i$さんのビッドを$b(s_i)$でかけるようなsymmetric bayesian Nash equilibrium strategyを考える。$i$さんが受け取るシグナルを$s_i$として、これがそのまま$i$さんが対象物に対して持つ価値であるとする。この時の$i$の期待効用は
-\begin{align}
-	U(b_i, s_i) = (s_i - b_i)Pr[b_j = b(s_j) \leq b_i\  \forall_{j \neq i}]
-\end{align}
-でかける。ここで、$S_i\ \text{i.i.d.}\ \sim F$であるとする。$b$が連続で微分可能な単調増加関数の時、上記の確率部分は$F^{n-1}(b^{-1}(b_i))$でかける。
-
-したがって、$U(b_i, s_i) = (s_i - b_i) F^{n-1}(b^{-1}(b_i)$である。これを$b_i$について最大化するためのFOCを考える。$b_i$について微分することで、
-\begin{align*}
-	&-F^{n-1}(b^{-1}(b_i) + (s_i - b_i) (n-1) F^{n-2}(b^{-1}(b_i)\frac{\mathrm{d}b^{-1}(b_i)}{\mathrm{d}b_i} f(b^{-1}(b_i)) = 0\\[8pt]
-	&\Leftrightarrow(s_i - b_i) (n-1) F^{n-2}(b^{-1}(b_i)f(b^{-1}(b_i)) \frac{1}{b^{'}(b^{-1}(b_i))} = F^{n-1}(b^{-1}(b_i)\\[8pt]
-	&\Leftrightarrow(s-b(s)) (n-1) F^{n-2}(s) f(s) = F^{n-1}(s)b^{'}(s)\\[8pt]
-	&\Leftrightarrow(n-1)F^{n-2}(s) f(s) s = (F^{n-1}(s))^{'}b(s) + F^{n-1}(s)b^{'}(s)\\[8pt]
-	&\Leftrightarrow \int_{s\_}^{s}(F^{n-1}(t)b(t))^{'} \mathrm{d}t = \int_{s\_}^{s} (n-1)F^{n-2}(t) f(t) t \mathrm{d}t\\[8pt]
-	&\Leftrightarrow b(s) = \frac{\int_{s\_}^{s} t(F^{n-1}(t))^{'} \mathrm{d}t}{F^{n-1}(s)}\\[8pt]
-	&\Leftrightarrow b(s) = s - \frac{\int_{s\_}^{s} F^{n-1}(t) \mathrm{d}t}{F^{n-1}(s)}
-\end{align*}
-を得る。同じ均衡戦略を崩落線定理からも求めることができる。
-
-またこの時のオークション開催者の利得を考える。$n-1$人のシグナルの中で最大の値を確率変数$S^{1:n-1}$で表すとする。この時、この確率変数の分布関数は$F^{n-1}(s)$でかけるので、条件付き期待値の定義より、
-\begin{align}
-b(s) = \frac{\int_{s\_}^{s} t(F^{n-1}(t))^{'} \mathrm{d}t}{F^{n-1}(s)} = E[S^{1:n-1} | S^{1:n-1} \leq s]
-\end{align}
-である。
-
-開催者の期待収益は、最大のシグナルを受け取った参加者のビッドの期待値であるので、
-\begin{align}
-	E[b(S^{1:n})] = E[S^{1:n-1} | S^{1:n-1} \leq S^{1:n}] = E[S^{2:n}]
-\end{align}
-となる。これはセカンドプライスオークションでの期待収益と一致する（セカンドプライスオークションでは全員自身のシグナルをそのままビッドするのが弱支配戦略なので）。この二つの形式でどちらも同じ期待収益をもたらすことをRevenue Equivalence Theorem（収入同値定理）と呼ぶ。
-
 \end{document}
+
+
+
+
+
+
+
+
+
+
 
 
 

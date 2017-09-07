@@ -1,0 +1,162 @@
+\documentclass[dvipdfmx, 12pt]{beamer}
+\usepackage{pxjahyper}
+\usepackage{minijs}
+\usepackage{otf}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme{AnnArbor}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{url}
+\usepackage{graphicx}
+
+\title{Lemke-Howson}
+\author{池上慧}
+
+\begin{document}
+
+\frame{\maketitle}
+
+\section*{目次}
+\begin{frame} \frametitle{発表の流れ}
+\tableofcontents
+\end{frame}
+
+\begin{frame}\frametitle{利得行列と多面体}
+\begin{align*}
+	A = 
+	\begin{bmatrix} 
+	3 & 3\\
+	2 & 5 \\
+	0 & 6
+	\end{bmatrix}\quad
+	B = 
+	\begin{bmatrix}
+	3 & 2\\
+	2 & 6\\
+	3 & 1
+	\end{bmatrix}\\
+\end{align*}
+\begin{align*}
+	&P = \left\{ x \in \mathbb{R}^3\ |\ x \geq 0, B^{T}x \leq 1 \right\}\\
+	&Q = \left\{ y \in \mathbb{R}^2\ |\ Ay \leq 1, y\geq 0 \right\}
+\end{align*}
+
+\end{frame}
+
+\begin{frame}\frametitle{Slack Variable}
+Slack Variableを用いて先の多面体を書くと、
+\begin{align*}
+	&P = \left\{ x \in \mathbb{R}^3\ |\ x \geq 0, s \geq 0, B^{T}x + s= 1 \right\}\\
+	&Q = \left\{ y \in \mathbb{R}^2\ |\ Ay + r = 1, y\geq 0, r \geq 0 \right\}
+\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{書き下す}
+Pについて要素を書き下すと、
+\begin{align*}
+	&3x_1 + 2x_2 + 3x_3 + s_1 \quad \ = 1\\
+	&2x_1 + 6x_2 + x_3 \quad \quad +s_2 = 1\\
+	&x_1 \geq 0\\
+	&x_2 \geq 0\\
+	&x_3 \geq 0\\
+	&s_1 \geq 0\\
+	&s_2 \geq 0
+\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{用語}
+\begin{itemize}
+	\item 列に要素が一つしかない変数をbasic variableと呼ぶ（ここでは$s_1, s_2$）
+	\item 列に要素が1つ以上存在する変数をnon basic variableと呼ぶ（ここでは$x_1, x_2, x_3$）
+	\item nonbasic variableを全て0と置いた時の連立方程式の解をbasic solutionと呼ぶ（ここでは$x_1 =  x_2 = x_3 = 0, s_1 = s_2 = 1$）
+	\item pivotとは元の変数とslackの非負制約を守りながらbasic とnonbasicを一つずつ入れ替えていく作業。
+	\item integer pivotingとは、係数が常に整数となるように工夫してpivotしていくことを指す。
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ラベル}
+以下のように各制約に番号を振る。
+\begin{align}
+	&x_1 \geq 0\\
+	&x_2 \geq 0\\
+	&x_3 \geq 0\\
+	&3x_1 + 2x_2 + 3x_3 \leq 1\\
+	&2x_1 + 6x_2 + x_3 \leq 1
+\end{align}
+\end{frame}
+
+\begin{frame}\frametitle{ラベル}
+$\mathbb{R}^3$を考える。この空間上の点$x$において先の5つの制約のうち等式で成立するものがある場合、等式で成立した制約の番号をその点のラベルとして与える。いずれの制約も等式で成立しない場合、その点は1つのラベルもつかないとする。例えば$x = (0, \frac{1}{4}, \frac{1}{6})$はラベル1,4
+\end{frame}
+
+\begin{frame}\frametitle{Qについて}
+QについてもPと同様に考える。Qの制約についても同じように番号をつけて$\mathbb{R}^2$上の点$y$についてのラベルとして利用するが、その際に$(x, y)$がcompletely labeledの時に混合戦略ナッシュ均衡とあるようにするため、以下のように番号を振る。
+\setcounter{equation}{0}
+\begin{align}
+	&3y_1 + 3y_2 \leq 1\\
+	&2y_1 + 3y_2 \leq 1\\
+	& 6y_2 \leq 1\\
+	&y_1 \geq 0\\
+	&y_2 \geq 0
+\end{align}
+\end{frame}
+
+\section{Lemke-Howson}
+\begin{frame}\frametitle{アルゴリズム概要}
+\begin{itemize}
+	\item P,Qそれぞれの原点から動かしていく。
+	\item Pの原点から適当にラベルを外すことで出発する。ここでは2を外す。
+	\item 2を外してpivotによりbasicを入れ替えると、Qでのラベルの中にも今得られたラベル5があることがわかる。
+	\item そのダブったラベル5を今度はQで外して点を動かす。
+	\item 以上を繰り返して、再びラベル2がゲットできたらそこで点を動かすことやめる。
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Lemke-Howson}
+ホワイトボードで解が見つかるまでLHをやってみます。
+\end{frame}
+
+\section{その他トピック}
+\begin{frame}\frametitle{なんでcompletely labeledならNEなの？}
+
+\end{frame}
+
+\begin{frame}\frametitle{NEの数は？}
+
+\end{frame}
+
+\begin{frame}\frametitle{Degenerate Game}
+
+\end{frame}
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
