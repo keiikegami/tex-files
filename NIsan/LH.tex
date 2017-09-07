@@ -141,9 +141,49 @@ QについてもPと同様に考える。Qの制約についても同じよう�
 \end{frame}
 
 \begin{frame}\frametitle{Degenerate Game}
+\begin{align*}
+	A = 
+	\begin{bmatrix} 
+	3 & 3\\
+	2 & 5 \\
+	0 & 6
+	\end{bmatrix}\quad
+	B = 
+	\begin{bmatrix}
+	3 & 3\\
+	2 & 6\\
+	3 & 1
+	\end{bmatrix}\\
+\end{align*}
 
+これはdegenerate gameである。
 \end{frame}
 
+\begin{frame}\frametitle{Degenerate Game}
+slack変数を用いて中身を書き下すと
+\begin{align*}
+	&3x_1 + 2x_2 + 3x_3 + s_1\quad \ = 1\\
+	&3x_1 + 6x_2 + x_3 \quad \quad + s_2 = 1
+\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{Degenerate Game}
+missing labelを1として一回pivotする
+\begin{align*}
+	&\quad  -4x_2 + 2x_3 + s_1 - s_2 = 0\\
+	&3x_1 + 6x_2 + x_3 \qquad+ s_2 = 1
+\end{align*}
+
+ここでbasic solutionで$s_1 = 0, x_1 = \frac{1}{3}$となっており、basic variableが0の値をとるようになっている。これは4つの不等式が等式で成り立つことを意味し、4つのラベルを持っていることを意味する。これがdegenerateである。
+\end{frame}
+
+\begin{frame}\frametitle{Purturing}
+	\begin{align*}
+	&3x_1 + 2x_2 + 3x_3 + s_1\quad \ = 1 + \epsilon_1\\
+	&3x_1 + 6x_2 + x_3 \quad \quad + s_2 = 1 + \epsilon_2
+	\end{align*}
+	上のように微小な値$\epsilon$で右辺をpurturbすれば、pivotしても右辺が0にならないのでラベルの数を3つに保つことができ、LHを動かせる。
+\end{frame}
 
 
 
