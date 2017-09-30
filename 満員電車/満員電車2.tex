@@ -160,12 +160,45 @@ $[a, b]$でプレイヤー$1$が電車$a$を、プレイヤー$2$が電車$b$を
 以上より、正直申告させることができれば社会的ロスを軽減させられることが判明した。次にこのモデルにおいて各人が正直申告することが可能かを考える。
 
 \section{パラメータの推定}
-$\alpha$の推定をどのように行うのかについて論じる。
+モデルの推定をどのように行うのかについて論じる。先のモデル内でタイプである$\left\{ d_i \right\}$の分布を標準正規分布としているので同じ仮定の下でモデルのパラメータである$\alpha$の推定を行うことを考える（先のモデルでタイプのCDFを一般的に$E(\cdot)$書いても$\Phi$の部分が$F$に変わるだけなので、分布の仮定をおかずに分布もデータからretrieveするフレームワークも作れるはずだが、とりあえず正規性の仮定と独立の仮定の下で考える）。
+
+データは上記のゲームがプレイされた結果である。ただし、現実に誰がどの電車に乗ったかという判別はデータからは行えない。得られるデータは、「ゲームがプレイされた結果としてどの電車に何人乗ったか」というデータである。
+
+ここで、先のモデルの帰結よりアウトカムは以下の確率で実現する。
+\begin{align*}
+	\begin{cases}
+	&q_{22} = \Phi((1 - \frac{2}{\alpha})d_1) \cdot \Phi((1 - \frac{2}{\alpha})d_2)\\[8pt]
+	&q_{12} = (1 - \Phi((1 - \frac{2}{\alpha})d_1)) \cdot \Phi((1 - \frac{2}{\alpha})d_2)\\[8pt]
+	&q_{21} = \Phi((1 - \frac{2}{\alpha})d_1) \cdot (1 - \Phi((1 - \frac{2}{\alpha})d_2))\\[8pt]
+	&q_{11} = (1 - \Phi((1 - \frac{2}{\alpha})d_1)) \cdot (1 - \Phi((1 - \frac{2}{\alpha})d_2))
+	\end{cases}
+\end{align*}
+ただし、$q_{ab}$はプレイヤー$1$が電車$a$を、プレイヤー$2$が電車$b$を選んだという結果が実現する確率である。しかし、この表現には研究者からは観測できない変数である$\left\{ d_i\right\}$が含まれているため、このまま推定に使うことはできない。なので、仮定より$\forall \ i\ d_i \sim N(0,1)$としていることを利用して、各実現確率の期待値を用いることでパラメータの推定を行う。これによって観測された結果が、各電車に一人ずつというものだった場合に$q_{12}, q_{21}$のどちらを用いれば良いのかという問題も同時に解決する。なぜなら$\left\{ d_i\right\}$について期待値をとってしまえば両者は同じ値となるからである。
+
+例として$q_{22}$についての期待値を以下で計算する。
+\begin{align*}
+	E[q_{22}] = \left( \int_{-\infty}^{\infty} \Phi \left(\left(1 - \frac{2}{\alpha}\right)s\right) \phi(s) \mathrm{d}s \right)^2
+\end{align*}
+この内部を$I$で書くとすると、部分積分して
+\begin{align*}
+	I = 1 - \int_{-\infty}^{\infty} \Phi \left(\frac{\alpha}{\alpha - 2} s\right)\phi(s)\mathrm{d}s
+\end{align*}
+この右辺を$I^{'}$と書くと、
+\begin{align*}
+	I - I^{'} = \int_{-\infty}^{\infty} \int_{\frac{\alpha}{\alpha - 2}s}^{\frac{\alpha - 2}{\alpha}s} \phi(t) \mathrm{d}t\ \phi (s) \mathrm{d}s = 2\int_0^{\infty}  \int_{\frac{\alpha}{\alpha - 2}s}^{\frac{\alpha - 2}{\alpha}s} \phi(t) \mathrm{d}t\ \phi (s) \mathrm{d}s \equiv 2S
+\end{align*}
+とできる。この$S$を用いて
+\begin{align*}
+	I = \frac{1}{2} + S\ \Rightarrow\ E[q_{22}] = \frac{1}{4} + S + S^2
+\end{align*}
+として実現確率の期待値が得られ、$S$は$\alpha$についての関数なので尤度を構成でき最尤法によりパラメータの推定ができる。
 
 \section{考えたいこと}
 \begin{itemize}
 	\item 正直申告するインセンティブはあるか。ないならどうすれば正直申告させられるか。
 	\item パラメータ$(\alpha)$の推定と識別の枠組み
+	\item 上記のモデルを$N$人$M$電車に拡張
+	\item $S$が計算できない
 \end{itemize}
 
 
