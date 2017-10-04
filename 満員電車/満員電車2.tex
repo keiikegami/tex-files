@@ -196,7 +196,25 @@ $[a, b]$でプレイヤー$1$が電車$a$を、プレイヤー$2$が電車$b$を
 \section{N人ゲームへの拡張}
 今までの$2$人$2$電車ゲームを$N$人$2$電車の状況へと拡張することを考える。重要な相違点として、$N > 2$のケースでは$2$人ゲームの時に行えたような相手のタイプに対応した戦略を考えることが現実的でなくなるという点がある。これはプレイヤーの数が多くなると各プレイヤーに対処するのではなく全体の平均的な動きに対応しようとするという想定であり、実際複数のプレイヤーのタイプを同時に考えるのは難しい。従ってBrock and Durlauf (2001)で記述されているようなモデルを考えていく。
 
-$2$人ゲームの時と同じ記号を用いて、第1種極値分布に従う
+$2$人ゲームの時と同じ記号を用いて、第1種極値分布に従う撹乱項を用いてそれぞれの電車に対する選択傾向を以下のように書ける。
+\begin{align*}
+	\begin{cases}
+	p_1^1 &= \frac{\exp(u_1^1 + \alpha E^*)}{\exp(u_1^1 + \alpha E^*) + \exp(u_2^1 + \alpha(N - E^*))}\\[8pt]
+	\vdots\\[8pt]
+	p_1^N &= \frac{\exp(u_1^N + \alpha E^*)}{\exp(u_1^N + \alpha E^*) + \exp(u_2^N + \alpha(N - E^*))}
+	\end{cases}
+\end{align*}
+この時$E^*$は以下で述べていく意味での均衡における電車$1$に乗車した人の数であるとする。$2$人ゲームの時と同様にこの選択傾向が$\frac{1}{2}$を上回れば電車$1$を選択し、下回れば電車$2$を選択するとして行動を記述する。この時、プレイヤー$i \in \left\{ 1, \cdots, N\right\}$について、電車$2$を選ぶということは
+\begin{align*}
+	p_1^i < \frac{1}{2}\ &\Leftrightarrow\ \frac{\exp(u_1^1 + \alpha E^*)}{\exp(u_1^1 + \alpha E^*) + \exp(u_2^1 + \alpha(N - E^*))} < \frac{1}{2}\\[8pt]
+	&\Leftrightarrow\ u_2^i - u_1^i > 2\alpha E^* - \alpha N\\[8pt]
+	&\Leftrightarrow\ d_i > 2\alpha E^* - \alpha N
+\end{align*}
+である。ただし$d_i = u_2^i - u_1^i$としている。ここで$2$人ゲームと同様に$\forall i d_i \sim N(0,\sigma^2)$とおくと、$Pr(d_i > \alpha(2E^* - N)) = 1 - \Phi \left(\frac{\alpha}{\sigma}(2 E^* - N)\right)$で書くことができる。以上より均衡における電車$1$に乗る人の期待値$ E^*$は、
+\begin{align*}
+	N - E^* =  N(1 - \Phi \left(\frac{\alpha}{\sigma}(2 E^* - N)\right))\ \Leftrightarrow\  E^* = N\Phi \left(\frac{\alpha}{\sigma}(2 E^* - N)\right)
+\end{align*}
+をを満たすとできる。つまり$N \Phi \left(\frac{\alpha}{\sigma}(2 E - N)\right)$の不動点が均衡である。
 
 \section{N人ゲームでのパラメータ推定}
 
