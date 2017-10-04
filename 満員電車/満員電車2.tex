@@ -228,7 +228,11 @@ $2$人ゲームの時と同様にプレイヤーは各々のタイプである$\
 \end{align*}
 
 \section{N人ゲームでのパラメータ推定}
-ko
+$N$人ゲームに置いて$E^*$はデータの平均をとることで一致推定できる。これを$\hat{E}$とかくとすると、$N$人モデルでの均衡式から、
+\begin{align*}
+	E = N\Phi \left(\frac{\alpha}{\sigma}(2 E - N)\right)\ \Leftrightarrow\ \frac{\alpha}{\sigma} = \frac{\Phi^{-1}\left(\frac{E}{N}\right)}{2E - N}
+\end{align*}
+を得るので、推定量として$\hat{\left(\frac{\alpha}{\sigma}\right)} = \frac{\Phi^{-1}\left(\frac{\hat{E}}{N}\right)}{2\hat{E} - N}$
 
 
 \section{考えたいこと}
