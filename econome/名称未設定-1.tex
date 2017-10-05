@@ -174,7 +174,22 @@ The second equality is from $\Sigma^{-1} = \frac{1}{\sigma_{11}\sigma_{22} - \si
 
 \section{Problem 5}
 \subsection{(a)}
+In this case, $\Sigma = \left( \begin{array}{ccc} \sigma_{11}&\cdots&\sigma_{1T}\\ \vdots&&\vdots\\ \sigma_{1T}&\cdots&\sigma_{TT} \end{array} \right)$, where $\sigma_{tt^{'}} = E[\epsilon_{it} \epsilon_{it^{'}} | x_{it}, z_{it^{'}}]$. Using this notations,
+\begin{align*}
+	Var(E | X) = I_N \otimes \Sigma
+\end{align*}
+
 \subsection{(b)}
+\begin{align*}
+	M &= I_{NT} - \left( \iota_T \otimes I_N \right) \left( \left( \iota_T \otimes I_N \right)^{'} \left( \iota_T \otimes I_N \right) \right)^{-1} \left( \iota_T \otimes I_N \right)^{'}\\[8pt]
+	&= I_{NT} - \left( \iota_T \otimes I_N \right)(T\cdot I_N)^{-1} \left( \iota_T \otimes I_N \right)^{'}\\[8pt]
+	&= I_{NY} - \frac{1}{T}\left( \iota_T\iota_T^{'} \otimes I_N\right)
+\end{align*}
+Then,
+\begin{align*}
+	My &= y - \frac{1}{T}\left( \iota_T\iota_T^{'} \otimes I_N\right)y\\[8pt]
+	&= y - \frac{1}{T}\left( \iota_T\iota_T^{'} \otimes I_N\right) 
+\end{align*}
 
 \end{document}
 
