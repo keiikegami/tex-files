@@ -95,6 +95,15 @@ Consider the moment condition $E[Az_i\epsilon_i] = 0$. And we have the assumptio
 \end{align*}
 
 \subsection{(c)}
+Using the matrix $A$, I can write the sample moment condition as follows.
+\begin{align*}
+	\frac{1}{n}\sum_{i = 1}^n \left(\sum_{i = 1}^n x_i z_i^{'}\right)\left(\sum_{i = 1}^n z_i z_i^{'}\right)^{-1} z_i (y_i - x_i^{'}b) = 0
+\end{align*}
+And I use the following matrix notation to make it easy to see, $\sum_{i = 1}^n x_i z_i^{'} = X^{'}Z$ and $\sum_{i = 1}^n z_i z_i^{'} = Z^{'}Z$. Then the condition is,
+\begin{align*}
+	\frac{1}{n}\sum_{i = 1}^n \left(X^{'}Z\right)\left(Z^{'}Z\right)^{-1} z_i (y_i - x_i^{'}b) = 0
+\end{align*}
+
 \subsection{(d)}
 
 \section{Problem 3}
