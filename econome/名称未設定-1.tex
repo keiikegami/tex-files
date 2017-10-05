@@ -71,11 +71,29 @@ In the real econometric analysis, the relationship $E[\epsilon x] = 0$ is just a
 (b) says that the predicted value by using OLS estimator is the best linear approximate of the conditional mean of the dependent variable even if the form is not linear among the support, when we use squared loss function. This clearly argue the statement.
 
 \subsection{(e)}
-
+houti
 
 \section{Problem 2}
 \subsection{(a)}
+\begin{align*}
+	Cov(Az_i, \epsilon_i) = E[(Az_i - E[Az_i])(\epsilon_i - E[\epsilon_i])] = A E[(z_i - E[z_i])(\epsilon_i - E[\epsilon_i])] = 0
+\end{align*}
+Therefore $Az_i$ does not correlate with $\epsilon_i$. And clearly the correlation exist between $Az_i$ and $x_i$. Thus $Az_i$ is a valid IV for $x_i$. And $rank(E[Az_i x_i^{'}]) = K$ allows it to have inverse matrix, so IV estimator can be constructed.
+
 \subsection{(b)}
+Multiplying $Az_i$ to the first model by left.
+\begin{align*}
+	Az_iy_i = Az_ix_i^{'}\beta + Az_i\epsilon_i
+\end{align*}
+Sum up the model by individuals. And divide by $n$.
+\begin{align*}
+	\sum_{i = 1}^n Az_iy_i = (\sum_{i = 1}^n Az_ix_i^{'})\beta + \sum_{i=1}^nAz_i\epsilon_i \ \Leftrightarrow\ \left(\frac{1}{n}\sum_{i = 1}^n Az_iy_i\right) = \left(\frac{1}{n}\sum_{i = 1}^n Az_ix_i^{'}\right)\beta + \left( \frac{1}{n}\sum_{i=1}^nAz_i\epsilon_i \right)
+\end{align*}
+Consider the moment condition $E[Az_i\epsilon_i] = 0$. And we have the assumption that $rank(E[Az_i x_i^{'}]) = K$, so the sample analogue of this moment can be inversed. Then I have the IV estimator as the method of moment estimator as follows.
+\begin{align*}
+	\hat{\beta_A} = \left(\frac{1}{n}\sum_{i = 1}^n Az_ix_i^{'}\right)^{-1} \left(\frac{1}{n}\sum_{i = 1}^n Az_iy_i\right)
+\end{align*}
+
 \subsection{(c)}
 \subsection{(d)}
 
