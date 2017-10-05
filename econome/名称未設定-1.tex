@@ -162,7 +162,7 @@ when $Y = \left(\begin{array}{cc} Y_1\\Y_2 \end{array}\right)$
 By (c)
 \begin{align*}
 	\beta_{GLS} &= \left(\left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\Sigma^{-1} \otimes I_N \right) \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)\right)^{-1} \left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\Sigma^{-1} \otimes I_N \right) Y\\[8pt]
-	&= \left(\left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\begin{array}{cc} \sigma_{22}I_N & -\sigma_{12}I_N \\ -\sigma_{21} I_N & \sigma_{22} I_N \end{array}\right) \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)\right)^{-1} \left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\begin{array}{cc} \sigma_{22}I_N & -\sigma_{12}I_N \\ -\sigma_{21} I_N & \sigma_{22} I_N \end{array}\right) Y
+	&= \left(\left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\begin{array}{cc} \sigma_{22}I_N & -\sigma_{12}I_N \\ -\sigma_{21} I_N & \sigma_{11} I_N \end{array}\right) \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)\right)^{-1} \left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\begin{array}{cc} \sigma_{22}I_N & -\sigma_{12}I_N \\ -\sigma_{21} I_N & \sigma_{11} I_N \end{array}\right) Y
 \end{align*}
 The second equality is from $\Sigma^{-1} = \frac{1}{\sigma_{11}\sigma_{22} - \sigma_{12}^2}\left( \begin{array}{cc} \sigma_{22} & -\sigma_{12} \\ -\sigma_{21} & \sigma_{11} \end{array} \right)$.
 
