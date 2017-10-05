@@ -181,15 +181,16 @@ In this case, $\Sigma = \left( \begin{array}{ccc} \sigma_{11}&\cdots&\sigma_{1T}
 
 \subsection{(b)}
 \begin{align*}
-	M &= I_{NT} - \left( \iota_T \otimes I_N \right) \left( \left( \iota_T \otimes I_N \right)^{'} \left( \iota_T \otimes I_N \right) \right)^{-1} \left( \iota_T \otimes I_N \right)^{'}\\[8pt]
-	&= I_{NT} - \left( \iota_T \otimes I_N \right)(T\cdot I_N)^{-1} \left( \iota_T \otimes I_N \right)^{'}\\[8pt]
-	&= I_{NY} - \frac{1}{T}\left( \iota_T\iota_T^{'} \otimes I_N\right)
+	M &= I_{NT} - \left( I_N \otimes \iota_T \right) \left( \left( I_N \otimes \iota_T \right)^{'} \left( I_N \otimes \iota_T \right) \right)^{-1} \left( I_N \otimes \iota_T \right)^{'}\\[8pt]
+	&= I_{NT} - \left( I_N \otimes \iota_T \right)(T\cdot I_N)^{-1} \left( I_N \otimes \iota_T \right)^{'}\\[8pt]
+	&= I_{NY} - \frac{1}{T}\left( I_N \otimes \iota_T\iota_T^{'}\right)
 \end{align*}
 Then,
 \begin{align*}
-	My &= y - \frac{1}{T}\left( \iota_T\iota_T^{'} \otimes I_N\right)y\\[8pt]
-	&= y - \frac{1}{T}\left( \iota_T\iota_T^{'} \otimes I_N\right) 
+	My &= y - \frac{1}{T}\left( I_N \otimes \iota_T\iota_T^{'}\right)y\\[8pt]
+	&= y - \left(\begin{array}{cc} \overline{y_1}\\ \vdots \\ \overline{y_N} \end{array}\right) \otimes \iota_T
 \end{align*}
+This is the result.
 
 \end{document}
 
