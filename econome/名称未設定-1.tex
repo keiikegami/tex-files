@@ -42,6 +42,25 @@ Let $\epsilon = y - \alpha - x^{'}\beta$, where $\alpha = E[y] - E[x^{'}]\beta$ 
 So now I get the result.
 
 \subsection{(b)}
+This transformation is useful.
+\begin{align*}
+	E[(y - a - x^{'}b)^2] = E[(y - E[y])^2] + 2E[(y- E[y])(E[y] - (a + x^{'}b))] + E[(E[y] - (a + x^{'}b))^2]
+\end{align*}
+Then I get the FOC by differentiating by $a$ as follows.
+\begin{align*}
+	E[-2(y - E[y])] + E[-2(E[y] - (a + x^{'}b))] = 0\ \Rightarrow \ a = E[y] -E[x^{'}]b
+\end{align*}
+Next, after inserting the above relationship to the original, I get the FOC by differentiating by $b$ as follows.
+\begin{align*}
+	-2E[(y - E[y])(x^{'} - E[x^{'}])]^{'} + 2E[(x^{'} - E[x^{'}])^{'}(x^{'} - E[x^{'}])b] = 0\ \Leftrightarrow \ b = \Sigma^{-1}\delta
+\end{align*}
+And the second derivative by $b$ is $2 \Sigma$, which is positive semi definite, then the second order condition for minimization is fulfilled. Thus I show $\alpha, \beta$ in (a) solves this minimization problem.
+
+Then I show the second part. First I show the important property of the conditional expectation. If $y = E[y|x] + \epsilon$, then $E[\epsilon | x] = E[y - E[y|x] |x] = 0$ and for any function $h(x)$, $E[h(x) \epsilon] = E[E[h(x)\epsilon | x]] = E[h(x)E[\epsilon | x]] = 0$. Using this second property can easily prove the argument.
+\begin{align*}
+	
+\end{align*}
+
 \subsection{(c)}
 \subsection{(d)}
 \subsection{(e)}
