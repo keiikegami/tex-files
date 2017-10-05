@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{Econometrics 2 2017 \\ 
+Problem set 1}
+\author{Kei Ikegami (150012)}
+\maketitle
+
+\section{Problem 1}
+\subsection{(a)}
+Let $\epsilon = y - \alpha - x^{'}\beta$, where $\alpha = E[y] - E[x^{'}]\beta$ and $\beta = \Sigma^{-1}\delta$, then I show $E[\epsilon] = 0$  and $E[\epsilon x] = 0$. 
+\begin{align*}
+	E[\epsilon] &= E[y - E[y] + E[x^{'}]\beta - x^{'}\beta] = E[(y - E[y]) - (x^{'} - E[x^{'}])\beta] = (E[y] - E[y]) - (E[x^{'}] - E[x^{'}])\beta = 0\\[8pt]
+	E[\epsilon x] &= E[x\epsilon] = E[x(y - E[y] + E[x^{'}]\beta - x^{'}\beta)] = E[x(y - E[y]) - x(x^{'} - E[x^{'}])\beta]\\[8pt]
+	&= E[(x - E[x])(y - E[y]) + E[x](y - E[y]) - (x - E[x])(x^{'} - E[x^{'}])\beta - E[x](x^{'} - E[x^{'}])\beta]\\[8pt]
+	&= \delta - E[(x - E[x])(x^{'} - E[x^{'}])]\Sigma^{-1}\delta = \delta - \delta = 0
+\end{align*}
+So now I get the result.
+
+\subsection{(b)}
+\subsection{(c)}
+\subsection{(d)}
+\subsection{(e)}
+
+\section{Problem 2}
+\subsection{(a)}
+\subsection{(b)}
+\subsection{(c)}
+\subsection{(d)}
+
+\section{Problem 3}
+\subsection{(a)}
+\subsection{(b)}
+\subsection{(c)}
+\subsection{(d)}
+\subsection{(e)}
+
+\section{Problem 4}
+\subsection{(a)}
+\subsection{(b)}
+\subsection{(c)}
+\subsection{(d)}
+
+\section{Problem 5}
+\subsection{(a)}
+\subsection{(b)}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

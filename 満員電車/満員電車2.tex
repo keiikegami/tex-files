@@ -227,21 +227,23 @@ $2$人ゲームの時と同様にプレイヤーは各々のタイプである$\
 	E^{**} = N_2 \overline{\Phi} \left(\alpha (2 E^{**} - N)\right) + N_1 \underline{\Phi} \left(\alpha (2 E^{**} - N)\right)
 \end{align*}
 
-\section{N人ゲームでのパラメータ推定}
+\section{N人ゲームでのパラメータ推定と利用}
 $N$人ゲームに置いて$E^*$はデータの平均をとることで一致推定できる。これを$\hat{E}$とかくとすると、$N$人モデルでの均衡式から、
 \begin{align*}
 	E = N\Phi \left(\frac{\alpha}{\sigma}(2 E - N)\right)\ \Leftrightarrow\ \frac{\alpha}{\sigma} = \frac{\Phi^{-1}\left(\frac{E}{N}\right)}{2E - N}
 \end{align*}
-を得るので、推定量として$\hat{\left(\frac{\alpha}{\sigma}\right)} = \frac{\Phi^{-1}\left(\frac{\hat{E}}{N}\right)}{2\hat{E} - N}$
+を得るので、推定量として$\hat{\left(\frac{\alpha}{\sigma}\right)} = \frac{\Phi^{-1}\left(\frac{\hat{E}}{N}\right)}{2\hat{E} - N}$が得られる。
+
+ここで得られたパラメータの推定量を用いて、申告された$N_1, N_2$から実際にモデルの均衡として実現する乗車人数$E^{**}$を事前に計算することができる。個人が合理的であれば帰結として自然と同じ$E^{**}$が実現するはずなので、計算した$E^{**}$をプレイヤーに知らせた上で実現した乗車人数と知らせずに$N_1, N_2$だけを開示して個人に意思決定を委ねた結果実現した乗車人数との比較をオコアネル。（モデルの妥当性、個人合理性の検証に使える？）
 
 
 \section{考えたいこと}
 \begin{itemize}
 	\item 正直申告するインセンティブはあるか。ないならどうすれば正直申告させられるか。
-	\item パラメータ$(\alpha)$の推定と識別の枠組み
-	\item 上記のモデルを$N$人$M$電車に拡張
+	\item 上記のモデルを$M$電車に拡張
 	\item $S$が計算できない
-	\item 満員電車に限らず、離散選択のどの選択肢においてもinteractionが存在するモデルとして使えそう。n人m電車に拡張するのが大変そうならこの文脈で面白いトピックを考えてみる。
+	\item 分散をパラメトライズした時の打ち切り分布をちゃんと考える
+	\item 満員電車に限らず、離散選択のどの選択肢においてもinteractionが存在するモデルとして使えそう。n人m電車に拡張するのが大変そうならこの文脈で面白いトピックを考えてみる
 \end{itemize}
 
 
