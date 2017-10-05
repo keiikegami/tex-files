@@ -131,13 +131,41 @@ The model tells us that
 Therefore it is clear that all in one matrix formulation is the mentioned form.
 
 \subsection{(b)}
-$\sigma_{ab}$ denotes the covariance between $\epsilon_{i,a}$ and $\epsilon_{i, b}$. And note that the errors of different individuals do not correlate. Thus the variance covariance matrix in this model is as follows.
+$\sigma_{ab}$ denotes the covariance between $\epsilon_{i,a}$ and $\epsilon_{i, b}$. Note that the errors of different individuals do not correlate. The matrix $\Sigma$ is
 \begin{align*}
-k
+\Sigma = \begin{pmatrix}
+\sigma_{11} & \sigma_{12}\\
+\sigma_{21} & \sigma_{22}
+\end{pmatrix}
+\end{align*}
+
+ Let $E$ be the joint errors. Therefore the variance covariance matrix in this model is as follows.
+\begin{align*}
+	Var\left(E \right) = \begin{pmatrix}\sigma_{11}& 0& \cdots& 0&\sigma_{12}&0 &\cdots & 0\\
+	\vdots&&&\vdots&\vdots&&&\vdots\\
+	0&0&\cdots&\sigma_{11}&0&0&\cdots&\sigma_{12}\\
+	\sigma_{21}& 0& \cdots& 0&\sigma_{22}&0 &\cdots & 0\\
+	\vdots&&&\vdots&\vdots&&&\vdots\\
+	0&0&\cdots&\sigma_{21}&0&0&\cdots&\sigma_{22}
+	\end{pmatrix}
+	=\Sigma \otimes I_N
 \end{align*}
 
 \subsection{(c)}
+By the definition of GLS estimator, I get in this case as follows.
+\begin{align*}
+	\beta_{GLS} = \left(\left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)^{'} \left(\Sigma \otimes I_N \right)^{-1} \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)\right)^{-1} \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)^{'} \left(\Sigma \otimes I_N \right)^{-1} Y
+\end{align*}
+when $Y = \left(\begin{array}{cc} Y_1\\Y_2 \end{array}\right)$
+
 \subsection{(d)}
+By (c)
+\begin{align*}
+	\beta_{GLS} &= \left(\left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\Sigma^{-1} \otimes I_N \right) \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)\right)^{-1} \left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\Sigma^{-1} \otimes I_N \right) Y\\[8pt]
+	&= \left(\left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\begin{array}{cc} \sigma_{22}I_N & -\sigma_{12}I_N \\ -\sigma_{21} I_N & \sigma_{22} I_N \end{array}\right) \left(\begin{array}{cc} X & 0 \\ 0 & X \end{array}\right)\right)^{-1} \left(\begin{array}{cc} X^{'} & 0 \\ 0 & X^{'} \end{array}\right) \left(\begin{array}{cc} \sigma_{22}I_N & -\sigma_{12}I_N \\ -\sigma_{21} I_N & \sigma_{22} I_N \end{array}\right) Y
+\end{align*}
+The second equality is from $\Sigma^{-1} = \frac{1}{\sigma_{11}\sigma_{22} - \sigma_{12}^2}\left( \begin{array}{cc} \sigma_{22} & -\sigma_{12} \\ -\sigma_{21} & \sigma_{11} \end{array} \right)$.
+
 
 \section{Problem 5}
 \subsection{(a)}
