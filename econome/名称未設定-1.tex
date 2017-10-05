@@ -58,8 +58,11 @@ And the second derivative by $b$ is $2 \Sigma$, which is positive semi definite,
 
 Then I show the second part. First I show the important property of the conditional expectation. If $y = E[y|x] + \epsilon$, then $E[\epsilon | x] = E[y - E[y|x] |x] = 0$ and for any function $h(x)$, $E[h(x) \epsilon] = E[E[h(x)\epsilon | x]] = E[h(x)E[\epsilon | x]] = 0$. Using this second property can easily prove the argument.
 \begin{align*}
-	
+	E[(y - a - x^{'}b)^2] &= E[(y- E[y|x] + E[y|x] -a -x^{'}b)^2] \\[8pt]
+	&= E[(y- E[y|x])^2] + 2E[(y - E[y])(E[y|x] -a-x^{'}b)] + E[(E[y|x] - a-x^{'}b)^2]\\[8pt]
+	&= E[(y- E[y|x])^2] + E[(E[y|x] - a-x^{'}b)^2]
 \end{align*}
+The second term in the first line vanishes since $E[(y - E[y])(E[y|x] -a-x^{'}b)] = E[\epsilon(E[y|x] -a-x^{'}b)] = 0$. This is because $E[y|x] -a-x^{'}b$ is just a function of $x$.
 
 \subsection{(c)}
 \subsection{(d)}
