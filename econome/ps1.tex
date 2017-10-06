@@ -115,9 +115,22 @@ Using matrix notations lead to the result. Note that $Z^{'}X$ has its inverse ma
 The last term shows it does not depend on $A$.
 
 \section{Problem 3}
+I show the result of the regression.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{3.png}
+    \caption{Results of the three regressions}
+\end{figure}
+Column 1 is the result of the first type of regression, which I use just a one year data and OLS. Column 2 is the second one, which I use all the data and fixed effect estimator. Column 3 is the third one, which I use different data in that $x_{2it} = \alpha_i + 0.1u_{2it}$.
 \subsection{(a)}
+I use Python in this problem for convenience.
+
 \subsection{(b)}
+Constant term and the coefficient of $z_i$ is consistently estimated in this case and the coefficients of $x_{1it}, x_{2it}$ is biased. This is because the first two components do not correlate with the error term while the last two correlates through $\alpha_i$. I see the coefficients of the last two is positively biased, in other words they are bigger than true value $1$. And this is caused by the positive correlations with error term.
+
 \subsection{(c)}
+This is done in the first table.
+
 \subsection{(d)}
 \subsection{(e)}
 
