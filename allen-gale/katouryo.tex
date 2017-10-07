@@ -58,15 +58,55 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{モデルを解く:家計の行動}
 	\begin{itemize}
-		\item k
+		\item $t = 1$における2期間の最適消費計画のみが決定事項
+		\item 効用関数は$U = \theta {\rm log}(C_1) + (1 - \theta){\rm log}(C_2)$
+		\item この時点での生涯所得は$m = w_1 + D + \frac{w_2}{R}$
+		\item 金融危機の時は強制的に$(C_1, C_2) = (w_1+X, \underline{w})$
+		\item 金融危機が起きない時の計画は、2期間モデルを解いて$(C_1, C_2) = (\theta m, (1-\theta)Rm)$であり、流動性需要は$g = \theta \left( \frac{w_2}{R} + D\right) - (1-\theta)w_1$
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{モデルを解く:企業家の行動}
 	\begin{itemize}
-		\item k
+		\item こいつは何も決定しない
+		\item 消費財から資本財を経てまた消費財を生み出す箱としてみる
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{モデルを解く:銀行の行動$t = 1$}
+	\begin{itemize}
+		\item $t = 1$における企業家の選別と$t = 0$におけるリターン$D$の二つが決定事項
+		\item モデルは$t=1$からバックワードに解く
+		\item $RX = q_2\gamma \omega^*$を満たす資本財生産$\omega^*$を行う企業家に対して廃業と存続が無差別になる
+		\item $\omega < \omega^*$ならば廃業、$\omega^* < \omega$ならば存続
+		\item $\omega$が$[\omega_L, \omega_H]$上に一様に分布すると仮定しaggregateには不確実性がないとすると、流動性供給は$L(\frac{R}{q_2}) = \int_{\omega_L}^{\omega^*}X\mathrm{d}\omega$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{モデルを解く:銀行の行動$t = 2$}
+	\begin{itemize}
+		\item 2節Allen and Galeモデルの帰結より銀行は家計の期待効用を最大化するように動くのがナッシュ均衡なので、以下の問題を解けばいい。
+	\end{itemize}
+	\begin{align*}
+	\scalebox{0.7}{$\displaystyle
+	max_{D} \int_0^{\theta^*}\left\{ \theta{\rm log}(\tilde{C_1})+(1-\theta){\rm log}(\tilde{C_2}) \right\}\mathrm{d}F(\theta) + \int_{\theta^*}^1 \left\{ \theta{\rm log}(w_1+X)+(1-\theta){\rm log}(\underline{w}) \right\}\mathrm{d}F(\theta)
+	$}
+	\end{align*}
+	\begin{align*}
+	\scalebox{0.7}{$\displaystyle
+		\text{where}\ \tilde{C_1} = \theta m,\ \tilde{C_2} = (1-\theta)Rm,\ \theta^* = \frac{L(\frac{R^*}{q_2^*}) + w_1}{w_1 + D + \frac{w_2}{R^*}}
+		$}
+	\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{モデルを解く:銀行の行動$t = 2$}
+	\begin{itemize}
+		\item $\theta^*$はデフォルト限界金利において流動性市場を均衡させる流動性の値
+		\item デフォルト限界金利は銀行のソルベンシー制約を等式で満たす金利、すなわち$A(\cot)$を銀行の$t=1$における総資産の現在価値を示す関数として、$D = A\left( \frac{R^*}{q_2^*} \right)$を満たす$R^*$
+		\item 流動性市場の均衡条件は$g = L\left(\frac{R}{q_2}\right)$
+		\item $(\tilde{C_1}, \tilde{C_2})$は家計の最適行動の帰結（バックワードに解いてるのでこの結果を織り込んで最適な$D$を計算する）
 	\end{itemize}
 \end{frame}
 
