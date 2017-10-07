@@ -3,7 +3,7 @@
 \usepackage{minijs}
 \usepackage{otf}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
-\usetheme{default}
+\usetheme{Antibes}
 \setbeamertemplate{navigation symbols}{}
 \usepackage{url}
 \usepackage{graphicx}
@@ -17,6 +17,12 @@
 
 \frame{\maketitle}
 
+\section*{目次}
+\begin{frame} \frametitle{発表の流れ}
+\tableofcontents
+\end{frame}
+
+\section{introdunction}
 \begin{frame}\frametitle{問題意識}
 	\begin{itemize}
 		\item 銀行はアロー証券の取引が実現できない代わりにある程度のリスクをプールし負債を発行する主体
@@ -26,6 +32,7 @@
 	\end{itemize}
 \end{frame}
 
+\section{model}
 \begin{frame}\frametitle{モデルの概要}
 	\begin{itemize}
 		\item $t = 0,1,2$の3期間
@@ -44,9 +51,9 @@
 
 \begin{frame}\frametitle{$t = 1$}
 	\begin{itemize}
-		\item 家計 : 流動性選好$\theta$を知る。確定している生涯所得$m$に対して、金融危機発生の有無ごとの消費計画を立てる。この時同時に預金引き出し額（流動性需要関数）が決定される。
-		\item 銀行 : 家計の流動性需要に応えるために、貸し出している企業家プロジェクトのうちで、次期にもたらす収益が現段階でプロジェクトを中断して利率$R$で再運用した際の収益を下回るものを中断させ、消費財として家計に払い出す（流動性供給関数）。
-		\item 企業家 : 特に何もしない。銀行から中断と判断された企業家のみここで廃業する。
+		\item 家計 : 流動性選好$\theta$を知る。確定している生涯所得$m$に対して、金融危機の有無ごとに別の消費計画を立てる。この時同時に預金引き出し額（流動性需要関数）が決定される。
+		\item 銀行 : 家計の流動性需要に応えるために、貸し出している企業家プロジェクトのうちで、次期にもたらす収益が、現段階でプロジェクトを中断して得た精算価格$X$を利率$R$で再運用した際の収益を下回るものを中断させ、消費財として家計に払い出す（流動性供給関数）。
+		\item 企業家 : 特に何もしない。銀行から中断と判断された企業家はここで廃業する。
 	\end{itemize}
 \end{frame}
 
@@ -58,13 +65,14 @@
 	\end{itemize}
 \end{frame}
 
+\section{solve}
 \begin{frame}\frametitle{モデルを解く:家計の行動}
 	\begin{itemize}
 		\item $t = 1$における2期間の最適消費計画のみが決定事項
 		\item 効用関数は$U = \theta {\rm log}(C_1) + (1 - \theta){\rm log}(C_2)$
 		\item この時点での生涯所得は$m = w_1 + D + \frac{w_2}{R}$
 		\item 金融危機の時は強制的に$(C_1, C_2) = (w_1+X, \underline{w})$
-		\item 金融危機が起きない時の計画は、2期間モデルを解いて$(C_1, C_2) = (\theta m, (1-\theta)Rm)$であり、流動性需要は$g = \theta \left( \frac{w_2}{R} + D\right) - (1-\theta)w_1$
+		\item 金融危機が起きない時の計画は、2期間モデルを解いて$(C_1, C_2) = (\theta m, (1-\theta)Rm)$であり、流動性需要は$g = \theta \left( \frac{w_2}{R} + D\right) - (1-\theta)w_1$→Appendix
 	\end{itemize}
 \end{frame}
 
@@ -104,7 +112,7 @@
 \begin{frame}\frametitle{モデルを解く:銀行の行動$t = 0$}
 	\begin{itemize}
 		\item $\theta^*$はデフォルト限界金利において流動性市場を均衡させる流動性の値
-		\item デフォルト限界金利は銀行のソルベンシー制約を等式で満たす金利、すなわち$A(\cot)$を銀行の$t=1$における総資産の現在価値を示す関数として、$D = A\left( \frac{R^*}{q_2^*} \right)$を満たす$R^*$
+		\item デフォルト限界金利は銀行のソルベンシー制約を等式で満たす金利、すなわち$A(\cdot)$を銀行の$t=1$における総資産の現在価値を示す関数として、$D = A\left( \frac{R^*}{q_2^*} \right)$を満たす$R^*$
 		\item 流動性市場の均衡条件は$g = L\left(\frac{R}{q_2}\right)$
 		\item $(\tilde{C_1}, \tilde{C_2})$は家計の最適行動の帰結（バックワードに解いてるのでこの結果を織り込んで最適な$D$を計算する）
 	\end{itemize}
@@ -117,24 +125,26 @@
 	\end{itemize}
 \end{frame}
 
+\section{implications}
 \begin{frame}\frametitle{モデルの帰結$1$}
 	\begin{itemize}
-		\item 以下で$LF$は資産財価格$q_2$を所与とした時の値を意味する
-		\item $\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{LF} < 0$
+		\item 以下で$LF$は資産財価格$q_2$を所与とした時の値を、$SP$は資産財価格$q_2$の変動を認識できる主体が行動する時の値を意味する
+		\item $\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{LF} < 0$→Appendix
+		\item $\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{LF}$をマージナルソルベンシーと呼ぶ
 		\item $D$をあげるとより低い金利でもデフォルトするようになる
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{モデルの帰結$2$}
 	\begin{itemize}
-		\item $\frac{\mathrm{d}\theta^*}{\mathrm{d}D}|_{LF} < 0$
+		\item $\frac{\mathrm{d}\theta^*}{\mathrm{d}D}|_{LF} < 0$→Appendix
 		\item $D$をあげるとより低い流動性選好でもデフォルトするようになる
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{モデルの帰結$3$}
 	\begin{itemize}
-		\item (39)
+		\item (39)→Appendix
 		\item 銀行はデフォルトのリスクと高いリターンを得ることのトレードオフを認識した上で最適な$D$を決定している
 	\end{itemize}
 \end{frame}
@@ -142,21 +152,22 @@
 \begin{frame}\frametitle{PE}
 	\begin{itemize}
 		\item 以上のモデルでは$t=2$における資本財市場が競争的で$q_2$が所与であるとした
-		\item しかし財市場の均衡も同時に考えることのできる社会型各社が銀行業を営むと$\frac{q_2^*}{D} \neq 0$である
-		\item この時のマージナルソルベンシーを$\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{SP}$で書く
-		\item モデルの帰結は絶対値の意味で常に$\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{SP} > \frac{\mathrm{d}R^*}{\mathrm{d}D}|_{LF}$となること
+		\item しかし財市場の均衡も同時に考えることのできる社会計画者が銀行業を営むと$\frac{q_2^*}{D} \neq 0$である
+		\item この時のマージナルソルベンシーを$\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{SP}$と書く
+		\item モデルの帰結は絶対値の意味で常に$\frac{\mathrm{d}R^*}{\mathrm{d}D}|_{SP} > \frac{\mathrm{d}R^*}{\mathrm{d}D}|_{LF}$となること（証明略）
 		\item すなわち銀行は上記のモデル内でマージナルソルベンシーを過小評価しており、これが$D$上昇の限界費用を過小評価することにつながっている
-		\item 結果として$D$は過剰に大きくされデフォルトが頻発することになる
+		\item 結果として$D$は過剰に大きく設定されデフォルトが頻発することになる
 	\end{itemize}
 \end{frame}
 
+\section{conclusion}
 \begin{frame}\frametitle{結語}
 	\begin{itemize}
 		\item マクロ理論は金融危機のような頻度の低い現象を扱ってこなかったのは事実
 		\item 主眼は景気変動や雇用、インフレだった
 		\item 金融工学もシステミックリスクを扱ってこなかったのは事実
 		\item 主眼は確率過程を外生的に与えた時のアセットプライシングだった
-		\item 金融危機後、それ自体を研究対象とするムーブメントがあるからみんな乗り遅れないようにね！
+		\item 金融危機後、それ自体を研究対象とするムーブメントが様々な領域で生まれてるからみんな乗り遅れないようにね！
 	\end{itemize}
 \end{frame}
 \end{document}
