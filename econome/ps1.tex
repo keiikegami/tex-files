@@ -87,7 +87,11 @@ Now we have the ideal result.
 \subsection{(e)}
 \begin{description}
 	\item[(1)] We have no evidence for the accuracy of approximation outside the support.
-	\item[(2)] 
+	\item[(2)] I assume there are infinite data in both of cases. Taylor expansion of $E[y | x_1, x_2]$ around $(x_1 = x, x_2 = x)$ is as follows.
+	\begin{align*}
+		E[y | x_1^*, x_2^*] \approx E[y | x_1 = x, x_2 = x] + (x_1^* - x) \left. \frac{\partial}{\partial x_1} E[y | x_1, x_2] \right|_{x_1 = x_2 = x} + (x_2^* - x)\left. \frac{\partial}{\partial x_2} E[y | x_1, x_2] \right|_{x_1 = x_2 = x} 
+	\end{align*}
+	I omit the error term. Now we know the OLS estimator provides the best linear approximation of the conditional expectation, i.e. $E[y | x_1, x_2]$. So the first derivative terms in the above approximation can be seen replaced with each coefficients resulted from OLS in the prediction. And we need the derivative value just around $x_1 = x_2 = x$ if we want to see the behavior of $E[y | x_1, x_2]$ near $x_1 = x_2$. When we use the data only around $x_1 = x_2$, the derived coefficients are fitted for the data restricted around $x_1 = x_2$. On the other hand, when we use the data distributed overall, the ones have to be fitted for the data far away from $x_1 = x_2$. This means the approximation to $\left. \frac{\partial}{\partial x_1} E[y | x_1, x_2] \right|_{x_1 = x_2 = x}$ and $\left. \frac{\partial}{\partial x_2} E[y | x_1, x_2] \right|_{x_1 = x_2 = x}$ by OLS estimators is better in the second case than in the first case. If we want to know the data behavior away from $x_1 = x_2$, this is not true, because the data support of the second case is just around $x_1 = x_2$ and then the case have no knowledge about the data away from the 45 line, which are outside the support. Thus in this case the first data set provides the better approximation.
 \end{description}
 
 \section{Problem 2}
