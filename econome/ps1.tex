@@ -132,10 +132,23 @@ Constant term and the coefficient of $z_i$ is consistently estimated in this cas
 This is done in the first table.
 
 \subsection{(d)}
-In this regression, while the estimate of the coefficient of $x_{1it}$ seems to be correct, the coefficient of $x_{2it}$ is positively biased and furthermore has a large standard error as in the first table.
+In this regression, while the estimate of the coefficient of $x_{1it}$ seems to be correct, the coefficient of $x_{2it}$ is positively biased and furthermore has a large standard error as in the first table. I explain this.
+
+In the original data, $y_{it} = 1 + x_{1it} + x_{2it} + z_i + \alpha_i + \nu_{it} = y_{it} = 1 + \left( \alpha_i + u_{1it} \right) + \left( \alpha_i + u_{2it} \right) + z_i + \alpha_i + \nu_{it}$. And in this problem, $y_{it} = 1 + \left( \alpha_i + u_{1it} \right) + \left( \alpha_i + 0.1 u_{2it} \right) + z_i + \alpha_i + \nu_{it}$. Remember the fixed effect estimator is the same as the within estimator, which is given by the regression using each observation's gap from each individual mean . Then I have the variance of the estimator as in the below form, when $\beta_k^l$ denotes the estimated coefficient of $x_{kit}$ in data $l\ \in \left\{ c, d\right\}$.
+\begin{align*}
+	&Var\left( \beta_2^c \right) = \frac{\sigma^2}{\sum_i (u_{2it} - \bar{u_{2i}})^2}\\
+	&Var\left( \beta_2^d \right) = \frac{100\sigma^2}{\sum_i (u_{2it} - \bar{u_{2i}})^2}
+\end{align*}
+where $\sigma^2 = Var(\nu_{it} - \bar{\nu_i})$. $100$ in the second one is from $0.1 u_{2it}$. This reveals the standard deviation in the data $d$ is ten times larger than one in the data $c$. And this is true as you see in the first table.
 
 \subsection{(e)}
-think
+There is an estimated constant in STATA result as in the first table, but this is just for convenience and calculated as the mean of individual effect. Constant term and the coefficients of variables which take the same value for each individual cannot be estimated by FE estimator, because the effect of such variables to the dependent variable cannot be separated by the individual effects. This is clear as you see in the below within regression, which produces the same result of FE estimator.
+\begin{align*}
+	(y_{it} - \bar{y_i}) = \beta_1 (u_{1it} - \bar{u_{1i}}) + \beta_2 (u_{2it} - \bar{u_2i}) + (\nu_{it} - \bar{\nu_i})
+\end{align*}
+
+Constant term and $z_i$ is not in the above regression, so it is natural that you cannot obtain the estimated coefficients of them.
+
 
 \section{Problem 4}
 \subsection{(a)}
@@ -204,9 +217,13 @@ In this case, $\Sigma = \left( \begin{array}{ccc} \sigma_{11}&\cdots&\sigma_{1T}
 Then,
 \begin{align*}
 	My &= y - \frac{1}{T}\left( I_N \otimes \iota_T\iota_T^{'}\right)y\\[8pt]
-	&= y - \left(\begin{array}{cc} \overline{y_1}\\ \vdots \\ \overline{y_N} \end{array}\right) \otimes \iota_T
 \end{align*}
-This is the result.
+Now I focus on the first $T$×$T$ elements in $I_N \otimes \iota_T\iota_T^{'}$, which is $\iota_T\iota_T^{'}$. When the first $T$ elements in
+$y$ is denoted as $y_1$, the below equation holds.
+\begin{align*}
+	y_1 - \frac{1}{T} \left( \iota_T\iota_T^{'}\right) y_1 = y_1 - \frac{1}{T} \iota_T \left( \iota_T^{'} y_1 \right) = y_1 - \bar{y_1} \iota_T
+\end{align*}
+This is true for all individuals, i.e. $\forall i\ \in\ \left\{ 1,2,\cdots,N \right\}$. So we are done.
 
 \end{document}
 
