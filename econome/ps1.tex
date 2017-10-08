@@ -68,10 +68,27 @@ The second term in the first line vanishes since $E[(y - E[y])(E[y|x] -a-x^{'}b)
 In the real econometric analysis, the relationship $E[\epsilon x] = 0$ is just an assumption. And that the correlation between the regressor and the error is zero needs the situation where all relevant variables are in the regression model, but this is unrealistic because certainly many unobservable variables exist. We can use IV for solving such a situation and get the consistent estimator of the coefficient of interesting variables.
 
 \subsection{(d)}
-(b) says that the predicted value by using OLS estimator is the best linear approximate of the conditional mean of the dependent variable even if the form is not linear among the support, when we use squared loss function. This clearly argue the statement.
+(b) says that the population regression function is the best linear approximate of the conditional mean of the dependent variable even if the form is not linear among the support, when we use squared loss function. So we have to show the OLS estimator consistently estimates the coefficients.  Let $\beta_{OLS}$ be the OLS estimator of the constant and coefficients.
+\begin{align*}
+	\beta_{OLS} = \left( {\bf X}^{'}{\bf X} \right)^{-1}{\rm X}^{'} {\rm y}
+\end{align*}
+where ${\bf X} = (x_1, \cdots, x_n)^{'},\ {\rm y} = (y_1, \cdots, y_n)^{'}$. So this is the sample analogue of $E\left[ X_i X_i^{'} \right]^{-1}E\left[ X_i y_i \right]$. By LLN, we can estimate consistently this coefficients. So the remain is to prove the equality between $E\left[ X_i X_i^{'} \right]^{-1}E\left[ X_i y_i \right]$ and $\left(\begin{array}{cc} E[y] - E[x^{'}]\beta\\ \Sigma^{-1}\delta \end{array}\right)$. Note that $x_i$ contains $1$ whose coefficient is the constant term, while $x$ contains only variables.
+
+We show $E\left[ X_i y_i \right] = E\left[ X_i X_i^{'} \right] \left(\begin{array}{cc} E[y] - E[x^{'}]\beta\\ \Sigma^{-1}\delta \end{array}\right)$.
+
+\begin{align*}
+	E\left[ X_i X_i^{'} \right] \left(\begin{array}{cc} E[y] - E[x^{'}]\beta\\ \Sigma^{-1}\delta \end{array}\right) &= \left(\begin{array}{cc} 1 & E[x^{'}] \\ E[x] & \Sigma + E[x]E[x^{'}] \end{array}\right)  \left(\begin{array}{cc} E[y] - E[x^{'}]\beta \\ \Sigma^{-1}\delta \end{array}\right)\\[8pt]
+	&=  \left(\begin{array}{cc} E[y - E[x^{'}]]\beta + E[x^{'}]\beta \\[6pt] E[x](E[y] - E[x^{'}]\beta) + (\Sigma + E[x]E[x^{'}])\beta \end{array}\right)\\[8pt]
+	&=  \left(\begin{array}{cc} E[y] \\ E[y]E[x] + \delta \end{array}\right)\\[8pt]
+	&=  \left(\begin{array}{cc} E[y_i] \\ E[x_{i1}, y_i] \\ \vdots \\ E[x_{ik}y_i] \end{array}\right)
+\end{align*}
+Now we have the ideal result.
 
 \subsection{(e)}
-houti
+\begin{description}
+	\item[(1)] We have no evidence for the accuracy of approximation outside the support.
+	\item[(2)] 
+\end{description}
 
 \section{Problem 2}
 \subsection{(a)}
