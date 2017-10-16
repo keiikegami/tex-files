@@ -135,7 +135,7 @@ p_0 + p_1 \leq \frac{1}{2}\\[7pt]
 \end{align}
 \end{itembox}
 これはすなわち、守り手が$(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$という戦略を取る限り、宣言数について条件付けた指の上げる数の混合戦略はどのようなものにしても最適反応となるということを意味している。また、この均衡において攻め手は自身の宣言数（タイプ）に依存した戦略をとらなくても最適反応であることにも注意が必要である。この事実より、モデル3においてモデルが予測する均衡は、
-\begin{itembox}[l]{モデル3の均衡}
+\begin{itembox}[l]{モデル3の帰結}
 \begin{align}
 \begin{cases}(r_0^*, r_1^*, r_2^*) = (\frac{1}{3}, \frac{1}{3}, \frac{1}{3}) \\[7pt]
 (p_0^*, p_1^*) \in \left\{ (p_0, p_1) \mid 0 \leq p_0 + p_1 \leq \frac{1}{2}, 0 \leq p_0, 0 \leq p_1 \right\}\\[7pt]
@@ -147,6 +147,25 @@ p_0 + p_1 \leq \frac{1}{2}\\[7pt]
 
 
 \subsection{モデル4}
+ここでもモデル3と同様に、まず宣言についての確率分布を固定してベイジアンナッシュ均衡を計算する。モデル3と同様の対称性の過程を置いた時に以下の4つがベイジアンナッシュ均衡として得られる。ただし$q$は守り手の指が上がる確率であり、$a,b$に関してはモデル3と同様である。
+\begin{itembox}[l]{モデル4の均衡}
+\begin{align}
+&(q, a, b) = \left(\frac{1}{2},\ 1,\ 0\right)\\[7pt]
+&(q, a, b) = \left(\frac{3 - \sqrt{3}}{6},\ 0,\ \frac{1}{4} - \frac{1}{4}\left( \frac{1-p_2}{p_2} \right) \right)\\[7pt]
+&(q, a, b) = \left( \frac{1}{3},\ 1 + \frac{6p_0 - 2}{6p_1},\ 0 \right)\\[7pt]
+&(q, a, b) = \left( \frac{3 + \sqrt{3}}{6},\ 1,\ \frac{1 - 3p_0}{3p_2} \right)
+\end{align}
+\end{itembox}
+ただし均衡$(8)$を除いて$(p_0, p_1)$の値に依存して均衡の存在する範囲が決まっていることに注意する。この範囲に注意しながら、モデル2の時と同様に、守り手が攻め手の勝利確率を最小化していると攻め手が想定した時に、最小化された勝利確率を最大化するように宣言の確率分布を決定することでこのモデルの帰結を得るとする。これによって導かれるモデルの帰結は以下である。
+\begin{itembox}[l]{モデル4の帰結}
+\begin{align}
+\begin{cases}
+&(p_0, p_1) \in \left\{ (p_0, p_1) \mid \frac{1}{4} \leq p_0 \leq \frac{1}{3}, \frac{1}{3} -p_0 \leq p_1 \leq \frac{1}{2} - p_0 \right\}\\[6pt]
+&(q, a, b) = \left( \frac{1}{3},\ 1 + \frac{6p_0 - 2}{6p_1},\ 0 \right)
+\end{cases}
+\end{align}
+\end{itembox}
+
 
 \end{document}
 
