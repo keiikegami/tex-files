@@ -7,6 +7,9 @@
 \setbeamertemplate{navigation symbols}{}
 \usepackage{url}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{ascmac}
 
 
 \title{Understanding Financial Crises\\Ch3 : Intermediation and Crises 前半}
@@ -79,12 +82,30 @@
 \end{frame}
 
 \subsection{Efficient solution}
-\begin{frame}\frametitle{Social planner : 覆水ないのが一番だよね}
+\begin{frame}\frametitle{Social planner : \small 覆水しそうなやつは水少なめにしといたから}
 	\begin{itemize}
-		\item
+		\item 今までとはモデルの解釈が違うので注意
+		\item こいつにとってポートフォリオ$(x, y)$は社会全体で購入されるlongとshortの総量
+		\item 1期の消費は$c_1$ずつ割合$\lambda$人が消費するので、消費総量は$\lambda c_1$
+		\item 2期の消費は$c_2$ずつ割合$1-\lambda$人が消費するので、消費総量は$(1 - \lambda)c_2$
+		\item 各期で消費量が財の供給量を上まらわないように$\lambda c_1 \leq y, (1 - \lambda)c_2 \leq Rx + (y - \lambda c_1)$
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Contingent market}
+\begin{frame}\frametitle{Social planner}
+	目的関数は社会全体の期待効用の最大化（結果的に個人についての最適化と同じになる）。先の制約を合わせて社会計画者は以下の問題を解く。
+	\begin{itembox}[l]{社会計画者の問題}
+	\begin{align*}
+		&\max_{c_1, c_2} \lambda U(c_1) + (1 - \lambda) U(c_2) \\
+		&\text{s.t.}\
+    		\begin{cases}
+                		x + y = 1 \\
+                		\lambda c_1 \leq y \\
+                		\lambda c_1 + (1-\lambda)c_2 \leq Rx + y
+    		\end{cases}
+	\end{align*}
+	\end{itembox}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
 	\begin{itemize}
 		\item
 	\end{itemize}
