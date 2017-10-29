@@ -1,0 +1,138 @@
+\documentclass[dvipdfmx, 12pt]{beamer}
+\usepackage{pxjahyper}
+\usepackage{minijs}
+\usepackage{otf}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme{Antibes}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{url}
+\usepackage{graphicx}
+
+
+\title{Understanding Financial Crises\\Ch3 : Intermediation and Crises 前半}
+\author{Kei Ikegami}
+
+\begin{document}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+\frame{\maketitle}
+
+\section*{目次}
+\begin{frame} \frametitle{発表の流れ}
+\tableofcontents
+\end{frame}
+
+\section{introduction}
+\begin{frame}\frametitle{なにするの？}
+	\begin{itemize}
+		\item 3章前半は2章でも用いたアイデアに基づいて銀行のモデル化をする。
+		\item Bryant (1980), Diamond and Dybvig (1983)に依拠する。
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{問題の所在：流動性問題}
+	\begin{itemize}
+		\item 辛抱する木に金がなる
+		\item 覆水盆に返らず
+	\end{itemize}
+\end{frame}
+
+
+\section{Agents}
+\subsection{Market equilibirum}
+\begin{frame}\frametitle{基本モデル}
+	\begin{itemize}
+		\item $t = 0,1,2$の3期間
+		\item liquid asset (short)は今の財1単位を次期の財1単位に変換
+		\item illiquid asset (long)は今の財1単位を2期後の財$R$単位に変換（$R > 1$）
+		\item agentは$t = 0$で所与の財1単位から上記二つのassetからポートフォリオ$(y, x)$を構成
+		\item agentのタイプはearly($t = 1$で消費)とlate($t = 2$で消費)の二つで、$t = 1$に判明する
+		\item earlyとlateは割合$(\lambda, 1 - \lambda)$で、これは個人が各タイプになる確率と等しい
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Autarky : 覆水盆に返らない}
+	\begin{itemize}
+		\item Ch2で扱った状況
+		\item $(c_1, c_2) = (y, y + R(1 - y)), \text{where}\ 0 \leq y \leq 1$
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Market equilibrium : 覆水盆に返る}
+	\begin{itemize}
+		\item $t = 0$でt余分に買ってしまったlongやshortを売買できる市場が$t = 1$に開かれているケース
+		\item 完全市場を想定（価格$p$でいくらでも売買できる）
+		\item $c_1 = y + px$
+		\item $c_2 = (x + \frac{y}{p})R$
+		\item 均衡では$p = 1$なので$(c_1, c_2) = (1, R)$を得る。
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{なんで$p = 1$？}
+	\begin{description}
+		\item[$p > 1$] $t = 0$でshort買うよりもlongを買って$t = 1$で売る方が儲かる。ゆえに誰もshortを買わず、$t = 1$の市場では誰もlongを欲しがらないため$p = 0$となり矛盾
+		\item[$p < 1$] $t = 0$でshort買って$t = 1$で市場を通してlongを得た方が$t = 0$でlong買うよりもいい。なので$t = 0$で誰もlongを買わず、$t = 1$の市場でlongの供給が行われない。$p = R$ならばグロスのリターンが$1$となり売買が起こるが$R > 1$なので矛盾
+	\end{description}
+\end{frame}
+\begin{frame}\frametitle{Autarky $\prec$ Market, しかし…}
+	\begin{itemize}
+		\item Fig 3.1.より、Marketが存在する時の消費計画はAutarkyの時よりも期待効用を大きくする（右上にあるので）
+		\item しかしMarket equilibriumは"inefficient"
+		\item ここで"inefficient"は、「各人のtypeも含め全ての情報を持つ社会計画者によって達成される期待効用の水準以下の水準しか達成できない」ことを意味
+	\end{itemize}
+\end{frame}
+
+\subsection{Efficient solution}
+\begin{frame}\frametitle{Social planner : 覆水ないのが一番だよね}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Contingent market}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
+
+
+\section{Banks}
+\begin{frame}\frametitle{Incentive compativility}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Bank solution}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
