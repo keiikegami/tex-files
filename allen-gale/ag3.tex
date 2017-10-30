@@ -34,7 +34,6 @@
 \end{frame}
 \begin{frame}\frametitle{問題の所在：流動性問題}
 	\begin{itemize}
-		\item 辛抱する木に金がなる
 		\item 覆水盆に返らず
 	\end{itemize}
 \end{frame}
@@ -91,7 +90,7 @@
 		\item 各期で消費量が財の供給量を上まらわないように$\lambda c_1 \leq y, (1 - \lambda)c_2 \leq Rx + (y - \lambda c_1)$
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Social planner}
+\begin{frame}\frametitle{Social planner : \small 覆水しそうなやつは水少なめにしといたから}
 	目的関数は社会全体の期待効用の最大化（結果的に個人についての最適化と同じになる）。先の制約を合わせて社会計画者は以下の問題を解く。
 	\begin{itembox}[l]{社会計画者の問題}
 	\begin{align*}
@@ -105,19 +104,75 @@
 	\end{align*}
 	\end{itembox}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Social planner : \small 覆水しそうなやつは水少なめにしといたから}
 	\begin{itemize}
-		\item
+		\item 解は$(c_1, c_2) = (\frac{y}{\lambda}, \frac{R(1 - y)}{1 - \lambda})$
+		\item お絵描きすると特殊な場合を除いてmarket equilibriumがこの問題の解とならないことがわかる（板書）
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Social planner : \small 覆水しそうなやつは水少なめにしといたから}
 	\begin{itemize}
-		\item
+		\item $c_1 > 1$となる状況をliquidity insuranceと呼ぶ
+		\item これは消費量の少ないearlyになるのが嫌すぎて、たとえearlyになってもちょっと多めに消費を行えるようにlateになった時の消費量を犠牲にすることを意味
+		\item liquidity insuranceが発生する必要十分条件は$U^{'}(1) > R U^{'}(R)$
+		\item 十分条件は$\eta(c) = -\frac{cU^{''}(c)}{U^{'}(c)} > 1\ \forall c$
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+	\begin{itemize}
+		\item 社会計画者が存在する時の効率的な資源配分は、$t = 0$で$t = 1$で判明したタイプごとに各期の消費量を保証してくれる権利を売買する市場が存在すれば市場に任せても実現できる
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+	\begin{itemize}
+		\item 確率$\lambda$で1期に$c_1$だけ欲しがる
+		\item ということは1期に欲しがる期待消費は$\lambda c_1$
+		\item 1期に1単位の消費を保証する権利の$t = 0$における市場での価格は$q_1$
+		\item 以上より$c_1$の$t = 0$における現在価値は$q_1 \lambda c_1$
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+	\begin{itemize}
+		\item 確率$(1 -\lambda)$で2期に$c_2$を欲しがる
+		\item ということは2期に欲しがる期待消費は$(1 - \lambda) c_2$
+		\item $t = 1$の市場ではlongを価格$P$で買える。これが2期には$R$となるので、1期から2期にかけてのグロスのリターンは$\frac{R}{P}$
+		\item よって、$t = 1$における価値は$\frac{(1 - \lambda) c_2}{\frac{R}{P}} = \frac{P}{R} (1 - \lambda) c_2 = s (1 - \lambda) c_2$
+		\item 2期に1単位の消費を保証する権利の$t = 0$における市場での価格は$q_2$
+		\item 以上より$c_2$の$t = 0$における現在価値は$q_2 s(1 - \lambda) c_2$
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+	\begin{itemize}
+		\item $t = 0$においては所与の財1単位しか持ってない
+		\item 以上より権利市場での買い物は$q_1 \lambda c_1 + q_2 s(1 - \lambda) c_2 \leq 1$を満たす
+	\end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+	目的関数は個人の期待効用。先の制約の中で効用最大化を行うので、agentの問題は以下のようにかける。
+	\begin{itembox}[l]{Contingent marketにおけるagentの問題}
+	\begin{align*}
+		&\max_{c_1, c_2} \lambda U(c_1) + (1 - \lambda) U(c_2) \\
+		&\text{s.t.}\
+    		q_1 \lambda c_1 + q_2 s(1 - \lambda) c_2 \leq 1
+	\end{align*}
+	\end{itembox}
+\end{frame}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+	\begin{itemize}
+		\item FOCは$\frac{U^{'}(c_1)}{U^{'}(c_2)} = \frac{q_1}{q_2 s}$
+		\item $t = 0$でassetに投資したほうが儲かる、またはcontingent claimをしたほうが儲かるという状況が起こらないような条件を考えると、$q_1 = 1, q_2 s = \frac{1}{R}$
+		\item したがってFOCは$U^{'}(c_1) = R U^{'}(c_2)$と書き直せる
+		\item これは社会計画者のいる時と同じリスクシェアリングが起こることを意味
 	\end{itemize}
 \end{frame}
 
 
 \section{Banks}
+\begin{frame}\frametitle{銀行の役目}
+	\begin{itemize}
+		\item
+	\end{itemize}
+\end{frame}
 \begin{frame}\frametitle{Incentive compativility}
 	\begin{itemize}
 		\item
