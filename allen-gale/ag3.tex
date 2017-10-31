@@ -10,6 +10,7 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{ascmac}
+\setbeamertemplate{footline}[frame number] 
 
 
 \title{Understanding Financial Crises\\Ch3 : Intermediation and Crises 前半}
@@ -32,9 +33,11 @@
 		\item Bryant (1980), Diamond and Dybvig (1983)に依拠する。
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{問題の所在：流動性問題}
+\begin{frame}\frametitle{問題の所在：覆水盆に返らず}
 	\begin{itemize}
-		\item 覆水盆に返らず
+		\item 自分が早く消費したい人なのか、まだ消費したくない人なのかがわからないうちにポートフォリオを決定しなくてはならない
+		\item 早めに消費したくなった時のための投資分は、後から見ればより収益の大きな長期の資産に投じていればよかったなぁって思う
+		\item この時に人がどう動くかを見るよ
 	\end{itemize}
 \end{frame}
 
@@ -106,7 +109,7 @@
 \end{frame}
 \begin{frame}\frametitle{Social planner : \small 覆水しそうなやつは水少なめにしといたから}
 	\begin{itemize}
-		\item 解は$(c_1, c_2) = (\frac{y}{\lambda}, \frac{R(1 - y)}{1 - \lambda})$
+		\item $\lambda c_1 < y$では効用最大化できないことを考えると、解は$(c_1, c_2) = (\frac{y}{\lambda}, \frac{R(1 - y)}{1 - \lambda})$
 		\item お絵描きすると特殊な場合を除いてmarket equilibriumがこの問題の解とならないことがわかる（板書）
 	\end{itemize}
 \end{frame}
@@ -118,20 +121,21 @@
 		\item 十分条件は$\eta(c) = -\frac{cU^{''}(c)}{U^{'}(c)} > 1\ \forall c$
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで調整するわ}
 	\begin{itemize}
-		\item 社会計画者が存在する時の効率的な資源配分は、$t = 0$で$t = 1$で判明したタイプごとに各期の消費量を保証してくれる権利を売買する市場が存在すれば市場に任せても実現できる
+		\item 社会計画者が存在する時の効率的な資源配分は、$t = 1$で判明したタイプごとに各期の消費量を保証してくれる権利を売買する市場が$t = 0$に存在すれば放任して市場に任せても実現できる
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで調整するわ}
 	\begin{itemize}
+		\item $t = 0$における予算制約を与えるために以下を考える
 		\item 確率$\lambda$で1期に$c_1$だけ欲しがる
 		\item ということは1期に欲しがる期待消費は$\lambda c_1$
 		\item 1期に1単位の消費を保証する権利の$t = 0$における市場での価格は$q_1$
 		\item 以上より$c_1$の$t = 0$における現在価値は$q_1 \lambda c_1$
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで調整するわ}
 	\begin{itemize}
 		\item 確率$(1 -\lambda)$で2期に$c_2$を欲しがる
 		\item ということは2期に欲しがる期待消費は$(1 - \lambda) c_2$
@@ -141,13 +145,13 @@
 		\item 以上より$c_2$の$t = 0$における現在価値は$q_2 s(1 - \lambda) c_2$
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで調整するわ}
 	\begin{itemize}
 		\item $t = 0$においては所与の財1単位しか持ってない
 		\item 以上より権利市場での買い物は$q_1 \lambda c_1 + q_2 s(1 - \lambda) c_2 \leq 1$を満たす
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで調整するわ}
 	目的関数は個人の期待効用。先の制約の中で効用最大化を行うので、agentの問題は以下のようにかける。
 	\begin{itembox}[l]{Contingent marketにおけるagentの問題}
 	\begin{align*}
@@ -157,10 +161,10 @@
 	\end{align*}
 	\end{itembox}
 \end{frame}
-\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで水注ぎ直すよ}
+\begin{frame}\frametitle{Contingent market : \small 器さえ持ってればあとで調整するわ}
 	\begin{itemize}
 		\item FOCは$\frac{U^{'}(c_1)}{U^{'}(c_2)} = \frac{q_1}{q_2 s}$
-		\item $t = 0$でassetに投資したほうが儲かる、またはcontingent claimをしたほうが儲かるという状況が起こらないような条件を考えると、$q_1 = 1, q_2 s = \frac{1}{R}$
+		\item $t = 0$でassetに投資したほうが儲かる、またはcontingent claimをしたほうが儲かるという状況が起こらないような条件(no-arbitrage condition)を考えると、$q_1 = 1, q_2 s = \frac{1}{R}$
 		\item したがってFOCは$U^{'}(c_1) = R U^{'}(c_2)$と書き直せる
 		\item これは社会計画者のいる時と同じリスクシェアリングが起こることを意味
 	\end{itemize}
@@ -168,24 +172,38 @@
 
 
 \section{Banks}
-\begin{frame}\frametitle{銀行の役目}
+\begin{frame}\frametitle{銀行の行動}
 	\begin{itemize}
-		\item
+		\item 銀行が存在した時にも同じく効率的な資源配分が達成できることを示す
+		\item $t = 0$に銀行はagentに対して以下の契約をオファーする
+	\end{itemize}
+	\begin{itembox}[l]{銀行のオファー}
+	財1単位を俺に預けてくれ。そしたらお前に$t = 1$で$c_1$、$t = 2$で$c_2$のどちらか一回だけ引き出せる権利をくれてやる。
+	\end{itembox}
+\end{frame}
+\begin{frame}\frametitle{銀行の行動}
+	\begin{itemize}
+		\item depositorの期待利得を最大化する銀行が全ての顧客を獲得する
+		\item 銀行が完全な競争状態にあれば全銀行は顧客の期待効用最大化の結果でオファーを決める
+		\item 銀行が直面する制約は社会計画者と同じく、$x + y \leq 1,\ \lambda c_1 \leq y,\ (1 - \lambda)c_2 \leq R x$の3つ
+		\item よって銀行は社会計画者と同じ問題を解く
+		\item 違いは銀行がagentのタイプまでを考慮に入れてオファーができないという点（typeはprivate information）
 	\end{itemize}
 \end{frame}
 \begin{frame}\frametitle{Incentive compativility}
 	\begin{itemize}
-		\item
+		\item earlyがearlyとしての行動（$t = 1$に$c_1$を引き出す）を取り、lateがlateとしての行動（$t = 2$に$c_2$を引き出す）を取るような消費計画$(c_1, c_2)$を誘引両立性を持つという
+		\item 社会計画者の問題におけるFOCは$U^{'}(c_1) = R U^{'}(c_2)$
+		\item $R > 1,\ U^{''}(\cdot) < 0$より解として得られる消費計画のオファーは$c_1 \leq c_2$を満たす
 	\end{itemize}
 \end{frame}
-\begin{frame}\frametitle{Bank solution}
+\begin{frame}\frametitle{Incentive compativility}
 	\begin{itemize}
-		\item
-	\end{itemize}
-\end{frame}
-\begin{frame}\frametitle{}
-	\begin{itemize}
-		\item
+		\item earlyがlateであると嘘をつくメリットは明らかにない
+		\item lateがearlyであると嘘をつきたいのは、$t = 1$で$c_1$を引き出してshortで運用し$t = 2$に消費する方が$t = 2$で$c_2$を引き出して消費するよりもたくさん消費できる時
+		\item $c_1 \leq c_2$よりこれは起こりえない
+		\item よって銀行がオファーするdeposit計画は誘引両立性を持つ
+		\item 銀行は社会計画者が達成できる効率的な資源配分を達成できる
 	\end{itemize}
 \end{frame}
 
