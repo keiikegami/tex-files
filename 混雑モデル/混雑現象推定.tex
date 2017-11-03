@@ -134,6 +134,26 @@ $d_i$のサポートが有限区間であると仮定すると、$F^{-1}\left(1 
 \end{align*}
 を得る。
 
+$x$の分布を求める。先の議論より$e \xrightarrow[]{p} \frac{1}{2}$である。中心極限定理から、$\sqrt{N}(2e - 1) \xrightarrow[]{d} N(0, {\rm Var}(2e))$なので、$x = N(2e - 1) \xrightarrow[]{d} N(0, 4N{\rm Var}(e))$である。ここで、
+\begin{align*}
+	{\rm Var}(e) &= E[e^2] - E[e]^2 = E\left[ E\left[ \frac{1}{N^2} \left( N - \# \left\{ d_i > \alpha N (2e-1) \right\} \right)^2 \mid e \right] \right] - E[e]^2
+\end{align*}
+ここで、$N - \# \left\{ d_i > \alpha N (2e-1) \right\} \sim Bin(N, F(\alpha N (2e-1)))$であり、$b = N - \# \left\{ d_i > \alpha N (2e-1) \right\}$とすると、
+\begin{align*}
+	E[e^2] &= E\left[ \frac{1}{N^2} \left( {\rm Var}(b \mid e) + E[b \mid e]^2 \right) \right]\\[8pt]
+	&= E\left[ \frac{F(\alpha N (2e-1)) (1 - F(\alpha N (2e-1)))}{N} + F(\alpha N (2e-1))^2 \right]
+\end{align*}
+以上より
+\begin{align*}
+	4N{\rm Var}(e) =\ &4E\left[F(\alpha N (2e-1)) (1 - F(\alpha N (2e-1)))\right] + \left\{ 4E\left[ F(\alpha N (2e-1))^2 \right]- 1\right\}N\\[8pt]
+	& - \frac{2F^{-1}\left( 1 - \int_0^1 G(z) \mathrm{d}z \right)}{\alpha} - \frac{F^{-1}\left( 1 - \int_0^1 G(z) \mathrm{d}z \right)}{\alpha N}
+\end{align*}
+これの極限をとると、
+\begin{align*}
+	\lim_{N \to \infty} 4N{\rm Var}(e) = &\lim_{N \to \infty} 4E\left[F(\alpha N (2e-1)) (1 - F(\alpha N (2e-1)))\right]\\[8pt]
+	 + &\lim_{N \to \infty} \left\{ 4E\left[ F(\alpha N (2e-1))^2 \right]- 1\right\}N\\[8pt]
+	  - &\frac{2F^{-1}\left( 1 - \int_0^1 G(z) \mathrm{d}z \right)}{\alpha}
+\end{align*}
 
 \section{シミュレーションデータでの推定}
 
