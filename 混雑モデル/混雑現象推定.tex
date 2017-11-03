@@ -84,6 +84,7 @@ $p_k^i$で、プレイヤー$i$が電車$k$に対して持つ選択傾向を表�
 をを満たすことがわかる。つまり$N \Phi \left(\frac{\alpha}{\sigma}(2 E - N)\right)$であり、ここで$e^* = \frac{E^*}{N}$すると$e^* = \Phi \left(\frac{\alpha}{\sigma}N(2e^* - 1) \right)$を均衡の$e^*$は満たすことになる。
 
 \subsection{推定}
+\subsubsection{正規性の仮定の下で考える}
 今、$v = e - \Phi \left(\frac{\alpha}{\sigma}N(2e - 1) \right)$とおくと、$\alpha < 0$であるという想定の下では、
 \begin{align*}
 	\frac{\partial v}{\partial e} = 1 - \frac{2\alpha N}{\sigma}\phi \left( \frac{\alpha}{\sigma}N(2e - 1) \right) > 1
@@ -102,6 +103,36 @@ $p_k^i$で、プレイヤー$i$が電車$k$に対して持つ選択傾向を表�
 \end{itemize}
 が必要である事がわかる。これはすなわち、混雑現象の推定においては平均的に見てどちらかの選択肢の方が好まれているような状況下において、それでも混雑を避けて異なる選択肢を選ぶ人の方が多くなる時にパラメータの識別が可能になる事を意味する。
 
+\subsubsection{一般的な分布で考える}
+先のモデルの解である$e \in [0,1]$の挙動を考える。$e \sim g(\cdot)$として、累積分布関数を$G(\cdot)$で表記することにする。$d_i \sim f(\cdot)$で、その累積分布関数を$F(\cdot)$で書くとする。この時モデルの均衡である$e$はその期待値が$E[e] = F(\alpha N (2 E[e] - 1))$を満たす。これを用いて$E[e]$は以下のようにして求められる。
+\begin{align*}
+	E[e] &= \int_0^1 (1 - G(z)) \mathrm{d}z = F(\alpha N (2 E[e] - 1))\\[8pt]
+	&\Leftrightarrow \alpha N (2 E[e] -1) = F^{-1}\left(1 - \int_0^1 G(z)\mathrm{d}z \right)\\[8pt]
+	&\Leftrightarrow E\left[e\right] = \frac{1}{2} + \frac{F^{-1}\left(1 - \int_0^1 G(z)\mathrm{d}z\right)}{2\alpha N}
+\end{align*}
+$d_i$のサポートが有限区間であると仮定すると、$F^{-1}\left(1 - \int_0^1 G(z)\mathrm{d}z\right)$は有限なので、$N$を無限大にした時に$E[e] = \frac{1}{2}$となる。
+
+次に$e$の分布を考える。
+\begin{align*}
+	Pr\left( e < z \right) &= Pr\left( 1 - \frac{\# \left\{ d_i > \alpha N (2 e - 1) \right\}}{N} < z \right)\\[8pt]
+	&= Pr\left(1 - z < \frac{\# \left\{ d_i > \alpha N (2 e - 1) \right\}}{N} \right)
+\end{align*}
+ここで$\# \left\{ d_i > \alpha N (2 e - 1) \right\} \sim Bin(N, 1 - F(\alpha N (2 e - 1)))$であることより、上式で$N$についての極限を取り、
+\begin{align*}
+	Pr\left(1 - z < 1 - \lim_{N\to \infty}F(\alpha N (2e - 1))  \right)
+\end{align*}
+適切な条件の下で極限と積分は順序を交換できること、そして$\alpha < 0$であることより
+\begin{align*}
+	Pr\left(F(\alpha \lim_{N\to \infty} N (2e - 1)) < z \right) = Pr\left( \lim_{N\to \infty} N (2e-1) > \frac{F^{-1}(z)}{\alpha} \right)
+\end{align*}
+を得る。
+以上より$N$を大きくした時、$G(z) = Pr\left( \lim_{N\to \infty} N (2e-1) > \frac{F^{-1}(z)}{\alpha} \right)$であることがわかる。
+
+ここで$x = \lim_{N\to \infty} N (2e-1)$として、その累積密度関数を$H(\cdot)$、密度関数を$h(\cdot)$と書くことにする。この時、
+\begin{align*}
+	g(z) = \frac{\mathrm{d}G}{\mathrm{d}z} = \frac{\mathrm{d}}{\mathrm{d}z} \left( 1 - H\left(\frac{F^{-1}(z)}{\alpha}\right) \right) = -\frac{1}{\alpha f(F^{-1}(z))} h\left(\frac{F^{-1}(z)}{\alpha}\right)
+\end{align*}
+を得る。
 
 
 \section{シミュレーションデータでの推定}
