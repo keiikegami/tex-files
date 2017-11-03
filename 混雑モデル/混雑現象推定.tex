@@ -150,18 +150,26 @@ $x$の分布を求める。先の議論より$e \xrightarrow[]{p} \frac{1}{2}$�
 \end{align*}
 これの極限をとると、
 \begin{align*}
-	\lim_{N \to \infty} 4N{\rm Var}(e) = &\lim_{N \to \infty} 4E\left[F(\alpha N (2e-1)) (1 - F(\alpha N (2e-1)))\right]\\[8pt]
+	{\sigma^2}^* = \lim_{N \to \infty} 4N{\rm Var}(e) = &\lim_{N \to \infty} 4E\left[F(\alpha N (2e-1)) (1 - F(\alpha N (2e-1)))\right]\\[8pt]
 	 + &\lim_{N \to \infty} \left\{ 4E\left[ F(\alpha N (2e-1))^2 \right]- 1\right\}N\\[8pt]
 	  - &\frac{2F^{-1}\left( 1 - \int_0^1 G(z) \mathrm{d}z \right)}{\alpha}
 \end{align*}
 
-\section{シミュレーションデータでの推定}
+これが収束するのなら$x  \xrightarrow[]{d} N(0, {\sigma^2}^*)$であるので、$\phi$を標準正規分布の密度関数として、
+\begin{align*}
+	g(z) = -\frac{1}{\alpha f \left(F^{-1}(z)\right)} \phi \left( \frac{F^{-1}(z)}{\alpha \sigma^*} \right) 
+\end{align*}
+を得る。これを用いて実際のデータ${e_t}$に対して最尤法を適用することができ、パラメータの$\alpha$を推定できる。
 
-\section{実験データでの推定}
+\section{シミュレーションデータでの推定}
 
 \section{実証研究}
 入試日程の設定と満員電車
 
+\section{考えるべきこと}
+\begin{itemize}
+	\item $\sigma^*$は収束する？（しなそう）
+\end{itemize}
 
 \end{document}
 
