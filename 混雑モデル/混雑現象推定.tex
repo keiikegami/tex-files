@@ -83,11 +83,25 @@ $p_k^i$で、プレイヤー$i$が電車$k$に対して持つ選択傾向を表�
 \end{align*}
 をを満たすことがわかる。つまり$N \Phi \left(\frac{\alpha}{\sigma}(2 E - N)\right)$であり、ここで$e^* = \frac{E^*}{N}$すると$e^* = \Phi \left(\frac{\alpha}{\sigma}N(2e^* - 1) \right)$を均衡の$e^*$は満たすことになる。
 
+\subsection{推定}
 今、$v = e - \Phi \left(\frac{\alpha}{\sigma}N(2e - 1) \right)$とおくと、$\alpha < 0$であるという想定の下では、
 \begin{align*}
 	\frac{\partial v}{\partial e} = 1 - \frac{2\alpha N}{\sigma}\phi \left( \frac{\alpha}{\sigma}N(2e - 1) \right) > 1
 \end{align*}
-を得るので、$v$は$e$についての単調増加関数である。従ってこのモデルの均衡はただ一つであり、$e = \frac{1}{2}$において先の等式が成立することから、$e^* = \frac{1}{2}$が唯一の均衡である。この時$\alpha$がどのような値でも同じ均衡がモデルから得られるのでパラメータの識別は行えない。
+を得るので、$v$は$e$についての単調増加関数である。従ってこのモデルの均衡はただ一つであり、$e = \frac{1}{2}$において先の等式が成立することから、$e^* = \frac{1}{2}$が唯一の均衡である。この時$\alpha$がどのような値でも同じ均衡がモデルから得られるのでパラメータの識別は行えない。これはrandom componentである$\left\{u_j^i\right\}$の平均が0である事、すなわちプレイヤーが平均的には二つの選択肢について等しく価値を置いている事がもたらす問題である。
+
+次に$d_i \sim N(\mu, \sigma^2)$で$\mu \neq 0$であるケースを考える。上と同様の計算により、
+\begin{align*}
+	&\qquad e^* = \Phi \left(\frac{\alpha N (2 e^* -1) - \mu}{\sigma}\right)\\[8pt]
+	&\Leftrightarrow\ \alpha = \frac{\sigma \Phi^{-1}\left( e^* \right) + \mu}{N(2 e^* -1)}
+\end{align*}
+を得る。ここで$\alpha < 0$であるために必要な条件として
+\begin{itemize}
+	\item $e^* < \frac{1}{2}$ならば$\mu > 0$
+	\item $e^* > \frac{1}{2}$ならば$\mu < 0$
+\end{itemize}
+が必要である事がわかる。これはすなわち、混雑現象の推定においては平均的に見てどちらかの選択肢の方が好まれているような状況下において、それでも混雑を避けて異なる選択肢を選ぶ人の方が多くなる時にパラメータの識別が可能になる事を意味する。
+
 
 
 \section{シミュレーションデータでの推定}
