@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{bm}
+\usepackage{ascmac}
 \lstset{%
   language={python},
   basicstyle={\small},%
@@ -60,6 +61,18 @@ Viauroux (2007)や柳沼・福田(2007,8)、松村他などが交通手段の選
 \begin{align*}
 	E[b_m^{N_m}] = F\left( \alpha N_m \left(2E[b_m^{N_m}] - 1\right) - (z_2^m - z_1^m)^{'}\gamma \right)
 \end{align*}
+
+ここから即座に以下を得る。
+\begin{align*}
+	E[b_m^{N_m}] = \frac{1}{2} + \frac{(z_2^m - z_1^m)^{'}\gamma + F^{-1} \left( E[b_m^{N_m}] \right)}{2\alpha N_m}
+\end{align*}
+これより、分布$F(\cdot)$がサポートが有限で、$\left\{ z_j \right\}$が有限のサポートを持ちかつパラメータ$\gamma$も有限であるなら、$N \to \infty$で$E[b_m^{N_m}] \to \frac{1}{2}$であることがわかる。
+
+最尤推定量のアナロジーから適切な条件の下で以下は成立しそう（要証明）
+\begin{itembox}[l]{Claim}
+	$d_i^t$が同じ分布$F(\cdot)$から生成されている時、$\widehat{E[b_m^{N_m}]} \xrightarrow[]{p} E[b_m^{N_m}]$
+\end{itembox}
+
 
 \end{document}
 
