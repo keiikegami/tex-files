@@ -51,7 +51,15 @@ Viauroux (2007)や柳沼・福田(2007,8)、松村他などが交通手段の選
 	E[b_{t,m}^{N_m}] = \frac{1}{N_m} \sum_{m = 1}^M \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)}
 \end{align*}
 
-ここで、$\widehat{E[b_m^{N_m}]} = \frac{1}{T} \sum_{t = 1}^T E[b_{t,m}^{N_m}]$
+ここで、$\widehat{E[b_m^{N_m}]} = \frac{1}{T} \sum_{t = 1}^T E[b_{t,m}^{N_m}]$と書く。$T \to \infty$におけるこの収束先について考える。駅$m$を利用する個人$i$が電車$1$を利用する確率を離散選択の定式化で求めたものを$p_{1,m}^i$で記す。この時以下が成立する。
+\begin{align*}
+	p_{1,m}^i > \frac{1}{2} &\Leftrightarrow \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i + \alpha N \left(1 - 2E[b_m^{N_m}]\right) \right)} > \frac{1}{2}\\[8pt]
+	&\Leftrightarrow d_i < \alpha N_m \left(2E[b_m^{N_m}] - 1\right) - (z_2^m - z_1^m)^{'}\gamma
+\end{align*}
+ただし、$E[b_m^{N_m}]$はheterogeneousな個人についても平均的な見た時にモデルの均衡として求まる乗車割合である。$d_i$の従う分布のCDFを$F(\cdot)$とすると、モデルの均衡は以下の方程式を満たすことがわかる。
+\begin{align*}
+	E[b_m^{N_m}] = F\left( \alpha N_m \left(2E[b_m^{N_m}] - 1\right) - (z_2^m - z_1^m)^{'}\gamma \right)
+\end{align*}
 
 \end{document}
 
