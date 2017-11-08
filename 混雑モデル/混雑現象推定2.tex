@@ -49,7 +49,7 @@ Viauroux (2007)や柳沼・福田(2007,8)、松村他などが交通手段の選
 
 離散選択の定式化を利用するため、$\epsilon_j^i$は$i, j$それぞれに対して独立に同じ第1種極値分布に従うとする。この時rational expectationの仮定の下で、各駅に置いて以下の方程式を満たす形で毎日均衡としての乗車人数の期待値$(E[b_{t,m}^{N_m}])$が決定する。ただし、$d_i^t = \eta_2^i - \eta_1^i$である。
 \begin{align*}
-	E[b_{t,m}^{N_m}] = \frac{1}{N_m} \sum_{m = 1}^M \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)}
+	E[b_{t,m}^{N_m}] = \frac{1}{N_m} \sum_{i = 1}^{N_m} \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)}
 \end{align*}
 
 ここで、$\widehat{E[b_m^{N_m}]} = \frac{1}{T} \sum_{t = 1}^T E[b_{t,m}^{N_m}]$と書く。$T \to \infty$におけるこの収束先について考える。駅$m$を利用する個人$i$が電車$1$を利用する確率を離散選択の定式化で求めたものを$p_{1,m}^i$で記す。この時以下が成立する。
@@ -68,11 +68,14 @@ Viauroux (2007)や柳沼・福田(2007,8)、松村他などが交通手段の選
 \end{align*}
 これより、分布$F(\cdot)$がサポートが有限で、$\left\{ z_j \right\}$が有限のサポートを持ちかつパラメータ$\gamma$も有限であるなら、$N \to \infty$で$E[b_m^{N_m}] \to \frac{1}{2}$であることがわかる。
 
-最尤推定量のアナロジーから適切な条件の下で以下は成立しそう（要証明）
+一方で、最尤推定量のアナロジーから適切な条件の下で以下は成立しそう（要証明）
 \begin{itembox}[l]{Claim}
 	$d_i^t$が同じ分布$F(\cdot)$から生成されている時、$\widehat{E[b_m^{N_m}]} \xrightarrow[]{p} E[b_m^{N_m}]$
 \end{itembox}
-
+この主張が正しければ、$T,N_m$が十分に大きい時に以下が成立する。
+\begin{align*}
+	\frac{1}{2} = \frac{1}{T}\sum_{t = 1}^T \frac{1}{N_m}\sum_{i = 1}^{N_m} \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)}
+\end{align*}
 
 \end{document}
 
