@@ -1,0 +1,81 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{卒論テーマ候補 ：混雑現象の構造推定}
+\author{池上　慧}
+\maketitle
+
+\section{目的}
+Viauroux (2007)や柳沼・福田(2007,8)、松村他などが交通手段の選択と通勤に利用する電車の出発時間選択においてプレイヤー同士の影響を考慮したゲームのモデルを用いたパラメータの推定を行っている。またその結果においては混雑による不効用を示すパラメータは有意に負の値を取っている。主に用いられていた推定手法はAgurregabiria (2004)のPMLであり、Kasahara and Shimotsu(2012?)にのっとって推定結果が収束するようにしている。
+
+上記の研究ではプレイヤーについての情報が得られている時にプレイヤーごとに選択確率を計算することでベイジアンナッシュ均衡を計算し、推定に用いている。しかし、松村他で用いられたデータはサンプルサイズが小さく、センサスデータであり、また個人の通勤時間などについては別種の統計データから推計したものを利用している。ここではこのような意思決定を行う個人に関するデータを必要とせずに混雑現象を推定できるかを考える。
+
+例えば、松村他で扱われた満員電車に選択モデルを考えると、個人ごとにどのような人がいつどの電車に乗ったかというデータを得るのは非現実的である。そのようなデータの代わりに何時の電車に何人が乗ったという現実的に容易に得られるデータを用いて推定できるモデルを作ることは有用であると考える。
+
+現実に存在する混雑現象としては、上で述べた満員電車の他にも、入試の受験料を収入源とする私立大学群による入試日の設定や、テーマパークへの来場日の決定、コンピュータ上の分散処理などが挙げられる。このようなテーマで実際にモデルを推定する。
+
+\section{モデル}
+例としてわかりやすいので満員電車の事例でモデルを記す。$M$駅の$T$日分の乗客数データが得られているとする。ここで$m \in \left\{1\cdots M \right\}$で1つの駅を示すとして、そこで乗車する総人数を$N_m$で記す。各駅は電車を$2$本持っていて、プレイヤーこの$2$本のうちより効用の高い方を選んで乗車する。駅$m$を利用する個人$i$の電車$j$に対しての効用は以下で書けるとする。
+\begin{align*}
+	X_i^{'}\beta + Z_j^{'}\gamma + \eta_j^i + \alpha B_j^m + \epsilon_j^i
+\end{align*}
+ここで、$X_i$はプレイヤーの属性を含むベクトル、$Z_j$は電車$j$の属性を含むベクトル、$\eta_j^i$はプレイヤーごとに持つ電車$j$に対する観測不可能な選好(public information)、$B_j^m$は駅$m$における電車$j$への実現した乗車人数、$\epsilon_j^i$はプレイヤーが私的情報として持つ電車$j$への選好をそれぞれ表す。
+
+離散選択の定式化を利用するため、$\epsilon_j^i$は$i, j$それぞれに対して独立に同じ第1種極値分布に従うとする。この時rational expectationの仮定の下で、各駅に置いて以下の方程式を満たす形で毎日均衡としての乗車人数の期待値$(E[b_{t,m}^{N_m}])$が決定する。ただし、$d_i^t = \eta_2^i - \eta_1^i$である。
+\begin{align*}
+	E[b_{t,m}^{N_m}] = \frac{1}{N_m} \sum_{m = 1}^M \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)}
+\end{align*}
+
+ここで、$\widehat{E[b_m^{N_m}]} = \frac{1}{T} \sum_{t = 1}^T E[b_{t,m}^{N_m}]$
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
