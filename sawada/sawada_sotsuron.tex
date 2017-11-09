@@ -100,7 +100,7 @@
 \begin{frame}\frametitle{ベイジアンナッシュ均衡}
 	\begin{itemize}
 		\item $\epsilon_j^i$は$i, j$それぞれに対して独立に同じ第1種極値分布に従う
-		\item rational expectationの仮定の下では以下の方程式を満たすように毎日均衡としての乗車人数の期待値$(E[b_{t,m}^{N_m}])$が決定する
+		\item rational expectationの仮定の下では以下の方程式を満たすように毎日均衡としての電車1の期待乗車割合$(E[b_{t,m}^{N_m}])$が決定する
 		\item $d_i^t = \eta_2^i - \eta_1^i$とする
 	\end{itemize}
 	\begin{itembox}[l]{駅$m$における$t$日の均衡}
@@ -109,6 +109,32 @@
                 	E[b_{t,m}^{N_m}] = \frac{1}{N_m} \sum_{i = 1}^{N_m} \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_{i.m}^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)} $}
                 \end{align*}
 	\end{itembox}
+\end{frame}
+
+\begin{frame}\frametitle{考え方}
+	\begin{itemize}
+		\item データとして得られた毎日の電車1の乗車割合は先の均衡である
+		\item 日々の均衡として得られた電車1の乗車割合をたくさん集めたものの平均$(\widehat{E[b_m^{N_m}]})$は$t$によらないモデルの均衡に収束するはず（要証明）
+		\item $t$によらないモデルの均衡を出すためにpublic informationである個人のheterogeneityが従う分布$F(\cdot)$を仮定する
+		\item この操作は最尤推定量のアナロジー
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{$t$によらないモデルの均衡}
+	駅$m$を利用する個人$i$が電車$1$を利用する確率を離散選択の定式化で求めたものを$p_{1,m}^i$で記す。この時以下が成立する。
+        \begin{align*}
+        	p_{1,m}^i > \frac{1}{2} &\Leftrightarrow \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_i + \alpha N \left(1 - 2E[b_m^{N_m}]\right) \right)} > \frac{1}{2}\\[8pt]
+        	&\Leftrightarrow d_i < \alpha N_m \left(2E[b_m^{N_m}] - 1\right) - (z_2^m - z_1^m)^{'}\gamma
+        \end{align*}
+ただし、$E[b_m^{N_m}]$は今知りたいモデルの均衡として求まる乗車割合である。
+\end{frame}
+
+\begin{frame}\frametitle{$t$によらないモデルの均衡}
+	ここから即座に以下を得る。
+        \begin{align*}
+        	E[b_m^{N_m}] = \frac{1}{2} + \frac{(z_2^m - z_1^m)^{'}\gamma + F^{-1} \left( E[b_m^{N_m}] \right)}{2\alpha N_m}
+        \end{align*}
+これより、分布$F(\cdot)$がサポートが有限で、$\left\{ z_j \right\}$が有限のサポートを持ちかつパラメータ$\gamma$も有限であるなら、$N \to \infty$で$E[b_m^{N_m}] \to \frac{1}{2}$であることがわかる。
 \end{frame}
 
 \section{実証}
