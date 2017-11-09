@@ -70,18 +70,44 @@
 
 
 \section{モデル}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{モデルのポイント}
 	\begin{itemize}
-		\item 
-		\item 
+		\item 「何割のプレイヤーがどの選択肢を選んだか」のデータと選択肢についてのデータのみを使用して推定できる。
+		\item 個人についてのheteroeneityを推定に利用する。
+		\item わかりやすいのでラッシュ時の電車選択を考える。
+		\item まだ2選択肢についてしかできてない。
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{設定}
 	\begin{itemize}
-		\item 
-		\item 
+		\item $M$駅の$T$日分の乗客数データ
+		\item $m \in \left\{1\cdots M \right\}$で1つの駅を示すとして、そこで乗車する総人数は$N_m$
+		\item $X_i$はプレイヤーの属性を含むベクトル
+		\item $Z_j$は電車$j$の属性を含むベクトル
+		\item $\eta_j^i$はプレイヤーごとに持つ電車$j$に対する観測不可能な選好(public information)
+		\item $B_j^m$は駅$m$における電車$j$への実現した乗車人数
+		\item $\epsilon_j^i$はプレイヤーが私的情報として持つ電車$j$への選好
 	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{効用}
+	\begin{itembox}[l]{駅$m$を利用する個人$i$の電車$j$に対しての効用}
+		$X_i^{'}\beta + Z_j^{'}\gamma + \eta_j^i + \alpha B_j^m + \epsilon_j^i$
+	\end{itembox}
+\end{frame}
+
+\begin{frame}\frametitle{ベイジアンナッシュ均衡}
+	\begin{itemize}
+		\item $\epsilon_j^i$は$i, j$それぞれに対して独立に同じ第1種極値分布に従う
+		\item rational expectationの仮定の下では以下の方程式を満たすように毎日均衡としての乗車人数の期待値$(E[b_{t,m}^{N_m}])$が決定する
+		\item $d_i^t = \eta_2^i - \eta_1^i$とする
+	\end{itemize}
+	\begin{itembox}[l]{駅$m$における$t$日の均衡}
+		\begin{align*}
+                	E[b_{t,m}^{N_m}] = \frac{1}{N_m} \sum_{i = 1}^{N_m} \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + d_{i.m}^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)}
+                \end{align*}
+	\end{itembox}
 \end{frame}
 
 \section{実証}
