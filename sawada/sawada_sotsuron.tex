@@ -168,15 +168,15 @@
 \begin{frame}\frametitle{推定}
 	駅$m$において満たすべき式は、$S_m = N_m R$として、以下のように書ける。
 	
-	\begin{itembox}[l]{駅$m$におけるモーメント条件}
 	\begin{align*}
-	\scalebox{0.8}{$
-	\iota_{s, t} \equiv \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + x_{s,m}^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)} \frac{\left(x_{s,m}^t + \frac{1}{2}\right)^{a - 2} \left(\frac{1}{2} - x_{s,m}^t \right)^{b-2}}{6B(a, b)}$}\\[8pt]
-	\scalebox{0.8}{$
-	\delta_m \equiv \frac{1}{2} - \frac{1}{T}\sum_{t = 1}^T \frac{1}{S_m}\sum_{s = 1}^{S_m} \iota_{s, t} = 0
-	$}
+	\scalebox{1}{$
+	\iota_{s, m} \equiv \frac{1}{1 + \exp\left( (z_2^m - z_1^m)^{'}\gamma + x_{s,m}^t + \alpha N \left(1 - 2E[b_{t,m}^{N_m}]\right) \right)} \frac{\left(x_{s,m}^t + \frac{1}{2}\right)^{a - 2} \left(\frac{1}{2} - x_{s,m}^t \right)^{b-2}}{6B(a, b)} $}
 	\end{align*}
-	\end{itembox}
+	として、
+	\begin{align*}
+	\scalebox{1}{$
+	\delta_m \equiv \frac{1}{2} - \frac{1}{T}\sum_{t = 1}^T \frac{1}{S_m}\sum_{s = 1}^{S_m} \iota_{s, m} = 0 $}
+	\end{align*}
 \end{frame}
 
 \begin{frame}\frametitle{}
