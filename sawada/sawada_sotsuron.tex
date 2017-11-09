@@ -138,7 +138,7 @@
 \end{frame}
 
 \begin{frame}\frametitle{帰結}
-	以上の主張が下で、駅$m$について$T,N_m$が十分に大きい時に以下が成立する。
+	以上の主張の下で、駅$m$について$T,N_m$が十分に大きい時に以下が成立する。
 	
 	\begin{itembox}[l]{モデルの帰結}
         \begin{align*}
@@ -151,8 +151,8 @@
 \section{推定}
 \begin{frame}\frametitle{推定の手法}
 	\begin{itemize}
-		\item MSMのようなことをする
-		\item heterogeneityの分布についても容易にパラメータ推定できるようにimportance samplingを用いる（Ackerberg 2009）
+		\item Method of Simulation Momentsのようなことをする
+		\item heterogeneityの分布について容易にパラメータ推定できるようにimportance samplingを用いる（Ackerberg 2009）
 	\end{itemize}
 \end{frame}
 
@@ -166,7 +166,7 @@
 \end{frame}
 
 \begin{frame}\frametitle{推定}
-	駅$m$において満たすべき式は、$S_m = N_m R$として、以下のように書ける。
+	駅$m$において満たすべき式は、$S_m = N_m R$として、以下のように書ける。ただし$x_{s, m}^t$は$Beta(2,2)$からのサンプルである。
 	
 	\begin{align*}
 	\scalebox{1}{$
@@ -180,21 +180,22 @@
 \end{frame}
 
 \begin{frame}\frametitle{推定}
-	先の条件が全駅について成り立つようにパラメータを推定すれば良い。よって以下の問題の解をパラメータの推定値として得る。
+	先の条件が全駅について成り立つようにパラメータを推定すれば良い。
 	
-	\begin{itembox}[l]{問題}
+	\begin{itembox}[l]{パラメータの推定値}
 	\begin{align*}
-		\argmin_{\alpha, \gamma, a, b} \sum_{m = 1}^M \delta_m^2
+		(\hat{\alpha}, \hat{\gamma}, \hat{a}, \hat{b}) = \argmin_{\alpha, \gamma, a, b} \sum_{m = 1}^M \delta_m^2
 	\end{align*}
 	\end{itembox}
+	
+	シミュレーションデータではパラメータの真の値を入れると目的関数が0に極めて近くなることが確認できる。
 \end{frame}
 
 \begin{frame}\frametitle{やること}
 	\begin{itemize}
-		\item シミュレーションデータでは確かにパラメータの真の値を入れると目的関数が0に極めて近くなる
-		\item 最適化問題を解くsolverの利用（KNITRO）
+		\item 最適化問題を解くsolverの利用（KNITROなど）
 		\item $K$選択肢への拡張
-		\item 実データを用いての実証と、時刻表変更の反実仮想分析
+		\item （できれば）実データを用いての実証と、時刻表変更の反実仮想分析
 	\end{itemize}
 \end{frame}
 
