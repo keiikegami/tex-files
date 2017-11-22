@@ -203,6 +203,12 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{(cf) Bivariate Probit}
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{frame}
+
 \begin{frame}\frametitle{$\chi^2$ test}
 	\begin{itemize}
 	\item $m$個のbinaryな外生変数の実現値の全組み合わせは$2^m$組存在する。その一つ一つをcellと呼ぶ。
@@ -216,29 +222,35 @@
 	\begin{itemize}
 	\item Kolmogorov-Smirnov検定はpowerが弱いことが知られている。
 	\item これを補うために追加で二つの検定も行う。
-	\item 一つ目は各cellで自由度1、有意水準5％の$\chi^2$検定を行う。帰無仮説の下では棄却された総数が$Bin(2^m, 0.05)$に従うので、これを用いて検定を行う。
+	\item 一つ目は各cellで自由度1、有意水準5％の$\chi^2$検定を行う。帰無仮説の下では棄却された総数が$Bin(2^m, 0.05)$に従うので、これを用いて検定を行う。（Fischerのexact p-value？）
 	\item 二つ目は$2^m$個のcellで得た検定量を足し合わせ、$\chi^2(2^m)$に従うとして仮説検定を行う。
 	\end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{(cf) 独立性の$\chi^2$検定}
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{frame}
 
 \section{Results}
-\subsection{Young drivers}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Results on young drivers}
 	\begin{itemize}
-	\item 
+	\item いずれの検定でも独立であるという帰無仮説は棄却できなかった。
+	\item しかし初心者は自身のタイプについてよくわからないまま契約を結ばざるを得ないことを考えるとこれは当然の結果とも言える。
 	\end{itemize}
 \end{frame}
 
-\subsection{Senior drivers}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Results on senior drivers}
 	\begin{itemize}
-	\item 
+	\item 保険業者と運転者の間で情報の非対称性が拡大するのは、運転者がギリギリのところで事故を起こさないままずっと運転をし続けるケースである。
+	\item この時運転者は自身が運転下手であることを知りながら保険業者はそのことについて何の情報も持たないという状況が生まれるからである。
+	\item 1986年に免許を所得した人で1989年にbonus/mulusが100を超えていない人に対象（該当者は6802人）を絞ることで、事故を起こしていない経験者という情報の非対称性が比較的大きいはずの対象に絞った分析ができる。
+	\item ここでも情報の非対称性の存在がないことを否定する結果は得られなかった。
 	\end{itemize}
 \end{frame}
 
-\subsection{Moral hazard}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Moral hazardに関して}
 	\begin{itemize}
 	\item 
 	\end{itemize}
