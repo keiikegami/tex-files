@@ -158,12 +158,11 @@
 
 
 \subsection{分析手法}
-\begin{frame}\frametitle{4つの検定}
+\begin{frame}\frametitle{3つの検定}
 	\begin{itemize}
 	\item Pair of Probits (parametric)
 	\item Bivariate Probit (parametric)
-	\item $\chi^2$ test version1 (non parametric)
-	\item $\chi^2$ test version2 (non parametric)
+	\item $\chi^2$ test (non parametric)
 	\end{itemize}
 \end{frame}
 
@@ -204,18 +203,21 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{$\chi^2$ test version1}
+\begin{frame}\frametitle{$\chi^2$ test}
 	\begin{itemize}
-	\item $m$個のbinaryな外生変数の実現値の全組み合わせは$2^m$組存在する。
-	\item 各組み合わせに個人を割り当て、その中で$y_i, z_i$の実現値の組み合わせを用いて独立性の$\chi^2$検定量を計算する。
+	\item $m$個のbinaryな外生変数の実現値の全組み合わせは$2^m$組存在する。その一つ一つをcellと呼ぶ。
+	\item cellに個人を割り当て、cellごとに$y_i, z_i$の実現値の組み合わせを用いて独立性の$\chi^2$検定量を計算する。
 	\item これにより帰無仮説の下で漸近的に$\chi^2(1)$に従う統計量が$2^m$個得られる。
 	\item 経験分布が$\chi^2(1)$であるかをKolmogorov-Smirnov検定を用いて検定する。
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{$\chi^2$ test version2}
+\begin{frame}\frametitle{$\chi^2$ test supplement}
 	\begin{itemize}
-	\item 
+	\item Kolmogorov-Smirnov検定はpowerが弱いことが知られている。
+	\item これを補うために追加で二つの検定も行う。
+	\item 一つ目は各cellで自由度1、有意水準5％の$\chi^2$検定を行う。帰無仮説の下では棄却された総数が$Bin(2^m, 0.05)$に従うので、これを用いて検定を行う。
+	\item 二つ目は$2^m$個のcellで得た検定量を足し合わせ、$\chi^2(2^m)$に従うとして仮説検定を行う。
 	\end{itemize}
 \end{frame}
 
