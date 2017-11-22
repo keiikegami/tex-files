@@ -11,6 +11,7 @@
 \usepackage{bm}
 \usepackage{ascmac}
 \setbeamertemplate{footline}[frame number] 
+\usepackage{bm}
 
 \title{Tasting for Asymmetric Information in Insurance Markets \\Chiappori and Salanie (2000)}
 \author{池上　慧}
@@ -32,7 +33,7 @@
 	\item 契約理論において理論やモデルの発展は著しい
 	\item 逆選択をはじめとして理論の示唆する現象の実証研究が少ない
 	\item 本論文では情報の非対称性が存在するかをチェックするシンプルな手法を提案する
-	\item その手法でフランスの車保険市場において情報の非対称性が存在しないことが否定できないことを示した
+	\item その手法でフランスの自動車保険市場において情報の非対称性が存在しないことが否定できないことを示した
 	\end{itemize}
 \end{frame}
 
@@ -72,7 +73,7 @@
 \subsection{先行研究}
 \begin{frame}\frametitle{Puelz and Snow (1994)}
 	\begin{itemize}
-	\item ジョージア州の車保険市場を分析
+	\item ジョージア州の自動車保険市場を分析
 	\item 逆選択の存在を示唆する結果
 	\end{itemize}
 \end{frame}
@@ -110,44 +111,109 @@
 
 \section{Implementation}
 \subsection{状況とデータ}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{自動車保険について}
+\centering
+        \includegraphics[width = 12cm]{ins.png}
+\end{frame}
+
+\begin{frame}\frametitle{フランスの自動車保険：二種類の保険}
+以下の二つがdeductibleの差、premiumの差によって差別化されている。
+
+	\begin{description}
+	\item[RC] 日本でいう自賠責保険。法律により強制加入させられる最低限度の保険。
+	\item[TR] 日本でいう任意保険。deductibleが増額するが、事故を起こした時により広い範囲で補償が受けられる。
+	\end{description}
+\end{frame}
+
+\begin{frame}\frametitle{フランスの自動車保険：bonus/malus}
 	\begin{itemize}
-	\item 
+	\item premiumは「走行履歴によらない要素から決定される値」×「走行履歴に依存する係数」で決定される。
+	\item 後者をbonus係数と呼ぶ。
+	\item ある年に事故を起こすと25％増し、無事故なら5％減少、のように変化していく。
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{データ：概要}
 	\begin{itemize}
-	\item 
+	\item フランス自動車保険市場のシェア7割を構成する21企業が加盟するFFSAが1990年に保険加入者に対して行った調査のデータを使う。
+	\item 112万契約について41変数、12万件の事故について25変数が集められた。
+	\item 先に述べたように初心者のデータに絞ると、1986年から1988年の間に免許を所得した20716人についてのデータとなる。
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{データ：ex post moral hazard}
 	\begin{itemize}
-	\item 
+	\item 事故が発生した時、保険会社に連絡するかは個人の意思決定により決まる。
+	\item 保険適用外の事故については報告しないはず。（これをex post moral hazardと呼ぶ）
+	\item つまり得られたデータは単なる事故のデータではなく、内生的に決められた保険内容に従って報告すると判断されたもののみが現れているバイアスのかかったデータである。
+	\item 本論文では2者が絡む事故のみに分析を絞ることで事故発生と保険会社への連絡がほぼ同義となっているデータを用いることでこの問題を回避した。
 	\end{itemize}
 \end{frame}
+
+\begin{frame}\frametitle{(cf) ex post moral hazard}
+	\begin{itemize}
+	\item どういう理由でバイアスがかかるか
+	\end{itemize}
+\end{frame}
+
 
 \subsection{分析手法}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{4つの検定}
 	\begin{itemize}
-	\item 
+	\item Pair of Probits (parametric)
+	\item Bivariate Probit (parametric)
+	\item $\chi^2$ test version1 (non parametric)
+	\item $\chi^2$ test version2 (non parametric)
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Pair of Probits：ノーテーション}
 	\begin{itemize}
-	\item 
+	\item $y_i$はTRを購入したことのダミー変数
+	\item $z_i$は契約者に非があると決定された事故を調査年に一度でも起こしたことのダミー変数
+	\item $X_i$は外生変数
+	\item $\epsilon_i, \eta_i$は独立な分散$1$平均$0$の正規分布に従う確率変数
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Pair of Probits：モデル}
+個人ごとに走行日数$w_i$で重み付けをする。以下のプロビットで$\beta, \gamma$を推定する。
+	\begin{align*}
+	\begin{cases}
+	y_i = {\bm 1}(X_i \beta + \epsilon_i > 0)\\[8pt]
+	z_i = {\bm 1}(X_i \gamma + \eta_i > 0)
+	\end{cases}
+	\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{Pair of Probit：検定量}
+推定した$\beta, \gamma$を用いて誤差項の推定値が以下のように得られる。
+\begin{align*}
+\begin{cases}
+	\hat{\epsilon_i} = \frac{\phi(X_i \hat{\beta})}{\Phi(X_i \hat{\beta})} y_i - (1 - y_i) \frac{\phi(X_i \hat{\beta})}{\Phi(-X_i \hat{\beta})}\\[8pt]
+	\hat{\eta_i} = \frac{\phi(X_i \hat{\gamma})}{\Phi(X_i \hat{\gamma})} z_i - (1 - z_i) \frac{\phi(X_i \hat{\gamma})}{\Phi(-X_i \hat{\gamma})}
+\end{cases}
+\end{align*}
+これより帰無仮説$cov(\epsilon_i, \eta_i) = 0$の下で漸近的に$\chi^2(1)$に従う検定量$W = \frac{\left( \sum_{i} w_i \hat{\epsilon_i} \hat{\eta_i} \right)^2}{\sum_{i} w_i^2\hat{\epsilon_i^2}\hat{\eta_i^2}}$が得られる。
+\end{frame}
+
+\begin{frame}\frametitle{Bivariate Probit}
 	\begin{itemize}
-	\item 
+	\item プロビットを独立に行うことは帰無仮説の下ではefficientだが、そうでない時はinefficientである。
+	\item $\epsilon_i, \eta_i$がそれぞれ$N(0,1)$に従いながら、相関係数$\rho$を持つとしてbivariate probitを行い、$\rho = 0$を帰無仮説として検定を行う。
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{$\chi^2$ test version1}
+	\begin{itemize}
+	\item $m$個のbinaryな外生変数の実現値の全組み合わせは$2^m$組存在する。
+	\item 各組み合わせに個人を割り当て、その中で$y_i, z_i$の実現値の組み合わせを用いて独立性の$\chi^2$検定量を計算する。
+	\item これにより帰無仮説の下で漸近的に$\chi^2(1)$に従う統計量が$2^m$個得られる。
+	\item 経験分布が$\chi^2(1)$であるかをKolmogorov-Smirnov検定を用いて検定する。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{$\chi^2$ test version2}
 	\begin{itemize}
 	\item 
 	\end{itemize}
