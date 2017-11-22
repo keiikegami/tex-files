@@ -63,16 +63,47 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{先行研究}
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{なぜ単なる回帰ではダメか}
 	\begin{itemize}
 	\item 
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\subsection{先行研究}
+\begin{frame}\frametitle{Puelz and Snow (1994)}
 	\begin{itemize}
-	\item 
+	\item ジョージア州の車保険市場を分析
+	\item 逆選択の存在を示唆する結果
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Puelz and Snow (1994)の欠点}
+	\begin{itemize}
+	\item \textcolor{red}{Measurement error}
+	
+	deductibleを決定する要素である事故確率に実際事故が起きたかどうかのダミー変数を用いている。
+	\item \textcolor{red}{Omitted variable bias}
+	
+	データとして用いている変数が20個しかない。
+	\item \textcolor{red}{Linear function}
+	
+	deductibleの選択が線形関数で表現できるというのはかなりきつい制約。実際CARA関数を仮定すると非線形な関数でdeductibleが決定される。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Puelz and Snow (1994)の欠点}
+	\begin{itemize}
+	\item \textcolor{red}{Heterogeneity}
+	
+	年齢と走行履歴がもたらす異質性について何の処理もしていない。これらの要素はdeductibleの決定に際して分散不均一をもたらす。特に走行履歴は保険業者が重視するデータであり、これをモデルに組み入れないのはOVBを招く決定的な要因となる。ただし、走行履歴は内生的な変数なのでその組み入れ方には注意がひつようである。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{対処方法}
+	\begin{itemize}
+	\item 理想的にはパネルデータを使う。（Chiappori and Heckman 1999）
+	\item 本研究では初心者についてのデータに限定することで先の異質性を排除した。
+	\item 用いる変数も55個と増やし、関数形によらない推定手法で検証を行った。
 	\end{itemize}
 \end{frame}
 
