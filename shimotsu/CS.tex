@@ -65,8 +65,10 @@
 \end{frame}
 
 \begin{frame}\frametitle{なぜ単なる回帰ではダメか}
+$TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\beta$が正となるかを見る。のでは以下が問題となる。
 	\begin{itemize}
-	\item 
+	\item $Accident_i$が事故発生のダミーであるので本来式に入れたい事故発生確率である$\pi_i$とは異なるためmeasurement errorが存在する。
+	\item 補償を広げたために事故を起こしやすくなるという方向の因果関係（モラルハザード）の存在が想定されるため$\beta$に正のバイアスがかかる。
 	\end{itemize}
 \end{frame}
 
@@ -152,7 +154,10 @@
 
 \begin{frame}\frametitle{(cf) ex post moral hazard}
 	\begin{itemize}
-	\item どういう理由でバイアスがかかるか
+	\item 逆選択も事前のモラルハザードも存在しない時、$TR_i$と$Accident_i$は条件付き独立である。
+	\item しかし補償の範囲が大きい契約をしている運転者は、そうでない運転者よりも多様な事故について保険業者に報告する。
+	\item すなわち$Claim_i$と$TR_i$は条件付き独立ではない。
+	\item データ内では$Claim_i = Accident_i$なので、結果として逆選択も事前のモラルハザードも存在しなくても事故発生と補償範囲の広い保険の購入とが条件付き独立でなくなる。
 	\end{itemize}
 \end{frame}
 
@@ -203,12 +208,6 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{(cf) Bivariate Probit}
-	\begin{itemize}
-	\item 
-	\end{itemize}
-\end{frame}
-
 \begin{frame}\frametitle{$\chi^2$ test}
 	\begin{itemize}
 	\item $m$個のbinaryな外生変数の実現値の全組み合わせは$2^m$組存在する。その一つ一つをcellと呼ぶ。
@@ -227,7 +226,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{(cf) 独立性の$\chi^2$検定}
+\begin{frame}\frametitle{(cf) Kolmogorov-Smirnov test}
 	\begin{itemize}
 	\item 
 	\end{itemize}
