@@ -80,15 +80,29 @@ $t$日の乗車選択には研究者には観測不可能な要素だがプレ�
 ここで単純な計算により以下を得る。
 \begin{align*}
 	&\qquad \tilde{b_{c+1}^t} u_{c+1} + \sum_{c^{'}=c+1}^{C_m-1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''}}^t}) \right) \tilde{b_{c^{'} + 1}^t} u_{c^{'} + 1} - u_c\\[8pt]
-	&= (u_{C_m} - u_c)^t - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (u_{C_m} - u_{c^{'}})^t
+	&= (u_{C_m} - u_c)^t - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (u_{C_m} - u_{c^{'}})^t\\[8pt]
 \end{align*}
 
-選択確率の式を変形することで以下の式を得る。
+これより、選択確率の式を変形することで以下の式を得る。
+\begin{align}
+	{\rm log}\ \frac{1 - \tilde{{b_c^t}}}{\tilde{b_c^t}} = (u_{C_m} - u_c)^t - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (u_{C_m} - u_{c^{'}})^t
+\end{align}
+
+ここで以下のように表記する。
 \begin{align*}
-	{\rm log}\ \frac{1 - \tilde{{b_c^t}}}{\tilde{b_c^t}} = \tilde{b_{c+1}^t} u_{c+1} + \sum_{c^{'}=c+1}^{C_m-1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''}}^t}) \right) \tilde{b_{c^{'} + 1}^t} u_{c^{'} + 1} - u_c + \eta_c^t
+	\begin{cases}
+		\tilde{Z_c^t} = (Z_{C_m} - Z_c) - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (Z_{C_m} - Z_{c^{'}})\\[8pt]
+		x_c^t = (\mu_{C_m} - \mu_c) - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (\mu_{C_m} - \mu_{c^{'}})\\[8pt]
+		y_c^t = (\mu_{C_m} - \mu_c \tilde{b_c^t}) - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (\mu_{C_m} - \mu_{c^{'}} \tilde{b_{c^{'}}^t})\\[8pt]
+		B_c^t = \left( -\tilde{b_{c+1}^t}\ \Pi_{c^{''} = c+1}^{c+1}(1 - \tilde{b_{c^{''} -1}^t})\ \cdots\ -\tilde{b_{C_m-1}^t}\ \Pi_{c^{''} = c+1}^{C_m-1}(1 - \tilde{b_{c^{''} -1}^t})\right)^{'}
+	\end{cases}
 \end{align*}
 
-効用関数の定式化より上式の右辺は以下のようにパラメータを用いて表すことができる。
+これを用いて効用関数の定式化より（1）はパラメータを用いて以下のように表すことができる。
+\begin{align*}
+	{\rm log}\ \frac{1 - \tilde{{b_c^t}}}{\tilde{b_c^t}} = \tilde{Z_c^t}^{'} \beta + \gamma_m y_c^t + \delta_m x_c^t + {B_c^t}^{'} \xi_c^{*} + \xi_c
+\end{align*}
+
 
 \end{document}
 
