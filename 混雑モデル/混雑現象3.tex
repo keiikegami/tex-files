@@ -1,0 +1,79 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{ascmac}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{卒論テーマ候補 ：混雑現象の構造推定}
+\author{池上　慧}
+\maketitle
+
+\section{目的}
+Viauroux (2007)や柳沼・福田(2007,8)、松村他などが交通手段の選択と通勤に利用する電車の出発時間選択においてプレイヤー同士の影響を考慮したゲームのモデルを用いたパラメータの推定を行っている。またその結果においては混雑による不効用を示すパラメータは有意に負の値を取っている。主に用いられていた推定手法はAgurregabiria (2004)のPMLであり、Kasahara and Shimotsu(2012?)にのっとって推定結果が収束するようにしている。
+
+上記の研究ではプレイヤーについての情報が得られている時にプレイヤーごとに選択確率を計算することでベイジアンナッシュ均衡を計算し、推定に用いている。しかし、松村他で用いられたデータはサンプルサイズが小さく、センサスデータであり、また個人の通勤時間などについては別種の統計データから推計したものを利用している。ここではこのような意思決定を行う個人に関するデータを必要とせずに混雑現象を推定できるかを考える。
+
+例えば、松村他で扱われた満員電車に選択モデルを考えると、個人ごとにどのような人がいつどの電車に乗ったかというデータを得るのは非現実的である。そのようなデータの代わりに何時の電車に何人が乗ったという現実的に容易に得られるデータを用いて推定できるモデルを作ることは有用であると考える。
+
+\section{モデル}
+ラッシュ時の乗車選択行動をモデル化する。全部で$M$個の駅について$T$日分のラッシュアワーに該当する電車の乗車割合に関するデータが得られており、ある駅$m$の$t$日について考える。
+
+各駅で毎日繰り返される乗車選択ゲームを以下のように定式化する。プレイヤーは無限人とし、その乗車選択割合だけが混雑を引きおこすとする。$m$駅のラッシュアワー時の電車総数を$C_m$として、プレイヤーは乗車する電車$c$を$\left\{ 1, \cdots, C_m\right\}$から選ぶ。ただし、これらの中から同時に選択するのではなく、各$c$について乗車するかしないかの選択をする最適停止問題のようなゲームをプレイするとする。この際、毎回の選択時に今までどれだけの割合の人が乗車しているかという状態についてはわからない状況を想定し、そのようなこのゲームにおける逐次均衡が実現しているとする。
+
+電車$c$に対するbehavioral strategyを$b_c = (\tilde{b_c}, 1 - \tilde{b_c})$で表記する。ここで$\tilde{b_c}$は電車$c$に乗車することに割り振る確率であり、$1 - \tilde{b_c}$は電車$c$には乗らずに次以降の電車のどれかに乗ることに割り振る確率である。belief systemを$\left\{ \mu_c \right\}_{c = 1}^{C_m}$で表記する。ここで$\mu_c$は電車$c$への乗車を選択する際の社会状態への信念、つまりまだ乗車していない人の割合の確率分布である。逐次均衡においてbelief systemはbehavioral strategyと矛盾しないものでないといけないため、$\mu_c = \Pi_{c^{'} = 1}^{c-1} (1 - \tilde{b_{c^{'}}})$としてbehavioral strategyが定まれば一意に定まる。
+
+$t$日の電車$c$についての効用$(u_c^t)$はについて以下のように定式化する。
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
