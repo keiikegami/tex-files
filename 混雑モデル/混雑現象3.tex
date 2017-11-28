@@ -71,14 +71,14 @@ $t$日の乗車選択には研究者には観測不可能な要素だがプレ�
 この存在により電車$c$の乗車選択においては$\left\{ \xi_{c^{'}} \right\}_{c^{'} = c}^{C_m-1}$に依存した誤差項$\eta_c^t$が存在することになる。この構造は後述する。この$\eta_c^t$も含めると$t$日の電車$c$に関するbehavioral strategyは以下のように書ける。
 
 \begin{align*}
-	\tilde{b_c^t} = \frac{1}{1 + \exp \left(\tilde{b_{c+1^t}} u_{c+1} + \sum_{c^{'}=c+1}^{C_m-1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''}}^t}) \right) \tilde{b_{c^{'} + 1}^t} u_{c^{'} + 1} - u_c + \eta_c^t \right)}
+	\tilde{b_c^t} = \frac{1}{1 + \exp \left(\tilde{b_{c+1}^t} u_{c+1} + \sum_{c^{'}=c+1}^{C_m-1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''}}^t}) \right) \tilde{b_{c^{'} + 1}^t} u_{c^{'} + 1} - u_c + \eta_c^t \right)}
 \end{align*}
 
 \section{推定}
 \subsection{回帰式}
 選択確率の式を変形することで以下の式を得る。
 \begin{align*}
-	{\rm log}\ \frac{1 - \tilde{b_c^t}}{\tilde{b_c^t}} = \tilde{b_{c+1^t}} u_{c+1} + \sum_{c^{'}=c+1}^{C_m-1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''}}^t}) \right) \tilde{b_{c^{'} + 1}^t} u_{c^{'} + 1} - u_c + \eta_c^t
+	{\rm log}\ \frac{1 - \tilde{{b_c^t}}}{\tilde{b_c^t}} = \tilde{b_{c+1}^t} u_{c+1} + \sum_{c^{'}=c+1}^{C_m-1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''}}^t}) \right) \tilde{b_{c^{'} + 1}^t} u_{c^{'} + 1} - u_c + \eta_c^t
 \end{align*}
 
 効用関数の定式化より上式の右辺は以下のようにパラメータを用いて表すことができる。
