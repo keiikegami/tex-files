@@ -119,7 +119,18 @@ $t$日の乗車選択には研究者には観測不可能な要素だがプレ�
 \begin{align*}
 	d_c^t = \left( \bar{Z_c}^{'}\beta_m + \gamma_m \bar{\nu_c^t} + \delta_m \bar{\mu_c^t} \right)^{'} \left( \frac{\hat{w_c^t}}{\mu_c^t} \right) + {{\xi_c^t}^{*}}^{'} \left( \frac{\tilde{w_c^t}}{\mu_c^t} \right) + \xi_c^t
 \end{align*}
-ここで、${\xi_{C_m-1}^t}^{*} = 0$であることと、$\left( \frac{\hat{w_{C_m-1}^t}}{\mu_{C_m-1}^t} \right) = 1$であることを利用して、後ろから順に$\xi_c^t$を代入していくことで式を一つにまとめることができる。
+ここで、${\xi_{C_m-1}^t}^{*} = 0$であることと、$\left( \frac{\hat{w_{C_m-1}^t}}{\mu_{C_m-1}^t} \right) = 1$であることを利用して、後ろから順に$\xi_c^t$を代入していくことで式を一つにまとめることができる。新しく以下の記号を定義する。
+\begin{align*}
+\begin{cases}
+	&g_c^t = d_c^t - \left( g_{c+1}^t\ \cdots\ g_{C_m-1}^t\right) \left( \frac{\tilde{w_c^t}}{\mu_c^t} \right)\ \text{where $c \neq C_m -1$}\\[8pt]
+	&g_{Cm-1}^t = d_{C_m-1}^t
+\end{cases}
+\end{align*}
+これを用いて、先に述べた逐次代入より以下の1本の式を得る。2本目の等式は1本目の選択に際してはまだ誰も電車に乗っていないので$\mu_1^t = 1$となることによる。
+\begin{align*}
+	g_1^t &= (Z_{C_m} - Z_1)^{'} \beta + (\mu_{C_m}^t - \mu_1^t)\gamma_m + (\mu_{C_m}^t - w_1^t)\delta_m + \xi_1^t\\[8pt]
+	&= (Z_{C_m} - Z_1)^{'} \beta + \left(\mu_{C_m}^t-1\right)\gamma_m + (\mu_{C_m}^t - w_1^t)\delta_m + \xi_1^t
+\end{align*}
 
 \end{document}
 
