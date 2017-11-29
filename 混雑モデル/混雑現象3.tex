@@ -103,7 +103,19 @@ $t$日の乗車選択には研究者には観測不可能な要素だがプレ�
 \begin{align}
 	{\rm log}\ \frac{1 - \tilde{{b_c^t}}}{\tilde{b_c^t}} = \tilde{Z_c^t}^{'} \beta + \gamma_m y_c^t + \delta_m x_c^t + {B_c^t}^{'} \xi_c^{*} + \xi_c
 \end{align}
-これはランダム係数の回帰式と見ることができる。
+
+さらに状態への信念である$\left\{ \mu_c \right\}_{c = 1}^{C_m}$と、各電車への乗車割合である$w_c^t = \mu_c^t \tilde{b_c^t}$を用いてこの式を変形する。
+
+\begin{align*}
+	\begin{cases}
+	&\hat{w_c^t} = \left( \mu_c^t\  -w_{c+1}^t\  \cdots\  -w_{C_m-1}^t\right)^{'}\\[8pt]
+	&\tilde{w_c^t} =  \left( -w_{c+1}^t\  \cdots\  -w_{C_m-1}^t\right)^{'}\\[8pt]
+	&\bar{Z_c} = \left(Z_{C_m} - Z_c\ Z_{C_m} - Z_{c+1}\ \cdots\ Z_{C_m} - Z_{C_m - 1}\right)\\[8pt]
+	&\bar{\mu_c^t} = \left( \mu_{C_m}^t - \mu_c^t\ \cdots\ \mu_{C_m} - \mu_{C_m-1} \right)^{'}\\[8pt]
+	&\bar{\nu_c^t} = \left( \mu_{C_m}^t - w_c^t\ \cdots\ \mu_{C_m} - w_{C_m-1} \right)^{'}\\[8pt]
+	\end{cases}
+\end{align*}
+とすると、
 
 \end{document}
 
