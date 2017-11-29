@@ -95,7 +95,7 @@ $t$日の乗車選択には研究者には観測不可能な要素だがプレ�
 		x_c^t = (\mu_{C_m} - \mu_c) - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (\mu_{C_m} - \mu_{c^{'}})\\[8pt]
 		y_c^t = (\mu_{C_m} - \mu_c \tilde{b_c^t}) - \sum_{c^{'} = c+1}^{C_m - 1} \left( \Pi_{c^{''} = c+1}^{c^{'}} (1 - \tilde{b_{c^{''} - 1}^t}) \right) \tilde{b_{c^{'}}^t} (\mu_{C_m} - \mu_{c^{'}} \tilde{b_{c^{'}}^t})\\[8pt]
 		B_c^t = \left( -\tilde{b_{c+1}^t}\ \Pi_{c^{''} = c+1}^{c+1}(1 - \tilde{b_{c^{''} -1}^t})\ \cdots\ -\tilde{b_{C_m-1}^t}\ \Pi_{c^{''} = c+1}^{C_m-1}(1 - \tilde{b_{c^{''} -1}^t})\right)^{'}\\[8pt]
-		\xi_c^{*} = \left( \xi_{c+1}\ \cdots\ \xi_{C_m-1} \right)^{'}
+		{\xi_c^t}^{*} = \left( \xi_{c+1}^t\ \cdots\ \xi_{C_m-1}^t \right)^{'}
 	\end{cases}
 \end{align*}
 
@@ -115,7 +115,11 @@ $t$日の乗車選択には研究者には観測不可能な要素だがプレ�
 	&\bar{\nu_c^t} = \left( \mu_{C_m}^t - w_c^t\ \cdots\ \mu_{C_m} - w_{C_m-1} \right)^{'}\\[8pt]
 	\end{cases}
 \end{align*}
-とすると、
+とおく。$d_c^t = {\rm log}\ \frac{1 - \tilde{{b_c^t}}}{\tilde{b_c^t}}$とすると、先の式は以下のように書ける。
+\begin{align*}
+	d_c^t = \left( \bar{Z_c}^{'}\beta_m + \gamma_m \bar{\nu_c^t} + \delta_m \bar{\mu_c^t} \right)^{'} \left( \frac{\hat{w_c^t}}{\mu_c^t} \right) + {{\xi_c^t}^{*}}^{'} \left( \frac{\tilde{w_c^t}}{\mu_c^t} \right) + \xi_c^t
+\end{align*}
+ここで、${\xi_{C_m-1}^t}^{*} = 0$であることと、$\left( \frac{\hat{w_{C_m-1}^t}}{\mu_{C_m-1}^t} \right) = 1$であることを利用して、後ろから順に$\xi_c^t$を代入していくことで式を一つにまとめることができる。
 
 \end{document}
 
