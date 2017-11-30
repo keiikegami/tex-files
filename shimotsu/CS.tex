@@ -3,7 +3,7 @@
 \usepackage{minijs}
 \usepackage{otf}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
-\usetheme{Antibes}
+\usetheme{default}
 \setbeamertemplate{navigation symbols}{}
 \usepackage{url}
 \usepackage{graphicx}
@@ -30,53 +30,54 @@
 \subsection{目的}
 \begin{frame}\frametitle{モチベーション}
 	\begin{itemize}
-	\item 契約理論において理論やモデルの発展は著しい
-	\item 逆選択をはじめとして理論の示唆する現象の実証研究が少ない
-	\item 本論文では情報の非対称性が存在するかをチェックするシンプルな手法を提案する
-	\item その手法でフランスの自動車保険市場において情報の非対称性が存在しないことが否定できないことを示した
+	\item 契約理論において理論やモデルの発展は著しい。
+	\item 逆選択など理論が示唆する現象の実証研究は少ない。
+	\item 本論文では情報の非対称性が存在するかをチェックするシンプルな手法を提案する。
+	\item フランスの自動車保険市場において情報の非対称性が存在しないことは否定できないことを示した。
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{理論}
 	\begin{itemize}
-	\item 逆選択に関してはRothschild and Stiglitz (1976)が基本となるモデルを提示した
-	\item 本論文が検証する理論で示唆される現象は「補償の大きな契約は事故を起こしやすい人に選ばれる」という現象
-	\item 観測された変数に置いて同質な個人について「事故を起こす」と「補償の大きい保険を選ぶ」が正の相関を持つかをチェックする
-	\item 観測された変数が選択や事故に及ぼす影響については考慮しない
+	\item 逆選択に関してはRothschild and Stiglitz (1976)が基本となるモデルを提示した。
+	\item 本論文が検証する理論で示唆される現象は「補償の大きな契約は事故を起こしやすい人に選ばれる」という現象。
+	\item 観測された変数に関して同質な個人について「事故を起こす」と「補償の大きい保険を選ぶ」が正の相関を持つかをチェックする。
+	\item 観測された変数が選択や事故に及ぼす影響については考慮しない。
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{\small 補償の大きな契約は事故を起こしやすい人に選ばれる？}
-この現象は以下のように様々な状況に対して頑健な現象
+この現象は以下のように様々な状況に対して頑健な現象である。
 	\begin{itemize}
-	\item 保険業者の価格付けモデルに依存しない結果
-	\item 消費者の効用関数への仮定に依存しない結果（モラルハザードや複数要素での逆選択があってもこの結果は観測できる）
-	\item 一定の仮定の下では個人で事故の発生確率と重大度が異なっていても観測されるはず
-	\item dynamic adverse selectionでも同じ現象が存在するはず
+	\item 保険業者の価格付けモデルに依存しない結果である。
+	\item 消費者の効用関数への仮定に依存しない結果（モラルハザードや複数要素での逆選択があってもこの結果は観測できる）である。
+	\item 一定の仮定の下では個人で事故の発生確率と重大度が異なっていても観測される。
+	\item dynamic adverse selectionでも同じ現象が存在する。
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{モラルハザードとの関係}
 	\begin{itemize}
-	\item モラルハザードは「補償の大きな契約をする人は事故を起越さないようにするインセンティブが減る」現象
-	\item データには事故発生と補償の大きな保険の契約とが正の相関を持つとして現れるはず
-	\item 逆選択と区別できないがここでは区別せずに相関を分析する
+	\item モラルハザードは「補償の大きな契約をする人は事故を起こさないようにするインセンティブが減る」現象である。
+	\item データには事故発生と補償の大きな保険の契約とが正の相関を持つとして現れるはず。
+	\item 逆選択と区別できないがここでは区別せずに相関を分析する。
 	\end{itemize}
 \end{frame}
 
+
+\subsection{先行研究}
 \begin{frame}\frametitle{なぜ単なる回帰ではダメか}
-$TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\beta$が正となるかを見る。のでは以下が問題となる。
+$TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\beta$が正となるかを見る。これは以下の問題を持つ。
 	\begin{itemize}
-	\item $Accident_i$が事故発生のダミーであるので本来式に入れたい事故発生確率である$\pi_i$とは異なるためmeasurement errorが存在する。
+	\item $Accident_i$が事故発生のダミーであるため、本来式に入れたい事故発生確率である$\pi_i$とは異なりmeasurement errorが存在する。
 	\item 補償を広げたために事故を起こしやすくなるという方向の因果関係（モラルハザード）の存在が想定されるため$\beta$に正のバイアスがかかる。
 	\end{itemize}
 \end{frame}
 
-\subsection{先行研究}
 \begin{frame}\frametitle{Puelz and Snow (1994)}
 	\begin{itemize}
-	\item ジョージア州の自動車保険市場を分析
-	\item 逆選択の存在を示唆する結果
+	\item ジョージア州の自動車保険市場を分析した。
+	\item 逆選択の存在を示唆する結果を得た。
 	\end{itemize}
 \end{frame}
 
@@ -98,7 +99,7 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 	\begin{itemize}
 	\item \textcolor{red}{Heterogeneity}
 	
-	年齢と走行履歴がもたらす異質性について何の処理もしていない。これらの要素はdeductibleの決定に際して分散不均一をもたらす。特に走行履歴は保険業者が重視するデータであり、これをモデルに組み入れないのはOVBを招く決定的な要因となる。ただし、走行履歴は内生的な変数なのでその組み入れ方には注意がひつようである。
+	年齢と走行履歴がもたらす異質性について何の処理もしていない。これらの要素はdeductibleの決定に際して分散不均一をもたらす。特に走行履歴は保険業者が重視するデータであり、これをモデルに組み入れないのはOVBを招く決定的な要因となる。ただし、走行履歴は内生的な変数なのでその組み入れ方には注意が必要である。
 	\end{itemize}
 \end{frame}
 
@@ -190,7 +191,7 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 	\end{align*}
 \end{frame}
 
-\begin{frame}\frametitle{Pair of Probit：検定量}
+\begin{frame}\frametitle{Pair of Probit：統計量}
 推定した$\beta, \gamma$を用いて誤差項の推定値が以下のように得られる。
 \begin{align*}
 \begin{cases}
@@ -198,7 +199,7 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 	\hat{\eta_i} = \frac{\phi(X_i \hat{\gamma})}{\Phi(X_i \hat{\gamma})} z_i - (1 - z_i) \frac{\phi(X_i \hat{\gamma})}{\Phi(-X_i \hat{\gamma})}
 \end{cases}
 \end{align*}
-これより帰無仮説$cov(\epsilon_i, \eta_i) = 0$の下で漸近的に$\chi^2(1)$に従う検定量$W = \frac{\left( \sum_{i} w_i \hat{\epsilon_i} \hat{\eta_i} \right)^2}{\sum_{i} w_i^2\hat{\epsilon_i^2}\hat{\eta_i^2}}$が得られる。
+これより帰無仮説$cov(\epsilon_i, \eta_i) = 0$の下で漸近的に$\chi^2(1)$に従う統計量$W = \frac{\left( \sum_{i} w_i \hat{\epsilon_i} \hat{\eta_i} \right)^2}{\sum_{i} w_i^2\hat{\epsilon_i^2}\hat{\eta_i^2}}$が得られる。
 \end{frame}
 
 \begin{frame}\frametitle{Bivariate Probit}
@@ -211,7 +212,7 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 \begin{frame}\frametitle{$\chi^2$ test}
 	\begin{itemize}
 	\item $m$個のbinaryな外生変数の実現値の全組み合わせは$2^m$組存在する。その一つ一つをcellと呼ぶ。
-	\item cellに個人を割り当て、cellごとに$y_i, z_i$の実現値の組み合わせを用いて独立性の$\chi^2$検定量を計算する。
+	\item cellにデータ上の個人を割り当て、cellごとに$y_i, z_i$の実現値の組み合わせを用いて独立性の$\chi^2$検定量を計算する。
 	\item これにより帰無仮説の下で漸近的に$\chi^2(1)$に従う統計量が$2^m$個得られる。
 	\item 経験分布が$\chi^2(1)$であるかをKolmogorov-Smirnov検定を用いて検定する。
 	\end{itemize}
@@ -221,14 +222,8 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 	\begin{itemize}
 	\item Kolmogorov-Smirnov検定はpowerが弱いことが知られている。
 	\item これを補うために追加で二つの検定も行う。
-	\item 一つ目は各cellで自由度1、有意水準5％の$\chi^2$検定を行う。帰無仮説の下では棄却された総数が$Bin(2^m, 0.05)$に従うので、これを用いて検定を行う。（Fischerのexact p-value？）
+	\item 一つ目は各cellで自由度1、有意水準5％の$\chi^2$検定を行う。帰無仮説の下では棄却された総数が$Bin(2^m, 0.05)$に従うので、これを用いて検定を行う。
 	\item 二つ目は$2^m$個のcellで得た検定量を足し合わせ、$\chi^2(2^m)$に従うとして仮説検定を行う。
-	\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{(cf) Kolmogorov-Smirnov test}
-	\begin{itemize}
-	\item 
 	\end{itemize}
 \end{frame}
 
@@ -253,7 +248,7 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 	\begin{itemize}
 	\item 若い運転者は自動車を親からの借り物として登録することで、bonus/malusを最大50％オフの状態から始めることができる。
 	\item 全体の$\frac{2}{3}$以上がこの恩恵を被っていた。
-	\item premiumが安くなった時より広い補償の保険を買いやすくなることが予想され、実際データでもその傾向が観測される。
+	\item premiumが安い時はより広い補償の保険を買いやすくなることが予想され、実際データでもその傾向が観測される。
 	\item この恩恵を受けていることと事故発生に正の相関が観測されればモラルハザードの存在が示唆されることになる。
 	\end{itemize}
 \end{frame}
@@ -267,33 +262,27 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 \end{frame}
 
 \section{Conclusion}
-\begin{frame}\frametitle{教訓}
-	\begin{itemize}
-	\item サンプルを同質と見るための努力をしよう。線形モデルが使えるのは同質なサンプルについてのみ。
-	\item ネガティブな結果は頑健。
-	\end{itemize}
-\end{frame}
 
 \begin{frame}\frametitle{結果について}
 	\begin{itemize}
+	\item 情報の非対称性の存在を示唆する結果は得られなかった。
 	\item 情報の非対称性がないというのは市場の意見と合致する。
-	\item モラルハザードについても見つけられなかった。
 	\item しかし情報の非対称性は別の形で存在するかもしれない（ex : cherry picking）
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{Cherry Pickingで示唆されること}
+\begin{frame}\frametitle{Cherry Picking Story}
 	\begin{itemize}
-	\item よりリスク回避的な主体は補償の大きな保険を買い、かつ事故を起こさないように注意深くなる。
+	\item よりリスク回避的な主体は補償の大きな保険を買い、かつ事故を起こさないように注意深くなるという仮説。
 	\item 結果として補償の大きさと事故確率に負の相関が生じる。
-	\item この現象と単純に逆選択が存在しないこととを区別する必要があるが、本論文では扱っていない。
+	\item この現象の存在と単純に逆選択が存在しないこととを区別する必要があるが、本論文では扱っていない。
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{Future work}
 	\begin{itemize}
 	\item Cherry Pickingの検証
-	\item 学習を組み込む
+	\item 学習を組み込む（Dynamic adverse selection）
 	\item モラルハザードと逆選択の識別
 	\item 他の市場における実証
 	\end{itemize}
