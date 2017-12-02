@@ -3,7 +3,7 @@
 \usepackage{minijs}
 \usepackage{otf}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
-\usetheme{default}
+\usetheme{Antibes}
 \setbeamertemplate{navigation symbols}{}
 \usepackage{url}
 \usepackage{graphicx}
@@ -51,14 +51,14 @@
 	\begin{itemize}
 	\item 保険業者の価格付けモデルに依存しない結果である。
 	\item 消費者の効用関数への仮定に依存しない結果（モラルハザードや複数要素での逆選択があってもこの結果は観測できる）である。
-	\item 一定の仮定の下では個人で事故の発生確率と重大度が異なっていても観測される。
+	\item 一定の仮定の下では個人で事故の発生確率だけでなくその被害の大きさが異なっていても観測される。
 	\item dynamic adverse selectionでも同じ現象が存在する。
 	\end{itemize}
 \end{frame}
 
 \begin{frame}\frametitle{モラルハザードとの関係}
 	\begin{itemize}
-	\item モラルハザードは「補償の大きな契約をする人は事故を起こさないようにするインセンティブが減る」現象である。
+	\item モラルハザードは「補償の大きな契約をすると事故を起こさないようにするインセンティブが減る」現象である。
 	\item データには事故発生と補償の大きな保険の契約とが正の相関を持つとして現れるはず。
 	\item 逆選択と区別できないがここでは区別せずに相関を分析する。
 	\end{itemize}
@@ -66,13 +66,6 @@
 
 
 \subsection{先行研究}
-\begin{frame}\frametitle{なぜ単なる回帰ではダメか}
-$TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\beta$が正となるかを見る。これは以下の問題を持つ。
-	\begin{itemize}
-	\item $Accident_i$が事故発生のダミーであるため、本来式に入れたい事故発生確率である$\pi_i$とは異なりmeasurement errorが存在する。
-	\item 補償を広げたために事故を起こしやすくなるという方向の因果関係（モラルハザード）の存在が想定されるため$\beta$に正のバイアスがかかる。
-	\end{itemize}
-\end{frame}
 
 \begin{frame}\frametitle{Puelz and Snow (1994)}
 	\begin{itemize}
@@ -169,6 +162,14 @@ $TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\
 	\item Pair of Probits (parametric)
 	\item Bivariate Probit (parametric)
 	\item $\chi^2$ test (non parametric)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{なぜ単なる回帰ではダメか}
+$TR_i = \alpha + \beta Accident_i + X_i^{'}\gamma + \epsilon_i$で回帰して$\beta$が正となるかを見る。これは以下の問題を持つ。
+	\begin{itemize}
+	\item $Accident_i$が事故発生のダミーであるため、本来式に入れたい事故発生確率である$\pi_i$とは異なりmeasurement errorが存在する。
+	\item 補償を広げたために事故を起こしやすくなるという方向の因果関係（モラルハザード）の存在が想定されるため$\beta$に正のバイアスがかかる。
 	\end{itemize}
 \end{frame}
 
