@@ -177,8 +177,13 @@ P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) = \Phi(-
 であり、
 \begin{align*}
 	A_{11} &= E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right] ^{-1} E\left[ \left( \frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right)^2 \right] E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right] ^{-1}\\[10pt]
-	A_{22} &= \frac{E\left[\left( F(-\theta_{\mu})^2 -\frac{1}{4} - p^m \right)^2\right]}{\frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}}r(P^m\mid \theta_{\mu}^0) }
+	A_{22} &= \frac{E\left[\left( F(-\theta_{\mu})^2 -\frac{1}{4} - p^m \right)^2\right]}{\frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}}r(P^m\mid \theta_{\mu}^0)}\\[10pt]
+	A_{12} = A_{21} &= \frac{E\left[ r(P^m\mid \theta_{\mu}^0) \frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right]}{\frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}}r(P^m\mid \theta_{\mu}^0) E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right]}
 \end{align*}
+である。
+ここで$\hat{Avar(q)}$は推定値である$\hat{A_{11}},\hat{A_{22}},\hat{A_{12}},\hat{A_{21}}$を代入して得た漸近分散であり、各要素の推定値は通常の方法で一致推定したものを用いるとする。検定量の構成についてはAppendixに詳細を記す。
+
+このハウスマン検定量は帰無仮説$H_0 : \text{Pure Nash Equilibrium}$の下で自由度1のカイ二乗分布に従うため、有意水準を適当に決めることで帰無仮説に対して対立仮説$H_1 : \text{Mixed Strategy Nash Equilibrium}$を提示する仮説検定を行うことができる。これによって当初の目的であった純粋戦略ナッシュ均衡の仮定を検定することができた。
 
 \section{Conclusion}
 
