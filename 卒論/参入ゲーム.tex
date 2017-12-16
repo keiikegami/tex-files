@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{bm}
 \usepackage{ascmac}
+\usepackage{multirow,array}
 \usepackage{comment}
 \lstset{%
   language={python},
@@ -53,6 +54,19 @@
 
 \section{Results}
 \subsection{Model}
+以下の利得表を持つ参入ゲームを考える。
+\begin{table}[h]
+    \caption{利得表}
+    \centering
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Player $2$}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{参入しない}  & \multicolumn{1}{c}{参入する} \\\cline{3-4}
+      \multirow{2}*{Player $1$}  & 参入しない & $(0,0)$ & $(0,\theta_{\mu}+\epsilon_2)$ \\\cline{3-4}
+      & 参入する & $(\theta_{\mu}+\epsilon_1,0)$ & $(\theta_{\mu}+\theta_{\delta}+\epsilon_1, \theta_{\mu}+\theta_{\delta}+\epsilon_2)$ \\\cline{3-4}
+    \end{tabular}
+\end{table}
+ここで、$\theta_{\mu}$は一社のみ参入することができた時に得られ利得であり、$\theta_{\delta}$は二社が参入してしまった時の利得減少分を表すパラメータである。$(\epsilon_1, \epsilon_2)$はプレイヤー同士では観測可能だが研究者には観測できない利得であり、標準正規分布に従うとする。この確率変数は各市場ごとに毎期生成される、つまりデータとして得られる市場ではそれぞれプレイヤーは異なる利得表のゲームをプレイしていることに注意する。
 
 \subsection{Test}
 
