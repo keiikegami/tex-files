@@ -136,8 +136,49 @@ $M$個の市場について企業の参入結果が得られているとする�
 \end{figure}
 
 \subsection{Test}
+純粋戦略ナッシュ均衡を検定するために$\largestar$における均衡の仮定によらない推定量を用いてハウスマン検定を行う。通常ハウスマン検定には検証する仮定によらないが非有効な推定量と仮定の下で有効な推定量を用いるが、先に記述したBresnahan and Reissの推定量は\cite{3}で述べられているように有効推定量ではない。したがって、二つの推定量がどちらも有効でない場合におけるハウスマン検定を行う必要があることに注意する。
 
+$\largestar$における均衡の仮定によらない推定量について考える。純粋戦略の仮定の下では、
+\begin{align*}
+P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) = \Phi(-\theta_{\mu})^2 - \Phi(\theta_{\mu} + \theta_{\delta})
+\end{align*}
+混合戦略の仮定の下では、
+\begin{align*}
+&P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) \\
+&= \Phi(-\theta_{\mu})^2 - \Phi(\theta_{\mu} + \theta_{\delta}) +  \iint_{\largestar} \left( 1 + \frac{\theta_{\mu} + \epsilon_1}{\theta_{\delta}} \right) \left( 1 + \frac{\theta_{\mu} + \epsilon_2}{\theta_{\delta}} \right) \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2 - \iint_{\largestar} \frac{(\theta_{\mu}+\epsilon_1)(\theta_{\mu} + \epsilon_2)}{\theta_{\delta}^2} \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2
+\end{align*}
 
+すなわち$(0,0)$がナッシュ均衡として実現する確率と$(1,1)$がナッシュ均衡として実現する確率との差を二つの仮定でそれぞれ上のように求めることができる。ここで、そのさらに差の部分について$(\theta_{\mu}, \theta_{\delta})$の領域に対して値を計算すると図2のようになる。
+\begin{figure}[htbp]
+\centering
+\includegraphics{diff.png}
+\caption{差の値}
+\end{figure}
+
+これより$\left\{ (\theta_{\mu}, \theta_{\delta})\ \mid\ \theta_{\mu} > 0,\ \theta_{\mu} + \theta_{\delta} \leq 0\right\}$においては二つの仮定により差が生じないことがわかる。よって以下$\theta_{\mu} + \theta_{\delta} = 0$かつ$\theta > 0$を仮定する。これは2社が参入後にベルトラン競争をプレイすることを想定したモデルである。この特定化の下では二つの仮定による差がどのように生じるかを見ると図3となる。これより$\theta_{\mu}$が十分に大きいときに両者の差がなくなるため、仮定によらない頑健な推定を行うことができる。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{diff2.png}
+\caption{差の値2}
+\end{figure}
+
+今$M$個の市場について$T$日分の参入結果が得られているとする。$P^m$で市場$m$について$T$日分のデータより得た$P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta})$の推定値とし、$r(P^m\mid \theta_{\mu}) = F(-\theta_{\mu})^2 -\frac{1}{4} - P^m$とすると、$E\left[ r(P^m, \theta_{\mu}) \right] = 0$というモーメント条件を用いてGMMから$\theta_{\mu}^R$を推定値として得る。一方、純粋戦略の仮定の下では先ほど述べたBresnahan and Reissの手法により推定値$\theta_{\mu}^P$を得る。またその時の市場$m$の$t$日における参入社数を$y_{t,m}$とし、サンプルごとの尤度関数を$g(y_{t,m}\ \mid\ \theta_{\mu})$と書くことにする。さらにパラメータの真の値は$\theta_{\mu}^0$であるとする。
+
+この二つを用いてハウスマン検定量$H$は以下のように定義できる。
+\begin{align*}
+	H = \frac{MT(\theta_{\mu}^P - \theta_{\mu}^R)^2}{\hat{Avar(q)}}
+\end{align*}
+ただし、
+\begin{align*}
+	q &= \sqrt{MT}(\theta_{\mu}^P - \theta_{\mu}^R)\\[8pt]
+	Avar(q) &= A_{11} - \sqrt{T}A_{21} - \sqrt{T}A_{12} + TA_{22}
+\end{align*}
+であり、
+\begin{align*}
+	A_{11} &= E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right] ^{-1} E\left[ \left( \frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right)^2 \right] E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right] ^{-1}\\[10pt]
+	A_{22} &= \frac{E\left[\left( F(-\theta_{\mu})^2 -\frac{1}{4} - p^m \right)^2\right]}{\frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}}r(P^m\mid \theta_{\mu}^0) }
+\end{align*}
 
 \section{Conclusion}
 
