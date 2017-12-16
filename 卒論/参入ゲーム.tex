@@ -128,7 +128,12 @@ $M$個の市場について企業の参入結果が得られているとする�
 	m_1^{*} = M - m_2^{*} - m_0^{*}
 	\end{cases}
 \end{align*}
-これは制約を代入すれば通常の最尤法と同じように推定できる。
+これは制約を代入すれば通常の最尤法と同じように推定できるが、微分が複雑となるため$(m_2^{*},m_0^{*},m_1^{*})$を逐次改定するアルゴリズムで推定する。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようになる。
+\begin{figure}[h]
+\centering
+\includegraphics{conversion.png}
+\caption{収束の様子}
+\end{figure}
 
 
 \subsection{Test}
