@@ -89,9 +89,47 @@
 \end{align*}
 以上の仮定の下でプレイヤーの行動が確定しないのは$\left\{ (\epsilon_1, \epsilon_2) \mid -\theta_{\mu} < \epsilon_1 < -\theta_{\mu} - \theta_{\delta}\ \wedge\  -\theta_{\mu} < \epsilon_2 < -\theta_{\mu} - \theta_{\delta} \right\}$のみである。この領域（以下$\largestar$）における純粋戦略ナッシュ均衡は$(0,1),\ (1,0)$の二つである。
 
-一方で$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。この時、$(1,1),\ (0,0)$が実現する割合を適宜修正しなければ、\cite{2}で提案された最尤推定にはバイアスが存在することになる。
+一方で$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
 
 \subsection{Inference}
+\subsubsection{Bresnahan and Reissの推定手法}
+純粋戦略を仮定した時、$\largestar$においては複数の均衡が存在するので単純にプレイヤーの参入結果を用いては適切な尤度を構成できない。しかし、$\largestar$において二つある純粋戦略ナッシュ均衡の結果がどちらも1社のみ参入するという結果であることを利用して、参入した企業の数を結果変数としたBivariate Probitを行うことでパラメータが推定できる。
+
+$M$個の市場について企業の参入結果が得られているとする。$m_2$を2社がどちらも参入した市場の数、$m_1$を1社のみが参入した市場の数、$m_0$をどちらも参入しなかった市場の数として以下のように尤度が構成できる。
+\begin{align*}
+	L = \Phi(\theta_{\mu}+\theta_{\delta})^{m_2}\ \Phi(-\theta_{\mu})^{m_0}\  (1- \Phi(\theta_{\mu}+\theta_{\delta}) - \Phi(-\theta_{\mu}))^{m_1}
+\end{align*}
+
+\subsubsection{歪みの修正}
+まず$\largestar$において混合戦略がプレイされているとした時に、$m_2$と$m_0$の中でどれだけが$\largestar$における混合戦略の結果として実現したものであるかを求める。
+
+ベイズの定理より以下が成立する。ただし二つ目の等式は支配戦略はプレイされるという仮定より成立する。
+\begin{align*}
+	&{\rm Pr}(\text{(1,1) is NE}\ \mid\ \text{(1,1) is played}) \\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar)}
+\end{align*}
+1社も参入しない場合についても同様の計算ができる。ここで${\rm Pr}(\text{(1,1) is NE}) = P_2(\theta_{\mu}, \theta_{\delta}),\ {\rm Pr}(\text{(0,0) is NE}) = P_0(\theta_{\mu}, \theta_{\delta})$と書くと、参入社数割合の修正式が以下のように得られる。
+
+\begin{align*}
+\begin{cases}
+	f_1(\theta_{\mu}, \theta_{\delta}) = \frac{P_2(\theta_{\mu}, \theta_{\delta})}{P_2(\theta_{\mu}, \theta_{\delta}) + \iint_{\largestar} \frac{(\theta_{\mu}+\epsilon_1)(\theta_{\mu} + \epsilon_2)}{\theta_{\delta}^2} \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2}\\[30pt]
+	f_2(\theta_{\mu}, \theta_{\delta}) = \frac{P_0(\theta_{\mu}, \theta_{\delta})}{P_0(\theta_{\mu}, \theta_{\delta}) + \iint_{\largestar} \left( 1 + \frac{\theta_{\mu} + \epsilon_1}{\theta_{\delta}} \right) \left( 1 + \frac{\theta_{\mu} + \epsilon_2}{\theta_{\delta}} \right) \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2}
+\end{cases}
+\end{align*}
+
+これより推定においては以下の最大化問題を解けば良い。
+\begin{align*}
+	&\max_{\theta_{\mu}, \theta_{\delta}}\quad \Phi(\theta_{\mu}+\theta_{\delta})^{m_2^{*}}\ \Phi(-\theta_{\mu})^{m_0^{*}}\  (1- \Phi(\theta_{\mu}+\theta_{\delta}) - \Phi(-\theta_{\mu}))^{m_1^{*}}\\
+	&\text{s.t.}\quad \begin{cases}
+	m_2^{*} = f_1(\theta_{\mu}, \theta_{\delta})\ m_2\\
+	m_0^{*} = f_2(\theta_{\mu}, \theta_{\delta})\ m_0\\
+	m_1^{*} = M - m_2^{*} - m_0^{*}
+	\end{cases}
+\end{align*}
+これは制約を代入すれば通常の最尤法と同じように推定できる。
+
 
 \subsection{Test}
 
