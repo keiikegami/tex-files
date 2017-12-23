@@ -126,11 +126,6 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 \end{cases}
 \end{align*}
 
-これらを用いて尤度は以下のように書ける。
-\begin{align*}
-	\Pi_{m = 1}^M \left( q_1^1 q_2^1 \right)^{t_2^m} \left( q_1^0 q_2^0 \right)^{t_0^m} \left(1- q_1^1 q_2^1 - q_1^0 q_2^0\right)^{T - t_2^m - t_0^m}
-\end{align*}
-
 従って市場$m$におけるデータを$D^m$、パラメータの組を$\theta$で表記すると対数尤度は以下のようである。
 \begin{align*}
 	&\sum_{m = 1}^M g(D^m \mid \theta)\\[10pt]
@@ -139,22 +134,27 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 
 
 \subsection{AMN推定量}
-まず$\largestar$において混合戦略がプレイされているとした時に、$m_2$と$m_0$の中でどれだけが$\largestar$における混合戦略の結果として実現したものであるかを求める。
+まず$\largestar_m$において混合戦略がプレイされているとした時に、$t_2^m$と$t_0^m$の中でどれだけが混合戦略の結果として実現したものであるかを求める。
 
-ベイズの定理より以下が成立する。ただし二つ目の等式は支配戦略はプレイされるという仮定より成立する。
+ベイズの定理より以下が成立する。ただし二つ目の等式はSORの仮定より成立する。
 \begin{align*}
 	&{\rm Pr}(\text{(1,1) is NE}\ \mid\ \text{(1,1) is played}) \\[8pt]
 	&= \frac{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
 	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
-	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar)}
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m)}
 \end{align*}
-1社も参入しない場合についても同様の計算ができる。ここで${\rm Pr}(\text{(1,1) is NE}) = P_2(\theta_{\mu}, \theta_{\delta}),\ {\rm Pr}(\text{(0,0) is NE}) = P_0(\theta_{\mu}, \theta_{\delta})$と書くと、参入社数割合の修正式が以下のように得られる。
-
+1社も参入しない場合についても同様の計算ができる。ここで修正項は以下のように計算できる。
 \begin{align*}
 \begin{cases}
-	f_1(\theta_{\mu}, \theta_{\delta}) = \frac{P_2(\theta_{\mu}, \theta_{\delta})}{P_2(\theta_{\mu}, \theta_{\delta}) + \iint_{\largestar} \frac{(\theta_{\mu}+\epsilon_1)(\theta_{\mu} + \epsilon_2)}{\theta_{\delta}^2} \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2}\\[30pt]
-	f_2(\theta_{\mu}, \theta_{\delta}) = \frac{P_0(\theta_{\mu}, \theta_{\delta})}{P_0(\theta_{\mu}, \theta_{\delta}) + \iint_{\largestar} \left( 1 + \frac{\theta_{\mu} + \epsilon_1}{\theta_{\delta}} \right) \left( 1 + \frac{\theta_{\mu} + \epsilon_2}{\theta_{\delta}} \right) \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2}
+	c_2^m = {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i }{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}\\[10pt]
+	c_0^m = {\rm Pr}(\text{(0,0) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i +\delta_i}{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}
 \end{cases}
+\end{align*}
+
+よって、
+
+\begin{align*}
+	f_2(\theta) = \frac{q_1^1 q_2^1}{q_1^1 q_2^1+ c_2}\quad\ f_0(\theta) = \frac{q_1^0 q_2^0}{q_1^0 q_2^0+ c_0}
 \end{align*}
 
 これより推定においては以下の最大化問題を解けば良い。
