@@ -135,6 +135,11 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 
 
 \subsection{AMN推定量}
+\begin{figure}[h]
+\centering
+\includegraphics{conversion.png}
+\caption{収束の様子}
+\end{figure}
 $\largestar_m$において混合戦略がプレイされているとした時に、$t_2^m$と$t_0^m$の中でどれだけが混合戦略の結果として実現したものであるかを求める。
 
 ベイズの定理より以下が成立する。ただし二つ目の等式はSORの仮定より成立する。
@@ -164,20 +169,20 @@ $\largestar_m$において混合戦略がプレイされているとした時に
 \end{align*}
 
 Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。またこれによって得た推定量を$\theta^M$で表記する。
-\begin{figure}[h]
-\centering
-\includegraphics{conversion.png}
-\caption{収束の様子}
-\end{figure}
 
 \subsection{Robust推定量}
-\begin{comment}
+\begin{figure}[h]
+\centering
+\includegraphics{diff3.png}
+\caption{頑健性　左上から順に$\delta = -0.01$, $\delta = -7.4$, $\delta = -15$, $\delta = -22.5$の時の等高線}
+\end{figure}
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.3]{brgraph.png}
 \caption{均衡の分布}
 \end{figure}
-\end{comment}
+
 $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$の確率で混合戦略ナッシュ均衡が実現するとする。すなわち先のPNの仮定は$w = 0$を、AMNの設定は$w = 1$の場合を想定していると解釈できる。またこのメカニズムに以下の仮定を置く。
 
 \begin{description}
