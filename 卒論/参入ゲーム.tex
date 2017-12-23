@@ -47,7 +47,7 @@
 
 
 \section{Literatures}
-段落1：levittのレビュー
+段落1：Chiapporiのレビュー
 
 段落2：Ostringのレビュー
 
@@ -55,11 +55,11 @@
 
 その特定化の一つとして純粋戦略ナッシュ均衡がプレイされているという仮定が置かれる。これは実現した結果についてプレイヤーが両者ともに別の行動をとればよかったと後悔することがないということを意味するが、支配戦略が存在しない事象においては強すぎる仮定である。よって、以下ではこの仮定を検証する枠組みを提示する。
 
-\section{Results}
-\subsection{Model}
+\section{Model and Equilibrium}
+\subsection{Toy Model}
 以下の利得表を持つ参入ゲームを考える。
 \begin{table}[h]
-    \caption{利得表}
+    \caption{Toy model 利得表}
     \centering
     \setlength{\extrarowheight}{2pt}
     \begin{tabular}{cc|c|c|}
@@ -69,7 +69,7 @@
       & 参入する & $(\theta_{\mu}+\epsilon_1,0)$ & $(\theta_{\mu}+\theta_{\delta}+\epsilon_1, \theta_{\mu}+\theta_{\delta}+\epsilon_2)$ \\\cline{3-4}
     \end{tabular}
 \end{table}
-ここで、$\theta_{\mu}$は一社のみ参入することができた時に得られ利得であり、$\theta_{\delta}$は二社が参入してしまった時の利得減少分を表すパラメータである。$(\epsilon_1, \epsilon_2)$はプレイヤー同士では観測可能だが研究者には観測できない利得であり、標準正規分布に従うとする。この確率変数は各市場ごとに毎期生成される、つまりデータとして得られる市場ではそれぞれプレイヤーは異なる利得表のゲームをプレイしていることに注意する。以下「参入しない」を$0$、「参入する」を$1$で表記する。
+ここで、$\theta_{\mu}$は一社のみ参入することができた時に得られ利得であり、$\theta_{\delta}$は二社が参入してしまった時の利得減少分を表すパラメータである。$\theta_{\delta}$は以下で競争効果と呼ぶ。$(\epsilon_1, \epsilon_2)$はプレイヤー同士では観測可能だが研究者には観測できない利得であり、標準正規分布に従うとする。この確率変数は各市場ごとに毎期生成される、つまりデータとして得られる市場ではそれぞれプレイヤーは異なる利得表のゲームをプレイしていることに注意する。以下「参入しない」を$0$、「参入する」を$1$で表記する。
 
 プレイヤーは合理的であるとし、支配戦略がある時はその戦略をとることができるとする。例えばプレイヤー1については、
 \begin{align*}
@@ -87,12 +87,35 @@
 		{\rm Pr}(\text{player 1 takes $1$}) = 1\quad \text{if}\ \epsilon_2 < -\theta_{\mu}
 	\end{cases}
 \end{align*}
-以上の仮定の下でプレイヤーの行動が確定しないのは$\left\{ (\epsilon_1, \epsilon_2) \mid -\theta_{\mu} < \epsilon_1 < -\theta_{\mu} - \theta_{\delta}\ \wedge\  -\theta_{\mu} < \epsilon_2 < -\theta_{\mu} - \theta_{\delta} \right\}$のみである。この領域（以下$\largestar$）における純粋戦略ナッシュ均衡は$(0,1),\ (1,0)$の二つである。
+以上の仮定はSecond Order Rationalityと呼ばれる仮定であり、以降SORと呼称する。SORの下でプレイヤーの行動が確定しないのは$\left\{ (\epsilon_1, \epsilon_2) \mid -\theta_{\mu} < \epsilon_1 < -\theta_{\mu} - \theta_{\delta}\ \wedge\  -\theta_{\mu} < \epsilon_2 < -\theta_{\mu} - \theta_{\delta} \right\}$のみである。この領域（以下$\largestar$）における純粋戦略ナッシュ均衡は$(0,1),\ (1,0)$の二つである。
 
-一方で$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
+$\largestar$においては$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
 
-\subsection{Inference}
-\subsubsection{Bresnahan and Reissの推定手法}
+\subsection{Asymmetric Model}
+上記の単純なモデルを\cite{3}のようにプレイヤーとマーケットの性質によって利得が変化し、競争効果もプレイヤーによって異なる一般のモデルへと拡張する。データは$M$市場について$T$期分得られているとする。市場$m \in \left\{ 1, \cdots, M\right\}$におけるプレイヤー$i \in \left\{ 1,2\right\}$の利得に関わる$K$個の変数をまとめて${\bf x}_{m, i}$の確率ベクトルで表記する。これを用いてプレイヤー$i$の利得$(\mu_i)$は以下のように欠ける。
+\begin{align*}
+	\mu_i = {\bf x}_{m, i}^{'} \beta_i + \delta_i {\bf 1}[y_{-i} = 1]+ \epsilon_i
+\end{align*}
+ここで${\bf 1}[y_{-i} = 1]$は相手プレイヤーが参入することの指示関数であり、$\delta_i$はプレイヤー$i$の競争効果、$\epsilon_i$は標準正規分布に従う研究者には観測不可能な確率的な効用である。これを用いて市場$m$における利得表は以下のように書くことができる。
+\begin{table}[h]
+    \caption{general model 利得表}
+    \centering
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Player $2$}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{参入しない}  & \multicolumn{1}{c}{参入する} \\\cline{3-4}
+      \multirow{2}*{Player $1$}  & 参入しない & $(0,0)$ & $(0,{\bf x}_{m, 2}^{'} \beta_2+\epsilon_2)$ \\\cline{3-4}
+      & 参入する & $({\bf x}_{m, 1}^{'} \beta_1+\epsilon_1,0)$ & $({\bf x}_{m, 1}^{'} \beta_1+\delta_1+\epsilon_1,\ {\bf x}_{m, 2}^{'} \beta_2+\delta_2+\epsilon_2)$ \\\cline{3-4}
+    \end{tabular}
+\end{table}
+
+toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$で$(x, y) = \left( \frac{({\bf x}_{m, 1}^{'} \beta_1 + \delta_1 + \epsilon_2}{\delta_1} ,  \frac{{\bf x}_{m, 2}^{'} \beta_2 + \delta_2 + \epsilon_1}{\delta_2} \right)$を混合戦略ナッシュ均衡として持つ。
+
+
+\section{Inference}
+以下では一般のモデルにおけるパラメータの推定法として、$\largestar_m$における均衡の仮定に応じて3種類与える。一つ目の仮定は純粋戦略ナッシュ均衡の仮定（以下pure strategy Nash equilibriumを略してPNと呼称する）である。すなわち$\largestar_m$においては必ず$(0,1), (1,0)$のどちらかが実現するという仮定の下で推定するものであり、ここでは\cite{2}において考案された複数均衡に対して頑健な参入企業数を結果変数として用いた最尤推定法を紹介する。二つ目の仮定は$\largestar_m$においては必ず混合戦略ナッシュ均衡に従ってエームがプレイされるという仮定（以下Always mixed strategy Nash equilibriumを略してAMNと呼称する）である。
+
+\subsection{Bresnahan and Reissの推定手法}
 純粋戦略を仮定した時、$\largestar$においては複数の均衡が存在するので単純にプレイヤーの参入結果を用いては適切な尤度を構成できない。しかし、$\largestar$において二つある純粋戦略ナッシュ均衡の結果がどちらも1社のみ参入するという結果であることを利用して、参入した企業の数を結果変数としたBivariate Probitを行うことでパラメータが推定できる。
 
 $M$個の市場について企業の参入結果が得られているとする。$m_2$を2社がどちらも参入した市場の数、$m_1$を1社のみが参入した市場の数、$m_0$をどちらも参入しなかった市場の数として以下のように尤度が構成できる。
@@ -100,7 +123,7 @@ $M$個の市場について企業の参入結果が得られているとする�
 	L = \Phi(\theta_{\mu}+\theta_{\delta})^{m_2}\ \Phi(-\theta_{\mu})^{m_0}\  (1- \Phi(\theta_{\mu}+\theta_{\delta}) - \Phi(-\theta_{\mu}))^{m_1}
 \end{align*}
 
-\subsubsection{歪みの修正}
+\subsection{Full Mixedの推定}
 まず$\largestar$において混合戦略がプレイされているとした時に、$m_2$と$m_0$の中でどれだけが$\largestar$における混合戦略の結果として実現したものであるかを求める。
 
 ベイズの定理より以下が成立する。ただし二つ目の等式は支配戦略はプレイされるという仮定より成立する。
@@ -135,6 +158,10 @@ $M$個の市場について企業の参入結果が得られているとする�
 \caption{収束の様子}
 \end{figure}
 
+\subsection{Robust推定}
+
+
+\begin{comment}
 \subsection{Test}
 純粋戦略ナッシュ均衡を検定するために$\largestar$における均衡の仮定によらない推定量を用いてハウスマン検定を行う。通常ハウスマン検定には検証する仮定によらないが非有効な推定量と仮定の下で有効な推定量を用いるが、先に記述したBresnahan and Reissの推定量は\cite{3}で述べられているように有効推定量ではない。したがって、二つの推定量がどちらも有効でない場合におけるハウスマン検定を行う必要があることに注意する。
 
@@ -184,6 +211,8 @@ P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) = \Phi(-
 ここで$\hat{Avar(q)}$は推定値である$\hat{A_{11}},\hat{A_{22}},\hat{A_{12}},\hat{A_{21}}$を代入して得た漸近分散であり、各要素の推定値は通常の方法で一致推定したものを用いるとする。検定量の構成についてはAppendixに詳細を記す。
 
 このハウスマン検定量は帰無仮説$H_0 : \text{Pure Nash Equilibrium}$の下で自由度1のカイ二乗分布に従うため、有意水準を適当に決めることで帰無仮説に対して対立仮説$H_1 : \text{Mixed Strategy Nash Equilibrium}$を提示する仮説検定を行うことができる。これによって当初の目的であった純粋戦略ナッシュ均衡の仮定を検定することができた。
+\end{comment}
+
 
 \section{Conclusion}
 
