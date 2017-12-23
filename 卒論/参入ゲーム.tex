@@ -92,9 +92,9 @@
 $\largestar$においては$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
 
 \subsection{Asymmetric Model}
-上記の単純なモデルを\cite{3}のようにプレイヤーとマーケットの性質によって利得が変化し、競争効果もプレイヤーによって異なる一般のモデルへと拡張する。データは$M$市場について$T$期分得られているとする。市場$m \in \left\{ 1, \cdots, M\right\}$におけるプレイヤー$i \in \left\{ 1,2\right\}$の利得に関わる$K$個の変数をまとめて${\bf x}_{m, i}$の確率ベクトルで表記する。これを用いてプレイヤー$i$の利得$(\mu_i)$は以下のように欠ける。
+上記の単純なモデルを\cite{3}のようにプレイヤーとマーケットの性質によって利得が変化し、競争効果もプレイヤーによって異なる一般のモデルへと拡張する。データは$M$市場について$T$期分得られているとする。市場$m \in \left\{ 1, \cdots, M\right\}$におけるプレイヤー$i \in \left\{ 1,2\right\}$の利得に関わる$K$個の変数をまとめて${\bf x}_{m, i}$の確率ベクトルで表記する。これを用いてプレイヤー$i$の利得$(u_i)$は以下のように欠ける。
 \begin{align*}
-	\mu_i = {\bf x}_{m, i}^{'} \beta_i + \delta_i {\bf 1}[y_{-i} = 1]+ \epsilon_i
+	u_i = {\bf x}_{m, i}^{'} \beta_i + \delta_i {\bf 1}[y_{-i} = 1]+ \epsilon_i
 \end{align*}
 ここで${\bf 1}[y_{-i} = 1]$は相手プレイヤーが参入することの指示関数であり、$\delta_i$はプレイヤー$i$の競争効果、$\epsilon_i$は標準正規分布に従う研究者には観測不可能な確率的な効用である。これを用いて市場$m$における利得表は以下のように書くことができる。
 \begin{table}[h]
@@ -126,7 +126,7 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 \end{cases}
 \end{align*}
 
-従って市場$m$におけるデータを$D^m$、パラメータの組を$\theta$で表記すると対数尤度は以下のようである。
+従って市場$m$におけるデータを$D^m$、パラメータの組を$\theta$で表記すると対数尤度は以下のようである。またこれによって得た推定量を$\theta^P$で表記する。
 \begin{align*}
 	&\sum_{m = 1}^M g(D^m \mid \theta)\\[10pt]
 	&\text{where}\quad g(D^m \mid \theta) = t_2^m\ {\rm log} (q_1^1 q_2^1) + t_0^m\ {\rm log} (q_1^0 q_2^0) + (T - t_2^m - t_0^m)\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
@@ -162,23 +162,43 @@ $\largestar_m$において混合戦略がプレイされているとした時に
 	&\text{where}\quad h(D^m \mid \theta) = t_2^m\ f_2^m(\theta)\ {\rm log} (q_1^1 q_2^1) + t_0^m\ f_0^m(\theta)\ {\rm log} (q_1^0 q_2^0) + (T - t_2^m\ f_2^m - t_0^m\ f_0^m)\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
 \end{align*}
 
-Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。
+Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。またこれによって得た推定量を$\theta^M$で表記する。
 \begin{figure}[h]
 \centering
 \includegraphics{conversion.png}
 \caption{収束の様子}
 \end{figure}
 
-\subsection{Robust推定}
+\subsection{Robust推定量}
+\begin{comment}
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.3]{brgraph.png}
 \caption{均衡の分布}
 \end{figure}
+\end{comment}
+$\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$の確率で混合戦略ナッシュ均衡が実現するとする。すなわち先のPNの仮定は$w = 0$を、AMNの設定は$w = 1$の場合を想定していると解釈できる。またこのメカニズムに以下の仮定を置く。
 
+\begin{description}
+\item[仮定1:uniform equilibrium selection mechanism] $w$は$(\epsilon_1, \epsilon_2)$に依存しない。
+\end{description}
 
-図2における\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の差分に注目する。
+ここで1社も参入しない確率と両者ともに参入する確率との差分を$\alpha(w)$と書く。この時以下の二つが成立する。
+\begin{description}
+	\item[主張1] $\left| \alpha(w) \right|$は$w$についての増加関数である。
+	\item[主張2] $\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きいならば$\alpha(1)$を十分0に近づけることができる。
+\end{description}
 
+主張1は$w$を固定した時、$\left| \alpha(w) \right| = w\left| c_0 - c_2 \right|$とかくことができるため明らかである。主張2については図2より確認できる。図2は$\mu_i = {\bf x}_{m, i}^{'} \beta_i$として、$\delta = \delta_1 = \delta_2$という対称性の仮定の下で各$(\mu_1, \mu_2, \delta)$に対して$\alpha(1)$の値を出力し、$\delta$の値ごとに等高線で表示したものである。
+
+図2からわかるように$\mu_i + \delta$が両プレイヤーにとって十分大きい領域では$\alpha(1)$が十分小さくなっている。すなわちパラメータにこの性質を満たすという仮定を課せば、PNとAMNのどちらの仮定の下でも1社も参入しない確率と両者ともに参入する確率との差分は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分に収束することを意味する。また、図示のためにおいた$\delta_i$についての対称性の仮定を緩めてもこれは同じように成立する。
+
+さらに主張1より$\alpha(1)$が十分0に近い領域のパラメータセットにおいては他のいかなる$w \in [0,1]$においても十分0に近いことがわかる。従って「$\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きい」という仮定の下では、$\largestar_m$においていかなる均衡選択メカニズムが存在しようと、「1社も参入しない確率と両者ともに参入する確率との差分は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分に収束する」というモーメント条件を用いてパラメータの推定を行うことができる。
+
+以上の議論よりRobust推定量$(\theta^R)$は以下のように定義される。
+\begin{align*}
+	\theta^R = \argmin
+\end{align*}
 
 \begin{comment}
 \subsection{Test}
