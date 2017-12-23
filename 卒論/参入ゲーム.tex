@@ -230,7 +230,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 \section{Hypothesis Test}
 前章で述べた頑健な推定量を用いてハウスマン検定により純粋戦略ナッシュ均衡の仮定に対する仮説検定を行うことを考える。ただし、通常のハウスマン検定では有効推定量を用いるのに対し、\cite{3}で述べられたようにPN推定量は有効推定量ではない。従って非有効推定量どうしを用いたハウスマン検定を考える必要があることに注意する。
 
-パラメータの真の値を$\theta^0$で表記し、先の3つの推定量について漸近分散を考える。
+パラメータの真の値を$\theta^0$で表記すると先の3つの推定量について漸近分布は以下で与えられる。
 \begin{align*}
 	\begin{pmatrix}
 	\sqrt{M}(\theta^P - \theta^0)\\[8pt]
@@ -247,26 +247,29 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 	\right)
 \end{align*}
 
-上のように書くとき$A_{21} = A_{12}^{'}, A_{31} = A_{13}^{'}, A_{32} = A_{23}^{'}$であることに注意して、残りの要素は以下のように書くことができる。
+ここで$r(\theta) = \frac{1}{M} \sum_m r(\hat{p^m} ; \theta)$として$R(\theta) = \frac{\mathrm{d}r}{\mathrm{d} \theta^{'}}$とする。このとき、以下の二つの行列を用いることで漸近分散を$A S A^{'}$と表すことができる。
+\begin{align*}
+	S = Var\begin{pmatrix}
+	\frac{1}{\sqrt{M}} \sum_m \nabla_{\theta} g(D^m \mid \theta^0)\\[8pt]
+	\frac{1}{\sqrt{M}} \sum_m \nabla_{\theta} h(D^m \mid \theta^0)\\[8pt]
+	\frac{1}{\sqrt{M}} \sum_m\ r(p^m \mid \theta^0)
+	\end{pmatrix},\ 
+	A = \begin{pmatrix}
+	-E\left[ \nabla_{\theta \theta^{'}}g(D^m \mid \theta^0) \right]^{-1} & 0 & 0\\[8pt]
+	0 & -E\left[ \nabla_{\theta \theta^{'}}h(D^m \mid \theta^0) \right]^{-1} & 0\\[8pt]
+	0 & 0 & -\left( R(\theta^0)^{'} R(\theta^0) \right)^{-1} R(\theta^0)^{'}
+	\end{pmatrix}
+\end{align*}
 
+ここで純粋戦略ナッシュ均衡に対するハウスマン検定統計量$H_1$は$q_1 = \sqrt{M} (\theta^P - \theta^R)$と置いたとき以下で定義される。
 \begin{align*}
-	H = \frac{MT(\theta_{\mu}^P - \theta_{\mu}^R)^2}{\hat{Avar(q)}}
+H_1 = q_1^{'} \left( \hat{Avar\left( q_1 \right)} \right)^{-1} q_1
 \end{align*}
-ただし、
+ただし$\hat{Avar\left( q_1 \right)}$は$q_1$の分散共分散行列の推定値であり、デルタメソッドから以下で求められる。
 \begin{align*}
-	q &= \sqrt{MT}(\theta_{\mu}^P - \theta_{\mu}^R)\\[8pt]
-	Avar(q) &= A_{11} - \sqrt{T}A_{21} - \sqrt{T}A_{12} + TA_{22}
+	\hat{Avar\left( q_1 \right)} = \hat{A_{11}} - \hat{A_13} - \hat{A_{31}} + \hat{A_{33}} 
 \end{align*}
-であり、
-\begin{align*}
-	A_{11} &= E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right] ^{-1} E\left[ \left( \frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right)^2 \right] E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right] ^{-1}\\[10pt]
-	A_{22} &= \frac{E\left[\left( F(-\theta_{\mu})^2 -\frac{1}{4} - p^m \right)^2\right]}{\frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}}r(P^m\mid \theta_{\mu}^0)}\\[10pt]
-	A_{12} = A_{21} &= \frac{E\left[ r(P^m\mid \theta_{\mu}^0) \frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right]}{\frac{\mathrm{d}}{\mathrm{d}\theta_{\mu}}r(P^m\mid \theta_{\mu}^0) E\left[ \frac{\mathrm{d}^2}{\mathrm{d}\theta_{\mu}^2} g(y_{t,m}\ \mid\ \theta_{\mu}^0) \right]}
-\end{align*}
-である。
-ここで$\hat{Avar(q)}$は推定値である$\hat{A_{11}},\hat{A_{22}},\hat{A_{12}},\hat{A_{21}}$を代入して得た漸近分散であり、各要素の推定値は通常の方法で一致推定したものを用いるとする。検定量の構成についてはAppendixに詳細を記す。
-
-このハウスマン検定量は帰無仮説$H_0 : \text{Pure Nash Equilibrium}$の下で自由度1のカイ二乗分布に従うため、有意水準を適当に決めることで帰無仮説に対して対立仮説$H_1 : \text{Mixed Strategy Nash Equilibrium}$を提示する仮説検定を行うことができる。これによって当初の目的であった純粋戦略ナッシュ均衡の仮定を検定することができた。
+ここで$\left(\hat{A_{11}},\ \hat{A_13},\ \hat{A_{31}},\ \hat{A_{33}} \right)$は各要素のサンプルからの推定値である。
 
 \section{Discussion}
 
