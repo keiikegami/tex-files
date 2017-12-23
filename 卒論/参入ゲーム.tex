@@ -9,6 +9,7 @@
 \usepackage{MnSymbol}
 \usepackage{multirow,array}
 \usepackage{comment}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
 \lstset{%
   language={python},
   basicstyle={\small},%
@@ -183,7 +184,20 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 \item[仮定1:uniform equilibrium selection mechanism] $w$は$(\epsilon_1, \epsilon_2)$に依存しない。
 \end{description}
 
-ここで1社も参入しない確率と両者ともに参入する確率との差分を$\alpha(w)$と書く。この時以下の二つが成立する。
+ここで1社も参入しない確率と両者ともに参入する確率との差分を$\alpha(w)$と書くと、
+\begin{align*}
+	\alpha(w) = w\ \left\{ G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1} \right\}
+\end{align*}
+ただし、
+\begin{align*}
+\begin{cases}
+	G_i =  \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i)\\
+	g_i = \phi({\bf x}_{m, i}^{'} \beta_i) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i)
+\end{cases}
+\end{align*}
+である。
+
+この時以下の二つが成立する。
 \begin{description}
 	\item[主張1] $\left| \alpha(w) \right|$は$w$についての増加関数である。
 	\item[主張2] $\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きいならば$\alpha(1)$を十分0に近づけることができる。
@@ -197,8 +211,16 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 
 以上の議論よりRobust推定量$(\theta^R)$は以下のように定義される。
 \begin{align*}
-	\theta^R = \argmin
+	&\theta^R = \argmin_{\theta} \sum_{m = 1}^M r(\hat{p^m} ; \theta)^2\\[10pt]
+	&\text{where}\ r(\hat{p^m} ; \theta) = (\hat{p_2^m} - \hat{p_1^m}) - (q_1^1 q_2^1 - q_1^0 q_2^0)
 \end{align*}
+
+識別に関しては以下が成立する。
+\begin{description}
+	\item[主張3] \cite{3}の除外制約の下でRobust推定量$(\theta^R)$は識別可能である。
+\end{description}
+証明はAppendixに記す。
+
 
 \begin{comment}
 \subsection{Test}
