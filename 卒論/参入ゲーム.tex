@@ -92,7 +92,7 @@
 
 $\largestar$においては$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
 
-\subsection{Asymmetric Model}
+\subsection{General Model}
 上記の単純なモデルを\cite{3}のようにプレイヤーとマーケットの性質によって利得が変化し、競争効果もプレイヤーによって異なる一般のモデルへと拡張する。データは$M$市場について$T$期分得られているとする。市場$m \in \left\{ 1, \cdots, M\right\}$におけるプレイヤー$i \in \left\{ 1,2\right\}$の利得に関わる$K$個の変数をまとめて${\bf x}_{m, i}$の確率ベクトルで表記する。これを用いてプレイヤー$i$の利得$(u_i)$は以下のように欠ける。
 \begin{align*}
 	u_i = {\bf x}_{m, i}^{'} \beta_i + \delta_i {\bf 1}[y_{-i} = 1]+ \epsilon_i
@@ -227,38 +227,28 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 証明はAppendixに記す。
 
 
-\begin{comment}
-\subsection{Test}
-純粋戦略ナッシュ均衡を検定するために$\largestar$における均衡の仮定によらない推定量を用いてハウスマン検定を行う。通常ハウスマン検定には検証する仮定によらないが非有効な推定量と仮定の下で有効な推定量を用いるが、先に記述したBresnahan and Reissの推定量は\cite{3}で述べられているように有効推定量ではない。したがって、二つの推定量がどちらも有効でない場合におけるハウスマン検定を行う必要があることに注意する。
+\section{Hypothesis Test}
+前章で述べた頑健な推定量を用いてハウスマン検定により純粋戦略ナッシュ均衡の仮定に対する仮説検定を行うことを考える。ただし、通常のハウスマン検定では有効推定量を用いるのに対し、\cite{3}で述べられたようにPN推定量は有効推定量ではない。従って非有効推定量どうしを用いたハウスマン検定を考える必要があることに注意する。
 
-$\largestar$における均衡の仮定によらない推定量について考える。純粋戦略の仮定の下では、
+パラメータの真の値を$\theta^0$で表記し、先の3つの推定量について漸近分散を考える。
 \begin{align*}
-P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) = \Phi(-\theta_{\mu})^2 - \Phi(\theta_{\mu} + \theta_{\delta})
+	\begin{pmatrix}
+	\sqrt{M}(\theta^P - \theta^0)\\[8pt]
+	\sqrt{M}(\theta^M - \theta^0)\\[8pt]
+	\sqrt{M}(\theta^R - \theta^0)
+	\end{pmatrix}\ \xrightarrow{d}\ 
+	N\left( \begin{pmatrix}0\\[8pt]0\\[8pt]0
+	\end{pmatrix},\ 
+	\begin{pmatrix}
+	A_{11} & A_{12} & A_{13}\\[8pt]
+	A_{21} & A_{22} & A_{23}\\[8pt]
+	A_{31} & A_{32} & A_{33}
+	\end{pmatrix}
+	\right)
 \end{align*}
-混合戦略の仮定の下では、
-\begin{align*}
-&P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) \\
-&= \Phi(-\theta_{\mu})^2 - \Phi(\theta_{\mu} + \theta_{\delta}) +  \iint_{\largestar} \left( 1 + \frac{\theta_{\mu} + \epsilon_1}{\theta_{\delta}} \right) \left( 1 + \frac{\theta_{\mu} + \epsilon_2}{\theta_{\delta}} \right) \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2 - \iint_{\largestar} \frac{(\theta_{\mu}+\epsilon_1)(\theta_{\mu} + \epsilon_2)}{\theta_{\delta}^2} \phi_2(\epsilon_1, \epsilon_2) \mathrm{d}\epsilon_1 \mathrm{d}\epsilon_2
-\end{align*}
 
-すなわち$(0,0)$がナッシュ均衡として実現する確率と$(1,1)$がナッシュ均衡として実現する確率との差を二つの仮定でそれぞれ上のように求めることができる。ここで、そのさらに差の部分について$(\theta_{\mu}, \theta_{\delta})$の領域に対して値を計算すると図2のようになる。
-\begin{figure}[htbp]
-\centering
-\includegraphics{diff.png}
-\caption{差の値}
-\end{figure}
+上のように書くとき$A_{21} = A_{12}^{'}, A_{31} = A_{13}^{'}, A_{32} = A_{23}^{'}$であることに注意して、残りの要素は以下のように書くことができる。
 
-これより$\left\{ (\theta_{\mu}, \theta_{\delta})\ \mid\ \theta_{\mu} > 0,\ \theta_{\mu} + \theta_{\delta} \leq 0\right\}$においては二つの仮定により差が生じないことがわかる。よって以下$\theta_{\mu} + \theta_{\delta} = 0$かつ$\theta > 0$を仮定する。これは2社が参入後にベルトラン競争をプレイすることを想定したモデルである。この特定化の下では二つの仮定による差がどのように生じるかを見ると図3となる。これより$\theta_{\mu}$が十分に大きいときに両者の差がなくなるため、仮定によらない頑健な推定を行うことができる。
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{diff2.png}
-\caption{差の値2}
-\end{figure}
-
-今$M$個の市場について$T$日分の参入結果が得られているとする。$P^m$で市場$m$について$T$日分のデータより得た$P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta})$の推定値とし、$r(P^m\mid \theta_{\mu}) = F(-\theta_{\mu})^2 -\frac{1}{4} - P^m$とすると、$E\left[ r(P^m, \theta_{\mu}) \right] = 0$というモーメント条件を用いてGMMから$\theta_{\mu}^R$を推定値として得る。一方、純粋戦略の仮定の下では先ほど述べたBresnahan and Reissの手法により推定値$\theta_{\mu}^P$を得る。またその時の市場$m$の$t$日における参入社数を$y_{t,m}$とし、サンプルごとの尤度関数を$g(y_{t,m}\ \mid\ \theta_{\mu})$と書くことにする。さらにパラメータの真の値は$\theta_{\mu}^0$であるとする。
-
-この二つを用いてハウスマン検定量$H$は以下のように定義できる。
 \begin{align*}
 	H = \frac{MT(\theta_{\mu}^P - \theta_{\mu}^R)^2}{\hat{Avar(q)}}
 \end{align*}
@@ -277,8 +267,8 @@ P_0(\theta_{\mu}, \theta_{\delta}) - P_2(\theta_{\mu}, \theta_{\delta}) = \Phi(-
 ここで$\hat{Avar(q)}$は推定値である$\hat{A_{11}},\hat{A_{22}},\hat{A_{12}},\hat{A_{21}}$を代入して得た漸近分散であり、各要素の推定値は通常の方法で一致推定したものを用いるとする。検定量の構成についてはAppendixに詳細を記す。
 
 このハウスマン検定量は帰無仮説$H_0 : \text{Pure Nash Equilibrium}$の下で自由度1のカイ二乗分布に従うため、有意水準を適当に決めることで帰無仮説に対して対立仮説$H_1 : \text{Mixed Strategy Nash Equilibrium}$を提示する仮説検定を行うことができる。これによって当初の目的であった純粋戦略ナッシュ均衡の仮定を検定することができた。
-\end{comment}
 
+\section{Discussion}
 
 \section{Conclusion}
 
