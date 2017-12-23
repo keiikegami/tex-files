@@ -151,22 +151,18 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 \end{cases}
 \end{align*}
 
-よって、
+以上より
+\begin{align*}
+	f_2^m(\theta) = \frac{q_1^1 q_2^1}{q_1^1 q_2^1+ c_2}\quad\ f_0^m(\theta) = \frac{q_1^0 q_2^0}{q_1^0 q_2^0+ c_0}
+\end{align*}
+とすれば以下のように対数尤度を構成できる。
 
 \begin{align*}
-	f_2(\theta) = \frac{q_1^1 q_2^1}{q_1^1 q_2^1+ c_2}\quad\ f_0(\theta) = \frac{q_1^0 q_2^0}{q_1^0 q_2^0+ c_0}
+	&\sum_{m = 1}^M h(D^m \mid \theta)\\[10pt]
+	&\text{where}\quad h(D^m \mid \theta) = t_2^m\ f_2^m(\theta)\ {\rm log} (q_1^1 q_2^1) + t_0^m\ f_0^m(\theta)\ {\rm log} (q_1^0 q_2^0) + (T - t_2^m\ f_2^m - t_0^m\ f_0^m)\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
 \end{align*}
 
-これより推定においては以下の最大化問題を解けば良い。
-\begin{align*}
-	&\max_{\theta_{\mu}, \theta_{\delta}}\quad \Phi(\theta_{\mu}+\theta_{\delta})^{m_2^{*}}\ \Phi(-\theta_{\mu})^{m_0^{*}}\  (1- \Phi(\theta_{\mu}+\theta_{\delta}) - \Phi(-\theta_{\mu}))^{m_1^{*}}\\
-	&\text{s.t.}\quad \begin{cases}
-	m_2^{*} = f_1(\theta_{\mu}, \theta_{\delta})\ m_2\\
-	m_0^{*} = f_2(\theta_{\mu}, \theta_{\delta})\ m_0\\
-	m_1^{*} = M - m_2^{*} - m_0^{*}
-	\end{cases}
-\end{align*}
-これは制約を代入すれば通常の最尤法と同じように推定できるが、微分が複雑となるため$(m_2^{*},m_0^{*},m_1^{*})$を逐次改定するアルゴリズムで推定する。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようになる。
+Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。
 \begin{figure}[h]
 \centering
 \includegraphics{conversion.png}
