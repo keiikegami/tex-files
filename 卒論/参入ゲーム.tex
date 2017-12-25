@@ -173,7 +173,7 @@ $\largestar_m$において混合戦略がプレイされているとした時に
 	&\text{where}\quad h(D^m \mid \theta) = t_2^m\ f_2^m(\theta)\ {\rm log} (q_1^1 q_2^1) + t_0^m\ f_0^m(\theta)\ {\rm log} (q_1^0 q_2^0) + (T - t_2^m\ f_2^m - t_0^m\ f_0^m)\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
 \end{align*}
 
-Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。またこれによって得た推定量を$\theta^M$で表記する。
+Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。またこれによって得た推定量を$\theta^M$で表記する。ここで用いたアルゴリズムについてはAppendixに記す。
 
 \subsection{Robust推定量}
 \begin{figure}[h]
@@ -300,9 +300,25 @@ H_1 = q_1^{'} \left( \hat{Avar\left( q_1 \right)} \right)^{-1} q_1
 これらの均衡概念の検証も未だ静学ゲームが主であり、動学参入退出のモデルや価格付けのモデルなど広いクラスの問題を扱うことのできる検定手法の開発が今後望まれる研究の方向性である。そのためには特定化やパラメータの仮定を最小限に抑えるデータドリブンな手法が望ましい方向性であると考える。
 
 \section{Appendix}
-\subsection{主張3の照明}
+\subsection{AMN推定量の推定アルゴリズム}
+図1を出力する際に用いた推定アルゴリズムを以下に記す。$4.2$で述べた通り本来は$f_2^m(\theta), f_0^m(\theta)$を含め最尤法で推定できるが、微分が煩雑となるためここでは
+\lstinputlisting[caption=逐次推定アルゴリズム]{AMN.py}
 
-\subsection{修正ハウスマン統計量の導出}
+\subsection{主張3の証明}
+\begin{align*}
+	&\theta^R = \argmin_{\theta} \sum_{m = 1}^M r(\hat{p^m} ; \theta)^2\\[10pt]
+	&\text{where}\ r(\hat{p^m} ; \theta) = (\hat{p_2^m} - \hat{p_1^m}) - (q_1^1 q_2^1 - q_1^0 q_2^0)
+\end{align*}
+について\cite{3}と同様の除外制約の下で点識別可能であることを示す。
+
+プレイヤー2の利得のみ動かす変数が存在する時、${\bf x}_{m, 2}^{'} \beta_2\ \to \infty$となる領域が存在する。この時$-{\bf x}_{m, 2}^{'} \beta_2\ \to -\infty$であることから以下が成立する。
+\begin{align*}
+\begin{cases}
+	q_1^1 q_2^1 - q_1^0 q_2^0\ \to \Phi({\bf x}_{m, 1}^{'} \beta_1 + \delta_1)\ \text{where}\ {\bf x}_{m, 2}^{'} \beta_2\ \to \infty\\[10pt]
+	q_1^1 q_2^1 - q_1^0 q_2^0\ \to -\Phi({\bf x}_{m, 1}^{'} \beta_1)\ \text{where}\ {\bf x}_{m, 2}^{'} \beta_2\ \to -\infty
+\end{cases}
+\end{align*}
+これはプレイヤー2の行動がプレイヤー1の行動によらずに定るケースであり、プレイヤー1についても同様に考えることができるので、$E\left[ {\bf x}_{m, i} {\bf x}_{m, i}^{'} \right]$が$i = \left\{ 1,2 \right\}$についてどちらも逆行列が存在するならば$\theta$は識別可能である。
 
 \section{References}
 \begin{thebibliography}{10}
