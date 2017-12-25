@@ -301,7 +301,15 @@ H_1 = q_1^{'} \left( \hat{Avar\left( q_1 \right)} \right)^{-1} q_1
 
 \section{Appendix}
 \subsection{AMN推定量の推定アルゴリズム}
-図1を出力する際に用いた推定アルゴリズムを以下に記す。$4.2$で述べた通り本来は$f_2^m(\theta), f_0^m(\theta)$を含め最尤法で推定できるが、微分が煩雑となるためここでは
+図1を出力する際に用いた推定アルゴリズムを以下に記す。$4.2$で述べた通り本来は$f_2^m(\theta), f_0^m(\theta)$を含め最尤法で推定できるが、微分が煩雑となるためここでは以下の制約付き最適化問題と読み替えてパラメータを逐次更新することで同様の推定を行っている。
+\begin{align*}
+	&\max_{\theta}\ \sum_m\ {t_2^m}^{*}\ {\rm log} (q_1^1 q_2^1) + {t_0^m}^{*}\ {\rm log} (q_1^0 q_2^0) + (T - {t_2^m}^{*}\ - {t_0^m}^{*})\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)\\[10pt]
+	&\text{s.t.}\ \begin{cases}
+	{t_2^m}^{*} = f_2^m(\theta)\ t_2^m\\[8pt]
+	{t_0^m}^{*} = f_0^m(\theta)\ t_0^m
+	\end{cases}
+\end{align*}
+
 \lstinputlisting[caption=逐次推定アルゴリズム]{AMN.py}
 
 \subsection{主張3の証明}
