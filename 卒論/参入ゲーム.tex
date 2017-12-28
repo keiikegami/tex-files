@@ -197,12 +197,6 @@ Robust推定量の構成には、一定の条件の下で各市場において�
 \subsubsection{M市場T期データ}
 $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$の確率で混合戦略ナッシュ均衡が実現するとする。例えば先のPNの仮定は$w = 0$の場合であると言える。またこのメカニズムに以下の仮定を置く。
 
-\begin{figure}[h]
-\centering
-\includegraphics{diff3.png}
-\caption{頑健性　左上から順に$\delta = -0.01$, $\delta = -7.4$, $\delta = -15$, $\delta = -22.5$の時の等高線}
-\end{figure}
-
 \begin{description}
 \item[仮定1:uniform equilibrium selection mechanism] $w$は$(\epsilon_1, \epsilon_2)$に依存しない。
 \end{description}
@@ -226,7 +220,15 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 	\item[主張2] $\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きいならば$\alpha(1)$を十分0に近づけることができる。
 \end{description}
 
-主張1は明らかである。主張2については図2より確認できる。図2は$\mu_i = {\bf x}_{m, i}^{'} \beta_i$として、$\delta = \delta_1 = \delta_2$という対称性の仮定の下で各$(\mu_1, \mu_2, \delta)$に対して$\alpha(1)$の値を出力し、$\delta$の値ごとに等高線で表示したものである。図2からわかるように$\mu_i + \delta$が両プレイヤーにとって十分大きい領域では$\alpha(1)$が十分小さくなっている。すなわちパラメータとサンプルにこの性質を満たすという仮定を置くと、$\alpha(1)$は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しいことを意味する。また$\delta_i$についての対称性の仮定を緩めてもこれは同じように成立する。
+主張1は明らかである。主張2については以下の図1より確認できる。
+
+\begin{figure}[h]
+\centering
+\includegraphics{diff3.png}
+\caption{頑健性　左上から順に$\delta = -0.01$, $\delta = -7.4$, $\delta = -15$, $\delta = -22.5$の時の等高線}
+\end{figure}
+
+図1は$\mu_i = {\bf x}_{m, i}^{'} \beta_i$として、$\delta = \delta_1 = \delta_2$という対称性の仮定の下で各$(\mu_1, \mu_2, \delta)$に対して$\alpha(1)$の値を出力し、$\delta$の値ごとに等高線で表示したものである。図1からわかるように$\mu_i + \delta$が両プレイヤーにとって十分大きい領域では$\alpha(1)$が十分小さくなっている。すなわちパラメータとサンプルにこの性質を満たすという仮定を置くと、$\alpha(1)$は図2の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しいことを意味する。また$\delta_i$についての対称性の仮定を緩めてもこれは同じように成立する。
 
 \begin{figure}[h]
 \centering
