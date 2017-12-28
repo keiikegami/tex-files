@@ -126,6 +126,7 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 \subsection{PN推定量}
 純粋戦略を仮定した時、$\largestar_m$においては複数の均衡が存在するので単純にプレイヤーの参入結果を結果変数に用いると、すべての事象の実現確率を足すと$1$を超えてしまうため適切な尤度を構成できない。しかし、$\largestar_m$において二つある純粋戦略ナッシュ均衡の結果がどちらも1社のみ参入するという結果であることを利用して、参入した企業の数を結果変数としたBivariate Probitを行うことでパラメータが推定できる。
 
+\subsubsection{M市場T期データ}
 市場$m$に着目する。$t_2^m$を2社がどちらも参入した回数、$t_0^m$をどちらも参入しなかった回数とする。企業$i$について参入することが支配戦略となる確率と参入しないことが支配戦略となる確率とをそれぞれ$(q_i^1, q_i^0)$で表記する。これは$\phi(\cdot),\ \Phi(\cdot)$をそれぞれ標準正規分布の確率密度関数、確率分布関数とした時以下のように書ける。
 \begin{align*}
 \begin{cases}
@@ -139,6 +140,16 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 	&\sum_{m = 1}^M g(D^m \mid \theta)\\[10pt]
 	&\text{where}\quad g(D^m \mid \theta) = t_2^m\ {\rm log} (q_1^1 q_2^1) + t_0^m\ {\rm log} (q_1^0 q_2^0) + (T - t_2^m - t_0^m)\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
 \end{align*}
+
+\subsubsection{M市場データ}
+市場$m$に着目する。実現した参入企業数を$n_m\ \in \left\{ 0,1,2 \right\}$で表記すると、尤度は以下のように書ける。
+
+\begin{align*}
+	&\sum_{m = 1}^M h(D^m \mid \theta)\\[10pt]
+	&\text{where}\quad h(D^m \mid \theta) = {\bf 1}\left[ n_m = 2 \right]\ {\rm log} (q_1^1 q_2^1) + {\bf 1}\left[ n_m = 0 \right]\ {\rm log} (q_1^0 q_2^0) + {\bf 1}\left[ n_m = 1 \right]\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
+\end{align*}
+
+これよりパラメータの最尤推定量を得る。この推定量を以下$\theta_r^P$と表記する。
 
 
 \begin{comment}
@@ -181,19 +192,16 @@ Toy modelにおいてAMNのサンプルデータを用いてこの推定を試�
 
 
 \subsection{Robust推定量}
+Robust推定量の構成には、一定の条件の下で各市場において企業が$2$社ともに参入する確率と企業が$1$社も参入しない確率との差が$\largestar_m$における均衡選択の仮定によらず一定であることを利用する。
+
+\subsubsection{M市場T期データ}
+$\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$の確率で混合戦略ナッシュ均衡が実現するとする。例えば先のPNの仮定は$w = 0$の場合であると言える。またこのメカニズムに以下の仮定を置く。
+
 \begin{figure}[h]
 \centering
 \includegraphics{diff3.png}
 \caption{頑健性　左上から順に$\delta = -0.01$, $\delta = -7.4$, $\delta = -15$, $\delta = -22.5$の時の等高線}
 \end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale = 0.3]{brgraph.png}
-\caption{均衡の分布}
-\end{figure}
-
-$\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$の確率で混合戦略ナッシュ均衡が実現するとする。すなわち先のPNの仮定は$w = 0$の場合である。またこのメカニズムに以下の仮定を置く。
 
 \begin{description}
 \item[仮定1:uniform equilibrium selection mechanism] $w$は$(\epsilon_1, \epsilon_2)$に依存しない。
@@ -210,7 +218,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 	g_i = \phi({\bf x}_{m, i}^{'} \beta_i) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i)
 \end{cases}
 \end{align*}
-である。
+である。証明はAppendixに載せる。
 
 この時以下の二つが成立する。
 \begin{description}
@@ -218,7 +226,13 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 	\item[主張2] $\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きいならば$\alpha(1)$を十分0に近づけることができる。
 \end{description}
 
-主張1は$w$を固定した時、$\left| \alpha(w) \right| = w\left| c_0 - c_2 \right|$と書けるため明らかである。主張2については図2より確認できる。図2は$\mu_i = {\bf x}_{m, i}^{'} \beta_i$として、$\delta = \delta_1 = \delta_2$という対称性の仮定の下で各$(\mu_1, \mu_2, \delta)$に対して$\alpha(1)$の値を出力し、$\delta$の値ごとに等高線で表示したものである。図2からわかるように$\mu_i + \delta$が両プレイヤーにとって十分大きい領域では$\alpha(1)$が十分小さくなっている。すなわちパラメータとサンプルにこの性質を満たすという仮定を置くと、$\alpha(1)$は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しいことを意味する。また$\delta_i$についての対称性の仮定を緩めてもこれは同じように成立する。
+主張1は明らかである。主張2については図2より確認できる。図2は$\mu_i = {\bf x}_{m, i}^{'} \beta_i$として、$\delta = \delta_1 = \delta_2$という対称性の仮定の下で各$(\mu_1, \mu_2, \delta)$に対して$\alpha(1)$の値を出力し、$\delta$の値ごとに等高線で表示したものである。図2からわかるように$\mu_i + \delta$が両プレイヤーにとって十分大きい領域では$\alpha(1)$が十分小さくなっている。すなわちパラメータとサンプルにこの性質を満たすという仮定を置くと、$\alpha(1)$は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しいことを意味する。また$\delta_i$についての対称性の仮定を緩めてもこれは同じように成立する。
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.3]{brgraph.png}
+\caption{均衡の分布}
+\end{figure}
 
 さらに主張1より$\alpha(1)$が十分0に近い領域のパラメータセットにおいては他のいかなる$w \in [0,1]$においても十分0に近いことがわかる。従って「$\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きい」という仮定の下では、$\largestar_m$においていかなる均衡選択メカニズムが存在しようと、「1社も参入しない確率と両者ともに参入する確率との差分は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しい」というモーメント条件を用いてパラメータの推定を行うことができる。
 
