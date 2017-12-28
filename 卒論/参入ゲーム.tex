@@ -159,23 +159,6 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 \includegraphics{conversion.png}
 \caption{収束の様子}
 \end{figure}
-$\largestar_m$において混合戦略がプレイされているとした時に、$t_2^m$と$t_0^m$の中でどれだけが混合戦略の結果として実現したものであるかを求める。
-
-ベイズの定理より以下が成立する。ただし二つ目の等式はSORの仮定より成立する。
-\begin{align*}
-	&{\rm Pr}(\text{(1,1) is NE}\ \mid\ \text{(1,1) is played}) \\[8pt]
-	&= \frac{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
-	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
-	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m)}
-\end{align*}
-1社も参入しない場合についても同様の計算ができる。ここで修正項は以下のように計算できる。
-\begin{align*}
-\begin{cases}
-	c_2^m = {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i }{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}\\[10pt]
-	c_0^m = {\rm Pr}(\text{(0,0) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i +\delta_i}{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}
-\end{cases}
-\end{align*}
-
 以上より
 \begin{align*}
 	f_2^m(\theta) = \frac{q_1^1 q_2^1}{q_1^1 q_2^1+ c_2}\quad\ f_0^m(\theta) = \frac{q_1^0 q_2^0}{q_1^0 q_2^0+ c_0}
@@ -371,7 +354,7 @@ H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 
 \section{Appendix}
 \subsection{$\alpha(w)$の計算}
-以下を示せば十分。
+以下を示せば十分である。
 \begin{align*}
 	\alpha(1)& = G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}\\[10pt]
 	&\begin{cases}
@@ -380,7 +363,27 @@ H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 	\end{cases}
 \end{align*}
 
-まず、
+$\largestar_m$において混合戦略がプレイされているとした時に、$t_2^m$と$t_0^m$の中でどれだけの割合が混合戦略の結果として偶発的に実現したものかを求める。ベイズの定理より以下が成立する。ただし二つ目の等式はSORの仮定より成立する。
+\begin{align*}
+	&{\rm Pr}(\text{(1,1) is NE}\ \mid\ \text{(1,1) is played}) \\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m)}
+\end{align*}
+
+1社も参入しない場合についても同様の計算ができる。ここで修正項は以下のように計算できる。
+\begin{align*}
+\begin{cases}
+	c_2^m = {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i }{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}\\[10pt]
+	c_0^m = {\rm Pr}(\text{(0,0) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i +\delta_i}{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}
+\end{cases}
+\end{align*}
+
+$\alpha(1) = c_0^m - c_2^m$であることより以下の結果を得る。
+\begin{align*}
+	\alpha(1) &= c_0 -c_2\\[8pt] &= \frac{1}{\delta_1 \delta_2}\left\{ \delta_1 \delta_2 G_1 G_2 + \delta_1 G_1 \left( {\bf x}_{m, 2}^{'} \beta_2 G_2 + g_2 \right) + \delta_2 G_2 \left( {\bf x}_{m, 1}^{'} \beta_1 G_1 + g_1 \right) \right\}\\[8pt]
+	&= G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}
+\end{align*}
 
 \begin{comment}
 \subsection{AMN推定量の推定アルゴリズム}
@@ -412,33 +415,6 @@ H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 \end{cases}
 \end{align*}
 これはプレイヤー2の行動がプレイヤー1の行動によらずに定るケースであり、プレイヤー1についても同様に考えることができるので、$E\left[ {\bf x}_{m, i} {\bf x}_{m, i}^{'} \right]$が$i = \left\{ 1,2 \right\}$についてどちらも逆行列が存在するならば$\theta$は識別可能である。
-
-\begin{comment}
-\begin{thebibliography}{10}
-	\bibitem{1} Bresnahan/寡占
-	\bibitem{2} Bresnahan and Reiss
-	\bibitem{3} Tamer 2003
-	\bibitem{4} Seim 2006
-	\bibitem{5} Brock and Durlauf
-	\bibitem{6} Pakes and McGuire
-	\bibitem{7} Collard and Wexler　2013
-	\bibitem{8} Ryan 2012
-	\bibitem{9} BBL 2007
-	\bibitem{10} AM 2007
-	\bibitem{11} Ostring et al 2011
-	\bibitem{12} Haile 2008
-	\bibitem{13} chiappori
-	\bibitem{14} Eric van Damme 1998
-	\bibitem{15} Ciliberto and Tamer 
-	\bibitem{16} Grieco
-	\bibitem{17} Magnolfi and Roncoroni 2017
-	\bibitem{18} Aradillas-Lopez and Tamer 2008
-	\bibitem{19} Kashaev 2017 a
-	\bibitem{20} Kashaev 2017 b
-	\bibitem{21} Myerson 1998
-	\bibitem{22} Myerson 2000
-\end{thebibliography}
-\end{comment}
 
 \bibliographystyle{plain}
 \bibliography{soturon}
