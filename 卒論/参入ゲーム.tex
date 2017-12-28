@@ -238,7 +238,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 
 さらに主張1より$\alpha(1)$が十分0に近い領域のパラメータセットにおいては他のいかなる$w \in [0,1]$においても十分0に近いことがわかる。従って「$\forall i \in \left\{ 1,2\right\}$で${\bf x}_{m, i}^{'} \beta_i + \delta_i$が十分に大きい」という仮定の下では、$\largestar_m$においていかなる均衡選択メカニズムが存在しようと、「1社も参入しない確率と両者ともに参入する確率との差分は図3の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しい」というモーメント条件を用いてパラメータの推定を行うことができる。
 
-以上の議論よりRobust推定量$(\theta^R)$は以下のように定義される。
+以上の議論よりRobust推定量$(\theta^R)$は以下のように定義される。ただし、$p_2^m$は市場$m$において$2$社が共に参入する確率であり、$\hat{p_2^m}$は$T$期のデータからその確率を推定したものである。すなわち$n_m^t$を市場$m$の$t$期目で参入した企業数として$\hat{p_2^m} = \frac{1}{T} \sum_{t = 1}^T {\bf 1}\left[ n_m^t = 2 \right]$である。$p_0^m$と$\hat{p_0^m}$についても同様に定義される。
 \begin{align*}
 	&\theta^R = \argmin_{\theta} \sum_{m = 1}^M r(\hat{p^m} ; \theta)^2\\[10pt]
 	&\text{where}\ r(\hat{p^m} ; \theta) = (\hat{p_2^m} - \hat{p_1^m}) - (q_1^1 q_2^1 - q_1^0 q_2^0)
@@ -250,6 +250,8 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 \end{description}
 証明はAppendixに記す。
 
+\subsubsection{M市場データ}
+市場$m$に関して一回分のデータしか得られていない状況を考える。Robust推定量の構成に必要なのは各市場ごとの$\hat{p_2^m}, \hat{p_1^m}$のである。$p_2^m,p_0^m$は説明変数の値に依存する関数であることから、多項ロジットで当該関数を推定し、それによって得られる$p_2^m,p_0^m$の市場ごとの予測値を$\hat{p_2^m}, \hat{p_1^m}$として利用することで先と同様の非線形最小二乗推定量を得ることができる。
 
 \section{Hypothesis Test}
 前章で述べた頑健な推定量を用いてハウスマン検定により純粋戦略ナッシュ均衡の仮定に対する仮説検定を行うことを考える。ただし、通常のハウスマン検定では有効推定量を用いるのに対し、\cite{Tamer2003a}で述べられたようにPN推定量は有効推定量ではない。従って非有効推定量同士を用いたハウスマン検定を考える必要があることに注意する。
@@ -321,7 +323,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 \begin{align*}
 H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 \end{align*}
-ただし$\hat{Avar\left( q \right)}$は$q$の分散共分散行列の推定値であり、デルタメソッドから以下で求められる。
+ただし$\hat{Avar\left( q \right)}$は$q$の分散共分散行列の推定値であり、デルタメソッドより以下のように求められる。
 \begin{align*}
 	\hat{Avar\left( q \right)} = \hat{A_{11}} - \hat{A_{12}} - \hat{A_{21}} + \hat{A_{22}} 
 \end{align*}
@@ -352,6 +354,10 @@ H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 これらの均衡概念の検証も未だ静学ゲームが主であり、動学参入退出のモデルや価格付けのモデルなど広いクラスの問題を扱うことのできる検定手法の開発が今後望まれる研究の方向性である。そのためには特定化やパラメータの仮定を最小限に抑えるデータドリブンな手法が望ましい方向性であると考える。
 
 \section{Appendix}
+\subsection{$\alpha(w)$の計算}
+
+
+\begin{comment}
 \subsection{AMN推定量の推定アルゴリズム}
 図1を出力する際に用いた推定アルゴリズムを以下に記す。$4.2$で述べた通り本来は$f_2^m(\theta), f_0^m(\theta)$を含め最尤法で推定できるが、微分が煩雑となるためここでは以下の制約付き最適化問題と読み替えてパラメータを逐次更新することで同様の推定を行っている。
 \begin{align*}
@@ -363,6 +369,8 @@ H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 \end{align*}
 
 \lstinputlisting[caption=逐次推定アルゴリズム]{AMN.py}
+\end{comment}
+
 
 \subsection{主張3の証明}
 \begin{align*}
