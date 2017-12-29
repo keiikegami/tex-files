@@ -1,0 +1,48 @@
+\section{Appendix}
+\subsection{$\alpha(w)$の計算}
+以下を示せば十分である。
+\begin{align*}
+	\alpha(1)& = G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}\\[10pt]
+	&\begin{cases}
+	G_i =  \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i)\\
+	g_i = \phi({\bf x}_{m, i}^{'} \beta_i) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i)
+	\end{cases}
+\end{align*}
+
+$\largestar_m$において混合戦略がプレイされているとした時に、$t_2^m$と$t_0^m$の中でどれだけの割合が混合戦略の結果として偶発的に実現したものかを求める。ベイズの定理より以下が成立する。ただし$2$つ目の等式はSORの仮定より成立する。
+\begin{align*}
+	&{\rm Pr}(\text{(1,1) is NE}\ \mid\ \text{(1,1) is played}) \\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
+	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m)}
+\end{align*}
+
+$1$社も参入しない場合についても同様の計算ができる。ここで修正項は以下のように計算できる。
+\begin{align*}
+\begin{cases}
+	c_2^m = {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i }{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}\\[10pt]
+	c_0^m = {\rm Pr}(\text{(0,0) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i +\delta_i}{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}
+\end{cases}
+\end{align*}
+
+$\alpha(1) = c_0^m - c_2^m$であることより以下の結果を得る。
+\begin{align*}
+	\alpha(1) &= c_0 -c_2\\[8pt] &= \frac{1}{\delta_1 \delta_2}\left\{ \delta_1 \delta_2 G_1 G_2 + \delta_1 G_1 \left( {\bf x}_{m, 2}^{'} \beta_2 G_2 + g_2 \right) + \delta_2 G_2 \left( {\bf x}_{m, 1}^{'} \beta_1 G_1 + g_1 \right) \right\}\\[8pt]
+	&= G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}
+\end{align*}
+
+\subsection{主張$3$の証明}
+\begin{align*}
+	&\theta^R = \argmin_{\theta} \sum_{m = 1}^M r(\hat{p^m} ; \theta)^2\\[10pt]
+	&\text{where}\ r(\hat{p^m} ; \theta) = (\hat{p_2^m} - \hat{p_1^m}) - (q_1^1 q_2^1 - q_1^0 q_2^0)
+\end{align*}
+について\cite{Tamer2003a}と同様の除外制約の下で点識別可能であることを示す。
+
+プレイヤー$2$の利得のみ動かす変数が存在する時、${\bf x}_{m, 2}^{'} \beta_2\ \to \infty$となる領域が存在する。この時$-{\bf x}_{m, 2}^{'} \beta_2\ \to -\infty$であることから以下が成立する。
+\begin{align*}
+\begin{cases}
+	q_1^1 q_2^1 - q_1^0 q_2^0\ \to \Phi({\bf x}_{m, 1}^{'} \beta_1 + \delta_1)\ \text{where}\ {\bf x}_{m, 2}^{'} \beta_2\ \to \infty\\[10pt]
+	q_1^1 q_2^1 - q_1^0 q_2^0\ \to -\Phi({\bf x}_{m, 1}^{'} \beta_1)\ \text{where}\ {\bf x}_{m, 2}^{'} \beta_2\ \to -\infty
+\end{cases}
+\end{align*}
+これはプレイヤー$2$の行動がプレイヤー$1$の行動によらずに定るケースであり、プレイヤー$1$についても同様に考えることができるので、$E\left[ {\bf x}_{m, i} {\bf x}_{m, i}^{'} \right]$が$i = \left\{ 1,2 \right\}$についてどちらも逆行列が存在するならば$\theta$は識別可能である。

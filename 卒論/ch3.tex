@@ -1,0 +1,56 @@
+\section{Model and Equilibrium}
+\subsection{Toy Model}
+以下の利得表を持つ参入ゲームを考える。
+\begin{table}[h]
+    \caption{Toy model 利得表}
+    \centering
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Player $2$}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{参入しない}  & \multicolumn{1}{c}{参入する} \\\cline{3-4}
+      \multirow{2}*{Player $1$}  & 参入しない & $(0,0)$ & $(0,\theta_{\mu}+\epsilon_2)$ \\\cline{3-4}
+      & 参入する & $(\theta_{\mu}+\epsilon_1,0)$ & $(\theta_{\mu}+\theta_{\delta}+\epsilon_1, \theta_{\mu}+\theta_{\delta}+\epsilon_2)$ \\\cline{3-4}
+    \end{tabular}
+\end{table}
+ここで、$\theta_{\mu}$は1社のみが参入した時に得られる観測できる利得であり、$\theta_{\delta}$は2社が参入してしまった時の利得減少分を表すパラメータである。$\theta_{\delta}$は以下で競争効果と呼ぶ。$(\epsilon_1, \epsilon_2)$はプレイヤー同士では観測可能だが研究者には観測できない利得であり、独立に標準正規分布に従うとする。この確率変数は各市場ごとに毎期生成される、つまりデータとして得られる市場ではそれぞれプレイヤーは異なる利得表のゲームをプレイしていることに注意する。以下「参入しない」を$0$、「参入する」を$1$で表記する。
+
+プレイヤーにはSecond Order Rationality（SOR）を仮定する。すなわち、支配戦略がある時はその戦略をとることができるとする。例えばプレイヤー1については、
+\begin{align*}
+	\begin{cases}
+		{\rm Pr}(\text{player 1 takes $0$}) = 1\quad \text{if}\ \epsilon_1 < -\theta_{\mu}\\
+		{\rm Pr}(\text{player 1 takes $1$}) = 1\quad \text{if}\ \epsilon_1 > -\theta_{\mu} - \theta_{\delta}
+	\end{cases}
+\end{align*}
+である。
+
+また、支配戦略を用いて行動の逐次削除もできるとする。すなわち、相手にとって支配戦略が存在する時はその事実を用いて自身の行動について被支配戦略を削除することで行動を確定させることができる。例えばプレイヤー1について$-\theta_{\mu} < \epsilon_1 < -\theta_{\mu} - \theta_{\delta}$の時以下のようになる。
+\begin{align*}
+	\begin{cases}
+		{\rm Pr}(\text{player 1 takes $0$}) = 1\quad \text{if}\ \epsilon_2 > -\theta_{\mu} - \theta_{\delta}\\
+		{\rm Pr}(\text{player 1 takes $1$}) = 1\quad \text{if}\ \epsilon_2 < -\theta_{\mu}
+	\end{cases}
+\end{align*}
+
+SORの下でプレイヤーの行動が確定しないのは$\left\{ (\epsilon_1, \epsilon_2) \mid -\theta_{\mu} < \epsilon_1 < -\theta_{\mu} - \theta_{\delta}\ \wedge\  -\theta_{\mu} < \epsilon_2 < -\theta_{\mu} - \theta_{\delta} \right\}$のみである。この領域（以下$\largestar$、市場$m$に注目する時は$\largestar_m$と表記する）における純粋戦略ナッシュ均衡は$(0,1),\ (1,0)$の2つである。
+
+$\largestar$においては$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
+
+\subsection{General Model}
+上記の単純なモデルを\cite{Tamer2003a}のようにプレイヤーとマーケットの性質によって利得が変化し、競争効果もプレイヤーによって異なる一般のモデルへと拡張する。データは$M$市場について$T$期分得られているとする。市場$m \in \left\{ 1, \cdots, M\right\}$におけるプレイヤー$i \in \left\{ 1,2\right\}$の利得に関わる$K$個の変数をまとめて${\bf x}_{m, i}$の確率ベクトルで表記する。これを用いてプレイヤー$i$の利得$(u_i)$は以下のように欠ける。
+\begin{align*}
+	u_i = {\bf x}_{m, i}^{'} \beta_i + \delta_i {\bf 1}[y_{-i} = 1]+ \epsilon_i
+\end{align*}
+ここで${\bf 1}[y_{-i} = 1]$は相手プレイヤーが参入することの指示関数であり、$\delta_i$はプレイヤー$i$の競争効果、$\epsilon_i$は標準正規分布に従う研究者には観測不可能な確率的な効用である。これを用いて市場$m$における利得表は以下のように書くことができる。
+\begin{table}[h]
+    \caption{general model 利得表}
+    \centering
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{Player $2$}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{参入しない}  & \multicolumn{1}{c}{参入する} \\\cline{3-4}
+      \multirow{2}*{Player $1$}  & 参入しない & $(0,0)$ & $(0,{\bf x}_{m, 2}^{'} \beta_2+\epsilon_2)$ \\\cline{3-4}
+      & 参入する & $({\bf x}_{m, 1}^{'} \beta_1+\epsilon_1,0)$ & $({\bf x}_{m, 1}^{'} \beta_1+\delta_1+\epsilon_1,\ {\bf x}_{m, 2}^{'} \beta_2+\delta_2+\epsilon_2)$ \\\cline{3-4}
+    \end{tabular}
+\end{table}
+
+toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$で$(x, y) = \left( \frac{({\bf x}_{m, 1}^{'} \beta_1 + \delta_1 + \epsilon_2}{\delta_1} ,  \frac{{\bf x}_{m, 2}^{'} \beta_2 + \delta_2 + \epsilon_1}{\delta_2} \right)$を混合戦略ナッシュ均衡として持つ。

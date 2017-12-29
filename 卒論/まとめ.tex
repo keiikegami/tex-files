@@ -1,0 +1,89 @@
+\documentclass[a4paper,10pt,oneside,openany]{jsbook}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{ascmac}
+\usepackage{MnSymbol}
+\usepackage{multirow,array}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\newcolumntype{Y}{&gt;{\centering\arraybackslash}X}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+\makeindex
+%%% 余白・文字数調整(左37mm, 右18mm, 上下共30mm, 文字数約40字/行, 行数約32行)
+\setlength{\textwidth}{155truemm}      % テキスト幅: 210-(37+18)=155mm
+\setlength{\fullwidth}{\textwidth}     % ページ全体の幅
+\setlength{\oddsidemargin}{37truemm}   % 左余白
+\addtolength{\oddsidemargin}{-1truein} % 左位置デフォルトから-1inch
+\setlength{\topmargin}{30truemm}       % 上余白
+\setlength{\textheight}{237truemm}     % テキスト高さ: 297-(30+30)=237mm
+\addtolength{\topmargin}{-1truein}     % 上位置デフォルトから-1inch
+\makeatother
+%
+% 本文の行数と桁数を指定出来るように
+\def\linesparpage#1{\baselineskip=\textheight
+   \divide\baselineskip by #1}
+\def\kcharparline#1{%
+   \ifx\xkanjiskip\undefined%
+   % NTT jTeX用
+   \jintercharskip 0mm plus 0.2mm minus 0.2mm
+   \else
+   % ASCII pTex用
+   \xkanjiskip 0mm plus 0.2mm minus 0.2mm
+   \fi
+   \settowidth{\textwidth}{あ}%
+   \multiply\textwidth by #1}
+%
+%
+\begin{document}
+\linesparpage{32} % 一ページを32行に(効果ない・・・)
+\kcharparline{40} % 一行を40字に
+
+%\include{title}
+
+\frontmatter
+
+\addcontentsline{toc}{chapter}{論文要旨}
+\include{abstract}
+
+\tableofcontents
+
+\mainmatter
+\include{ch1}
+\include{ch2}
+\include{ch3}
+\include{ch4}
+\include{ch5}
+\include{ch6}
+
+\appendix
+\include{appendix}
+
+\bibliographystyle{plain}
+\bibliography{soturon}
+
+\newpage
+\end{document}
