@@ -155,28 +155,6 @@ toy modelと同様にSORの仮定を置くと、市場$m$ごとの$\largestar_m$
 これよりパラメータの最尤推定量を得る。この推定量を以下$\theta_r^P$と表記する。
 
 
-\begin{comment}
-\subsection{AMN推定量}
-\begin{figure}[h]
-\centering
-\includegraphics{conversion.png}
-\caption{収束の様子}
-\end{figure}
-以上より
-\begin{align*}
-	f_2^m(\theta) = \frac{q_1^1 q_2^1}{q_1^1 q_2^1+ c_2}\quad\ f_0^m(\theta) = \frac{q_1^0 q_2^0}{q_1^0 q_2^0+ c_0}
-\end{align*}
-とすれば以下のように対数尤度を構成できる。
-
-\begin{align*}
-	&\sum_{m = 1}^M h(D^m \mid \theta)\\[10pt]
-	&\text{where}\quad h(D^m \mid \theta) = t_2^m\ f_2^m(\theta)\ {\rm log} (q_1^1 q_2^1) + t_0^m\ f_0^m(\theta)\ {\rm log} (q_1^0 q_2^0) + (T - t_2^m\ f_2^m - t_0^m\ f_0^m)\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)
-\end{align*}
-
-Toy modelにおいてAMNのサンプルデータを用いてこの推定を試す。$(\theta_{\mu}, \theta_{\delta}) = (1, -0.5)$を真の値とするときの収束の様子は図1のようであり、正しく収束することがわかる。またこれによって得た推定量を$\theta^M$で表記する。ここで用いたアルゴリズムについてはAppendixに記す。
-\end{comment}
-
-
 \subsection{Robust推定量}
 Robust推定量の構成には、一定の条件の下で各市場において企業が$2$社ともに参入する確率と企業が$1$社も参入しない確率との差が$\largestar_m$における均衡選択の仮定によらず一定であることを利用する。
 
@@ -208,7 +186,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 
 主張1は明らかである。主張2については以下の図1より確認できる。
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics{diff3.png}
 \caption{頑健性　左上から順に$\delta = -0.01$, $\delta = -7.4$, $\delta = -15$, $\delta = -22.5$の時の等高線}
@@ -216,7 +194,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 
 図1は$\mu_i = {\bf x}_{m, i}^{'} \beta_i$として、$\delta = \delta_1 = \delta_2$という対称性の仮定の下で各$(\mu_1, \mu_2, \delta)$に対して$\alpha(1)$の値を出力し、$\delta$の値ごとに等高線で表示したものである。図1からわかるように$\mu_i + \delta$が両プレイヤーにとって十分大きい領域では$\alpha(1)$が十分小さくなっている。すなわちパラメータとサンプルにこの性質を満たすという仮定を置くと、$\alpha(1)$は図2の\textcircled{\scriptsize 2}と\textcircled{\scriptsize 1}の領域の差分と等しいことを意味する。また$\delta_i$についての対称性の仮定を緩めてもこれは同じように成立する。
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[scale = 0.3]{brgraph.png}
 \caption{均衡の分布}
@@ -241,7 +219,7 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 
 多項ロジットによって得た$p_2^m,p_0^m$の推定値を$\tilde{p_2^m}, \tilde{p_1^m}$と表記する。図3はサンプルデータを用いて実際に推定した$\tilde{p_0^m} - \tilde{p_2^m}$を縦軸に、横軸には同じデータセットから推定した$\hat{p_2^m} - \hat{p_1^m}$をとった散布図である。多項ロジットによって差分がよく推定されていることがわかる。
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics{logit.png}
 \caption{多項ロジットによる差分の予測　直線は$\tilde{p_0^m} - \tilde{p_2^m} = \hat{p_2^m} - \hat{p_1^m}$}
@@ -266,24 +244,6 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 	\right)
 \end{align*}
 
-\begin{comment}
-\begin{align*}
-	\begin{pmatrix}
-	\sqrt{M}(\theta^P - \theta^0)\\[8pt]
-	\sqrt{M}(\theta^M - \theta^0)\\[8pt]
-	\sqrt{M}(\theta^R - \theta^0)
-	\end{pmatrix}\ \xrightarrow{d}\ 
-	N\left( \begin{pmatrix}0\\[8pt]0\\[8pt]0
-	\end{pmatrix},\ 
-	\begin{pmatrix}
-	A_{11} & A_{12} & A_{13}\\[8pt]
-	A_{21} & A_{22} & A_{23}\\[8pt]
-	A_{31} & A_{32} & A_{33}
-	\end{pmatrix}
-	\right)
-\end{align*}
-\end{comment}
-
 ここで$r(\theta) = \frac{1}{M} \sum_m r(\hat{p^m} ; \theta)$として$R(\theta) = \frac{\mathrm{d}r}{\mathrm{d} \theta^{'}}$と置く。このとき、以下の二つの行列を用いることで漸近分散を$A S A^{'}$と表すことができる。
 
 \begin{align*}
@@ -296,21 +256,6 @@ $\largestar_m$における均衡選択メカニズムとして、$w \in [0,1]$�
 	0 & -\left( R(\theta^0)^{'} R(\theta^0) \right)^{-1} R(\theta^0)^{'}
 	\end{pmatrix}
 \end{align*}
-
-\begin{comment}
-\begin{align*}
-	S = Var\begin{pmatrix}
-	\frac{1}{\sqrt{M}} \sum_m \nabla_{\theta} g(D^m \mid \theta^0)\\[8pt]
-	\frac{1}{\sqrt{M}} \sum_m \nabla_{\theta} h(D^m \mid \theta^0)\\[8pt]
-	\frac{1}{\sqrt{M}} \sum_m\ r(p^m \mid \theta^0)
-	\end{pmatrix},\ 
-	A = \begin{pmatrix}
-	-E\left[ \nabla_{\theta \theta^{'}}g(D^m \mid \theta^0) \right]^{-1} & 0 & 0\\[8pt]
-	0 & -E\left[ \nabla_{\theta \theta^{'}}h(D^m \mid \theta^0) \right]^{-1} & 0\\[8pt]
-	0 & 0 & -\left( R(\theta^0)^{'} R(\theta^0) \right)^{-1} R(\theta^0)^{'}
-	\end{pmatrix}
-\end{align*}
-\end{comment}
 
 ここで純粋戦略ナッシュ均衡に対するハウスマン検定統計量$H$は$q = \sqrt{M} (\theta^P - \theta^R)$と置いたとき以下で定義される。
 \begin{align*}
@@ -329,9 +274,7 @@ H = q^{'} \left( \hat{Avar\left( q \right)} \right)^{-1} q
 
 真のパラメータの値を${\theta^0}^{'} = ({\beta^0}^{'}, \delta) = (0.8, -0.5, -0.25)$とし、$w = 1$の時のサンプルデータを$30000$市場について$1000$期作成した。$M$市場のみのデータセットに関しては各市場の経験分布から実現した参入企業数を得た。このサンプルデータを用いて上記の推定を行い各データセットにおいてハウスマン検定統計量を計算した結果が表$3$である。
 
-
 どちらのデータセットにおいてもRobust推定量は真の値に収束している一方で、PN推定量は誤った推定結果を出力していることが見て取れる。またハウスマン検定統計量を見てもどちらのデータセットにおいても純粋戦略ナッシュ均衡がプレイされるという帰無仮説は正しく棄却されている。
-
 
 \begin{table}[t]
 \begin{minipage}{\textwidth}
@@ -356,20 +299,6 @@ H      &        \multicolumn{2}{c}{1.67554251e+12}       &         \multicolumn{
 \footnotetext[3]{サンプルはRobust推定量の仮定を満たすものを用いた。}
 \end{minipage}
 \end{table}
-
-\begin{comment}
-ここで$\mu_i + \delta_i > 0.5$の基準でサンプルを抽出し、Robust推定量の仮定を満たすデータセットとして推定を行った。
-\end{comment}
-
-\begin{comment}
-\subsection{AMNのtest}
-同様の枠組みで帰無仮説をAMNとしたときのハウスマン検定統計量$(H_2)$は以下のように構成できる。ただし$q_2 = \sqrt{M}\left( \theta^M - \theta^0 \right)$である。
-\begin{align*}
-	&H_2 = q_2^{'} \left( \hat{Avar\left( q_2 \right)} \right)^{-1} q_2\\[10pt]
-	&\text{where}\ \hat{Avar\left( q_2 \right)} = \hat{A_{22}} - \hat{A_{23}} - \hat{A_{32}} + \hat{A_{33}} 
-\end{align*}
-帰無仮説の下で$H_2$は自由度$2K + 2$の$\chi^2$分布に従うので、有意水準$5\%$の仮説検定を行うことができる。
-\end{comment}
 
 \section{Conclusion}
 本論文では広く用いられる完備情報参入ゲームのモデルを用い、実データにおいて純粋戦略ナッシュ均衡がプレイされているかを統計的に検定できる簡便な手法を提案した。先行研究ではスポーツやゲームなどの限定的な状況でのみ均衡に関する実証研究が行われていたが、参入ゲームというより広く観察でき、複雑な利得構造を持つ現象についてもプレイされる均衡を統計的にテストできる枠組みを提示したことが本論文の主要な貢献である。これはまた、ゲーム理論の文脈では不安定な均衡として排除される混合戦略ナッシュ均衡の存在を実データを用いて検証することができるため、均衡の精緻化という観点でも有益な示唆を与える。
@@ -412,21 +341,6 @@ $\alpha(1) = c_0^m - c_2^m$であることより以下の結果を得る。
 	\alpha(1) &= c_0 -c_2\\[8pt] &= \frac{1}{\delta_1 \delta_2}\left\{ \delta_1 \delta_2 G_1 G_2 + \delta_1 G_1 \left( {\bf x}_{m, 2}^{'} \beta_2 G_2 + g_2 \right) + \delta_2 G_2 \left( {\bf x}_{m, 1}^{'} \beta_1 G_1 + g_1 \right) \right\}\\[8pt]
 	&= G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}
 \end{align*}
-
-\begin{comment}
-\subsection{AMN推定量の推定アルゴリズム}
-図1を出力する際に用いた推定アルゴリズムを以下に記す。$4.2$で述べた通り本来は$f_2^m(\theta), f_0^m(\theta)$を含め最尤法で推定できるが、微分が煩雑となるためここでは以下の制約付き最適化問題と読み替えてパラメータを逐次更新することで同様の推定を行っている。
-\begin{align*}
-	&\max_{\theta}\ \sum_m\ {t_2^m}^{*}\ {\rm log} (q_1^1 q_2^1) + {t_0^m}^{*}\ {\rm log} (q_1^0 q_2^0) + (T - {t_2^m}^{*}\ - {t_0^m}^{*})\ {\rm log} (1- q_1^1 q_2^1 - q_1^0 q_2^0)\\[10pt]
-	&\text{s.t.}\ \begin{cases}
-	{t_2^m}^{*} = f_2^m(\theta)\ t_2^m\\[8pt]
-	{t_0^m}^{*} = f_0^m(\theta)\ t_0^m
-	\end{cases}
-\end{align*}
-
-\lstinputlisting[caption=逐次推定アルゴリズム]{AMN.py}
-\end{comment}
-
 
 \subsection{主張3の証明}
 \begin{align*}
