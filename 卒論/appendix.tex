@@ -1,5 +1,5 @@
-\section{Appendix}
-\subsection{$\alpha(w)$の計算}
+\chapter{$\alpha(w)$の計算}
+%\section{$\alpha(w)$の計算}
 以下を示せば十分である。
 \begin{align*}
 	\alpha(1)& = G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}\\[10pt]
@@ -10,20 +10,24 @@
 \end{align*}
 
 $\largestar_m$において混合戦略がプレイされているとした時に、$t_2^m$と$t_0^m$の中でどれだけの割合が混合戦略の結果として偶発的に実現したものかを求める。ベイズの定理より以下が成立する。ただし$2$つ目の等式はSORの仮定より成立する。
+\footnotesize
 \begin{align*}
 	&{\rm Pr}(\text{(1,1) is NE}\ \mid\ \text{(1,1) is played}) \\[8pt]
 	&= \frac{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is NE})\ {\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
 	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played}\ \mid\ \text{(1,1) is not NE})\ {\rm Pr}(\text{(1,1) is not NE})}\\[8pt]
 	&= \frac{{\rm Pr}(\text{(1,1) is NE})}{{\rm Pr}(\text{(1,1) is NE}) + {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m)}
 \end{align*}
+\normalsize
 
 $1$社も参入しない場合についても同様の計算ができる。ここで修正項は以下のように計算できる。
+\footnotesize
 \begin{align*}
 \begin{cases}
 	c_2^m = {\rm Pr}(\text{(1,1) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i }{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}\\[10pt]
 	c_0^m = {\rm Pr}(\text{(0,0) is played} \wedge \largestar_m) = \Pi_{i = 1}^2 \left\{ \frac{{\bf x}_{m, i}^{'} \beta_i +\delta_i}{\delta_i} \left( \Phi({\bf x}_{m, i}^{'} \beta_i) - \Phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) + \frac{1}{\delta_i} \left( \phi({\bf x}_{m, i}^{'} \beta_i ) - \phi({\bf x}_{m, i}^{'} \beta_i  + \delta_i) \right) \right\}
 \end{cases}
 \end{align*}
+\normalsize
 
 $\alpha(1) = c_0^m - c_2^m$であることより以下の結果を得る。
 \begin{align*}
@@ -31,7 +35,8 @@ $\alpha(1) = c_0^m - c_2^m$であることより以下の結果を得る。
 	&= G_1 G_2 \left( 1 + \frac{{\bf x}_{m, 1}^{'} \beta_1}{\delta_1} + \frac{{\bf x}_{m, 2}^{'} \beta_2}{\delta_2} \right) + \frac{G_1g_2}{\delta_2} + \frac{G_2g_1}{\delta_1}
 \end{align*}
 
-\subsection{主張$3$の証明}
+\chapter{主張$3$の証明}
+%\section{主張$3$の証明}
 \begin{align*}
 	&\theta^R = \argmin_{\theta} \sum_{m = 1}^M r(\hat{p^m} ; \theta)^2\\[10pt]
 	&\text{where}\ r(\hat{p^m} ; \theta) = (\hat{p_2^m} - \hat{p_1^m}) - (q_1^1 q_2^1 - q_1^0 q_2^0)

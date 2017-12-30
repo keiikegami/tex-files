@@ -1,5 +1,5 @@
-\section{Model and Equilibrium}
-\subsection{Toy Model}
+\chapter{モデルと均衡}
+\section{簡単なモデル}
 以下の利得表を持つ参入ゲームを考える。
 \begin{table}[h]
     \caption{Toy model 利得表}
@@ -35,7 +35,7 @@ SORの下でプレイヤーの行動が確定しないのは$\left\{ (\epsilon_1
 
 $\largestar$においては$x$をプレイヤー1の参入しない確率、$y$をプレイヤー2の参入しない確率とした時に$(x, y) = \left( \frac{\theta_{\mu} + \theta_{\delta} + \nu_2}{\theta_{\delta}} ,  \frac{\theta_{\mu} + \theta_{\delta} + \nu_1}{\theta_{\delta}} \right)$が混合戦略ナッシュ均衡として存在する。$\largestar$において混合戦略がプレイされることは$(\epsilon_1, \epsilon_2) \in \largestar$でも一定の確率で$(1,1),\ (0,0)$が実現してしまうことを意味する。よって推定の際にはこの$(1,1),\ (0,0)$が実現する割合の歪みを適切に処理することが必要である。
 
-\subsection{General Model}
+\section{一般のモデル}
 上記の単純なモデルを\cite{Tamer2003a}のようにプレイヤーとマーケットの性質によって利得が変化し、競争効果もプレイヤーによって異なる一般のモデルへと拡張する。データは$M$市場について$T$期分得られているとする。市場$m \in \left\{ 1, \cdots, M\right\}$におけるプレイヤー$i \in \left\{ 1,2\right\}$の利得に関わる$K$個の変数をまとめて${\bf x}_{m, i}$の確率ベクトルで表記する。これを用いてプレイヤー$i$の利得$(u_i)$は以下のように欠ける。
 \begin{align*}
 	u_i = {\bf x}_{m, i}^{'} \beta_i + \delta_i {\bf 1}[y_{-i} = 1]+ \epsilon_i
