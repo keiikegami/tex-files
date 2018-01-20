@@ -1,0 +1,85 @@
+\documentclass{jsarticle}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{ascmac}
+\usepackage{MnSymbol}
+\usepackage{multirow,array}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{tabularx}
+\newcolumntype{Y}{&gt;{\centering\arraybackslash}X}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+
+\title{論文要旨}
+\maketitle
+
+本研究では広く観察される市場参入という現象に対して、純粋戦略ナッシュ均衡が実現しているかを仮説検定によって検証する簡便な手法を提案する。モデルは\cite{Bresnahan1991}で提案された完備情報参入ゲームであり、\cite{Ciliberto2009a}を始め多くの事象研究で扱われるものである。
+
+本研究の貢献は以下の4点で大きなものである。1点目は不安定な混合戦略ナッシュ均衡は長期的にはプレイされないとするゲーム理論の予測についての検証を行う手法であるという点である。2点目は戦略的状況の実証分析が依拠する均衡への仮定を検証する一つの枠組みであり、実証研究による結果の妥当性を確認する手段の1つとなる点である。3点目として、本手法は先行研究で扱われてきたスポーツやゲーム、経済実験と違い利得構造が確定的でない状況においても用いることができるため、より強い意味での理論の検証を可能にしたと言える点である。さらに、4点目として混合戦略の存在を許しても部分識別の手法を用いることなく通常の推定法でモデルのパラメータを推定できる手法を提案したことも大きな貢献である。
+
+具体的には、混合戦略がいかなる割合で実現していたとしても、それに対して頑健にモデルのパラメータを推定できる推定量を新たに開発した。この推定量はモデルの均衡の仮定によらないで一致性を持つ推定量である。一方で\cite{Bresnahan1991}で開発された推定量は純粋戦略ナッシュ均衡の仮定の下で一致性を持つ推定量である。この二つはパネルデータの分析に際して固定効果モデルとランダム効果モデルとの選択などに用いられるハウスマン検定による仮説の検定を可能にするものである。ただし、どちらも有効な推定量ではないので、定義に従い非有効な推定量同士を用いたハウスマン検定統計量を計算する必要があることには注意が必要である。
+
+上記の均衡の仮定によらないで一致性を持つ推定量は$2$社が共に市場に参入する確率と$1$社も参入しない確率との差が、一定の仮定の下では均衡の仮定によらず同じ値となることを利用する。また、市場ごとに複数回の参入結果が得られているケースと市場ごとに1回のみ参入結果が得られているケースとでそれぞれ推定手法を提案した。
+
+本論ではサンプルデータを用いてモンテカルロシミュレーションを行った。それによって、\cite{Bresnahan1991}のような純粋戦略ナッシュ均衡の仮定に基づく推定量では混合戦略が存在するのならモデルのパラメータの一致推定が行えないこと、本研究の提案した頑健な推定量はその場合でも正しい値を推定できること、混合戦略ナッシュ均衡がプレイされている時、上記のハウスマン検定によって純粋戦略ナッシュ均衡の仮定を正しく棄却できること、また帰無仮説である純粋戦略ナッシュ均衡の仮定の下では検定統計量が想定される$\chi^2$分布に従っており、棄却率もほぼ正確に出ることの4点が確認された。
+
+\bibliographystyle{plain}
+\bibliography{soturon}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
