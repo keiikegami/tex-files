@@ -21,11 +21,6 @@
 
 \frame{\maketitle}
 
-\section*{目次}
-\begin{frame} \frametitle{発表の流れ}
-\tableofcontents
-\end{frame}
-
 \begin{frame}\frametitle{何をするか}
 	\begin{itemize}
 	\item 銀行間のつながりがincomplete networkでもfirst bestを達成することはできた。しかし世界全体での流動性需要量が想定される量よりも多くなる想定外の事象の下では、incomplete networkだとbankruptが地域を超えて連鎖するContagionが発生する。ということの確認。
@@ -152,6 +147,40 @@
 	\item 前者は合計$1$だけ引き出そうとする。
 	\item 後者は$0.25$だけ引き出そうとする。
 	\item 合わせて、date1で銀行Aから引き出される総額は$1.25$である。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ケース1 : 銀行Dの動き}
+	\begin{itemize}
+	\item ということは銀行Aから引き出されたものの単位あたり価値は、$0.95/1.25 = 0.76$であると言える。
+	\item この銀行$i$の資産の単位あたり価値を$q^i$と表記する。
+	\item ということで、銀行Dが銀行Aから引き出した0.25だけの資産にはもはや$0.25 * 0.76 = 0.19$だけの価値しかないことになる。
+	\item ところで、date1において銀行Aはbank runなので銀行Bから自分の資産を引き出す。それに対応してBはCから、CはDから自分の資産を引き上げる。
+	\item これより銀行Dは銀行Aがbank runしたとき、date1においては自国の流動性需要とCからのdeposits引き出しに応じるために$0.5 + 0.25 = 0.75$だけの財を持ってないといけないことになる。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ケース1 : 銀行Dの動き}
+	\begin{itemize}
+	\item 銀行Dもshort assetを$0.5$持っているので、流動性供給量は$0.5 + 0.19 = 0.69$である。
+	\item 従って$0.75 - 0.69 = 0.06$だけ追加で流動性を供給しなくてはならない。
+	\item depositsはもう引き出しているので、pecking orderに従ってlong assetを流動化して対処する。
+	\item ここで流動化するlongの量は$0.06/0.4 = 0.15$である。
+	\item 以上よりdate2においてlate consumerが受け取る消費量は$c_2 = (0.5 - 0.15)*1.5/0.5 = 1.05$となる。
+	\item これは$c_1 = 1$よりも大きいので地域Dにおいては取り付け騒ぎは発生しない。これよりContagionが発生しないという仮定はverifyされる。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ケース2}
+	\begin{itemize}
+	\item ケース1と同じことを$R = 1.2$としてやると、地域D, C, Bとbank runが順々に発生していくことがわかる。
+	\item このようなContagionが発生した場合、各国の資産価値は同じ$q$で表すことができ、資産価値を計算した際の議論から以下の式を満たす。
+	\end{itemize}
+	\begin{align*}
+		q = \frac{0.5 + 0.5 * 0.4 + 0.25 * q}{1.25}
+	\end{align*}
+	\begin{itemize}
+	\item これは$q = 0.7$である。従ってContagionが発生した場合資産価値が低下して構成が下がることが確認された。
 	\end{itemize}
 \end{frame}
 
