@@ -87,6 +87,7 @@
 	\begin{itemize}
 	\item $\bar{S}$が確率0で発生すると想定されている事象（本当はおこりうる）。
 	\item $\epsilon$分だけ世界全体での流動性需要が通常の状態よりも多くなって老いることに注意。
+	\item 前半同様に$(c_1, c_2) = (1, 1.5), (x,y) = (0.5, 0.5), r = 0.4$とする。
 	\end{itemize}
 \end{frame}
 
@@ -110,9 +111,47 @@
 	ケース1では銀行が破綻するがinterbank networkのバッファが働き、金融危機は限定された地域に止まる。しかしケース2では銀行の破綻が連鎖的に発生し、資産価値が世界的に低下する金融危機が発生する。
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{ケース1 : 銀行Aの動き}
 	\begin{itemize}
-	\item 
+	\item A地域におけるearly consumerの割合は0.6
+	\item 銀行Aはshort assetを0.5しか持ってないので、pecking orderに従い、0.1だけB銀行のdepositsを流動化することを考える。
+	\item しかし$\bar{S}$ではdate1において地域Bでも0.5だけの消費需要が発生している。
+	\item 銀行Bが持つshort assetも0.5なので、銀行Aからの流動性需要に対応するためにはpecking orderに従い銀行Cのdepositsを流動化しようとする。
+	\item この状況は銀行B, C, Dにおいて共通であり、巡り巡ってDからAへの流動性需要が発生する。
+	\item Bから引き出しても同額をDに引き渡さないといけないのでdepositsを流動化することでは自国の流動性需要には答えられないことがわかる。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ケース1 : 銀行Aの動き}
+	\begin{itemize}
+	\item Pecking orderに従い、銀行Aは次にlong assetを流動化しようとする。
+	\item $0.1/0.4 = 0.25$だけlongを流動化すれば流動性需要に対処できる。
+	\item これよりdate2に残ってるlongは$0.25$であり、これから$0.25 * 1.5 = 0.375$だけの財を得られる。
+	\item 地域Aにおけるlate consumerは0.4だったので、一人ずつこれを割り振ると、$c_2 = 0.375 / 0.4 = 0.94$となる。
+	\item date1における消費$c_1 = 1$よりもこれが少ないので、late consumerはearly consumerのふりをするインセンティブを持つ。
+	\item すなわち銀行Aでは取り付け騒ぎが発生し、bank runとなる。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ケース1 : 銀行Dの動き}
+	\begin{itemize}
+	\item この取り付けには銀行Aにdepositsを持つ銀行Dも巻き込まれる。
+	\item しかし、このケースにおいて銀行Dもbank runとなるようなContagionは発生しない。これを以下で確認する。
+	\item Contagionが発生せず、地域Dでbank runが食い止められたとする。
+	\item この時、当然Bはbank runしていないので、その資産価値は目減りせず、銀行Aが銀行Bに持つdepositsの価値は$0.25$のままである。
+	\item 銀行Aの資産はこの他にもshort assetとlong assetの二つがある。
+	\item short assetはdate1において$0.5$だけの価値をもち、long assetは流動化により$0.5 * 0.4$だけの価値を持つ。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{ケース1 : 銀行Dの動き}
+	\begin{itemize}
+	\item 以上より銀行Aのdate1における総資産価値は$0.5 + 0.5 * 0.4 + 0.25 = 0.95$である。
+	\item ここで銀行Aではdate1に取り付け騒ぎが起きていることを思い出す。
+	\item ここで銀行Aから預金を引き出そうとするのは、地域Aに住む全住民と銀行Dの二者である。
+	\item 前者は合計$1$だけ引き出そうとする。
+	\item 後者は$0.25$だけ引き出そうとする。
+	\item 合わせて、date1で銀行Aから引き出される総額は$1.25$である。
 	\end{itemize}
 \end{frame}
 
