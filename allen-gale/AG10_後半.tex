@@ -3,7 +3,7 @@
 \usepackage{minijs}
 \usepackage{otf}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
-\usetheme{Antibes}
+\usetheme{default}
 \setbeamertemplate{navigation symbols}{}
 \usepackage{url}
 \usepackage{graphicx}
@@ -25,7 +25,6 @@
 	\begin{itemize}
 	\item 銀行間のつながりがincomplete networkでもfirst bestを達成することはできた。しかし世界全体での流動性需要量が想定される量よりも多くなる想定外の事象の下では、incomplete networkだとbankruptが地域を超えて連鎖するContagionが発生する。ということの確認。
 	\item Contagionが全地域に拡大すると世界に存在する資産の価値が低下するのでやだ！ということの確認。
-	\item 銀行のデータを使ってContagionが発生する規模をシミュレーションする研究の紹介。
 	\end{itemize}
 \end{frame}
 
@@ -184,21 +183,17 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{その他諸々}
 	\begin{itemize}
-	\item 
+	\item 以上の例のような4地域モデルに限らず、どれだけ多くの地域が存在していようと、$R$が十分に小さい時に1地域のbank runが世界に波及するContagionは発生する。
+	\item しかしinterbank networkがcompleteな時は上と同じ設定でもContagionは発生しない。これはバッファとして機能する銀行が多くなることによる効果である。
+	\item Contagionは、ネットワークを所与とする、$\bar{S}$の発生確率は主観的には0、複数均衡の存在は無視、longの収益を確定的なものとした、など多くの仮定の上で発生していることにも留意が必要。
+	\item より一般的なモデルでのContagion現象の発生は更なる研究の余地があるよ！みんなやろう！
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
-	\begin{itemize}
-	\item 
-	\end{itemize}
+\begin{frame}
+	以上でAllen and Gale は終わりです。お疲れ様でした。
 \end{frame}
 
-\begin{frame}\frametitle{}
-	\begin{itemize}
-	\item 
-	\end{itemize}
-\end{frame}
 \end{document}
