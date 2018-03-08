@@ -35,12 +35,48 @@
 \end{frame}
 
 \begin{frame}\frametitle{設定}
+	\includegraphics[width = 7cm]{10-2.png}
 	
+	\begin{itemize}
+	\item $\bar{S}$が確率0で発生すると想定されている事象（本当はおこりうる）。
+	\item $\epsilon$分だけ世界全体での流動性需要が通常の状態よりも多くなって老いることに注意。
+	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Pecking Order}
 	\begin{itemize}
-	\item 
+	\item date1において流動性需要が発生したときに、当該地域の銀行はどのようにして対処するかを考える。
+	\item 銀行の持ってる資産は、short asset ($y$), 他銀行へのdeposits ($z$), long asset ($x$)の三種類。
+	\item この三つをそれぞれ流動化して流動性を供給するわけだが、この三つは無差別ではない。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Pecking Order : Cost of short asset}
+	\begin{itemize}
+	\item short assetを流動化する際のコストを考える。
+	\item date 1で1の消費をもたらすshort assetの量は1である。
+	\item このdate1で1の消費をもたらすだけのshort assetを使ってdate2で消費しようとすれば、買い替えによってdat2でも1だけの消費をすることができる。
+	\item つまり、date1で1の消費を得るのにdate2での1を犠牲にしている。
+	\item これよりshort assetを流動化するコストは1である。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Pecking Order : Cost of depoists}
+	\begin{itemize}
+	\item 他国へのdepositsを流動化する際のコストを考える。
+	\item interbank市場においても各国の消費者と銀行が結ぶのと同様の契約によって預金がなされているとする。
+	\item すなわち、ある銀行がdate0において1単位の財を他国の銀行に預けるということは、預けた先の銀行からdate1では$c_1$、date2では$c_2$だけの引き出しを保証されているということである。
+	\item ということは、date1で$c_1$だけの流動性を供給した場合、date2での$c_2$だけの消費を犠牲にしたということになる。
+	\item 従ってdepositsを流動化するコストは単位あたり$\frac{c_2}{c_1}$である。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Pecking Order : Cost of long asset}
+	\begin{itemize}
+	\item long assetを流動化する際のコストを考える。
+	\item short assetの時と同様に考えれば良い。
+	\item date1で$r$だけの消費を供給できるだけのlong assetは、date2まで持っておけば$R$だけの消費をもたらすことができるものである。
+	\item 従ってlong assetを流動化するコストは単位あたり$\frac{R}{r}$である。
 	\end{itemize}
 \end{frame}
 
@@ -74,4 +110,15 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}\frametitle{}
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{}
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{frame}
 \end{document}
