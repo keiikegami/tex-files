@@ -34,15 +34,6 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{設定}
-	\includegraphics[width = 7cm]{10-2.png}
-	
-	\begin{itemize}
-	\item $\bar{S}$が確率0で発生すると想定されている事象（本当はおこりうる）。
-	\item $\epsilon$分だけ世界全体での流動性需要が通常の状態よりも多くなって老いることに注意。
-	\end{itemize}
-\end{frame}
-
 \begin{frame}\frametitle{Pecking Order}
 	\begin{itemize}
 	\item date1において流動性需要が発生したときに、当該地域の銀行はどのようにして対処するかを考える。
@@ -80,15 +71,29 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{Pecking Order}
 	\begin{itemize}
-	\item 
+	\item 当然先の三つをコストが安い順に流動化していく。
+	\item 銀行のFOCより$1 < \frac{c_2}{c_1}$である。
+	\item $r$を十分低く設定すれば$\frac{c_2}{c_1} < \frac{R}{r}$は満たされる。
+	\item よって、以下では「short asset」「他銀行へのdeposits」「long asset」の順で流動化していくと仮定する。
+	\item これをPecking orderと呼ぶ。
 	\end{itemize}
 \end{frame}
 
-\begin{frame}\frametitle{}
+\begin{frame}\frametitle{設定1}
+	\includegraphics[width = 7cm]{10-2.png}
+	
 	\begin{itemize}
-	\item 
+	\item $\bar{S}$が確率0で発生すると想定されている事象（本当はおこりうる）。
+	\item $\epsilon$分だけ世界全体での流動性需要が通常の状態よりも多くなって老いることに注意。
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{設定2}
+	\begin{itemize}
+	\item interbank networkは上図のようなincomplete netwrokとなっている。
+	\item 異常事態$\bar{S}$には各主体確率0を割り当てているので、$z = 0.25$だけのdepositsを矢印の向きに預けている状態である。
 	\end{itemize}
 \end{frame}
 
