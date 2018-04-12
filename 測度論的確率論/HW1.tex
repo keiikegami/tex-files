@@ -90,6 +90,23 @@ $\sigma(\mathcal{C})$の構成法より、$B = \bigcup_{i = 1}^{\infty} A_i$と�
 \end{enumerate}
 以上より$\bigcup_n \mathcal{A}_n$がfieldであることが示された。
 
+\subsection{(b)}
+　$X = [0,1]$として、$\mathcal{A}_n$を以下のように定める。
+\begin{itemize}
+	\item $\mathcal{A}_1$ = $\left\{ \phi, X \right\}$
+	\item $n \geq2$について$\mathcal{A}_n = \sigma\left(\left\{ \left[0, \frac{1}{2^{n-1}}\right], \left(\frac{1}{2^{n-1}}, \frac{2}{2^{n-1}}\right), \dots, \left(\frac{2^{n-1}-1}{2^{n-1}}, 1\right] \right\}\right)$
+\end{itemize}
+この時、明らかに$\mathcal{A}_1 \subset \mathcal{A}_2 \subset \mathcal{A}_3 \dots$となる$\sigma$-fieldである。ここで、$B_n = \left( \frac{1}{2^{n-1}}, 1\right]$とすると、ある大きな$N$が存在して$n \geq N$に対しては常に$B_n \in \mathcal{A}_n$である。すなわち$B_n \in \bigcup_n \mathcal{A}_n$であるが、$\bigcup_n B_n = \left(0, 1\right]$であって、これはいかなる大きな$n$に対しても$\mathcal{A}_n$とすることはできない。これは$\bigcup_n \mathcal{A}_n$が可算無限回の和集合について閉じていないことを意味しているため、上のように作成した$\sigma$-fieldの列ではその和集合が$\sigma$-fieldにならないことが確認できた。 
+
+\section{問5}
+　$\left( X, \mathcal{A}, \mu \right)$が測度空間であるためには以下の三つを示せば良い。
+\begin{enumerate}
+	\item $\mathcal{A} \subset 2^X$が$\sigma$-fieldである
+	\item $\mu(\phi) = 0$である。
+	\item $A_n \in \mathcal{A},\ n = 1,2,3,\dots$が排反の時、$\mu\left( \bigcup_{n = 1}^{\infty} A_n \right) = \sum_{n = 1}^{\infty} \mu\left( A_n \right)$である。
+\end{enumerate}
+
+まず1番目を示すためには、問1と同じように三つの条件を確認する。$\phi = X^c$であり、$\phi$は要素数$0$の可算集合なので$X \in \mathcal{A}$である。$A \in \mathcal{A}$を任意に取ると、$A = (A^c)^c$であるので、$A$が可算集合の時は$A^c$の補集合である$A$が可算集合なので$A^c \in \mathcal{A}$であり、$A^c$が可算集合の時は定義より$A^c \in \mathcal{A}$であるのでいずれにせよ$A$の補集合は$\mathcal{A}$の要素である。$\left\{ A_i \right\}_{i = 1}^{\infty} \in \mathcal{A}$を取ってくることを考える。$\mathcal{A}$の定義より、全ての$i$について$A_i$か$A_i^c$が可算集合であることがわかっている。ここで、全ての$i$について$A_i$が可算集合の時は$\bigcup_i A_i$が可算集合の可算個の和集合になっているのでこれ自体が可算集合となり$\mathcal{A}$に入る。$1$つ以上の$i$について$A_i^c$が可算集合である場合は、$\left( \bigcup_i A_i\right)^c = \bigcap_i A_i^c$であり、仮定よりこれは可算集合の部分集合となるため可算集合である。従ってこの場合も$ \bigcup_i A_i \in \mathcal{A}$である。これより可算有限個の和集合についても閉じているので$\mathcal{A}$は$\sigma$-fieldである。
 
 \end{document}
 
