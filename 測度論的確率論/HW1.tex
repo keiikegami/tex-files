@@ -34,13 +34,17 @@ Homework 1}
 \maketitle
 
 \section{問1}
-まず$\mathcal{A}$がfieldであることを示す。そのためには以下の三つの確認をすれば良い。
+　まず$\mathcal{A}$がfieldであることを示す。そのためには以下の三つの確認をすれば良い。
 
 \begin{enumerate}
 	\item $X^c = \phi$ であり、空集合はの要素数は$0$で有限なのでこれは有限集合。よって$X = \mathbb{N} \in \mathcal{A}$である。
 	\item $A, B \in \mathcal{A}$を任意に取ってくる。この和集合が$\mathcal{A}$に入っていることを確かめる。$A, B$共に有限集合の時はその和集合も当然有限集合であり、$\mathcal{A}$に入る。片方がその補集合が有限集合である時は、一般性を失わずに$A^c$が有限集合であるとすると、$(A\cup B)^c = A^c \cap B^c$であり、これは有限集合である$A^c$の部分集合であるので有限集合である。従ってこの場合も和集合が$\mathcal{A}$に入る。最後にどちらも補集合が有限集合である場合を考える。この時は$(A\cup B)^c = A^c \cap B^c$であり、有限集合の部分集合となっているので、和集合は$\mathcal{A}$に入る。以上より、$\mathcal{A}$からどのような二つの要素を取ってきてもその和集合は$\mathcal{A}$に入っている。
 	\item $A \in \mathcal{A}$を任意にとる。$A^c$が有限集合のケースは定義より$A^c \in \mathcal{A}$である。$A$が有限集合のケースは、$(A^c)^c = A$なので、$A^c$の補集合が有限集合であるので$A^c \in \mathcal{A}$である。従って$\mathcal{A}$の要素の補集合は必ず$\mathcal{A}$に入っている。
 \end{enumerate}
+
+次に$\mathcal{A}$が$\sigma$-fieldでないことを示す。このためには可算無限個の和集合について$\mathcal{A}$が閉じていないことを確認すれば良い。$i = 1, 2 \dots$について$A_i = \left\{2i -1\right\}$を$X$の部分集合として取ってくることを考える。これは全ての$i$について要素が一つの有限集合なので$\mathcal{A}$に入っている。
+
+今、$\bigcup_{i = 1}^{\infty} A_i = \left\{ 2i-1 \mid i = 1,2,3, \dots \right\}$であり、これは奇数全体を表す。この集合は有限集合デアはなく、またその補集合である偶数全体も有限集合ではない。従って$\bigcup_{i = 1}^{\infty} A_i \not\in \mathcal{A}$である。ゆえに可算無限個の和集合について閉じていないので$\mathcal{A}$は$\sigma$-fieldではない。
 
 
 
