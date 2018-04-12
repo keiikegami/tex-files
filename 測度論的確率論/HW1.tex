@@ -56,7 +56,7 @@ Homework 1}
 \section{問3}
 　$\mathcal{C}$を含む最小の$\sigma$-fieldは、以下の手順で構成できる。
 \begin{enumerate}
-	\item $\sigma(\mathcal{C}) = \phi$を用意する。
+	\item $\sigma(\mathcal{C}) = \phi, X$を用意する。
 	\item $\sigma(\mathcal{C})$に$\mathcal{C}$の要素を全て入れる。
 	\item 今$\sigma(\mathcal{C})$に入っている要素の補集合でまだ含まれていないものを$\sigma(\mathcal{C})$に加える。
 	\item 今$\sigma(\mathcal{C})$に入っている要素の任意の可算個の組み合わせについて和集合をとり、それらでまだ含まれていないものを$\sigma(\mathcal{C})$に加える。
@@ -70,9 +70,13 @@ Homework 1}
 	\item $B$は一回前のサイクルで得られていた要素と、その補集合との可算回の和集合で表現できるもの
 \end{enumerate}
 
-2番目のケースで$B \in \sigma(\mathcal{C_B})$となる$\mathcal{C}$の可算部分集合$\mathcal{C_B}$が存在することが示され田とする。この時、$\sigma$-fieldが要素の補集合について閉じていることを考えると、1番目のケースについては1サイクル前の終了時に得られている$\mathcal{C}$の要素を$B$として引いた時に構成される$\mathcal{C_B}$に含まれていることから、自動的に示されることになる。従って、2番目のケースについてのみ考えれば良い。
+2番目のケースで$B \in \sigma(\mathcal{C}_B)$となる$\mathcal{C}$の可算部分集合$\mathcal{C}_B$が存在することが示され田とする。この時、$\sigma$-fieldが要素の補集合について閉じていることを考えると、1番目のケースについては1サイクル前の終了時に得られている$\mathcal{C}$の要素を$B$として引いた時に構成される$\mathcal{C}_B$に含まれていることから、自動的に示されることになる。従って、2番目のケースについてのみ考えれば良い。
 
+2番目のケースについて題意を満たすような$\mathcal{C}_B$が存在することを帰納法で示す。先のアルゴリズムの2番目終了時を0回目のサイクル終了時とする。この時、$B$が$\mathcal{C}$の要素であれば、$\mathcal{C}_B = B$とすれば$\mathcal{C}_B \subset \mathcal{C}$でかつ可算集合であり、さらに$B = \mathcal{C}_B \subset \sigma(\mathcal{C}_B)$であるので条件を満たす。また$B = \phi,X$の時についても任意の$\sigma$-fieldにこれらは含まれるので問題ない。
 
+$n = 0,1,2,\dots$で$n$回目のサイクル終了時に存在する$\sigma(\mathcal{C})$の任意の要素$B$については題意を満たす可算集合$\mathcal{C}_B$が存在すると仮定する。この時、$n+1$回目の終了時に新たに得られた$\sigma(\mathcal{C})$の要素$B$について題意を満たす加算部分集合が存在することを示せば良い。
+
+$\sigma(\mathcal{C})$の構成法より、$B = \bigcup_{i = 1}^{\infty} A_i$と書くことができる。ただし、$A_i$は$n$回目のサイクルの終了時に得られた$\sigma(\mathcal{C})$の要素と、その補集合とを合わせた集合の要素である。仮定と、補集合については先の1番目のケースについての議論を援用して、全ての$i$について$A_i \in \sigma(\mathcal{C}_{A_i})$なる可算集合で$\mathcal{C}_{A_i} \subset \mathcal{C}$となるものが存在する。これらに対して$\mathcal{C}_B = \left\{ \mathcal{C}_{A_i} \mid i = 1,2,3,\dots \right\}$とすると、$\mathcal{C}_B$は可算集合が可算個集まったものなので可算集合であり、$\mathcal{C}$の部分集合が集まったものであるため$\mathcal{C}$の部分集合である。また全ての$i$について$A_i \in \sigma(\mathcal{C}_{A_i})$であることより、$A_i \in \sigma(\mathcal{C}_B)$である。さらに$\sigma$-fieldは可算個の和集合について閉じているので、$B = \bigcup_{i = 1}^{\infty} A_i \in \sigma(\mathcal{C}_B)$である。以上より1番目のケースについて題意を満たす$\mathcal{C}_B$を構成することができた。
 
 
 \end{document}
