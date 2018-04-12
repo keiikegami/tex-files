@@ -58,10 +58,22 @@ Homework 1}
 \begin{enumerate}
 	\item $\sigma(\mathcal{C}) = \phi$を用意する。
 	\item $\sigma(\mathcal{C})$に$\mathcal{C}$の要素を全て入れる。
-	\item 今$\sigma(\mathcal{C})$に入っている要素の補集合を$\sigma(\mathcal{C})$に加える。
-	\item 今$\sigma(\mathcal{C})$に入っている要素の任意の可算個の組み合わせについて和集合をとり、それらを全て$\sigma(\mathcal{C})$に加える。
+	\item 今$\sigma(\mathcal{C})$に入っている要素の補集合でまだ含まれていないものを$\sigma(\mathcal{C})$に加える。
+	\item 今$\sigma(\mathcal{C})$に入っている要素の任意の可算個の組み合わせについて和集合をとり、それらでまだ含まれていないものを$\sigma(\mathcal{C})$に加える。
 	\item 要素が増えなくなるまで3,4を繰り返す。
 \end{enumerate}
+このアルゴリズムの結果が一意に存在することはlemma1.1によって保証されている。またこのループを以下でサイクルと呼ぶ。
+
+ここで、$\sigma(\mathcal{C})$から任意に一つの要素$B$を取ってきたとき、以下のケースが考えられる。
+\begin{enumerate}
+	\item $B$は一回前のサイクルで得られていた要素の補集合である
+	\item $B$は一回前のサイクルで得られていた要素と、その補集合との可算回の和集合で表現できるもの
+\end{enumerate}
+
+2番目のケースで$B \in \sigma(\mathcal{C_B})$となる$\mathcal{C}$の可算部分集合$\mathcal{C_B}$が存在することが示され田とする。この時、$\sigma$-fieldが要素の補集合について閉じていることを考えると、1番目のケースについては1サイクル前の終了時に得られている$\mathcal{C}$の要素を$B$として引いた時に構成される$\mathcal{C_B}$に含まれていることから、自動的に示されることになる。従って、2番目のケースについてのみ考えれば良い。
+
+
+
 
 \end{document}
 
