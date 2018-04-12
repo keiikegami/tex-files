@@ -79,6 +79,18 @@ $n = 0,1,2,\dots$で$n$回目のサイクル終了時に存在する$\sigma(\mat
 $\sigma(\mathcal{C})$の構成法より、$B = \bigcup_{i = 1}^{\infty} A_i$と書くことができる。ただし、$A_i$は$n$回目のサイクルの終了時に得られた$\sigma(\mathcal{C})$の要素と、その補集合とを合わせた集合の要素である。仮定と、補集合については先の1番目のケースについての議論を援用して、全ての$i$について$A_i \in \sigma(\mathcal{C}_{A_i})$なる可算集合で$\mathcal{C}_{A_i} \subset \mathcal{C}$となるものが存在する。これらに対して$\mathcal{C}_B = \left\{ \mathcal{C}_{A_i} \mid i = 1,2,3,\dots \right\}$とすると、$\mathcal{C}_B$は可算集合が可算個集まったものなので可算集合であり、$\mathcal{C}$の部分集合が集まったものであるため$\mathcal{C}$の部分集合である。また全ての$i$について$A_i \in \sigma(\mathcal{C}_{A_i})$であることより、$A_i \in \sigma(\mathcal{C}_B)$である。さらに$\sigma$-fieldは可算個の和集合について閉じているので、$B = \bigcup_{i = 1}^{\infty} A_i \in \sigma(\mathcal{C}_B)$である。以上より1番目のケースについて題意を満たす$\mathcal{C}_B$を構成することができた。
 
 
+
+\section{問4}
+　\subsection{(a)}
+　問$1$と同様の三つの性質を確認すれば良い。
+\begin{enumerate}
+	\item 全事象を$X$で表すと、全ての$n$について$X \in \mathcal{A}_n$であるので$X \in \bigcup_n \mathcal{A}_n$である。
+	\item $A, B \in \bigcup_n \mathcal{A}_n$を任意にとる。この時、$A\cup B$はある大きな$N$が存在して$\forall n \geq N$に対して$A, B \in \mathcal{A}_n$である。$\sigma$-fieldでは和集合について閉じているため、このような$n$については$A\cup B \in \mathcal{A}_n$である。これより$A\cup B \in \bigcup_n \mathcal{A}_n$である。
+	\item $A \in \bigcup_n \mathcal{A}_n$を任意にとる。ここで$\sigma$-fieldの性質より$A^c$は$A$を含む$\mathcal{A}_n$に含まれているため、$A^c \in \bigcup_n \mathcal{A}_n$である。
+\end{enumerate}
+以上より$\bigcup_n \mathcal{A}_n$がfieldであることが示された。
+
+
 \end{document}
 
 
