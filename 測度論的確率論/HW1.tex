@@ -110,7 +110,11 @@ $\sigma(\mathcal{C})$の構成法より、$B = \bigcup_{i = 1}^{\infty} A_i$と�
 
 　2番目の性質は$\phi$が可算集合であることから測度の定義より成立する。
 
-　最後に3番目の性質を確認する。排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非加算集合が複数この集合に含まれているとする。そこから$2$個の非可算集合をとる
+　最後に3番目の性質を確認する。測度の定義域である$\mathcal{A}$から排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非加算集合が複数この集合に含まれているとする。そこから$2$個の非可算集合をとることを考え、それを$A_m, A_n$と記す。すなわち$A_m \cap A_n = \phi$であるが、どちらも$\mathcal{A}$に含まれるため、$A_m^c, A_n^c$がどちらも可算集合である必要がある。$\left( A_m \cap A_n \right)^c = \phi^c = \mathbb{R}$でありこれは非可算集合であるが、$\left( A_m \cap A_n \right)^c = A_m^c \cup A_n^c$出会って、先に述べたようにこれは可算集合の和集合であり可算集合である。これより$A_m^c \cup A_n^c = \mathbb{R}$は成立しない。従って$\mathcal{A}$から排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非加算集合が複数この集合に含まれていることはありえず、排反に取ったとkには高々一つしか非可算集合が含まれないことがわかる。
+
+　まず$\left\{ A_i \right\}_{i = 1}^{\infty}$の要素が全て可算集合である場合を考えると、この時は$\bigcup_i A_i$が可算集合の可算個の和集合であるため可算集合であり、$\mu \left( \bigcup_i A_i \right) = 0 = \sum_i \mu \left( A_i \right)$が成立する。
+
+　次に$\left\{ A_i \right\}_{i = 1}^{\infty}$の中に一つ、$A_{i^*}^c$が可算集合となるものが含まれているケースを考えると、$\left( \bigcup_i A_i \right)^c = \bigcap_i A_i^c$は可算集合の部分集合であるため可算集合であり、$\mu \left(  \bigcup_i A_i  \right) = 1$である。この時、$\sum_i \mu \left( A_i \right) = \mu \left( A_{i^*} \right) = 1$であるため、こちらでも$\mu \left(  \bigcup_i A_i  \right) = \sum_i \mu \left( A_i \right)$が成立し、3番目の性質についても確認できた。
 
 \end{document}
 
