@@ -97,9 +97,50 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 		f(x) \in A_{i^*} \subset \bigcup_{i\in I} A_i\ \Rightarrow x \in f^{-1}\left( \bigcup_{i \in I} A_i \right)
 	\end{align*}
 	となり、逆向きの包含関係も成立する。
+	
+	\item $f^{-1}\left( \bigcap_{i \in I} A_i \right) = \bigcap_{i \in I} f^{-1}\left( A_i \right)$
+	
+	\begin{align*}
+		x \in f^{-1}\left( \bigcap_{i \in I} A_i \right) \Leftrightarrow f(x) \in \bigcap_{i \in I} A_i \Leftrightarrow \forall i \in I\  f(x) \in A_i \Leftrightarrow \forall i \in I\ x \in f^{-1}\left( A_i \right) \Leftrightarrow x \in \bigcap_{i \in I} f^{-1}\left( A_i \right)
+	\end{align*}
+	
+	なので等号が成立する。
 \end{enumerate}
 
 \section{Ex 3.2}
+\subsection{(a)}
+\begin{enumerate}
+	\item $f\left( \bigcup_{i \in I} A_i \right) = \bigcup_{i\in I} f\left( A_i \right)$
+	
+	\begin{align*}
+		f\left( \bigcup_{i \in I} A_i \right) = \left\{ f(x)\mid x \in \bigcup_{i \in I } A_i \right\} = \bigcup_{i\in I} \left\{ f(x)\mid x \in A_i \right\} = \bigcup_{i\in I} f\left( A_i \right)
+	\end{align*}
+	より等号が成立する。
+	
+	\item $f\left( \bigcap_{i \in I} A_i \right) \subset \bigcap_{i\in I} f\left( A_i \right)$
+	
+	任意に$1$つ$y \in f\left( \bigcap_{i \in I} A_i \right)$をとる。これは少なくとも一つ$x^* \in \bigcap_{i \in I} A_i$について$y = f(x^*)$となるものがあるということである。この時、$\forall i \in I\ x^* \in A_i$なので、$\forall i\in I\ y = f(x^*)\in f\left( A_i \right)\ \Rightarrow y \in \bigcap_{i \in I} f\left( A_i \right)$であるので、題意が示された。
+
+\subsection{(b)}
+　$A_i = \left[ -\frac{1}{i}, \frac{1}{i} \right],\ i = 1,2,3,\dots$に対して、$x \in \mathbb{R}$上の関数を以下のように定める。
+\begin{align*}
+	f(x) = \begin{cases}
+	1 & \text{if}\ x = 0 \\
+	0 & \text{otherwise}
+	\end{cases}
+\end{align*}
+
+この時、
+\begin{align*}
+	&\bigcap_{i\in I} A_i = \left\{ 0 \right\} \Rightarrow f\left( \bigcap_{i\in I} A_i \right) = \left\{ 1 \right\} \\
+	&\bigcap_{i \in I} f\left( A_i \right) = \left\{ 0,1 \right\}
+\end{align*}
+であり、確かに両者は異なる。
+
+\subsection{(c)}
+\end{enumerate}
+
+
 
 \end{document}
 
