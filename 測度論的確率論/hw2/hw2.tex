@@ -73,11 +73,31 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 
 　今、関数$f(x)$は$-m < f(x) < m$で上限と下限を持つことを思い出す。ここで、$\frac{1}{n}$以上の大きさのジャンプが最大で何回できるかを考える。最大の回数が知りたいので、最小のジャンプ幅である$\frac{1}{n}$について考えればよく、$f(x)$が非減少関数であるので、下限から上限までジャンプだけで上がった時の場合が最大のジャンプ回数である。これは$\frac{2m}{\frac{1}{n}} = 2mn < \infty$である。すなわち有限回しかジャンプできないことがわかる。
 
-　これより、各$m$について高々可算個しか不連続点が存在しないことが確認できたので、最初の議論より、一般に非減少関数$f(x)$は高々可算個しか不連続点を持たない。
+　これより、各$m$について高々可算個しか不連続点が存在しないことが確認できたので、最初の議論より、一般に非減少関数$f(x)$は高々可算個しか不連続点を持たないことが示された。
 
 \section{Ex 2.9}
 
 \section{Ex 3.1}
+\begin{enumerate}
+	\item $f^{-1}\left( A^c \right) = \left( f^{-1}\left( A \right) \right)^c$
+	
+	\begin{align*}
+		x \in \left( f^{-1}\left( A \right) \right)^c \Leftrightarrow x \not\in f^{-1}\left( A \right) \Leftrightarrow f(x) \not\in A \Leftrightarrow f(x) \in A^c \Leftrightarrow x \in f^{-1}\left( A^c \right)
+	\end{align*}
+	なので等号が成立する。
+	\item $f^{-1}\left( \bigcup_{i\in I} A_i \right) = \bigcup_{i\in I} f^{-1} \left( A_i \right)$
+	
+	任意に$1$つの$x \in f^{-1}\left( \bigcup_{i\in I} A_i \right)$をとる。これは少なくとも$1$つの$i^* \in I$について$f(x) \in A_{i^*}$であることを意味する。これより、
+	
+	\begin{align*}
+		x \in f^{-1}\left( A_{i^*}\right) \subset \bigcup_{i \in I} f^{-1}\left( A_i \right)
+	\end{align*}
+	であるので、$f^{-1}\left( \bigcup_{i\in I} A_i \right) \subset \bigcup_{i\in I} f^{-1} \left( A_i \right)$である。逆に、任意に$1$つの$x \in \bigcup_{i\in I} f^{-1} \left( A_i \right)$をとる。これは少なくともある$1$つの$i^* \in I$について$f(x) \in A_{i^*}$であることを意味する。以上より、
+	\begin{align*}
+		f(x) \in A_{i^*} \subset \bigcup_{i\in I} A_i\ \Rightarrow x \in f^{-1}\left( \bigcup_{i \in I} A_i \right)
+	\end{align*}
+	となり、逆向きの包含関係も成立する。
+\end{enumerate}
 
 \section{Ex 3.2}
 
