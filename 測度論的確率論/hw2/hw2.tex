@@ -67,6 +67,13 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 　次に「$\mu$が$\sigma\left( \mathcal{A} \right)$上に拡張できる」$\Rightarrow$ 「$A_n \downarrow \phi,\ A_n \in \mathcal{A}\ \Rightarrow\ \lim_{n \to \infty} \mu \left( A_n \right) = 0$」を示す。レクチャーノートのlemma1.3を用いる。$\mu \left( A_1 \right) < \infty$であることを示せば、lemma1.3より$A_n \downarrow \phi,\ A_n \in \mathcal{A} \subset \sigma\left(\mathcal{A} \right)$のように取れば、測度の定義より空集合の測度は$0$なので、$\lim_{n \to \infty} \mu \left( A_n \right) = \mu \left( \phi \right) = 0$となり題意を示せる。従って$\mu \left( A_1 \right) < \infty$を確認すれば良い。拡張した測度においても$\mathcal{A}$上では元の関数$\mu$と同じ値をとり、元の$\mu$の値域は$\mathbb{R}_{+}$であり、$A_1 \in \mathcal{A}$である。これより$\mu \left( A_1 \right) < \infty$は明らかである。以上で必要十分条件であることが確認された。
 
 \section{Ex 2.1}
+　$m \in \mathbb{N}$に対して、$D_m = \left\{ x \in \mathbb{R}\mid | f(x) | < m\right\}$なる領域を定義する。$f(x)$の定義域は$\bigcup_{m = 1}^{\infty} D_m$でおおうことができる。これは可算個の和集合であるので、任意の$m$について$D_m$の中には高々可算個の不連続点しかないことを示せば、元の$f(x)$についても実数軸上で高々可算個の不連続点しか持ち得ないことになる。よって以下では任意に一つとった$m \in \mathbb{N}$について、$| f(x) | < m$であるとして話を進める。（なので$m$は省略する。）
+
+　$n \in \mathbb{N}$に対して$A_n = \left\{ x \mid f(x_{+}) - f(x_{-}) > \frac{1}{n} \right\}$を考える。この時、いかなる大きさのジャンプを持つ$x$であれ$\bigcup_{n = 1}^{\infty} A_n$に入っている。なぜなら、任意の大きさ$\eta>0$のジャンプに対して、ある十分大きな$N$が存在して$\forall n \geq N\ \Rightarrow \eta > \frac{1}{n}$となるからである。これは可算個の和集合なので、任意の$n \in \mathbb{N}$で$A_n$が高々可算集合であることを確認すれば良い。
+
+　今、関数$f(x)$は$-m < f(x) < m$で上限と下限を持つことを思い出す。ここで、$\frac{1}{n}$以上の大きさのジャンプが最大で何回できるかを考える。最大の回数が知りたいので、最小のジャンプ幅である$\frac{1}{n}$について考えればよく、$f(x)$が非減少関数であるので、下限から上限までジャンプだけで上がった時の場合が最大のジャンプ回数である。これは$\frac{2m}{\frac{1}{n}} = 2mn < \infty$である。すなわち有限回しかジャンプできないことがわかる。
+
+　これより、各$m$について高々可算個しか不連続点が存在しないことが確認できたので、最初の議論より、一般に非減少関数$f(x)$は高々可算個しか不連続点を持たない。
 
 \section{Ex 2.9}
 
