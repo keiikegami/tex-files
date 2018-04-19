@@ -120,6 +120,7 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 	\item $f\left( \bigcap_{i \in I} A_i \right) \subset \bigcap_{i\in I} f\left( A_i \right)$
 	
 	任意に$1$つ$y \in f\left( \bigcap_{i \in I} A_i \right)$をとる。これは少なくとも一つ$x^* \in \bigcap_{i \in I} A_i$について$y = f(x^*)$となるものがあるということである。この時、$\forall i \in I\ x^* \in A_i$なので、$\forall i\in I\ y = f(x^*)\in f\left( A_i \right)\ \Rightarrow y \in \bigcap_{i \in I} f\left( A_i \right)$であるので、題意が示された。
+\end{enumerate}
 
 \subsection{(b)}
 　$A_i = \left[ -\frac{1}{i}, \frac{1}{i} \right],\ i = 1,2,3,\dots$に対して、$x \in \mathbb{R}$上の関数を以下のように定める。
@@ -129,7 +130,6 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 	0 & \text{otherwise}
 	\end{cases}
 \end{align*}
-
 この時、
 \begin{align*}
 	&\bigcap_{i\in I} A_i = \left\{ 0 \right\} \Rightarrow f\left( \bigcap_{i\in I} A_i \right) = \left\{ 1 \right\} \\
@@ -138,8 +138,13 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 であり、確かに両者は異なる。
 
 \subsection{(c)}
-\end{enumerate}
-
+　$A = \left\{ 0 \right\}$とし、実軸上の関数$f(x)$を$\forall x \in \mathbb{R}\ f(x) = 0$と定める。この時、
+\begin{align*}
+	&f\left( A^c \right) = \left\{ 0\right\} \neq \phi\\
+	&\left( f\left( A \right) \right)^c = \mathbb{R}\backslash \left\{ 0 \right\} \neq \phi\\
+	&f\left( A^c \right) \cap \left( f\left( A \right) \right)^c = \left\{ 0\right\} \cap \left( \mathbb{R}\backslash \left\{ 0 \right\}\right) = \phi
+\end{align*}
+であるので条件を満たすことが確認された。
 
 
 \end{document}
