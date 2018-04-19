@@ -94,7 +94,7 @@ $\sigma(\mathcal{C})$の構成法より、$B = \bigcup_{i = 1}^{\infty} A_i$と�
 　$X = [0,1]$として、$\mathcal{A}_n$を以下のように定める。
 \begin{itemize}
 	\item $\mathcal{A}_1$ = $\left\{ \phi, X \right\}$
-	\item $n \geq2$について$\mathcal{A}_n = \sigma\left(\left\{ \left[0, \frac{1}{2^{n-1}}\right], \left(\frac{1}{2^{n-1}}, \frac{2}{2^{n-1}}\right), \dots, \left(\frac{2^{n-1}-1}{2^{n-1}}, 1\right] \right\}\right)$
+	\item $n \geq2$について$\mathcal{A}_n = \sigma\left(\left\{ \left[0, \frac{1}{2^{n-1}}\right], \left(\frac{1}{2^{n-1}}, \frac{2}{2^{n-1}}\right], \dots, \left(\frac{2^{n-1}-1}{2^{n-1}}, 1\right] \right\}\right)$
 \end{itemize}
 この時、明らかに$\mathcal{A}_1 \subset \mathcal{A}_2 \subset \mathcal{A}_3 \dots$となる$\sigma$-fieldである。ここで、$B_n = \left( \frac{1}{2^{n-1}}, 1\right]$とすると、ある大きな$N$が存在して$n \geq N$に対しては常に$B_n \in \mathcal{A}_n$である。すなわち$B_n \in \bigcup_n \mathcal{A}_n$であるが、$\bigcup_n B_n = \left(0, 1\right]$であって、これはいかなる大きな$n$に対しても$\mathcal{A}_n$とすることはできない。これは$\bigcup_n \mathcal{A}_n$が可算無限回の和集合について閉じていないことを意味しているため、上のように作成した$\sigma$-fieldの列ではその和集合が$\sigma$-fieldにならないことが確認できた。 
 
@@ -110,7 +110,7 @@ $\sigma(\mathcal{C})$の構成法より、$B = \bigcup_{i = 1}^{\infty} A_i$と�
 
 　2番目の性質は$\phi$が可算集合であることから測度の定義より成立する。
 
-　最後に3番目の性質を確認する。測度の定義域である$\mathcal{A}$から排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非加算集合が複数この集合に含まれているとする。そこから$2$個の非可算集合をとることを考え、それを$A_m, A_n$と記す。すなわち$A_m \cap A_n = \phi$であるが、どちらも$\mathcal{A}$に含まれるため、$A_m^c, A_n^c$がどちらも可算集合である必要がある。$\left( A_m \cap A_n \right)^c = \phi^c = \mathbb{R}$でありこれは非可算集合であるが、$\left( A_m \cap A_n \right)^c = A_m^c \cup A_n^c$であって、先に述べたようにこれは可算集合の和集合であり可算集合である。これより$A_m^c \cup A_n^c = \mathbb{R}$は成立しない。従って$\mathcal{A}$から排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非加算集合が複数この集合に含まれていることはありえず、排反に取ったとkには高々一つしか非可算集合が含まれないことがわかる。
+　最後に3番目の性質を確認する。測度の定義域である$\mathcal{A}$から排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非可算集合が複数この集合に含まれているとする。そこから$2$個の非可算集合をとることを考え、それを$A_m, A_n$と記す。すなわち$A_m \cap A_n = \phi$であるが、どちらも$\mathcal{A}$に含まれるため、$A_m^c, A_n^c$がどちらも可算集合である必要がある。$\left( A_m \cap A_n \right)^c = \phi^c = \mathbb{R}$でありこれは非可算集合であるが、$\left( A_m \cap A_n \right)^c = A_m^c \cup A_n^c$であって、先に述べたようにこれは可算集合の和集合であり可算集合である。これより$A_m^c \cup A_n^c = \mathbb{R}$は成立しない。従って$\mathcal{A}$から排反に$\left\{ A_i \right\}_{i = 1}^{\infty}$を取った時に、非可算集合が複数この集合に含まれていることはありえず、排反に取ったときには高々一つしか非可算集合が含まれないことがわかる。
 
 　まず$\left\{ A_i \right\}_{i = 1}^{\infty}$の要素が全て可算集合である場合を考えると、この時は$\bigcup_i A_i$が可算集合の可算個の和集合であるため可算集合であり、$\mu \left( \bigcup_i A_i \right) = 0 = \sum_i \mu \left( A_i \right)$が成立する。
 

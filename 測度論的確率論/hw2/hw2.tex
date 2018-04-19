@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{測度論的確率論 2018 S1S2 \\ 
+Homework 2}
+\author{経済学研究科現代経済コース修士1年 / 池上　慧 (2918009) / sybaster.x@gmail.com}
+\maketitle
+
+\section{Ex 1.5}
+　まず「$A_n \downarrow \phi,\ A_n \in \mathcal{A}\ \Rightarrow\ \lim_{n \to \infty} \mu \left( A_n \right) = 0$」$\Rightarrow$ 「$\mu$が$\sigma\left( \mathcal{A} \right)$上に拡張できる」を示す。Caratheodoryの拡張定理を用いるために、以下の二点が成立することを確認すれば良い。
+\begin{enumerate}
+	\item $A_n \in \mathcal{A}$が$n = 1,2,3,\dots$で排反に取られていて、$\bigcup_{n = 1}^{\infty} A_n \in \mathcal{A}$であるなら、$\mu \left( \bigcup_{n = 1}^{\infty} A_n \right) = \sum_{n = 1}^{\infty} \mu \left( A_n \right)$が成立する。
+	\item $\mu(\phi) = 0$
+\end{enumerate}
+
+$1$番目を確認する。仮定されている有限加法性から以下が成立する。
+\begin{align*}
+	\mu \left(  \bigcup_{n = 1}^{\infty} A_n \right) = \mu \left( A_1 \cup  \bigcup_{n = 2}^{\infty} A_n \right) = \mu \left( A_1 \right) + \mu \left( \bigcup_{n = 2}^{\infty} A_n \right)
+\end{align*}
+ただし、$2$つ目の統合は、$\bigcup_{n = 1}^{\infty} A_n \in \mathcal{A}$かつ任意の$n$について$A_n \in \mathcal{A}$であることから、fieldの性質より$ \bigcup_{n = 2}^{\infty} A_n \in \mathcal{A}$となり、$\mu$の定義域に入るため成立することに注意する。この処理は繰り返し用いることができるので、$\mu \left( \bigcup_{n = 1}^{\infty} A_n \right) = \sum_{n = 1}^{\infty} \mu \left( A_n \right)$が成立することがわかる。
+
+$2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定より$B_n \uparrow A_1 \backslash \phi$である。さらに$C_n = B_n \backslash B_{n+ 1}$とすると、$\left\{ B_n \right\}_{n = 1}^{\infty}$が単調な列であることから$\left\{ C_n \right\}_{n = 1}^{\infty}$は排反である。有限加法性より、
+
+\begin{align*}
+	\mu \left( B_n \right) = \mu \left( \bigcup_{m = 1}^n C_m \right) = \sum_{m = 1}^n \mu \left( C_m \right)
+\end{align*}
+
+である。$\mu\left( A_n \right) = \mu \left( A_1 \right) - \mu \left( A_1 \backslash A_n \right) = \mu \left( A_1 \right) - \mu \left( B_n \right)$なので、$\mu \left( A_n \right)$の極限を考えるには$\mu \left( B_n \right)$の極限を考えれば良い。上の式と$1$の性質より、
+
+\begin{align*}
+	\lim_{n \to \infty} \mu \left( B_n \right) = \sum_{m = 1}^{\infty} \mu \left( C_m \right) = \mu \left( \bigcup_{m = 1}^{\infty} C_m \right) = \mu \left( \bigcup_{n = 1}^{\infty} B_n \right) = \mu \left( A_1 \backslash \phi \right)
+\end{align*}
+
+である。以上より、
+
+\begin{align*}
+	\lim_{n \to \infty} \mu \left( A_n \right) = \mu \left( A_1 \right) - \lim_{n \to \infty} \mu\left( B_n \right) = \mu \left( A_1 \right) - \left( \mu \left( A_1 \right) - \mu \left( \phi \right) \right) = \mu \left( \phi \right)
+\end{align*}
+
+であり、仮定より$\mu \left( \phi \right) = 0$を得た。
+
+\section{Ex 2.1}
+
+\section{Ex 2.9}
+
+\section{Ex 3.1}
+
+\section{Ex 3.2}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
