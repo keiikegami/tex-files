@@ -51,20 +51,20 @@ $2$番目を確認する。今、$B_n = A_1 \backslash A_n$とすると、仮定
 \begin{align*}
 	\mu \left( B_n \right) = \mu \left( \bigcup_{m = 1}^n C_m \right) = \sum_{m = 1}^n \mu \left( C_m \right)
 \end{align*}
-
 である。$\mu\left( A_n \right) = \mu \left( A_1 \right) - \mu \left( A_1 \backslash A_n \right) = \mu \left( A_1 \right) - \mu \left( B_n \right)$なので、$\mu \left( A_n \right)$の極限を考えるには$\mu \left( B_n \right)$の極限を考えれば良い。上の式と$1$の性質より、
 
 \begin{align*}
 	\lim_{n \to \infty} \mu \left( B_n \right) = \sum_{m = 1}^{\infty} \mu \left( C_m \right) = \mu \left( \bigcup_{m = 1}^{\infty} C_m \right) = \mu \left( \bigcup_{n = 1}^{\infty} B_n \right) = \mu \left( A_1 \backslash \phi \right)
 \end{align*}
-
 である。以上より、
 
 \begin{align*}
 	\lim_{n \to \infty} \mu \left( A_n \right) = \mu \left( A_1 \right) - \lim_{n \to \infty} \mu\left( B_n \right) = \mu \left( A_1 \right) - \left( \mu \left( A_1 \right) - \mu \left( \phi \right) \right) = \mu \left( \phi \right)
 \end{align*}
-
 であり、仮定より$\mu \left( \phi \right) = 0$を得た。
+
+
+　次に「$\mu$が$\sigma\left( \mathcal{A} \right)$上に拡張できる」$\Rightarrow$ 「$A_n \downarrow \phi,\ A_n \in \mathcal{A}\ \Rightarrow\ \lim_{n \to \infty} \mu \left( A_n \right) = 0$」を示す。レクチャーノートのlemma1.3を用いる。$\mu \left( A_1 \right) < \infty$であることを示せば、lemma1.3より$A_n \downarrow \phi,\ A_n \in \mathcal{A} \subset \sigma\left(\mathcal{A} \right)$のように取れば、測度の定義より空集合の測度は$0$なので、$\lim_{n \to \infty} \mu \left( A_n \right) = \mu \left( \phi \right) = 0$となり題意を示せる。従って$\mu \left( A_1 \right) < \infty$を確認すれば良い。拡張した測度においても$\mathcal{A}$上では元の関数$\mu$と同じ値をとり、元の$\mu$の値域は$\mathbb{R}_{+}$であり、$A_1 \in \mathcal{A}$である。これより$\mu \left( A_1 \right) < \infty$は明らかである。以上で必要十分条件であることが確認された。
 
 \section{Ex 2.1}
 
