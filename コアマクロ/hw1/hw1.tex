@@ -32,16 +32,23 @@ Homework 1}
 
 \section{Problem1}
  We need an additional assumption for stationarity.
- \begin{align*}
- 	&y_t = c + \phi y_{t-1} + \epsilon_t\\
-	\Leftrightarrow\ &(1-\phi L)y_t = c + \epsilon_t\\
+ \begin{align}
+ 	&y_t = c + \phi y_{t-1} + \epsilon_t \nonumber \\
+	\Leftrightarrow\ &(1-\phi L)y_t = c + \epsilon_t \nonumber \\
 	\Leftrightarrow\ & y_t = (1-\phi L)^{-1} (c + \epsilon_t) = c + \sum_{u = 0}^{\infty} \phi^u L^u \epsilon_t = c + \sum_{u = 0}^{\infty} \phi^u \epsilon_{t-u}
- \end{align*}
+ \end{align}
  For stationarity, it is necessary the above limit exists.  By Chaucy's convergence judgement, we know that it is necessary and sufficient for the convergence of series that the residual, i.e. $\sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u}$, converges to $0$. Usually, in time series analysis, the Hilbert space, whose product is defined by covariance, is used when the convergence is discussed. Thus if we want to know whether $\sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u} \to 0$ or not, we must check the convergence w.r.t the norm induced by the covariance product. And for the below calculation we need as assumption that states $Var(y_t) < \infty$. 
 \begin{align*}
 	\| \sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u} \| = Var(\sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u}) = \sum_{n+1}^{\infty} |\phi|^{2u}\sigma^2 = 0
 \end{align*}
 The second equality is followed by the additional assumption. The third equality is by the assumption $|\phi| < 1$. Now we have the result that $\sum_{u = 0}^{\infty} \phi^u \epsilon_{t-u}$ exists, in other words, the time series is stationary.
+
+Next, I calculate the mean, variance, j-th autocovariance.
+\begin{itemize}
+	\item[Mean] By $(1)$, $E[y_t] = E\left[ c + \sum_{u = 0}^{\infty} \phi^u \epsilon_{t-u} \right] = c + 0 = c$
+	\item[Variance] By $(1)$, $Var(y_t) = Var\left( \sum_{u = 0}^{\infty} \phi^u \epsilon_{t-u} \right) = \sum_{u=0}^{\infty} |\phi|^{2u} \sigma^2 = \frac{\sigma^2}{1-\phi^2}$
+	\item[Autocovariance] $\gamma(t,t-j) = \phi Cov(Y_{t-1}, Y_{t-j}) = \cdots = \phi^j Var(Y_{t-j}) = \frac{\phi^u \sigma^2}{1-\phi^2}$
+\end{itemize}
 
 \section{Problem2}
 
