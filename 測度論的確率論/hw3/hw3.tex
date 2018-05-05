@@ -117,6 +117,38 @@ Homework 3}
 \end{align*}
 すなわち$\mathcal{B}(X)\times\mathcal{B}(Y) \subset \mathcal{B}(X\times Y)$である。
 
+\subsection{$\mathcal{B}(X\times Y)\subset \mathcal{B}(X)\times\mathcal{B}(Y)$}
+　「$X,Y$が可分ならば$X\times Y$も可分（主張2）」を所与とすると、以下のように証明できる。
+
+　任意に開集合$A\times B \subset X\times Y$をとる。開集合の定義より、任意の$(x,y) \in A\times B$について、距離$d$を用いた$\epsilon$-ballを$B_{\epsilon}((x,y))$と書くと以下が成立する。
+\begin{align*}
+	\exists \epsilon > 0\ \text{s.t.}\ B_{\epsilon}((x,y)) \subset A\times B
+\end{align*}
+
+　ここで$X\times Y$について稠密な可算集合を$D$と書く。この時、任意の$(x,y) \in A\times B$について
+\begin{align*}
+	(s,t)_{(x,y)} \in B_{\frac{\epsilon}{3}}((x,y)) \cap D \subset A\times B
+\end{align*}
+が必ず取れる。ここで$\epsilon_{(x,y)} = \frac{\epsilon}{2}$とすると、
+\begin{align*}
+	(x,y) \in B_{\epsilon_{(x,y)}}((s,t)_{(x,y)})
+\end{align*}
+が必ず成立する。
+
+　つまり、$A\times B$の任意の要素は、$D\cap (A\times B)$の要素を中心として、それ自身も$A\times B$に含まれるような$\epsilon$-ballに入れることができる。今、$\bigcup_{(s,t)\in D\cap(A\times B)} B_{\epsilon_{(s,t)}}((s,t))$を考える。ただしここで$B_{\epsilon_{(s,t)}}((s,t))$はそれ自身が$A\times B$に含まれるように取られている。先の議論より、$A\times B \subset \bigcup_{(s,t)\in D\cap(A\times B)} B_{\epsilon_{(s,t)}}((s,t))$である。逆向きの包含関係については、$\exists (s,t)\ \text{s.t.}\ (x, y)\in B_{\epsilon_{(s,t)}}((s,t))$の時、$B_{\epsilon_{(s,t)}}((s,t))$がもともと$A\times B$に含まれるように取られているので当然$(x, y)\in A\times B$であることから確認できる。
+
+　従って$A\times B = \bigcup_{(s,t)\in D\cap(A\times B)} B_{\epsilon_{(s,t)}}((s,t))$である。ここで、左辺はopen ballの可算個の和集合となっている。$X\times Y$の任意の開集合は$X\times Y$上のopen ballの可算個の和集合で表現できる。これは、
+\begin{align*}
+\mathcal{B}(X\times Y) \subset \text{$X\times Y$のopen ballが生成する最小のsigma field}
+\end{align*}
+を意味する。
+
+　さらに、$X\times Y$のopen ball全体は、明らかに$\left\{ A^{'} \times B^{'} \mid A^{'} \in \mathcal{B}(X),\ B^{'} \in \mathcal{B}(Y) \right\}$に含まれているので、
+\begin{align*}
+	\mathcal{B}(X\times Y) \subset \sigma\left( \left\{ A^{'} \times B^{'} \mid A^{'} \in \mathcal{B}(X),\ B^{'} \in \mathcal{B}(Y) \right\} \right) = \mathcal{B}(X)\times\mathcal{B}(Y)
+\end{align*}
+が成立する。
+
 \section{Ex2.6}
 
 \section{Ex3.3}
