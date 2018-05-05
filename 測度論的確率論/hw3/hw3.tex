@@ -197,8 +197,37 @@ Homework 3}
 なので、lemma3.5より$f:X\to\mathbb{R}$は$\sigma\left( \left\{ A_1, \cdots, A_m\right\} \right)$可測である。
 
 \section{Ex3.6}
+　これは解析数理のノートを参照すること。
 
 \section{Ex3.15}
+\begin{enumerate}
+	\item $\forall p \in X\ \liminf_{x\to p} f(x) \geq f(p)$ 
+	\item $\forall a\in \mathbb{R}\ \left\{ x\mid f(x) >a\right\}$
+\end{enumerate}
+以上の二つが同値であることを示す。
+
+\subsection{$1\Rightarrow 2$}
+　対偶を示す。すなわち「$\exists a\in \mathbb{R}\ \text{s.t.}\ \left\{ x\mid f(x) > a \right\}\ \text{\ is not open}$」を仮定する。この時、
+\begin{align*}
+&\exists a\in \mathbb{R}\ \text{s.t.}\ \left\{ x\mid f(x) > a \right\}\ \text{\ is not open}\\
+\Leftrightarrow
+&\exists a\in \mathbb{R}\ \text{s.t.}\ \left\{ x\mid f(x) \leq a \right\}\ \text{\ is not closed}\\
+\Rightarrow
+&\exists a\in \mathbb{R}\ \text{s.t.}\  \exists \left\{ x_n \right\}_{n=1}^{\infty} \in \left\{x\mid f(x) \leq a \right\}\ \text{s.t.}\ x_n \to p\ \text{and}\ p\in \left\{x\mid f(x) > a \right\}
+\end{align*}
+である。従って、このような$a$と点列$\left\{ x_n \right\}_{n=1}^{\infty}$について考えると$\liminf_{x\to p} f(x) \leq a < f(p)$であるので、対偶が示された。
+
+
+\subsection{$2\Rightarrow 1$}
+　$f(p) = -\infty$の時は明らカニ成立するので、そうでないときを考える。このとき、任意の$p\in X$について$a < f(p)$となるように$a$を任意にとることができる。仮定より$\left\{ x\mid f(x) > a \right\}$は開集合で、かつ$p \in \left\{ x\mid f(x) > a \right\}$である。
+
+　開集合の定義より以下が成立する。
+\begin{align*}
+	\exists r>0\ \text{s.t.}\ B_{r}(p) \subset \left\{ x\mid f(x) > a \right\}
+\end{align*}
+これを使って、$\liminf_{x\to p} f(x) = \lim_{r\to 0} \inf_{x\in B_{r}(p)} f(x)$と書くことができることから$\liminf_{x\to p} f(x) \geq a$であることがわかる。
+
+　ここで、$a$は$f(p)$よりも小さい任意の実数で良いことに注意する。仮に、$\liminf_{x\to p} f(x) < f(p)$とすると、$\liminf_{x\to p} f(x) < b < f(p)$を満たす実数$b$が必ず存在して、$b$については上の条件を満たすことができなくなる。従って、$\liminf_{x\to p} f(x) \geq f(p)$である。
 
 \section{Ex3.16}
 
