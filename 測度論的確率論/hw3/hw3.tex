@@ -230,7 +230,46 @@ Homework 3}
 　ここで、$a$は$f(p)$よりも小さい任意の実数で良いことに注意する。仮に、$\liminf_{x\to p} f(x) < f(p)$とすると、$\liminf_{x\to p} f(x) < b < f(p)$を満たす実数$b$が必ず存在して、$b$については上の条件を満たすことができなくなる。従って、$\liminf_{x\to p} f(x) \geq f(p)$である。
 
 \section{Ex3.16}
+　「$f^{\delta}(x) = \sup\left\{ f(y)\mid d(x,y) <\delta \right\}$、$f_{\delta}(x) = \inf\left\{ f(y)\mid d(x,y) <\delta \right\}$と置くと、任意の$\delta > 0$について$f^{\delta}(x), f_{\delta}(x)$はそれぞれ下半連続、上半連続（主張$3$）」と「$D_f = \left\{ x \mid f^0(x) \neq f_0(x)\right\}$（主張$4$）」を所与とすると、
+\begin{align*}
+	D_f &= \left\{ x \mid f^0(x) \neq f_0(x)\right\}\\
+	& = \bigcap_{n\geq 1} \left\{ x \mid f^{\frac{1}{n}}(x) > f_{\frac{1}{n}}(x)\right\}\\
+	& = \bigcap_{n\geq 1} \left\{ x \mid f^{\frac{1}{n}}(x) > a\right\} \cap \left\{ x\mid a >  f_{\frac{1}{n}}(x)\right\}\ \text{for some $a\in \mathbb{R}$}
+\end{align*}
+であり、主張$3$とEx3.15の結果から任意の$n\geq 1$について$\left\{ x \mid f^{\frac{1}{n}}(x) > a\right\}$と$\left\{ x \mid a > f_{\frac{1}{n}}(x) \right\}$は開集合である。従って、不連続点の集合は開集合の可算回の積集合として表現されるため、$D_f \subset \mathcal{B}(X)$である。
 
+　主張$4$は定義より明らかであるので、主張$3$を証明する。
+
+\subsection{主張$3$の証明}
+　任意に$\delta > 0$を取り、$f^{\delta}(x)$が下半連続であることを示す。Ex3.15の結果を利用して、任意の実数$a$について、
+\begin{align*}
+	\left\{ x\mid a \geq f^{\delta}(x) \right\}\ \text{\ is closed}
+\end{align*}
+を示す。
+
+　$\left\{ x_n \right\} \in \left\{ x\mid a \geq f^{\delta}(x) \right\}$なる収束する点列を取り、収束先を$x^{*}\in X$と表記する。このとき、閉集合の定義より、$x^{*}\in \left\{ x\mid a \geq f^{\delta}(x) \right\}$を示せば題意を示したことになる。
+
+　上限の定義より、$x^{*}$における上限が$a$よりも大きいと仮定すると、
+\begin{align*}
+	\sup\left\{ f(y)\mid d(x^{*}, y) < \delta \right\} > a\ \Rightarrow \ \exists b\in\left(a, \sup\left\{ f(y)\mid d(x^{*}, y)  < \delta \right\} \right)\ \text{s.t.}\ \exists y\in \left\{ y\mid d(x^{*}, y) < \delta \right\}\ \text{s.t.}\ f(y) > b > a
+\end{align*}
+でる。しかし、$x_n\to x^{*}$より、$\left\{ y\mid d(x^{*}, y) < \delta \right\}\subset \bigcup_n \left\{ y\mid d(x_n, y) < \delta \right\}$である。全ての$n$について
+\begin{align*}
+	a \geq \sup \left\{ f(y)\mid d(x_n, y) < \delta \right\}
+\end{align*}
+であることから、先ほどの$x^{*}$における上限が$a$よりも大きいという仮定から導かれた、
+\begin{align*}
+	\exists b\in\left(a, \sup\left\{ f(y)\mid d(x^{*}, y)  < \delta \right\} \right)\ \text{s.t.}\ \exists y\in \left\{ y\mid d(x^{*}, y) < \delta \right\}\ \text{s.t.}\ f(y) > b > a
+\end{align*}
+はと矛盾する。
+
+　従って、
+\begin{align*}
+	a \geq \sup\left\{ f(y)\mid d(x^{*}, y)< \delta \right\}
+\end{align*}
+である。つまり、$x^{*}\in \left\{ x\mid a \geq f^{\delta}(x) \right\}$なので、$f^{\delta}(x)$は下半連続である。
+
+　$f_{\delta}(x)$についても同様に上半連続であることが示される。
 
 \end{document}
 
