@@ -173,6 +173,21 @@ Homework 3}
 が同値であることを示す。
 
 \subsection{$1\Rightarrow 2$を示す。}
+　$\left\{ A_1, \cdots, A_m\right\}$が排反であることから、$\sigma\left( \left\{ A_1, \cdots, A_m\right\} \right)$の要素は全て$\left\{ A_1, \cdots, A_m\right\}$の要素を組み合わせて得られる和集合、または$\phi$である。
+　lemma3.5より、任意の$a\in \mathbb{R}$について$\left\{ x\in X\mid f(x)\leq a \right\} \in \sigma\left( \left\{ A_1, \cdots, A_m\right\} \right)$であるので、$\left\{ x\in X\mid f(x)\leq a \right\}$が$\left\{ A_1, \cdots, A_m\right\}$の要素を組み合わせて得られる和集合、または$\phi$でないといけない。
+
+　仮に、$\exists i\in \left\{ 1,\cdots, m \right\}\ \text{s.t.}\ \sup_{x\in A_i} f(x) > \inf_{x\in A_i} f(x)$とすると、このような$i$を$i^{*}$とすると、$\inf_{x\in A_{i^{*}}} f(x) < a < \sup_{x\in A_{i^{*}}} f(x)$となるように$a\in \mathbb{R}$をとったときに、
+\begin{align*}
+	\left\{ x\in A_{i^{*}} \mid f(x)\leq a \right\} \neq A_{i^{*}}
+	\left\{ x\in A_{i^{*}} \mid f(x)\leq a \right\} \subset A_{i^{*}}
+\end{align*}
+であるので、$\left\{ x\in X \mid f(x)\leq a \right\}$は$\left\{ A_1, \cdots, A_m\right\}$の要素の和集合では表すことができないため、$f:X\to \mathbb{R}$は$\sigma\left( \left\{ A_1, \cdots, A_m\right\} \right)$可測でなくなる。
+
+　従って、$1$を仮定した時、
+\begin{align*}
+\forall i\in \left\{ 1, \cdots, m\right\}\ \forall x \in A_i\ f(x) \text{\ is constant}
+\end{align*}
+を得る。これはすなわち$2$を意味する。
 
 \subsection{$2\Rightarrow 1$を示す。}
 
