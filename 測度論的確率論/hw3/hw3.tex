@@ -128,6 +128,19 @@ Homework 3}
 すなわち$\mathcal{B}(X)\times\mathcal{B}(Y) \subset \mathcal{B}(X\times Y)$である。
 
 \subsubsection{$d$が距離の公理を満たすことの確認}
+$d$の定義は以下である。
+\begin{align*}
+	\text{let}\ x = (x_1, x_2),\ y = (y_1,y_2),\ \text{where}\ x_1,y_1\in X,\ x_2,y_2\in Y\ \text{then}\ d(x,y) \equiv\ d_1(x_1,y_1)+d_2(x_2,y_2)
+\end{align*}
+\begin{itemize}
+	\item[非負性] $d_1, d_2$がともに非負性を有することより$d$も非負である。
+	\item[$x = y$の時] $d(x, x) = d_1(x_1,x_1) + d_2(x_2,x_2) = 0 + 0$より正しく$0$となる。
+	\item[対称性] $d_1,d_2$の対称性より、$d(y, x) = d_1(y_1,x_1) + d_2(y_2,x_2) = d_1(x_1,y_1)+d_2(x_2,y_2) = d(x, y)$である。
+	\item[三角不等式] $d_1,d_2$についての三角不等式より、$x, y, z \in X\times Y$に対して、$d(x,y) + d(y, z) = d_1(x_1,y_1)+d_2(x_2,y_2) + d_1(y_1,z_1)+d_2(y_2,z_2) \geq d_1(x_1, z_1) + d_2(x_2,z_2) = d(x,z)$であり、これについても成立する。
+\end{itemize}
+
+
+
 
 \subsection{$\mathcal{B}(X\times Y)\subset \mathcal{B}(X)\times\mathcal{B}(Y)$}
 　「$X,Y$が可分ならば$X\times Y$も可分（主張2）」を所与とすると、以下のように証明できる。
