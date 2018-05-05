@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{Macroeconomics 1 2018 S1S2 \\ 
+Homework 1}
+\author{Kei Ikegami (29186009)}
+\maketitle
+
+\section{Problem1}
+ We need an additional assumption for stationarity.
+ \begin{align*}
+ 	&y_t = c + \phi y_{t-1} + \epsilon_t\\
+	\Leftrightarrow\ &(1-\phi L)y_t = c + \epsilon_t\\
+	\Leftrightarrow\ & y_t = (1-\phi L)^{-1} (c + \epsilon_t) = c + \sum_{u = 0}^{\infty} \phi^u L^u \epsilon_t = c + \sum_{u = 0}^{\infty} \phi^u \epsilon_{t-u}
+ \end{align*}
+ For stationarity, it is necessary the above limit exists.  By Chaucy's convergence judgement, we know that it is necessary and sufficient for the convergence of series that the residual, i.e. $\sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u}$, converges to $0$. Usually, in time series analysis, the Hilbert space, whose product is defined by covariance, is used when the convergence is discussed. Thus if we want to know whether $\sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u} \to 0$ or not, we must check the convergence w.r.t the norm induced by the covariance product. And for the below calculation we need as assumption that states $Var(y_t) < \infty$. 
+\begin{align*}
+	\| \sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u} \| = Var(\sum_{u = n+1}^{\infty} \phi^u \epsilon_{t-u}) = \sum_{n+1}^{\infty} |\phi|^{2u}\sigma^2 = 0
+\end{align*}
+The second equality is followed by the additional assumption. The third equality is by the assumption $|\phi| < 1$. Now we have the result that $\sum_{u = 0}^{\infty} \phi^u \epsilon_{t-u}$ exists, in other words, the time series is stationary.
+
+\section{Problem2}
+
+\section{Problem3}
+
+\section{Problem4}
+
+\section{Problem5}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
