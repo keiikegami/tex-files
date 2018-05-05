@@ -175,6 +175,24 @@ $d$の定義は以下である。
 が成立する。
 
 \subsubsection{主張$2$の証明}
+　「$X,Y$が可分ならば$X\times Y$も可分」を証明する。
+　$D_1 \subset X$と$D_2\subset Y$をそれぞれについて稠密な可算集合であるとする。このとき、$D_1\times D_2$は明らかに可算集合である。従って$D_1\times D_2$が$X\times Y$について稠密であることを以下で確認すれば良い。
+
+　任意に$(x, y)\in X\times Y$をとる。このとき、仮定より
+\begin{align*}
+	\exists \left\{ x_n \right\}_{n = 1}^{\infty} \in D_1\ \text{s.t.}\ x_n \to x\\
+	\exists \left\{ y_n \right\}_{n = 1}^{\infty} \in D_2\ \text{s.t.}\ y_n \to y
+\end{align*}
+である。これより、任意に$\epsilon > 0$をとったときに、ある大きな$N \in \mathbb{Z}$が存在して、任意の$n \geq N$について
+\begin{align*}
+	d_1(x,x_n) < \frac{\epsilon}{2}\\
+	d_2(y,y_n) < \frac{\epsilon}{2}
+\end{align*}
+が成立している。このとき、数列$\left\{ x_n, y_n \right\}$を考えると、同じ$N$に対して、$N$より大きな全ての$n$について、
+\begin{align*}
+	d((x, y), (x_n,y_n)) = d_1(x, x_n) + d_2(y, y_n) < \epsilon
+\end{align*}
+とできる。すなわち、数列$\left\{ x_n, y_n \right\}$は$(x,y)$に収束する。これは$D_1\times D_2$が$X\times Y$について稠密であることを示しているので、代位は示された。
 
 \section{Ex2.6}
 　前問後半と同様の議論により、開集合$A\subset X$に対して以下が成立する。
