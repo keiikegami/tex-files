@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{測度論的確率論 2018 S1S2 \\ 
+Homework 3}
+\author{経済学研究科現代経済コース修士1年 / 池上　慧 (29186009) / sybaster.x@gmail.com}
+\maketitle
+
+\section{Ex2.3}
+二方向の包含関係が成立することを以下で示す。
+
+\subsection{$\mathcal{B}\left( \mathbb{R}^2 \right) \subset \mathcal{B}^2$を示す。}
+　$(a_1, b_1)\times (a_2,b_2) = \bigcup_{n=1}^{\infty} (a_1, b_1 -\frac{1}{n}] \times(a_2, b_2-\frac{1}{n}]$である。なぜなら、
+\begin{align*}
+	\forall (x, y) \in (a_1, b_1)\times (a_2,b_2)\ \ a_1 < x < b_1, a_2 < y<b_2
+	\Rightarrow
+	\exists\ n_1,n_2\ \text{s.t.}\ x\leq b_1-\frac{1}{n_1},\ y\leq b_2-\frac{1}{n_2}
+\end{align*}
+なので、$N = \max(n_1, n_2)$とおけば、$\forall n\geq N\ (x,y) \in (a_1, b_1 -\frac{1}{n}] \times(a_2, b_2-\frac{1}{n}]$となるので、$(a_1, b_1)\times (a_2,b_2) \subset \bigcup_{n=1}^{\infty} (a_1, b_1 -\frac{1}{n}] \times(a_2, b_2-\frac{1}{n}]$である。
+
+逆向きの包含関係も、任意に$(x,y)\in \bigcup_{n=1}^{\infty} (a_1, b_1 -\frac{1}{n}] \times(a_2, b_2-\frac{1}{n}]$をとると、ある$N$については必ず$(x, y)\in (a_1, b_1 -\frac{1}{N}] \times(a_2, b_2-\frac{1}{N}]$であるので、$(a_1, b_1 -\frac{1}{N}] \times(a_2, b_2-\frac{1}{N}] \subset (a_1,b_1)\times(a_2,b_2)$であることから示される。
+
+すなわち、$(a_1,b_1)\times(a_2,b_2)$は$\mathcal{B}^2$を生成する半開区間の可算和で表現できることがわかった。したがって、Borel sigma fieldの定義より$(a_1,b_1)\times(a_2,b_2) \in \mathcal(B)^2$である。
+
+ここで、「$\mathbb{R}^2$の任意の開集合は$\mathbb{R}^2$の開区間の可算和でかける（主張1）」とすると、sigma fieldの性質から$(a_1,b_1)\times(a_2,b_2)$の可算和で表現される任意の集合は$\mathcal(B)^2$に含まれているので、$\mathcal{B}\left( \mathbb{R}^2 \right) \subset \mathcal{B}^2$が示された。
+
+よって以下では（主張1）を証明する。to be written
+
+\subsection{$\mathcal{B}^2 \subset \mathcal{B} \left(\mathbb{R}^2 \right)$を示す。}
+　まず、$(a_1, b_1] \times(a_2,b_2] = \bigcap_{n=1}^{\infty} (a_1, b_1+\frac{1}{n}) \times(a_2, b_2+\frac{1}{n})$を示す。左辺が右辺に含まれることは以下のように確認できる。
+　
+　任意に$(x,y) \in (a_1, b_1] \times(a_2,b_2]$をとると、
+\begin{align*}
+	\forall n\geq1\ \begin{cases}
+	a_1 < x < b_1 + \frac{1}{n}\\
+	a_2 < x < b_2 + \frac{1}{n}
+	\end{cases}
+	\Rightarrow
+	\forall n\geq1\ (x,y)\in (a_1, b_1+\frac{1}{n})\times(a_2,b_2+\frac{1}{n})
+	\Rightarrow
+	(x, y)\in \bigcap_{n=1}^{\infty} (a_1, b_1+\frac{1}{n}) \times(a_2, b_2+\frac{1}{n})
+\end{align*}
+である。
+
+　逆向きの包含関係は以下のように確認できる。任意に$(x,y) \in \bigcap_{n=1}^{\infty} (a_1, b_1+\frac{1}{n}) \times(a_2, b_2+\frac{1}{n})$をとると、$\forall n\geq1\ (x,y)\in (a_1, b_1+\frac{1}{n}) \times(a_2, b_2+\frac{1}{n})$である。この時、
+\begin{align*}
+	a_1 <x< b_1+\frac{1}{n}\ \Rightarrow\ a_1 < x \leq \inf \left(b_1 + \frac{1}{n}\right)\ \Rightarrow\ a_1 < x \leq b_1
+\end{align*}
+である。$y$についても同様にできるので、$(x,y) \in (a_1, b_1] \times(a_2,b_2]$であることがわかる。
+
+　これより、$\mathcal{B}^2$を生成する集合の要素は$\mathbb{R}^2$上の開区間全体を含む最小のsigma fieldに含まれることがわかる。これはつまり、$\mathcal{B}^2$が$\mathbb{R}^2$上の開区間全体を含む最小のsigma fieldに含まれることを意味する。また、$\mathcal{B} \left(\mathbb{R}^2 \right)$を生成する開集合全体には明らかに$\mathbb{R}^2$上の開区間全体が含まれているため、$\mathbb{R}^2$上の開区間全体を含む最小のsigma fieldは$\mathcal{B} \left(\mathbb{R}^2 \right)$に含まれる。したがって$\mathcal{B}^2 \subset \mathcal{B} \left(\mathbb{R}^2 \right)$である。
+
+
+
+\section{Ex2.5}
+
+\section{Ex2.6}
+
+\section{Ex3.3}
+
+\section{Ex3.4}
+
+\section{Ex3.6}
+
+\section{Ex3.15}
+
+\section{Ex3.16}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
