@@ -104,6 +104,35 @@ Then, denoting BN cycle term as $c_t$,
 \section{Problem4}
 
 \section{Problem5}
+\subsection{(1)}
+\begin{align}
+	\begin{cases}
+	y_t = a_{10} + a_{11}y_{t-1} + a_{12}z_{t-1} + e_{1t}\\
+	z_t = a_{20} + a_{21}y_{t-1} + a_{22}z_{t-1} + e_{2t}
+	\end{cases}
+\end{align}
+By $(2)$, I get the below,
+\begin{align}
+	\begin{cases}
+	(1-a_{11}L)y_t = a_{10} + a_{12}z_{t-1} + e_{1t}\\
+	(1-a_{22}L)z_t = a_{20} + a_{21}y_{t-1} + e_{2t}
+	\end{cases}
+	\Rightarrow\ 
+	\begin{cases}
+	y_t = (1-a_{11}L)^{-1} \left( a_{10} + a_{12}z_{t-1} + e_{1t} \right)\\
+	z_t = (1-a_{22}L)^{-1} \left( a_{20} + a_{21}y_{t-1} + e_{2t} \right)
+	\end{cases}
+\end{align}
+Thus I have the following AR(2) form for each time series,
+\begin{align}
+	\begin{cases}
+	y_t = a_{10} + a_{11}y_{t-1} + a_{12} (1-a_{22}L)^{-1} \left( a_{20} + a_{21}y_{t-2} + e_{2t} \right) + e_{1t}\\
+	z_t = a_{20} + a_{21} (1-a_{11}L)^{-1} \left( a_{10} + a_{12}z_{t-2} + e_{1t} \right) + a_{22}z_{t-1} + e_{2t}
+	\end{cases}
+\end{align}
+
+\subsection{(2)}
+
 
 \end{document}
 
