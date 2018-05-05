@@ -34,7 +34,7 @@ Homework 3}
 \maketitle
 
 \section{Ex2.3}
-二方向の包含関係が成立することを以下で示す。
+両方向の包含関係が成立することを以下で示す。
 
 \subsection{$\mathcal{B}\left( \mathbb{R}^2 \right) \subset \mathcal{B}^2$を示す。}
 　$(a_1, b_1)\times (a_2,b_2) = \bigcup_{n=1}^{\infty} (a_1, b_1 -\frac{1}{n}] \times(a_2, b_2-\frac{1}{n}]$である。なぜなら、
@@ -80,6 +80,34 @@ Homework 3}
 
 
 \section{Ex2.5}
+両方向の包含関係が成立することを以下で示す。
+
+\subsection{$\mathcal{B}(X)\times\mathcal{B}(Y) \subset \mathcal{B}(X\times Y)$}
+
+　開集合$A\subset X$を任意にとる。まず、$A \times Y$が$X\times Y$の開集合であることを示す。
+
+　まず、直積空間$X \times Y$上に以下のように距離$(d)$が定義できる。
+\begin{align*}
+	\text{let}\ x = (x_1, x_2),\ y = (y_1,y_2),\ \text{where}\ x_1,y_1\in X,\ x_2,y_2\in Y\ \text{then}\ d(x,y) \equiv\ d_1(x_1,y_1)+d_2(x_2,y_2)
+\end{align*}
+
+　すなわち$(X\times Y, d)$は距離空間とできる。以下ではこの距離$d$について$A \times Y$が開集合であることを確認する。
+
+　全体集合$Y$が開かつ閉集合であることより、$(p,q)\in A\times Y$について以下の二つが成立する。
+\begin{align*}
+	\exists \epsilon >0\ \text{s.t.}\ \left\{ x\in X\mid d_1(x,p) < \epsilon \right\} \subset A\\
+	\exists \eta >0\ \text{s.t.}\ \left\{ y\in Y\mid d_2(y,q) < \eta \right\} \subset Y
+\end{align*}
+
+　ここで、上の集合に含まれる$(x,y)$について、
+\begin{align*}
+	d((x,y), (p,q)) = d_1(x,p) + d_2(y, q) < \epsilon + \eta
+\end{align*}
+が成立する。従って、$(p,q)$を任意にとっても、$\left\{ (x, y)\in X\times Y\mid d((x,y),(p,q)) < \delta \right\}$なる集合が$\delta$を十分小さくすることによって$A\times Y$に含まれることがわかる。これより$A\times Y$は開集合である。
+
+　これよりBorel sigma fieldの定義から、$A\times Y \in \mathcal{B}(X \times Y)$である。ここで、$\mathcal{C} = \left\{ A \subset X\mid A\times Y \in \mathcal{B}(X \times Y)\right\}$とする。先の議論より任意の開集合$A \subset X$について$A\times Y \in \mathcal{B}(X \times Y)$であるので、$\left\{ \text{$X$の開集合全体}\right\} \subset \mathcal{C}$である。
+
+　また、$\left\{ c_i \right\}_{i=1}^{\infty} \in \mathcal{C}$をとる。明らかに$\bigcup_{i=1}^{\infty} c_i\ \times Y$が開集合であり、$\mathcal{B}(X\times Y)$に含まれることから、$\mathcal{C}$はsigma field、それも$X$の開集合全体を含むsigma fieldである。Borel sigma fieldの定義より$\mathcal{B}(X) \subset \mathcal{C}$である。
 
 \section{Ex2.6}
 
