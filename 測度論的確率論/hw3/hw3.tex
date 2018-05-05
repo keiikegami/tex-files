@@ -47,11 +47,21 @@ Homework 3}
 
 逆向きの包含関係も、任意に$(x,y)\in \bigcup_{n=1}^{\infty} (a_1, b_1 -\frac{1}{n}] \times(a_2, b_2-\frac{1}{n}]$をとると、ある$N$については必ず$(x, y)\in (a_1, b_1 -\frac{1}{N}] \times(a_2, b_2-\frac{1}{N}]$であるので、$(a_1, b_1 -\frac{1}{N}] \times(a_2, b_2-\frac{1}{N}] \subset (a_1,b_1)\times(a_2,b_2)$であることから示される。
 
-すなわち、$(a_1,b_1)\times(a_2,b_2)$は$\mathcal{B}^2$を生成する半開区間の可算和で表現できることがわかった。したがって、Borel sigma fieldの定義より$(a_1,b_1)\times(a_2,b_2) \in \mathcal(B)^2$である。
+すなわち、$(a_1,b_1)\times(a_2,b_2)$は$\mathcal{B}^2$を生成する半開区間の可算和で表現できることがわかった。したがって、Borel sigma fieldの定義より$(a_1,b_1)\times(a_2,b_2) \in \mathcal{B}^2$である。
 
-ここで、「$\mathbb{R}^2$の任意の開集合は$\mathbb{R}^2$の開区間の可算和でかける（主張1）」とすると、sigma fieldの性質から$(a_1,b_1)\times(a_2,b_2)$の可算和で表現される任意の集合は$\mathcal(B)^2$に含まれているので、$\mathcal{B}\left( \mathbb{R}^2 \right) \subset \mathcal{B}^2$が示された。
+ここで、「$\mathbb{R}^2$の任意の開集合は$\mathbb{R}^2$の開区間の可算和でかける（主張1）」とすると、sigma fieldの性質から$(a_1,b_1)\times(a_2,b_2)$の可算和で表現される任意の集合は$\mathcal{B}^2$に含まれているので、$\mathcal{B}\left( \mathbb{R}^2 \right) \subset \mathcal{B}^2$が示された。
 
-よって以下では（主張1）を証明する。to be written
+\subsubsection{主張$1$の照明}
+以下では（主張1）を証明する。
+
+　$U\in \mathbb{R}^2$を開集合とする。このとき、任意に$c\in U$をとると、十分小さな$\epsilon_c > 0$に対して、$B_{\epsilon_c}(c) \subset U$とできる。ここで、各要素が$U$に含まれているため、$\bigcup_{c\in U} B_{\epsilon_c}(c) \subset U$であり、全ての$c_0\in U$に対して
+\begin{align*}
+	c_0 \in B_{\epsilon_{c_0}}(c_0) \subset \bigcup_{c\in U} B_{\epsilon_c}(c)
+\end{align*}
+であるので、$U \subset \bigcup_{c\in U} B_{\epsilon_c}(c)$でもある。従って$\bigcup_{c\in U} B_{\epsilon_c}(c) = U$である。このとき、$\mathbb{R}^2$上の$\epsilon$-ballは開区間$(a_1,b_1)\times (a_2, b_2)$の形で表現できるため、任意の開集合は開区間の和集合で表現できる。
+
+　ここで、Ex2.5で示すように、可分な距離空間についてはこの和集合の操作が稠密な可算集合の要素についての可算回の操作で済む。$\mathbb{R}$は可分であり、可分な距離空間の直積で構成される空間も可分なので、$\mathbb{R}^2$上の開集合は開区間の可算回の和集合で表現できる。
+　
 
 \subsection{$\mathcal{B}^2 \subset \mathcal{B} \left(\mathbb{R}^2 \right)$を示す。}
 　まず、$(a_1, b_1] \times(a_2,b_2] = \bigcap_{n=1}^{\infty} (a_1, b_1+\frac{1}{n}) \times(a_2, b_2+\frac{1}{n})$を示す。左辺が右辺に含まれることは以下のように確認できる。
@@ -117,6 +127,8 @@ Homework 3}
 \end{align*}
 すなわち$\mathcal{B}(X)\times\mathcal{B}(Y) \subset \mathcal{B}(X\times Y)$である。
 
+\subsubsection{$d$が距離の公理を満たすことの確認}
+
 \subsection{$\mathcal{B}(X\times Y)\subset \mathcal{B}(X)\times\mathcal{B}(Y)$}
 　「$X,Y$が可分ならば$X\times Y$も可分（主張2）」を所与とすると、以下のように証明できる。
 
@@ -148,6 +160,8 @@ Homework 3}
 	\mathcal{B}(X\times Y) \subset \sigma\left( \left\{ A^{'} \times B^{'} \mid A^{'} \in \mathcal{B}(X),\ B^{'} \in \mathcal{B}(Y) \right\} \right) = \mathcal{B}(X)\times\mathcal{B}(Y)
 \end{align*}
 が成立する。
+
+\subsubsection{主張$2$の証明}
 
 \section{Ex2.6}
 　前問後半と同様の議論により、開集合$A\subset X$に対して以下が成立する。
