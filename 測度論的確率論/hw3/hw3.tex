@@ -242,7 +242,48 @@ $d$の定義は以下である。
 なので、lemma3.5より$f:X\to\mathbb{R}$は$\sigma\left( \left\{ A_1, \cdots, A_m\right\} \right)$可測である。
 
 \section{Ex3.6}
-　これは解析数理のノートを参照すること。
+　$X$に入れるsigma fieldを$\mathcal{A}$とする。まず、「$f, g:X \to \bar{\mathbb{R}}$が可測関数の時、$\left\{ x\mid f(x) > g(x) \right\} \in \mathbb{A}$である$(\star)$」を示す。任意の二つの実数$a > b$について、必ず$q\in \mathbb{Q} \text{s.t.}\ a>q,\ q>b$が存在することより、
+\begin{align*}
+	\left\{ x\mid f(x) > g(x) \right\} = \bigcup_{q\in \mathbb{Q}} \left\{ \left\{ x\mid f(x) > q \right\} \cap \left\{ x\mid q > g(x) \right\} \right\}
+\end{align*}
+ここでlemma3.5より、$\left\{ x\mid f(x) > q \right\}, \left\{ x\mid q > g(x) \right\}$はどちらも$\mathcal{A}$に入る。sigma fieldの性質より積集合はsigma fieldに入る。また、可算個の和集合についても閉じているので$\bigcup_{q\in \mathbb{Q}} \left\{ \left\{ x\mid f(x) > q \right\} \cap \left\{ x\mid q > g(x) \right\} \right\} \in \mathcal{A}$である。これより$\star$は示された。
+　\subsection{$f+g$は可測}
+	任意に$a\in \mathbb{R}$をとる。このとき、$\left\{ x\mid f(x) + g(x) < a \right\} = \left\{ x\mid f(x) < a-g(x)\right\}$であり、$f:X\to \bar{\mathbb{R}}$は仮定より可測、$a-g(x):X\to \bar{\mathbb{R}}$も任意に$b \in \mathbb{R}$をとると、$\left\{ x\mid a-g(x) < b \right\} = \left\{ x\mid a -b < g(x) \right\}$であるのでlemma3.5より可測関数であることがわかる。従って$\star$より$\left\{ x\mid f(x) + g(x) < a \right\}\in \mathcal{A}$であるので、lemma3.5より$f(x) + g(x)$は加速関数。
+
+　\subsection{$fg$は可測}
+　「$f:X\to \bar{\mathbb{R}}$が可測関数であるとき、$c \in \mathbb{R}$に対して$cf$も可測関数$(\star \star)$」を示す。
+	任意に$a\in \mathbb{R}$をとる。このとき、
+\begin{align*}
+	\left\{ x\mid cf(x) < a \right\} = \begin{cases}
+	\left\{ x\mid f(x) < \frac{a}{c} \right\} \ \text{if}\ c > 0\\[8pt]
+	\left\{ x\mid f(x) > \frac{a}{c} \right\} \ \text{if}\ c < 0\\[8pt]
+	\left\{ x\mid 0 < a \right\} \ \text{if}\ c = 0
+	\end{cases}
+\end{align*}
+であり、lemma3.5よりそれぞれ$\mathcal{A}$に入る。従って$(\star \star)$は示された。
+
+　「$f:X\to \bar{\mathbb{R}}$が可測関数であるとき、$p \in \mathbb{R}_{+}$に対して${|f|}^p$も可測関数$(\star \star \star)$」を示す。
+　任意に$a\in \mathbb{R}$をとる。このとき、
+\begin{align*}
+	\left\{ x\mid {|f(x)|}^p < a \right\} = \begin{cases}
+	\phi\ \text{if}\ a \leq 0\\[8pt]
+	\left\{ x\mid |f(x)| < a^{\frac{1}{p}} \right\}\ \text{if}\ a > 0
+	\end{cases}
+\end{align*}
+下のケースは、$\left\{ x\mid |f(x)| < a^{\frac{1}{p}} \right\} = \left\{ x\mid f(x) < a^{\frac{1}{p}} \right\} \cap \left\{ x\mid f(x) > -a^{\frac{1}{p}} \right\}$であり、lemma3.5よりこれは$\mathcal{A}$の要素の積集合であるので、$\mathcal{A}$に入る。
+
+　以上を使って$fg$が可測であることを示す。
+\begin{align*}
+	\begin{cases}
+	{(f + g)}^2 = f^2 + 2fg + g^2\\
+	{(f - g)}^2 = f^2 -2fg + g^2
+	\end{cases}
+\end{align*}
+これを辺々引くと、
+\begin{align*}
+	{(f + g)}^2 - {(f - g)}^2 = 4fg \Leftrightarrow fg = \frac{1}{4} \left\{ {(f + g)}^2 - {(f - g)}^2 \right\}
+\end{align*}
+であり、$(\star \star)$と$(\star \star \star)$と$(1)$の結果より、これは可測関数であることがわかる。
 
 \section{Ex3.15}
 \begin{enumerate}
