@@ -147,7 +147,18 @@ Then I have the following explicit form. Note that $\lambda_1, \lambda_2$ are th
 	= &\left( 1 - \frac{a_{12}a_{21}L^2}{(1-a_{11}L)(1-a_{22}L)}\right)^{-1}\\
 	&\left[(1-a_{11}L)^{-1} \left\{ a_{10}+(1-a_{22}L)^{-1} a_{12}a_{20} \right\}
 	+ a_{12}(1-a_{11}{L})^{-1}(1-a_{22}L)^{-1}e_{2.t-1} + (1-a_{11}L)^{-1}e_{1,t} \right]\\[8pt]
-	=
+	=&\left( 1-(a_{11} + a_{22})L + (a_{11}a_{22} - a_{12}a_{21})L^2 \right)^{-1} \left( 1-a_{11}L \right) \left( 1-a_{22}L \right)\\
+	&\left[(1-a_{11}L)^{-1} \left\{ a_{10}+(1-a_{22}L)^{-1} a_{12}a_{20} \right\}
+	+ a_{12}(1-a_{11}{L})^{-1}(1-a_{22}L)^{-1}e_{2.t-1} + (1-a_{11}L)^{-1}e_{1,t} \right]\\[8pt]
+	=& (1- \lambda_1 L)^{-1} (1- \lambda_2 L)^{-1} \left( 1-a_{11}L \right) \left( 1-a_{22}L \right)\\
+	&\left[(1-a_{11}L)^{-1} \left\{ a_{10}+(1-a_{22}L)^{-1} a_{12}a_{20} \right\}
+	+ a_{12}(1-a_{11}{L})^{-1}(1-a_{22}L)^{-1}e_{2.t-1} + (1-a_{11}L)^{-1}e_{1,t} \right]\\[8pt]
+	= & (1- \lambda_1 L)^{-1} (1- \lambda_2 L)^{-1} \left\{ a_{10} - a_{22} a_{10} + a_{12} a_{20} \right\}\\
+	&+ a_{12} \left( 1-\lambda_1 L \right)^{-1} (1- \lambda_2 L)^{-1} e_{2,t-1}\\
+	&+ (1- \lambda_1 L)^{-1} (1- \lambda_2 L)^{-1} \left( e_{1,t} - a_{22}e_{1,t-1} \right)\\[8pt]
+	=&  \left\{ a_{10} - a_{22} a_{10} + a_{12} a_{20} \right\} \left( \sum_{j = 0}^{\infty} \sum_{k = 0}^{j} \lambda_1^k \lambda_2^{j-k} \right)\\
+	&+a_{12} \sum_{j = 0}^{\infty}\left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{2, t-1-j}\\
+	&+  \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{1, t-j } - a_{22}  \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{1, t-1-j }
 \end{align*}
 
 \end{document}
