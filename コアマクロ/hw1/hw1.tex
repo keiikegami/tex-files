@@ -206,6 +206,28 @@ Then, denoting BN cycle term as $c_t$,
 
 
 \section{Problem4}
+ All the code used in this problem is in the last of this section.
+ 
+ \subsection{(1)}
+  I plot the official GDP gap calculated by the data below.
+  
+ \includegraphics[width = 9cm]{official_gap.png}
+ 
+ \subsection{(2)}
+  I plot the HP cycle components.
+  
+  \includegraphics[width = 9cm]{hp_cycle.png}
+
+The range of the gap shrinks by using HP filter, and the cycle is made easy to detect.
+
+\subsection{(3)}
+ I carry out the Augmented Dickey-Fuller test for the time series. And the p-value is $0.0631$, then I reject the null hypothesis. Next I make an estimation of the model for the first difference series in order to do BN-decomposition. The result says that $AR(2)$ is the best fitted model, then I decompose the time series by using the result of the problem $(3)$. And the result cycle components is plotted below.
+ 
+   \includegraphics[width = 9cm]{BN_cycle.png}
+
+BN-cycle show the more fluctuating property than HP-filter.
+\subsection{(4)}
+
 
 \section{Problem5}
 \subsection{(1)}
