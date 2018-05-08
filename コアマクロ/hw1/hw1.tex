@@ -3,6 +3,7 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{listings}
 \usepackage{amsmath}
+\usepackage[svgnames]{xcolor}
 \usepackage{bm}
 \lstset{%
   language={python},
@@ -22,6 +23,15 @@
   stepnumber=1,
   numbersep=1zw,%
   lineskip=-0.5ex%
+}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{DarkGreen},
 }
 
 \begin{document}
@@ -51,7 +61,42 @@ Next, I calculate the mean, variance, j-th autocovariance.
 \end{description}
 
 \section{Problem2}
+\subsection{(1)}
+\includegraphics[width = 15cm]{inflation.png}
 
+The Python code is as follows.
+\lstinputlisting{hw1-2.py}
+
+\subsection{(3)}
+The R code is as follows.
+\begin{lstlisting}
+# read data
+corrected_inflation <- read_csv("~/Desktop/2018summer/macro/hw1/empirics/corrected_inflation.csv")
+
+# time series format
+ORI <- ts(corrected_inflation[["original"]])
+LOG <- ts(corrected_inflation[["log"]])
+MA <- ts(corrected_inflation[["ma"]])
+
+# ma
+AIC_ma <- 1:24
+for (i in 1:24){
+  result <- arima(MA, order = c(i,0,0))
+  AIC_ma[i] <- result$aic
+}
+
+ma_optimal_p <- which.min(AIC_ma)
+
+# log
+AIC_log <- 1:24
+for (i in 1:24){
+  result <- arima(LOG, order = c(i,0,0))
+  AIC_log[i] <- result$aic
+}
+
+log_optimal_p <- which.min(AIC_log)
+\end{lstlisting}
+and $p = 13$ is chosen in both of seasonal adjustments. 
 
 \section{Problem3}
  I use state-space model for solving this problem. When the first difference series follow AR(2) model, i.e. $\Delta Y_t = \beta_1 \Delta Y_{t-1}+ \beta_2 \Delta Y_{t-2}$, let the state vector and the disturbance vector be
