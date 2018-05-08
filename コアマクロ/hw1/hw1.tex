@@ -88,7 +88,74 @@ for (i in 1:24){
 
 log_optimal_p <- which.min(AIC_log)
 \end{lstlisting}
-and $p = 13$ is chosen in both of seasonal adjustments. 
+and $p = 13$ is chosen in both of seasonal adjustments.
+
+\subsection{(3)}
+ The estimated coefficients are in the next page. By the table, I see the stochastic significance at $ar1, ar8, ar12$ and $ar13$ in both types of seasonal adjustments. The sign is minus only for $ar12$, and the values are almost the same in the two cases.
+ \begin{table}[!htbp] \centering 
+  \caption{estimating AR(13)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & MA & LOG \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ ar1 & 1.220$^{***}$ & 1.209$^{***}$ \\ 
+  & (0.035) & (0.035) \\ 
+  & & \\ 
+ ar2 & $-$0.093 & $-$0.078 \\ 
+  & (0.057) & (0.056) \\ 
+  & & \\ 
+ ar3 & $-$0.040 & $-$0.043 \\ 
+  & (0.057) & (0.056) \\ 
+  & & \\ 
+ ar4 & $-$0.079 & $-$0.079 \\ 
+  & (0.057) & (0.056) \\ 
+  & & \\ 
+ ar5 & 0.068 & 0.063 \\ 
+  & (0.057) & (0.057) \\ 
+  & & \\ 
+ ar6 & $-$0.022 & $-$0.021 \\ 
+  & (0.057) & (0.057) \\ 
+  & & \\ 
+ ar7 & $-$0.078 & $-$0.069 \\ 
+  & (0.057) & (0.057) \\ 
+  & & \\ 
+ ar8 & 0.118$^{**}$ & 0.105$^{*}$ \\ 
+  & (0.057) & (0.057) \\ 
+  & & \\ 
+ ar9 & 0.006 & 0.007 \\ 
+  & (0.058) & (0.057) \\ 
+  & & \\ 
+ ar10 & $-$0.011 & $-$0.006 \\ 
+  & (0.058) & (0.057) \\ 
+  & & \\ 
+ ar11 & $-$0.033 & $-$0.028 \\ 
+  & (0.058) & (0.057) \\ 
+  & & \\ 
+ ar12 & $-$0.602$^{***}$ & $-$0.603$^{***}$ \\ 
+  & (0.057) & (0.057) \\ 
+  & & \\ 
+ ar13 & 0.539$^{***}$ & 0.536$^{***}$ \\ 
+  & (0.035) & (0.035) \\ 
+  & & \\ 
+ intercept & 0.211 & 0.203 \\ 
+  & (0.150) & (0.143) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & 564 & 564 \\ 
+Log Likelihood & 1,214.527 & 1,259.025 \\ 
+$\sigma^{2}$ & 0.001 & 0.001 \\ 
+Akaike Inf. Crit. & $-$2,399.054 & $-$2,488.050 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
 
 \section{Problem3}
  I use state-space model for solving this problem. When the first difference series follow AR(2) model, i.e. $\Delta Y_t = \beta_1 \Delta Y_{t-1}+ \beta_2 \Delta Y_{t-2}$, let the state vector and the disturbance vector be

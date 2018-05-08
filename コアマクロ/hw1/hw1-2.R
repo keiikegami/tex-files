@@ -25,6 +25,9 @@ for (i in 1:24){
 
 log_optimal_p <- which.min(AIC_log)
 
+# (3)
+
+
 
 
 # HW1-4
