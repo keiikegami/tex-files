@@ -273,7 +273,21 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \end{align*}
 であるので$g \in L^q$であることがわかる。
 
-次に下の関数$f(x)$が$f\in L^p$だが$f\notin L^q$となることを示す。 to be written
+次に下の関数$f(x)$が$f\in L^p$だが$f\notin L^q$となることを示す。
+\begin{align*}
+	f(x) = \begin{cases}
+	\frac{1}{x^{\frac{1}{q}} {\rm log}x}\ &\text{where}\ x\in \left[0,\frac{1}{2} \right]\\[8pt]
+	0\ &\text{otherwise}
+	\end{cases}
+\end{align*}
+上の関数を$\left[0,\frac{1}{2} \right]$の範囲で積分する。
+\begin{align*}
+	\int_{[0,{\frac{1}{2}}]} \left| \frac{1}{x^{\frac{1}{q}} {\rm log}x} \right|^{q}\mathrm{d}\mu = \int_0^{\frac{1}{2}} \left| \frac{1}{x^{\frac{1}{q}} {\rm log}x} \right|^{q}\mathrm{d}x = \int_0^{\frac{1}{2}} \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^q} \mathrm{d}x
+\end{align*}
+被積分関数は$\left[0,\frac{1}{2} \right]$の範囲で通常の積分はできないので広義積分をする。$q > 1$とすると、
+\begin{align*}
+	\lim_{\epsilon \to +0} \int_{\epsilon}^{\frac{1}{2}}  \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^q} \mathrm{d}x = \frac{1}{1-q} \lim_{\epsilon \to +0} \left[ \left( {\rm log}x \right)^{1-q} \right]_{\epsilon}^{\frac{1}{2}} = \frac{1}{1-q} \left( -{\rm log}2 \right)^{1-q} < \infty
+\end{align*}
 
 \section{Ex4.11}
 任意に$\left\{ x_n \right\}_{n = 1}^{\infty} \in l^p$をとる。この時、実数列$\left\{ \sum_{n = 1}^N |x_n|^p \right\}_{N = 1}^{\infty}$を考えると、$l^p$の定義よりこの字数列は収束列である。コーシーの判定条件より以下を満たす十分大きな$N^*$が存在する。
