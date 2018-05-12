@@ -320,7 +320,39 @@ $f\in L^1$であるとすると、$\int_{A_{\infty}} |f|\mathrm{d} \mu < \int |f
 \end{align*}
 であるが、$A_{\infty}$の性質1よりこの左辺は$m \to \infty$で$\infty$に発散し、そのような$c$は存在できない。これで矛盾をきたしたので仮定した$f \in L^1$は誤りである。従って$f \notin L^1$である。
 
+\subsection{主張$3$の証明}
+
 \section{Ex4.17}
+対称性より$[0,\infty)$についてのみ考え、その範囲に置いて$\int f \mathrm{d}\mu = \int f^{+} \mathrm{d}\mu - \int f^{-} \mathrm{d}\mu$が$\infty - \infty$になってしまい定義できないことを確認する。どちらの項も同様の議論で$\infty$になることを示せるので、ここでは前半の$\int f^{+} \mathrm{d}\mu$についてのみ$\infty$となることを確認する。
+
+まず、$\int_{[0, \infty)} f^{+} \mathrm{d}\mu = \int_0^{\infty} f^{+} \mathrm{d}x$であることを確認する。任意の$n > 0$について$f^{+} 1_{[0, n]}$なる関数を考えると、これはコンパクトな台を持つ有界関数である。この時リーマン積分を定義することができ、
+\begin{align*}
+	\int_0^{\infty} f^{+} 1_{[0, n]} \mathrm{d}x = \int_0^n f^{+}\mathrm{d}x
+\end{align*}
+である。$f^{+}$は連続関数であるので、上記はリーマン可積分である。theorem 4.8よりこれはルベーグ積分と同じ値である。従って、
+\begin{align}
+	\int_0^n f^{+} \mathrm{d}x = \int_0^{\infty} f^{+} 1_{[0. n]}\mathrm{d}x = \int_{[0, \infty)} f^{+}1_{[0, n]} \mathrm{d}\mu
+\end{align}
+を得る。$f^{+} 1_{[0, n]} \uparrow f^{+}$であり、$f^{+} 1_{[0, n]}$は$f^{+}$が連続であることから可測関数、$1_{[0, n]}$が可測関数であることからlemma 3.7より可測関数の列となる。従って単調収束定理が適用でき、
+\begin{align*}
+	\lim_{n\to \infty} \int_{[0, \infty)} f^{+} 1_{[0, n]} \mathrm{d}\mu = \int_{[0, \infty)} \lim_{n\to \infty} f^{+} 1_{[0, n]} \mathrm{d}\mu = \int_{[0, \infty)}  f^{+}  \mathrm{d}\mu
+\end{align*}
+また$(4)$より、
+\begin{align*}
+	\int_{[0, \infty)}  f^{+}  \mathrm{d}\mu = \lim_{n\to \infty} \int_0^n f^{+} \mathrm{d}x
+\end{align*}
+である。
+
+従ってこの左辺が$\infty$に発散することを示せば良い。$f^{*} = \max \left( \frac{\sin x}{x}, 0 \right)$であることより、
+\begin{align*}
+	\lim_{n\to \infty} \int_0^n f^{+} \mathrm{d}x &= \lim_{N \to \infty} \sum_{n = 1}^{N} \int_{2n\pi}^{(2n + 1)\pi} \frac{\sin x}{x} \mathrm{d}x\\[8pt]
+	&= \lim_{N \to \infty} \sum_{n = 1}^{N} \int_0^{\pi} \frac{\sin y}{y + 2n\pi} \mathrm{d}y\\[8pt]
+	&\geq  \lim_{N \to \infty} \sum_{n = 1}^{N} \frac{1}{(2n+1)\pi} \int_0^{\pi} \sin y \mathrm{d}y\\[8pt]
+	&= \lim_{N \to \infty} \sum_{n = 1}^{N} \frac{2}{(2n + 1)\pi} = \frac{2}{\pi} \lim_{N \to \infty} \sum_{n = 1}^{N} \frac{1}{2n + 1}
+\end{align*}
+ここで、「最後の級数は収束せず発散する(主張$4$)」ので$\int_{[0, \infty)}  f^{+}  \mathrm{d}\mu = \infty$であることがわかった。同様の議論により$\int_{[0, \infty)}  f^{-}  \mathrm{d}\mu = \infty$でもあるので、$\infty -\infty$が定義できないことから、$\frac{\sin x}{x}$の$\mathbb{R}$上のルベーグ積分は定義できないことがわかった。
+
+\subsection{主張$4$の証明}
 
 
 \end{document}
