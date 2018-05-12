@@ -237,13 +237,14 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 とできる。仮定より$\mu(X) < \infty$であることを考慮すると、右辺は有限である。従って$f \in L^p$であることがわかる。
 
 \subsection{(b)}
+まず下の関数$g(x)$が$g \notin L^p$だが、$g\in L^q$であることを示す。
 \begin{align*}
 	g(x) = \begin{cases}
 	x^{-\frac{1}{p}}\ &\text{when}\ x \in [1, \infty)\\
 	0\ &\text{otherwise}
 	\end{cases}
 \end{align*}
-とする。この時、
+この時、
 \begin{align*}
 	\int |x^{-\frac{1}{p}}|^{p} \mathrm{d}\mu = \int_{[1,\infty)} \frac{1}{x} \mathrm{d}\mu
 \end{align*}
@@ -262,6 +263,8 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 	\int_{\mathbb{R}} |x^{-\frac{1}{p}}|^q \mathrm{d}\mu = \int_1^{\infty} x^{-\frac{q}{p}} \mathrm{d}x < \infty
 \end{align*}
 であるので$g \in L^q$であることがわかる。
+
+次に下の関数$f(x)$が$f\in L^p$だが$f\notin L^q$となることを示す。
 
 \section{Ex4.11}
 
