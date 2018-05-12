@@ -50,8 +50,52 @@ Homework 4}
 これより、$0\leq \mu(E_n) \leq 0 \ \Rightarrow\ \mu(E_n) = 0$を得る。したがって、$\lim_{n\to \infty} \mu(E_n) = 0$であるので、$\mu(D) = 0$である。これは$f$が$0$でないような$X$の部分集合のの測度が$0$であることを意味するので、$f = 0\ \text{a.e.}$である。
 
 \section{Ex4.3}
+可積分であるので、$r$を正の実数、$\theta$を実数として、積分を以下のような極形式で表現できる。
+\begin{align}
+	\int f\mathrm{d}\mu = \int (Re f) \mathrm{d}\mu + \int (Im f) \mathrm{d}\mu = r e^{i\theta}
+\end{align}
+$e^{i\theta} = \cos \theta + i \sin\theta$であり、$r > 0$だから、
+\begin{align*}
+	\| \int f\mathrm{d}\mu \| = \| re^{i\theta} \| = r\| e^{i\theta} \| = r
+\end{align*}
+である。ここで$(1)$より以下を得る。
+\begin{align*}
+	r = e^{-i\theta} \int f\mathrm{d}\mu
+\end{align*}
+また、「可積分な関数$f$は、$c \in \mathbb{C}$に対して、$\int cf \mathrm{d}\mu = c \int f \mathrm{d}\mu$（主張$1$）」を所与とすれば、
+\begin{align*}
+	r = \int e^{-i\theta} f\mathrm{d}\mu
+\end{align*}
+である。$r\in \mathbb{R}$より$\int e^{-i\theta} f\mathrm{d}\mu$は実数である。よって、定義より以下を得る。
+\begin{align*}
+	\int e^{-i\theta} f\mathrm{d}\mu = Re\left( \int e^{-i\theta} f\mathrm{d}\mu \right) = \int Re\left( e^{-i\theta} f\right) \mathrm{d}\mu
+\end{align*}
+さらに、複素数の絶対値の定義より、
+\begin{align*}
+	\| e^{-i\theta} f \| = \sqrt{ Re\left( e^{-i\theta} f\right)^2 + Im\left( e^{-i\theta} f\right)^2 } \geq Re\left( e^{-i\theta} f\right)
+\end{align*}
+である。よってexample 4.2より、
+\begin{align*}
+	\int Re\left( e^{-i\theta} f\right) \mathrm{d}\mu \leq \int \| e^{-i\theta} f\| \mathrm{d}\mu
+\end{align*}
+であり、$\| e^{-i\theta} \| = 1$が恒等的に成立するので、
+\begin{align*}
+	\| \int f\mathrm{d}\mu \| = r = \int e^{-i\theta} f\mathrm{d}\mu = \int Re\left( e^{-i\theta} f\right) \mathrm{d}\mu \leq \int \| e^{-i\theta} f\| \mathrm{d}\mu = \int \| f \| \mathrm{d}\mu 
+\end{align*}
+となり題意は示された。
+
+\subsection{主張$1$の証明}
 
 \section{Ex4.4}
+$E = \left\{ x \in X \mid f(x) \neq g(x) \right\}$の測度が$0$であることを示す。
+\begin{align*}
+	E = \bigcup_{q\in \mathbb{Q}} \left\{ \left\{ x\in X \mid f(x) > q \right\} \cap \left\{x \in X \mid q > g(x) \right\} \right\} \cup \bigcup_{q\in \mathbb{Q}} \left\{ \left\{ x\in X \mid f(x) < q \right\} \cap \left\{x \in X \mid q < g(x) \right\} \right\}
+\end{align*}
+である。前半を$E_1$、後半を$E_2$とする。lemma 3.5より$E_1, E_2 \in \mathcal{A}$である。仮定より、
+\begin{align*}
+	\int_{E_1} f \mathrm{d}\mu = \int_{E_1} g \mathrm{d}\mu
+\end{align*}
+であるはずだが、仮に$\mu(E_1) > 0$だとすると、$E_1$においては$f > g$なので、example 4.2より$\int_{E_1} f \mathrm{d}\mu > \int_{E_1} g \mathrm{d}\mu$となる。これは仮定に反するので、$\mu(E_1) = 0$である。同様に$\mu(E_2) = 0$であり、$\mu(E) = \mu(E_1) + \mu(E_2) = 0$より題意は示された。
 
 \section{Ex4.8}
 
