@@ -216,6 +216,15 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \begin{align*}
 	\forall \epsilon > 0,\ \exists N > 0\ \text{s.t.}\ \forall n \geq N,\ a \geq \epsilon \Rightarrow a \in \left\{ c \geq 0 \mid \mu\left( \left\{ x \in X \mid |f_n(x) - f(x)| > c \right\} \right) \right\}
 \end{align*}
+この最後の集合を$\star$と表記する。この時、
+\begin{align*}
+	\inf \star \leq \epsilon
+\end{align*}
+である。なぜなら、仮定より$\star$は空集合ではなく、$\inf \star > \epsilon$であったとすると$\inf \star > a > \epsilon$を満たす実数$a$が必ず存在し、その$a$が必ず$\star$に入ることに矛盾するからである。従って、以下が成立する。
+\begin{align*}
+	\forall \epsilon > 0,\ \exists N\ \text{s.t.}\ n\geq N \Rightarrow \inf \left\{ c \geq 0 \mid \mu\left( \left\{ x \in X \mid |f_n(x) - f(x)| > c \right\} \right) \right\} \leq \epsilon
+\end{align*}
+収束の定義よりこれは$\| f_n -f \|_{\infty} \to 0$を意味する。
 
 
 
