@@ -229,8 +229,39 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 
 
 \section{Ex4.10}
+\subsection{(a)}
+ヘルダーの不等式を使って証明する。任意に$f \in L^q$を取ってくるとき、
+\begin{align*}
+	\int |f|^p \mathrm{d}\mu = \int |f|^p 1 \mathrm{d}\mu \leq \left( \int \left(|f|^p \right)^{\frac{q}{p}} \mathrm{d}\mu \right)^{\frac{p}{q}} \left( \int \mathrm{d}\mu\right)^{1-\frac{p}{q}} =  \left( \int |f|^q \mathrm{d}\mu \right)^{\frac{p}{q}}\mu \left( X \right)^{1-\frac{p}{q}}
+\end{align*}
+とできる。仮定より$\mu(X) < \infty$であることを考慮すると、右辺は有限である。従って$f \in L^p$であることがわかる。
 
+\subsection{(b)}
+\begin{align*}
+	g(x) = \begin{cases}
+	x^{-\frac{1}{p}}\ &\text{when}\ x \in [1, \infty)\\
+	0\ &\text{otherwise}
+	\end{cases}
+\end{align*}
+とする。この時、
+\begin{align*}
+	\int |x^{-\frac{1}{p}}|^{p} \mathrm{d}\mu = \int_{[1,\infty)} \frac{1}{x} \mathrm{d}\mu
+\end{align*}
+である。2以上の任意の整数$n$について$g_n (x) = g1_{[1,n)}$とすると、$g$が積分区間において連続関数なので可測関数、$1_{[1,n)}$は可測関数であることからlemma 3.7より$g_n (x)$は常に可測関数であり、明らかに$g_n \uparrow g$であるので単調収束定理から
+\begin{align*}
+	\int_{[1,\infty)} \frac{1}{x} \mathrm{d}\mu = \int \lim_{n \to \infty} \frac{1}{x} 1_{[1, \infty)} \mathrm{d}\mu = \lim_{n \to \infty} \int_{\mathbb{R}} frac{1}{x} 1_{[1, \infty)} = \lim_{n \to \infty} {\rm log} n = \infty
+\end{align*}
+であるので先の積分は発散してしまう。そのため$g\notin L^p$である。
 
+一方で、$q$に関しては、対応するリーマン積分を考えると$p-q < 0$より、
+\begin{align*}
+	\int_1^{\infty} x^{-\frac{q}{p}} \mathrm{d}x = -\left( \frac{p}{p-q} \right) = \frac{p}{q-p} < \infty
+\end{align*}
+である。リーマン積分が存在したのでtheorem 4.8よりルベーグ積分もこの値をとる。すなわち、
+\begin{align*}
+	\int_{\mathbb{R}} |x^{-\frac{1}{p}}|^q \mathrm{d}\mu = \int_1^{\infty} x^{-\frac{q}{p}} \mathrm{d}x < \infty
+\end{align*}
+であるので$g \in L^q$であることがわかる。
 
 \section{Ex4.11}
 
