@@ -85,6 +85,15 @@ $e^{i\theta} = \cos \theta + i \sin\theta$であり、$r > 0$だから、
 となり題意は示された。
 
 \subsection{主張$1$の証明}
+可積分な関数$f$は、$c \in \mathbb{C}$に対して、$\int cf \mathrm{d}\mu = c \int f \mathrm{d}\mu$であることを示す。$c = a + bi$で、$f = g + hi$であるとする。この時、
+\begin{align*}
+	\int cf \mathrm{d}\mu &= \int (ag -bh)+ i(ah + bg) \mathrm{d}\mu = \int (ag -bh) \mathrm{d}\mu + i \int (ah + bg) \mathrm{d}\mu \\[8pt]
+	&=a\int g\mathrm{d}\mu - b \int h\mathrm{d}\mu + i\left( a \int h\mathrm{d}\mu + b \int g\mathrm{d}\mu \right)\\[8pt]
+	&=(a + bi) \int g\mathrm{d}\mu + (-b + ai) \int h\mathrm{d}\mu\\[8pt]
+	&= (a + bi) \int g\mathrm{d}\mu + i(a + bi) \int h\mathrm{d}\mu\\[8pt]
+	&=(a + bi) \left( \int g\mathrm{d}\mu + i \int h\mathrm{d}\mu \right) = (a + bi) \int f \mathrm{d}\mu
+\end{align*}
+なので題意は示された。
 
 \section{Ex4.4}
 $E = \left\{ x \in X \mid f(x) \neq g(x) \right\}$の測度が$0$であることを示す。
