@@ -276,18 +276,37 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 次に下の関数$f(x)$が$f\in L^p$だが$f\notin L^q$となることを示す。
 \begin{align*}
 	f(x) = \begin{cases}
-	\frac{1}{x^{\frac{1}{q}} {\rm log}x}\ &\text{where}\ x\in \left[0,\frac{1}{2} \right]\\[8pt]
+	\frac{1}{x^{\frac{1}{p}} {\rm log}x}\ &\text{where}\ x\in \left[0,\frac{1}{2} \right]\\[8pt]
 	0\ &\text{otherwise}
 	\end{cases}
 \end{align*}
 上の関数を$\left[0,\frac{1}{2} \right]$の範囲で積分する。
 \begin{align*}
-	\int_{[0,{\frac{1}{2}}]} \left| \frac{1}{x^{\frac{1}{q}} {\rm log}x} \right|^{q}\mathrm{d}\mu = \int_0^{\frac{1}{2}} \left| \frac{1}{x^{\frac{1}{q}} {\rm log}x} \right|^{q}\mathrm{d}x = \int_0^{\frac{1}{2}} \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^q} \mathrm{d}x
+	\int_{[0,{\frac{1}{2}}]} \left| \frac{1}{x^{\frac{1}{p}} {\rm log}x} \right|^{p}\mathrm{d}\mu = \int_0^{\frac{1}{2}} \left| \frac{1}{x^{\frac{1}{p}} {\rm log}x} \right|^{p}\mathrm{d}x = \int_0^{\frac{1}{2}} \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^p} \mathrm{d}x
 \end{align*}
-被積分関数は$\left[0,\frac{1}{2} \right]$の範囲で通常の積分はできないので広義積分をする。$q > 1$とすると、
+被積分関数は$\left[0,\frac{1}{2} \right]$の範囲で通常の積分はできないので広義積分をする。$p > 1$とすると、
 \begin{align*}
-	\lim_{\epsilon \to +0} \int_{\epsilon}^{\frac{1}{2}}  \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^q} \mathrm{d}x = \frac{1}{1-q} \lim_{\epsilon \to +0} \left[ \left( {\rm log}x \right)^{1-q} \right]_{\epsilon}^{\frac{1}{2}} = \frac{1}{1-q} \left( -{\rm log}2 \right)^{1-q} < \infty
+	\lim_{\epsilon \to +0} \int_{\epsilon}^{\frac{1}{2}}  \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^p} \mathrm{d}x = \frac{1}{1-p} \lim_{\epsilon \to +0} \left[ \left( {\rm log}x \right)^{1-p} \right]_{\epsilon}^{\frac{1}{2}} = \frac{1}{1-p} \left( -{\rm log}2 \right)^{1-p} < \infty
 \end{align*}
+であるので$f \in L^p$である。
+
+一方で、$q = p(1 + \epsilon)$と置いて$L^p$に含まれるかを確認する。
+\begin{align*}
+	\int_0^{\frac{1}{2}} \left| \frac{1}{x^{\frac{1}{p}} {\rm log}x} \right|^{p(1 + \epsilon)}\mathrm{d}x = \int_0^{\frac{1}{2}} \frac{1}{x^{1+\epsilon} \left( {\rm log}x \right)^{q(1 + \epsilon)}} \mathrm{d}x
+\end{align*}
+ここで$x = e^{-t}$の変数変換をする。
+\begin{align*}
+	\int_0^{\frac{1}{2}} \frac{1}{x^{1+\epsilon} \left( {\rm log}x \right)^{q(1 + \epsilon)}} \mathrm{d}x = \int_{{\rm log}2}^{\infty} \frac{e^{\epsilon t}}{t^{q(1 + \epsilon)}} \mathrm{d}t
+\end{align*}
+さらに、十分大きな$T$について$t > T \Rightarrow e^{\frac{\epsilon}{q}t} > t^{q(1 + \epsilon)}$であるので、そのような$t$について
+\begin{align*}
+	\frac{e^{\epsilon t}}{t^{q(1 + \epsilon)}} > e^{\epsilon t \left(1 - \frac{1}{q}\right)}
+\end{align*}
+であるので、
+\begin{align*}
+	\int_{{\rm log}2}^{\infty} \frac{e^{\epsilon t}}{t^{q(1 + \epsilon)}} \mathrm{d}t \geq \int_{{\rm log}2}^T \frac{e^{\epsilon t}}{t^{q(1 + \epsilon)}} \mathrm{d}t + \int_T^{\infty} e^{\epsilon t \left(1 - \frac{1}{q}\right)}
+\end{align*}
+である。この右辺第2項は無限大に発散するので元の積分も発散することがわかる。すなわち$f\notin L^p$である。
 
 \section{Ex4.11}
 任意に$\left\{ x_n \right\}_{n = 1}^{\infty} \in l^p$をとる。この時、実数列$\left\{ \sum_{n = 1}^N |x_n|^p \right\}_{N = 1}^{\infty}$を考えると、$l^p$の定義よりこの字数列は収束列である。コーシーの判定条件より以下を満たす十分大きな$N^*$が存在する。
