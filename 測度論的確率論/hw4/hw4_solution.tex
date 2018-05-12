@@ -98,8 +98,8 @@ $E = \left\{ x \in X \mid f(x) \neq g(x) \right\}$の測度が$0$であること
 であるはずだが、仮に$\mu(E_1) > 0$だとすると、$E_1$においては$f > g$なので、example 4.2より$\int_{E_1} f \mathrm{d}\mu > \int_{E_1} g \mathrm{d}\mu$となる。これは仮定に反するので、$\mu(E_1) = 0$である。同様に$\mu(E_2) = 0$であり、$\mu(E) = \mu(E_1) + \mu(E_2) = 0$より題意は示された。
 
 \section{Ex4.8}
-\subsection{a.e.に等しい関数を同一視することで$\left(L^{\infty}, \| \cdot \|_{\infty} \right)$がノルム空間となることを示す。}
-以下ではノルムの非負値性、三角不等式、同次性の三つを確認する。
+\subsection{a.e.に等しい関数を同一視することで$\left(L^{\infty}, \| \cdot \|_{\infty} \right)$がノルム空間となることの証明}
+ノルムの非負値性、三角不等式、同次性の三つを確認すれば良い。
 \subsubsection{非負値性}
 
 ここでは$\forall f \in L^{\infty}\ \| f \|_{\infty} \geq 0$と$\| f \|_{\infty} = 0 \Leftrightarrow f=0\ \text{a.e.}$の二つを確認する。前半はノルムの定義より明らかである。後半は以下のように示される。
@@ -161,8 +161,67 @@ $\forall f, g \in L^{\infty},\ \| f \|_{\infty} + \| g \|_{\infty} \geq \| f + g
 	\leq &\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\} + \inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |g(x)| > c \right\}) =0\right\}
 \end{align*}
 
+\subsubsection{同次性}
+$\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$を示す。左辺を定義に従って書き下すと、
+\begin{align*}
+	\| rf \|_{\infty} &= \inf \left\{ a \geq 0 \mid \mu(\left\{ x\in X \mid |rf(x)| > a \right\}) = 0 \right\}\\
+	&= \inf \left\{ a \geq 0 \mid \mu \left(\left\{ x\in X \mid |f(x)| > \frac{a}{|r|} \right\}\right) = 0 \right\}\\
+	&= |r| \inf \left\{ a \geq 0 \mid \mu \left(\left\{ x\in X \mid |f(x)| > a \right\}\right) = 0 \right\}\\
+	&= |r| \|f \|_{\infty}
+\end{align*}
+以上より同次性が示された。
+
+\subsection{$\| f_n -f \|_{\infty} \to 0\ \Leftrightarrow\ \exists E\in \mathcal{A}\ \text{s.t.}\ \mu(E^c) = 0,\ \sup_{x\in E} |fn(x) - f(x)| \to 0$の証明}
+まず$\| f_n -f \|_{\infty} \to 0\ \Rightarrow\ \exists E\in \mathcal{A}\ \text{s.t.}\ \mu(E^c) = 0,\ \sup_{x\in E} |fn(x) - f(x)| \to 0$を示す。$E$として以下の集合を考える。
+\begin{align*}
+	E \equiv \left\{ x\in X \mid \lim_{n \to \infty} f_n(x) = f(x) \right\}
+\end{align*}
+この$E$に対して、まず$\mu(E^c) = 0$を確認する。exercise 4.2と同様の式変形より、
+\begin{align*}
+	\mu(E^c) &= \mu\left( \bigcup_{m = 1}^{\infty} \left\{ x\in X \mid \lim_{n\to \infty} |f_n(x) - f(x)| > \frac{1}{m} \right\} \right)\\
+	&= \lim_{m \to \infty} \mu \left( \left\{ x\in X \mid \lim_{n\to \infty} |f_n(x) - f(x)| > \frac{1}{m} \right\} \right)
+\end{align*}
+であるので、任意の$m$について$\mu \left( \left\{ x\in X \mid \lim_{n\to \infty} |f_n(x) - f(x)| > \frac{1}{m} \right\} \right) = 0$であることを確認すれば良い。仮定より、
+\begin{align*}
+	\forall m \geq 1,\ \exists N_m\ \text{s.t.}\ n \geq N_m \Rightarrow \mu\left( \left\{ x\in X \mid |f_n(x) - f(x)| > \frac{1}{m} \right\} \right)
+\end{align*}
+であるので、先の要件は確認された。
+
+次に$\sup_{x\in E} |fn(x) - f(x)| \to 0$を確認する。まず、$E$が以下のように変形できることに注意する。
+\begin{align*}
+	E &= \left\{ x\in X \mid \lim_{n \to \infty} f_n(x) = f(x) \right\}\\
+	&= \left\{ x\in X \mid \lim_{n \to \infty} |f_n(x)-f(x)| = 0 \right\}\\
+	&= \bigcap_{m = 1}^{\infty} \left\{ x\in X \mid \lim_{n \to \infty} |f_n(x)-f(x)| < \frac{1}{m} \right\}\\
+	&= \bigcap_{m = 1}^{\infty} \bigcup_{j = 1}^{\infty} \left\{ x\in X \mid |f_n(x)-f(x)| < \frac{1}{m}\ \forall n \geq j \right\}
+\end{align*}
+すなわち、$x\in E$の時、以下が必ず成立する。
+\begin{align*}
+	\forall m\ \exists j \ \text{s.t.}\ n \geq j \Rightarrow |fn(x) - f(x) | < \frac{1}{m}
+\end{align*}
+従って、$\sup$の定義より以下が成立する。
+\begin{align*}
+	\forall m\ \exists j \ \text{s.t.}\ n \geq j \Rightarrow \sup_{x \in E} |fn(x) - f(x) | \leq \frac{1}{m}
+\end{align*}
+これは収束の定義より$\sup_{x\in E} |fn(x) - f(x)| \to 0$を意味するので題意は示された。
+
+逆向きの関係を示す。任意に$\epsilon > 0$を取ると、仮定より、
+\begin{align*}
+	\exists N\ \text{s.t.}\ n\geq N \Rightarrow \sup_{x\in E} |f_n(x) - f(x)| < \epsilon
+\end{align*}
+である。同じ$\epsilon,N$に対して、$a \geq \epsilon$のように実数$a$を用意すると、$n \geq N$である$n$について、$\sup$の定義より以下が成立する。
+\begin{align*}
+	\left\{ x\in X \mid |f_n(x) -f(x)| > a \right\} \subset E^c
+\end{align*}
+この時仮定より、$\mu(\left\{ x\in X \mid |f_n(x) -f(x)| > a \right\}) \leq \mu(E^c) = 0$なので$\mu(\left\{ x\in X \mid |f_n(x) -f(x)| > a \right\}) = 0$であることがわかる。以上の議論は以下のことを述べている。
+\begin{align*}
+	\forall \epsilon > 0,\ \exists N > 0\ \text{s.t.}\ \forall n \geq N,\ a \geq \epsilon \Rightarrow a \in \left\{ c \geq 0 \mid \mu\left( \left\{ x \in X \mid |f_n(x) - f(x)| > c \right\} \right) \right\}
+\end{align*}
+
+
 
 \section{Ex4.10}
+
+
 
 \section{Ex4.11}
 
