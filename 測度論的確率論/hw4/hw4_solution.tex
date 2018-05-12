@@ -297,7 +297,28 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 以下では「$(3)$が収束することの必要十分条件は$\frac{x}{p} > 1$である」を示す。
 
 \section{Ex4.16}
+$D_m = \left\{ A\in \mathcal{A}\mid \mu(A) < \frac{1}{m} \right\}$とする。以下で対偶を示す。すなわち
+\begin{align*}
+	\exists \epsilon > 0\ \text{s.t.}\ \forall m > 0\ \exists A_m \in D_m\ \text{s.t.}\ \epsilon \leq \int_{A_m} |f| \mathrm{d}\mu\ \Rightarrow\ f\notin L^1
+\end{align*}
+を示す。
 
+$D_m$が減少列であることから、左辺は以下を満たす$A_{\infty}\in \mathcal{A}$が存在することを意味している。
+\begin{align*}
+\begin{cases}
+	\mu\left( A_{\infty} \right) < \frac{1}{m}\ \forall m > 0\\[8pt]
+	\epsilon \leq \int_{A_{\infty}} |f|\mathrm{d} \mu
+\end{cases}
+\end{align*}
+$f\in L^1$であるとすると、$\int_{A_{\infty}} |f|\mathrm{d} \mu < \int |f| \mathrm{d} \mu < \infty$である。「$f$が可積分であれば$|f| < \infty\ \text{a.e.}$である（主張$3$）」ので、平均値の定理から以下を満たす実数$c< \infty$が存在する。
+\begin{align*}
+	\epsilon \leq \int_{A_{\infty}} |f|\mathrm{d} \mu = c\mu\left( A_{\infty} \right)
+\end{align*}
+ここで$0 < \epsilon \leq \int_{A_{\infty}} |f|\mathrm{d} \mu$より$\mu\left( A_{\infty} \right)  > 0$であるので、
+\begin{align*}
+	\frac{\epsilon}{\mu\left( A_{\infty} \right)} \leq c
+\end{align*}
+であるが、$A_{\infty}$の性質1よりこの左辺は$m \to \infty$で$\infty$に発散し、そのような$c$は存在できない。これで矛盾をきたしたので仮定した$f \in L^1$は誤りである。従って$f \notin L^1$である。
 
 \section{Ex4.17}
 
