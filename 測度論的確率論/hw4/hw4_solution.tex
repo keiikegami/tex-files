@@ -98,6 +98,69 @@ $E = \left\{ x \in X \mid f(x) \neq g(x) \right\}$の測度が$0$であること
 であるはずだが、仮に$\mu(E_1) > 0$だとすると、$E_1$においては$f > g$なので、example 4.2より$\int_{E_1} f \mathrm{d}\mu > \int_{E_1} g \mathrm{d}\mu$となる。これは仮定に反するので、$\mu(E_1) = 0$である。同様に$\mu(E_2) = 0$であり、$\mu(E) = \mu(E_1) + \mu(E_2) = 0$より題意は示された。
 
 \section{Ex4.8}
+\subsection{a.e.に等しい関数を同一視することで$\left(L^{\infty}, \| \cdot \|_{\infty} \right)$がノルム空間となることを示す。}
+以下ではノルムの非負値性、三角不等式、同次性の三つを確認する。
+\subsubsection{非負値性}
+
+ここでは$\forall f \in L^{\infty}\ \| f \|_{\infty} \geq 0$と$\| f \|_{\infty} = 0 \Leftrightarrow f=0\ \text{a.e.}$の二つを確認する。前半はノルムの定義より明らかである。後半は以下のように示される。
+
+まず$\| f \|_{\infty} = 0 \Rightarrow f=0\ \text{a.e.}$を示す。左辺の意味するところは、
+\begin{align*}
+	\forall n \geq 1,\ \exists a\ \text{s.t.}\ \frac{1}{n} > a > 0,\ \mu(\left\{ x\in X \mid | f(x)| > a \right\}) = 0
+\end{align*}
+この時、任意の$n \geq 1$に対して$\mu(\left\{ x\in X \mid |f(x)| > \frac{1}{n} \right\}) \leq \mu(\left\{ x\in X \mid | f(x)| > a \right\}) = 0$とできることから、
+\begin{align*}
+	\mu(\left\{ x\in X \mid f(x) \neq 0 \right\}) = \lim_{n\to \infty} \mu(\left\{ x\in X \mid |f(x)| > \frac{1}{n} \right\}) = 0
+\end{align*}
+であることがわかる。これはすなわち$f=0\ \text{a.e.}$であることを意味する。ただし、上の式変形にはexercise 4.2と同じ式変形を用いている。
+
+次に$f=0\ \text{a.e.} \Rightarrow \| f \|_{\infty} = 0$を確認する。仮定より任意に小さな非負実数$a$について$\mu(\left\{ x\in X \mid |f(x)| > a \right\}) = 0$であるので、$inf$の定義より$\| f \|_{\infty} = 0$である。以上で非負値性が示された。
+
+\subsubsection{三角不等式}
+$\forall f, g \in L^{\infty},\ \| f \|_{\infty} + \| g \|_{\infty} \geq \| f + g \|_{\infty}$を示す。通常の絶対値に対する三角不等式から、$|f(x) + g(x)| \leq |f(x)| + |g(x)|$である。従って、任意の非負実数$c$について、
+\begin{align*}
+	\left\{ x\in X \mid |f(x) + g(x)| > c \right\} \subset \left\{ x\in X \mid |f(x)| + |g(x)| > c \right\}  
+\end{align*}
+である。これより、
+\begin{align*}
+	\mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) \leq \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\})
+\end{align*}
+である。なので、$\mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\}) = 0$ならば必ず$\mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) = 0$である。これより、
+\begin{align*}
+	\left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\} ) = 0 \right\} \subset \left\{ c \geq 0\mid \mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) = 0 \right\}
+\end{align*}
+である。より広い範囲について$\inf$をとった時に$\inf$が元の集合に対するものよりも大きくなることはあり得ないので、
+\begin{align}
+	\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\} = 0) \right\} \geq \inf \left\{ c \geq 0\mid \mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) = 0 \right\}
+\end{align}
+ここで、仮に
+\begin{align*}
+	&\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\})=0 \right\} \\[8pt]
+	> &\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\} + \inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |g(x)| > c \right\}) =0\right\}
+\end{align*}
+であるとすると、左辺よりも小さく右辺よりも大きい正の実数$a$が必ず存在する。このような$a$に対して
+\begin{align*}
+	\mu(\left\{ x\in X \mid |f(x)| + |g(x)| > a \right\}) > 0
+\end{align*}
+である。$|f(x)| + |g(x)| > a$であるためには、一般性を失うことなく$|f(x)|$が$\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\}$を上回っている必要がある。すなわち、
+\begin{align*}
+	\mu(\left\{ x\in X \mid |f(x)| >  inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\} \right\}) \geq \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > a \right\})
+\end{align*}
+であり、定義より左辺は$0$である、これより
+\begin{align*}
+	0 \geq \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > a \right\}) > 0
+\end{align*}
+であり矛盾をきたす。従って
+\begin{align*}
+	&\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\})=0 \right\} \\[8pt]
+	\leq &\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\} + \inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |g(x)| > c \right\}) =0\right\}
+\end{align*}
+であることが示され、$(2)$と合わせて以下の三角不等式が成立することが確認できた。
+\begin{align*}
+	&\inf \left\{ c \geq 0\mid \mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) = 0 \right\}\\
+	\leq &\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\} + \inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |g(x)| > c \right\}) =0\right\}
+\end{align*}
+
 
 \section{Ex4.10}
 
