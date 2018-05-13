@@ -273,7 +273,7 @@ Thus I have the following AR(2) form for each time series,
 	+ &a_{12}(1-a_{11}{L})^{-1}(1-a_{22}L)^{-1}e_{2.t-1}\\
 	+ &(1-a_{11}L)^{-1}e_{1,t}
 \end{align*}
-Then I have the following explicit form. Note that $\lambda_1, \lambda_2$ are the inverse of the solutions of $1-(a_{11} + a_{22})x + (a_{11}a_{22} - a_{12}a_{21})x^2$, and I assume that this equation has the real number solution, in other words $(a_{11} +a_{22})^2 -4(a_{11}a_{22} - a_{12}a_{21}) = (a_{11} -aa_{22})^2 + 4a_{12}a_{21} \geq 0$ and $\lambda_1, \lambda_2 < 1$.
+Then I have the following explicit form. Note that $\lambda_1, \lambda_2$ are the inverse of the solutions of $1-(a_{11} + a_{22})x + (a_{11}a_{22} - a_{12}a_{21})x^2$, and I assume that this equation has the real number solution, in other words $(a_{11} +a_{22})^2 -4(a_{11}a_{22} - a_{12}a_{21}) = (a_{11} -aa_{22})^2 + 4a_{12}a_{21} \geq 0$.
 \begin{align*}
 	y_t = &\left( 1 - a_{12}a_{21} (1-a_{11}L)^{-1}(1-a_{22}L)^{-1} L^2\right)^{-1} \\
 	&\left[(1-a_{11}L)^{-1} \left\{ a_{10}+(1-a_{22}L)^{-1} a_{12}a_{20} \right\}
@@ -295,13 +295,24 @@ Then I have the following explicit form. Note that $\lambda_1, \lambda_2$ are th
 	&+  \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{1, t-j } - a_{22}  \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{1, t-1-j }
 \end{align*}
 
+The same calculation can be applied to $\left\{ z_t \right\}$.
+\begin{align*}
+	z_t =& \left\{ a_{20} - a_{11} a_{20} + a_{21} a_{10} \right\} \left( \sum_{j = 0}^{\infty} \sum_{k = 0}^{j} \lambda_1^k \lambda_2^{j-k} \right)\\
+	&+a_{21} \sum_{j = 0}^{\infty}\left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{1, t-1-j}\\
+	&+  \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{2, t-j } - a_{11}  \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^j \lambda_1^k \lambda_2^{j-k}\right) e_{2, t-1-j }
+\end{align*}
+
 \subsection{(3)}
  Now I have the explicit representation as follows, since in this case $\lambda_1, \lambda_2 = \frac{3}{5}, 1$.
 \begin{align*}
 	y_t &= 0.2 \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^{j} \frac{3}{5}^{k} \right) e_{2, t-1-j}+\sum_{j = 0}^{\infty} \left( \sum_{k = 0}^{j} \frac{3}{5}^{k} \right) e_{1, t-j} + 0.8 \sum_{j = 0}^{\infty} \left( \sum_{k = 0}^{j} \frac{3}{5}^{k} \right) e_{1, t-1-j}\\[10pt]
 	&= 0.5 \sum_{j = 0}^{\infty} \left( 1 - \frac{3}{5}^j\right) e_{2, t-1-j} + 2.5 \sum_{j = 0}^{\infty} \left( 1 - \frac{3}{5}^j\right) e_{1, t-j} + 2 \sum_{j = 0}^{\infty} \left( 1 - \frac{3}{5}^j\right) e_{1, t-1-j}
 \end{align*}
-Now each term in the above does not exist, so this is not a stationary process. 
+Now each term in the above does not exist, which means all the term diverge, so this is not a stationary process. And the standard stationarity judgement for VAR model is that all the eigenvalue of $\begin{pmatrix} a_{11} & a_{12}\\a_{21} & a_{22} \end{pmatrix}$ are less than $1$. The current parameter values give,
+\begin{align*}
+	\left| \begin{pmatrix} 0.8-\lambda & 0.2\\0.2 & 0.8-\lambda \end{pmatrix} \right| = 0\ \Leftrightarrow \lambda = 1, 0.6
+\end{align*}
+Then again I have non-stationarity.
 
 \subsection{(4)}
 \begin{align*}
@@ -323,7 +334,7 @@ Now each term in the above does not exist, so this is not a stationary process.
 
 
 \subsection{(7)}
-
+By problem (5),(6), I get to know the error term composition has an impact on IRF. In problem(5), $\epsilon_{y,t}$ has no influence on $e_{2, t}$, which means that the shock to equation (1) is external to equation (6), in other words the unique shock to $y_t$ is assumed to be exogenous to $z_t$. In problem (6), the reverse condition is assumed. Thus, when we analyze real data set by using VAR, we should be careful about the stacking order of all the variables so that the former variable is exogenous to all the later ones. 
 \end{document}
 
 
