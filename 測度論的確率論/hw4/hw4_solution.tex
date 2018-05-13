@@ -290,7 +290,7 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \end{align*}
 であるので$f \in L^p$である。
 
-一方で、$q = p(1 + \epsilon)$と置いて$L^p$に含まれるかを確認する。
+一方で、$\epsilon > 0$に対して$q = p(1 + \epsilon)$と置いて$L^p$に含まれるかを確認する。
 \begin{align*}
 	\int_0^{\frac{1}{2}} \left| \frac{1}{x^{\frac{1}{p}} {\rm log}x} \right|^{p(1 + \epsilon)}\mathrm{d}x = \int_0^{\frac{1}{2}} \frac{1}{x^{1+\epsilon} \left( {\rm log}x \right)^{q(1 + \epsilon)}} \mathrm{d}x
 \end{align*}
@@ -313,7 +313,7 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \begin{align*}
 	N > N^* + 1 \Rightarrow\ \left| \sum_{n = 1}^N |x_n|^p - \sum_{n = 1}^{N-1} |x_n|^p \right| = |x_N|^p < 1
 \end{align*}
-また、$q- p > 0$であることより、
+また、$q- p > 0$であることより、そのような$N$に対して
 \begin{align*}
 	|x_N|^p < 1\ \Leftrightarrow\ |x_N| < 1\ \Leftrightarrow\ |x_N|^{q-p} < 1
 \end{align*}
@@ -340,7 +340,7 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \begin{align*}
 	&\frac{1}{1^s} = \frac{1}{1^{s-1}}\\
 	&\frac{1}{2^s} + \frac{1}{3^s} < \frac{1}{2^s} + \frac{1}{2^s} = \frac{1}{2^{s-1}}\\
-	&\frac{1}{4^s} + \cdots + \frac{1}{7^s} < 4 * \frac{1}{4^s} = \frac{1}{4^{s-1}}
+	&\frac{1}{4^s} + \cdots + \frac{1}{7^s} < 4 \times \frac{1}{4^s} = \frac{1}{4^{s-1}}
 \end{align*}
 が成立する。これより、$\sum_{n = 1}^{\infty} \frac{1}{n^s}$の部分級数は収束する級数である$\frac{1}{1^{s-1}} + \frac{1}{2^{s-1}} + \frac{1}{4^{s-1}} \cdots = \frac{1}{1 - \frac{1}{2^{s-1}}}$で抑えられている。従ってこの級数は収束する。
 
@@ -372,7 +372,7 @@ $f\in L^1$であるとすると、$\int_{A_{\infty}} |f|\mathrm{d} \mu < \int |f
 \begin{align*}
 	\frac{\epsilon}{\mu\left( A_{\infty} \right)} \leq c
 \end{align*}
-であるが、$A_{\infty}$の性質1よりこの左辺は$m \to \infty$で$\infty$に発散し、そのような$c$は存在できない。これで矛盾をきたしたので仮定した$f \in L^1$は誤りである。従って$f \notin L^1$である。
+であるが、$A_{\infty}$の性質1よりこの左辺は$m \to \infty$で$\infty$に発散し、そのような有限の$c$は存在できない。これで矛盾をきたしたので仮定した$f \in L^1$は誤りである。従って$f \notin L^1$である。
 
 
 \section{Ex4.17}
@@ -396,17 +396,17 @@ $f\in L^1$であるとすると、$\int_{A_{\infty}} |f|\mathrm{d} \mu < \int |f
 \end{align*}
 である。
 
-従ってこの左辺が$\infty$に発散することを示せば良い。$f^{*} = \max \left( \frac{\sin x}{x}, 0 \right)$であることより、
+従ってこの右辺が$\infty$に発散することを示せば良い。$f^{+} = \max \left( \frac{\sin x}{x}, 0 \right)$であることより、
 \begin{align*}
 	\lim_{n\to \infty} \int_0^n f^{+} \mathrm{d}x &= \lim_{N \to \infty} \sum_{n = 0}^{N} \int_{2n\pi}^{(2n + 1)\pi} \frac{\sin x}{x} \mathrm{d}x\\[8pt]
 	&= \lim_{N \to \infty} \sum_{n = 0}^{N} \int_0^{\pi} \frac{\sin y}{y + 2n\pi} \mathrm{d}y\\[8pt]
 	&\geq  \lim_{N \to \infty} \sum_{n = 0}^{N} \frac{1}{(2n+1)\pi} \int_0^{\pi} \sin y \mathrm{d}y\\[8pt]
 	&= \lim_{N \to \infty} \sum_{n = 0}^{N} \frac{2}{(2n + 1)\pi} = \frac{2}{\pi} \lim_{N \to \infty} \sum_{n = 0}^{N} \frac{1}{2n + 1}
 \end{align*}
-ここで、「最後の級数は収束せず発散する(主張$3$)」ので$\int_{[0, \infty)}  f^{+}  \mathrm{d}\mu = \infty$であることがわかった。同様の議論により$\int_{[0, \infty)}  f^{-}  \mathrm{d}\mu = \infty$でもあるので、$\infty -\infty$が定義できないことから、$\frac{\sin x}{x}$の$\mathbb{R}$上のルベーグ積分は定義できないことがわかった。
+ここで、「最後の級数は収束せず発散する(主張$3$)」ので$\int_{[0, \infty)}  f^{+}  \mathrm{d}\mu = \infty$であることがわかった。同様の議論により$\int_{[0, \infty)}  f^{-}  \mathrm{d}\mu = \infty$でもあるので、$\infty -\infty$が定義できないことから、$\frac{\sin x}{x}$の$\mathbb{R}$上のルベーグ積分は定義できないことがわかった。（ただしこの関数は広義積分可能である）
 
 \subsection{主張$3$の証明}
-$2 \sum_{n = 0}^{N} \frac{1}{2n + 1} > \sum_{n = 0}^{2N + 2} \frac{1}{n}$である。左辺の無限級数は主張2より発散するのでここで考えている級数も発散することがわかる。
+$2 \sum_{n = 0}^{N} \frac{1}{2n + 1} > \sum_{n = 0}^{2N + 2} \frac{1}{n}$である。右辺の無限級数は主張$2$より発散するのでここで考えている級数も発散することがわかる。
 
 \end{document}
 
