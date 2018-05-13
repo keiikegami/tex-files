@@ -35,7 +35,7 @@ Homework 4}
 
 \section{Ex4.2}
  $D = \left\{ x \in X \mid f(x) \neq 0 \right\} = \bigcup_{n = 1}^{\infty} \left\{ x\in X \mid |f(x)| > \frac{1}{n} \right\} = \bigcup_{n = 1}^{\infty} \left\{ x\in X \mid f(x) > \frac{1}{n} \right\}$
-である。lemma3.5より$E_n \equiv \left\{ x\in X \mid f(x) > \frac{1}{n} \right\} $は可測集合の要素であるので、sigma fielsが可算個の和集合について閉じていることから$D$も可測集合に入る。したがって$\mu(D)$は定義されている。さらに、$E_n$が単調増大な集合なので、lemma1.3より
+である。lemma3.5より$E_n \equiv \left\{ x\in X \mid f(x) > \frac{1}{n} \right\} $は可測集合の要素であるので、sigma fieldが可算個の和集合について閉じていることから$D$も可測集合に入る。したがって$\mu(D)$は定義されている。さらに、$E_n$が単調増大な集合なので、lemma1.3より
 \begin{align*}
 	\mu(D) = \mu \left(\bigcup_{n = 1}^{\infty} \left\{ x\in X \mid f(x) > \frac{1}{n} \right\}\right) = \lim_{n\to \infty} \mu(E_n)
 \end{align*}
@@ -47,7 +47,7 @@ Homework 4}
 \begin{align*}
 	\int_{E_n} f \mathrm{d}\mu < \int f \mathrm{d}\mu  = 0
 \end{align*}
-これより、$0\leq \mu(E_n) \leq 0 \ \Rightarrow\ \mu(E_n) = 0$を得る。したがって、$\lim_{n\to \infty} \mu(E_n) = 0$であるので、$\mu(D) = 0$である。これは$f$が$0$でないような$X$の部分集合のの測度が$0$であることを意味するので、$f = 0\ \text{a.e.}$である。
+これより、$0\leq \mu(E_n) \leq 0 \ \Rightarrow\ \mu(E_n) = 0$を得る。したがって、$\lim_{n\to \infty} \mu(E_n) = 0$であるので、$\mu(D) = 0$である。これは$f$が$0$でないような$X$の部分集合の測度が$0$であることを意味するので、$f = 0\ \text{a.e.}$である。
 
 \section{Ex4.3}
 可積分であるので、$r$を正の実数、$\theta$を実数として、積分を以下のような極形式で表現できる。
@@ -138,7 +138,7 @@ $\forall f, g \in L^{\infty},\ \| f \|_{\infty} + \| g \|_{\infty} \geq \| f + g
 \begin{align*}
 	\left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\} ) = 0 \right\} \subset \left\{ c \geq 0\mid \mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) = 0 \right\}
 \end{align*}
-である。より広い範囲について$\inf$をとった時に$\inf$が元の集合に対するものよりも大きくなることはあり得ないので、
+である。より広い範囲について$\inf$をとった時に$\inf$が元の集合に対するものよりも大きくなることはあり得ないので以下が成立する。
 \begin{align}
 	\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > c \right\} = 0) \right\} \geq \inf \left\{ c \geq 0\mid \mu(\left\{ x\in X \mid |f(x) + g(x)| > c \right\}) = 0 \right\}
 \end{align}
@@ -151,7 +151,7 @@ $\forall f, g \in L^{\infty},\ \| f \|_{\infty} + \| g \|_{\infty} \geq \| f + g
 \begin{align*}
 	\mu(\left\{ x\in X \mid |f(x)| + |g(x)| > a \right\}) > 0
 \end{align*}
-である。$|f(x)| + |g(x)| > a$であるためには、一般性を失うことなく$|f(x)|$が$\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\}$を上回っている必要がある。すなわち、
+である。$|f(x)| + |g(x)| > a$であるためには、$|f(x)|,|g(x)|$のどちらか一方、ここでは一般性を失うことなく$|f(x)|$が$\inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\}$を上回っている必要がある。すなわち、
 \begin{align*}
 	\mu(\left\{ x\in X \mid |f(x)| >  inf \left\{ c \geq 0 \mid \mu(\left\{ x\in X \mid |f(x)| > c \right\}) =0 \right\} \right\}) \geq \mu(\left\{ x\in X \mid |f(x)| + |g(x)| > a \right\})
 \end{align*}
@@ -194,7 +194,7 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \begin{align*}
 	\forall m \geq 1,\ \exists N_m\ \text{s.t.}\ n \geq N_m \Rightarrow \mu\left( \left\{ x\in X \mid |f_n(x) - f(x)| > \frac{1}{m} \right\} \right)
 \end{align*}
-であるので、先の要件は確認された。
+であるので、先の要件は確認された。また、この集合が$\mathcal{A}$に入っていることもlemma 3.5とlemma 3.6よりわかる。従ってその補集合である$E$も$\mathcal{A}$の要素である。
 
 次に$\sup_{x\in E} |fn(x) - f(x)| \to 0$を確認する。まず、$E$が以下のように変形できることに注意する。
 \begin{align*}
@@ -257,9 +257,9 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \begin{align*}
 	\int |x^{-\frac{1}{p}}|^{p} \mathrm{d}\mu = \int_{[1,\infty)} \frac{1}{x} \mathrm{d}\mu
 \end{align*}
-である。2以上の任意の整数$n$について$g_n (x) = g1_{[1,n)}$とすると、$g$が積分区間において連続関数なので可測関数、$1_{[1,n)}$は可測関数であることからlemma 3.7より$g_n (x)$は常に可測関数であり、明らかに$g_n \uparrow g$であるので単調収束定理から
+である。$1$より大きな整数$n$について$g_n (x) = g1_{[1,n)}$とすると、$g$が積分区間において連続関数なので可測関数、$1_{[1,n)}$は可測関数であることからlemma 3.7より$g_n (x)$は常に可測関数であり、明らかに$g_n \uparrow g$であるので単調収束定理から
 \begin{align*}
-	\int_{[1,\infty)} \frac{1}{x} \mathrm{d}\mu = \int \lim_{n \to \infty} \frac{1}{x} 1_{[1, \infty)} \mathrm{d}\mu = \lim_{n \to \infty} \int_{\mathbb{R}} frac{1}{x} 1_{[1, \infty)} = \lim_{n \to \infty} {\rm log} n = \infty
+	\int_{[1,\infty)} \frac{1}{x} \mathrm{d}\mu = \int \lim_{n \to \infty} \frac{1}{x} 1_{[1, n)} \mathrm{d}\mu = \lim_{n \to \infty} \int_{\mathbb{R}} \frac{1}{x} 1_{[1, n)} = \lim_{n \to \infty} {\rm log} n = \infty
 \end{align*}
 であるので先の積分は発散してしまう。そのため$g\notin L^p$である。
 
@@ -284,7 +284,7 @@ $\forall r \in \mathbb{R}$に対して$\| rf \|_{\infty} = |r| \| f\|_{\infty}$�
 \begin{align*}
 	\int_{[0,{\frac{1}{2}}]} \left| \frac{1}{x^{\frac{1}{p}} {\rm log}x} \right|^{p}\mathrm{d}\mu = \int_0^{\frac{1}{2}} \left| \frac{1}{x^{\frac{1}{p}} {\rm log}x} \right|^{p}\mathrm{d}x = \int_0^{\frac{1}{2}} \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^p} \mathrm{d}x
 \end{align*}
-被積分関数は$\left[0,\frac{1}{2} \right]$の範囲で通常の積分はできないので広義積分をする。$p > 1$とすると、
+以下で広義積分をする。$p > 1$とすると、
 \begin{align*}
 	\lim_{\epsilon \to +0} \int_{\epsilon}^{\frac{1}{2}}  \frac{1}{x} \frac{1}{\left( {\rm log}x \right)^p} \mathrm{d}x = \frac{1}{1-p} \lim_{\epsilon \to +0} \left[ \left( {\rm log}x \right)^{1-p} \right]_{\epsilon}^{\frac{1}{2}} = \frac{1}{1-p} \left( -{\rm log}2 \right)^{1-p} < \infty
 \end{align*}
