@@ -1,0 +1,134 @@
+\documentclass[dvipdfmx, 12pt]{beamer}
+\usepackage{pxjahyper}
+\usepackage{minijs}
+\usepackage{otf}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme{Dresden}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{amsmath}
+\newenvironment<>{varblock}[2][.9\textwidth]{%
+  \setlength{\textwidth}{#1}
+  \begin{actionenv}#3%
+    \def\insertblocktitle{#2}%
+    \par%
+    \usebeamertemplate{block begin}}
+  {\par%
+    \usebeamertemplate{block end}%
+  \end{actionenv}}
+
+
+\title{\small Bounded Rationality and Industrial Organization}
+\subtitle{Chapter 11 2nd part}
+\author{Kei Ikegami}
+\institute{Graduate School of Economics, The University of Tokyo}
+
+\begin{document}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+\frame{\maketitle}
+
+\section*{Index}
+	\begin{frame}\frametitle{Index}
+	\tableofcontents
+	\end{frame}
+	
+\section{Proposition $11.3$}
+\begin{frame}\frametitle{Statement}
+\begin{block}{Proposition $11.3$}
+	Let $\sigma$ be a symmetric Nash equilibrium strategy. Then
+	\begin{enumerate}
+		\item Firms earn the max-min payoff $\frac{1}{2} - c_{x^{*}}$
+		\item For every $M \in S(\sigma), |M| =2 \Rightarrow b(M) = x^{*}$
+		\item $\beta_{\sigma}(x^{*}) = 1 -2 c_{r^{*}}$
+	\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{About $1$}
+\alert{Firms earn the max-min payoff $\frac{1}{2} - c_{x^{*}}$}
+
+	\begin{itemize}
+		\item This payoff coincides with the rational consumer benchmark.
+		\item The main reason for this is that "$M$ beats $M^{'}$" needs not only the sensational temptation but also switching the default.
+		\item In other words, $\left\{ x^{*} \right\}$ is never beaten in this sense.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proof sketch}
+	\begin{itemize}
+	\item From lemma 11.1, $x^{*}$ beats no menu in $S(\sigma)$. And it is not beaten by any menu in $S(\sigma)$ because $x^{*}$ is utility maximizer.
+	\item So menu $\left\{ x^{*} \right\}$ always gives a market share $\frac{1}{2}$. And the cost is $c_{x^{*}}$. Then the payoff is $\frac{1}{2} - c_{x^{*}}$
+	\item Then the expected payoff of this strategy is also $\frac{1}{2} - c_{x^{*}}$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{About $2$}
+\alert{For every $M \in S(\sigma), |M| =2 \Rightarrow b(M) = x^{*}$}
+
+	\begin{itemize}
+		\item This means that pure attention grabbers are included in a menu only when the menu has $x^{*}$ in equilibrium.
+		\item If there is such a menu $M$ in $S(\sigma)$, $\left\{ x^{*} \right\}$, which is also included in $S(\sigma)$, has an incentive to include the same pure attention grabber of $M$.
+		\item Then $\sigma$ is not an equilibrium.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proof sketch}
+	\begin{itemize}
+		\item Show its contraposition
+		\item The condition for including some pure attention grabber in $M$ results in the profitable deviation from $\left\{ x^{*} \right\}$ to $\left\{ x^{*}, r(M)\right\}$, where $r(M)$ denotes the pure attention grabber in $M$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{About $3$}
+	\alert{$\beta_{\sigma}(x^{*}) = 1 -2 c_{r^{*}}$}
+	
+	\begin{itemize}
+		\item This means that the probability utility maximizer is offered is entirely determined by the cost of the attention grabber.
+		\item As the sensations become costly, the less likely the utility maximizer is offered.
+		\item This is directly derived from the fact $\left\{ x^{*} \right\}$ and $\left\{ x^{*} , r^{*}\right\}$ are indifferent. And both of them are included in $S(\sigma)$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proof sketch}
+	\begin{itemize}
+		\item Show there is no incentive to deviate from $\left\{ x^{*} \right\}$ to $\left\{ x^{*} , r^{*}\right\}$.
+		\item To make it rational we confirm that the pure strategy $\left\{ r^{*} \right\}$ gives the better payoff than $\sigma$ if $\left\{ x^{*} , r^{*}\right\}$ is out of $\sigma$.
+		\item At first glance $\left\{ x^{*} , r^{*}\right\}$ has wasteful costly alternative $r^{*}$, but it actually works for the higher market share.
+	\end{itemize}
+\end{frame}	
+	
+\section{Effective Marketing Property}	
+\begin{frame}\frametitle{}
+\end{frame}
+
+\begin{frame}\frametitle{}
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
