@@ -69,6 +69,14 @@ $f$が可測関数であり、指示関数も可測関数であることからCo
 どちらかの項が有限の時、上の積分は定義できる。確かにどちらかの積分が定義できればもう片方もそれに対応する項が有限となるのでもう片方の積分も定義できていることが確認された。
 
 \section{Ex 4.13}
+$x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。どちらも正なので対数をとって、$-x \geq n {\rm log} \left(1-\frac{x}{n} \right)$を示す。
+\begin{align*}
+	n {\rm log} \left(1-\frac{x}{n} \right) = n \left\{ -\frac{x}{n} - \frac{1}{2} \frac{x^2}{n^2} - \frac{1}{3} \frac{x^3}{n^3} - \cdots \right\} = -x -\left( \frac{1}{2} \frac{x^2}{n^2} + \frac{1}{3} \frac{x^3}{n^3} + \cdots \right)
+\end{align*}
+であり、最終項は$x\in [0,n]$で正なので確かに$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$である。これより、$\left| \left( 1 -\frac{x}{n} \right)^n 1_{[0, n]} \right| \leq  e^{-x}$である。また、指数関数の定義より$\lim_{n \to \infty} \left( 1 -\frac{x}{n} \right)^n 1_{[0, n]} = e^{-x}$であるので、優収束定理より以下が成立する。
+\begin{align*}
+	\lim_{n \to \infty} \int _0^n \left( 1 -\frac{x}{n} \right)^n \mathrm{d}x = \lim_{n \to \infty} \int_0^{\infty} \left( 1 -\frac{x}{n} \right)^n 1_{[0, n]} \mathrm{d}x= \int_0^{\infty} \lim_{n \to \infty} \left( 1 -\frac{x}{n} \right)^n 1_{[0, n]} \mathrm{d}x = \int_0^{\infty} e^{-x} \mathrm{d}x = 1
+\end{align*}
 
 \section{Ex 4.14}
 
