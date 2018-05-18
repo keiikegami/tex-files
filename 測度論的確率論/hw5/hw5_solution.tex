@@ -46,7 +46,27 @@ $f$が可測関数であり、指示関数も可測関数であることからCo
 であるので確かに$\nu$は測度となる。（$\phi$については後で書く。）
 
 \subsection{(b)}
-
+簡単な関数から順番に示す。まず、$g = 1_B$のような指示関数の場合は、
+\begin{align*}
+	\int g \mathrm{d}\nu = \int 1_B \mathrm{d}\nu = \nu (B)
+\end{align*}
+は必ず定義できる。この時、$\nu$の定義より以下が成立し、確かに値は同じになる。
+\begin{align*}
+	\int gf \mathrm{d}\mu = \int 1_B f \mathrm{d}\mu = \int_B f \mathrm{d}\mu = \nu (B)
+\end{align*}
+次に$g = \sum_{i = 1}^m g_i 1_{B_i}, g_i \geq 0, \left\{B_1, \cdots, B_m\right\} \in \mathcal{A}$で排反とかけるsimple functionの場合を考える。この時、
+\begin{align*}
+	\int g \mathrm{d}\mu =\sum_{i = 1}^m g_i \int 1_{B_i} \mathrm{d}\nu = \sum_{i = 1}^m g_i \int 1_{B_i} f \mathrm{d}\mu = \int \left( \sum_{i = 1}^m g_i 1_{B_i} \right) f \mathrm{d}\mu = \int gf \mathrm{d}\mu
+\end{align*}
+が成立する。ただし二つ目の等号は指示関数のケースの結果より得られる。さらに非負関数$g$について考えると、lemma 4.2より$g_n \uparrow g$となる非負単関数の列が必ず存在するので、
+\begin{align*}
+	\int g \mathrm{d}\nu = \lim_{n \to \infty} \int g_n \mathrm{d}\nu =\lim_{n \to \infty} \int g_n f \mathrm{d}\mu = \int \lim_{n \to \infty}  g_n f \mathrm{d}\mu = \int gf \mathrm{d}\mu
+\end{align*}
+が成立する。ここで一つ目と三つ目の等号はMCTより成立し、二つ目の等号は非負単関数のケースの結果より得られる。最後に一般の可測関数$g : X \to \bar{\mathbb{R}}$について題意を示す。非負関数のケースより、以下の等号が成立する。
+\begin{align*}
+	\int g \mathrm{d}\nu \equiv \int g^{+} \mathrm{d}\nu - \int g^{-} \mathrm{d}\nu = \int g^{+} f \mathrm{d}\mu - \int g^{-} f \mathrm{d}\mu \equiv \int gf \mathrm{d}\mu
+\end{align*}
+どちらかの項が有限の時、上の積分は定義できる。確かにどちらかの積分が定義できればもう片方もそれに対応する項が有限となるのでもう片方の積分も定義できていることが確認された。
 
 \section{Ex 4.13}
 
