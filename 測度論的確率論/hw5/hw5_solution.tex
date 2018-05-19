@@ -231,7 +231,19 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 \end{align*}
 を満たす。$C_n$の構成より、$(4)$の右辺の集合において、$y = x$の直線から$\frac{b-a}{\sqrt{2}n}$より離れた部分は全て$C_n$に含まれる。従って、取ってきた点と直線$y = x$との距離である$\frac{y-x}{\sqrt{2}}$は、十分大きな$n$の時に必ず$\frac{b-a}{\sqrt{2}n}$よりも大きくなってしまう。これより、どこかしらの$C_n$に含まれるため、$\bigcup_{n=1}^{\infty} C_n$に含まれることになる。こうして逆向きの包含関係も示されたため$(4)$が示された。
 
-
+以上より、$(a)$と合わせて以下の関係が成立する。
+\begin{align*}
+	\begin{cases}
+		\int_{(a, b]} F(y) \mathrm{d}G(y) = \int_{(a, b]} F(a) \mathrm{d}G(y) + (\mu \times \nu)\left( \left\{ (x, y) \mid a < x \leq y \leq b \right\} \right)\\[8pt]
+		\int_{(a, b]} G(x) \mathrm{d}F(y) = \int_{(a, b]} G(b) \mathrm{d}F(x) - (\mu \times \nu)\left( \left\{ (x, y) \mid a < x \leq y \leq b \right\} \right) + (\mu \times \nu) \left( \left\{ (x, y) \mid a < x = y \leq b \right\} \right)
+	\end{cases}
+\end{align*}
+この辺々を足し合わせて、
+\begin{align*}
+	\int_{(a, b]} F(y) \mathrm{d}G(y) + \int_{(a, b]} G(x) \mathrm{d}F(y) &= \int_{(a, b]} F(a) \mathrm{d}G(y) + \int_{(a, b]} G(b) \mathrm{d}F(x) + (\mu \times \nu) \left( \left\{ (x, y) \mid a < x = y \leq b \right\} \right)\\[8pt]
+	&= F(b)G(b) - F(a)G(a) + \sum_{a < x \leq b} \mu\left( \left\{ x \right\} \right) \nu\left( \left\{ x \right\} \right)
+\end{align*}
+であり題意は示された。
 
 \section{Ex 5.5}
 
