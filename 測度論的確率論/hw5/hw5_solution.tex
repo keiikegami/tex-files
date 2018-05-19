@@ -121,7 +121,7 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 
 \section{Ex 4.21}
 \subsection{(a)}
-非負関数$f$について示す。単関数$s$で$f$を近似し、階段関数$q$で$s$を近似できることを以下で示す。$\left\{ s_i \right\}_{i = 1}^n \in \mathbb{R}$と排反な$\left\{ A_i \right\} \in \mathcal{A}$を使って$s$を以下で定義する。
+単関数$s$で$f$を近似し、階段関数$q$で$s$を近似できることを以下で示す。$\left\{ s_i \right\}_{i = 1}^n \in \mathbb{R}$と排反な$\left\{ A_i \right\} \in \mathcal{A}$を使って$s$を以下で定義する。
 \begin{align*}
 	s(x) = \sum_{i = 1}^n s_i 1_{A_i}
 \end{align*}
@@ -144,8 +144,41 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 \end{align*}
 とすることができる。ここで$f$が可積分であることから、$s_i^{*} = \frac{\int_{A_i^{*}} f\mathrm{d}\mu}{\mu(A_i^{*})}$とおくことで第1項は$0$とできるので、単関数を使って$f$を近似できることが確認できた。
 
-次に階段関数$q$で$s$を近似することを示す。
+次に階段関数$q$で$s$を近似することを示す。$q$を以下で定義する。
+\begin{align*}
+	q = \sum_{j = 1}^k c_j 1_{(a_{j-1}, a_j)}
+\end{align*}
+lemma 2.1より単関数を定義している$A_i$それぞれについて任意の$\epsilon > 0$に対して$\frac{\epsilon}{2n\sum_j c_j} > 0$をとることができ、$\left\{ D_1^i, D_2^i, \cdots, D_M^i \right\}$なる開区間が存在して、
+\begin{align*}
+	\lambda\left( A_i \Delta \left( \bigcup_{m = 1}^M D_m^i \right) \right) < \frac{\epsilon}{2n\sum_j c_j} 
+\end{align*}
+とできる。ここで$q$を以下のように定義する。
+\begin{align*}
+	q = \begin{cases}
+	s_i \ &\text{when}\ x \in D_m^i\ \forall\ i,\forall\ m\\
+	0\ &\text{otherwise}
+	\end{cases}
+\end{align*}
+この時、
+\begin{align*}
+	\int_{\mathbb{R}} \left| s - q \right| \mathrm{d}\mu < \frac{\epsilon}{2n\sum_j c_j} \times n \times \sum_i s_i = \frac{\epsilon}{2}
+\end{align*}
+である。以上より、
+\begin{align*}
+	\int |f-q|\mathrm{d}\mu \leq \int |f-s| \mathrm{d}\mu + \int |s-q | \mathrm{d}\mu < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+とすることができる。
 
+\subsection{(b)}
+$q$を$g$で近似できることを確認すれば、$(a)$の結果と合わせて題意を得る。階段関数の各不連続点$a_j$について二点$(a_j-\delta, c_j)$と$(a_j + \delta, c_{j+1})$とを直線で結ぶことで連続関数にする。この時、
+\begin{align*}
+	\int |g -q|\mathrm{d}\mu = \sum_j \left( \frac{|c_{j+1} - c_j|}{2} \times 2\delta \times \frac{1}{2} \right) = \frac{\delta}{2} \sum_j | c_{j+1} - c_j |
+\end{align*}
+であるので、$\delta \to 0$で任意の$\frac{\epsilon}{2} > 0$で抑えることができる。従って、
+\begin{align*}
+	\int |f-g|\mathrm{d}\mu \leq \int |f-q| \mathrm{d}\mu + \int |q-g | \mathrm{d}\mu < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+を得る。この関数は明らかに有界区間以外では$0$をとるので題意は示された。
 
 \section{Ex 4.22}
 $f$が階段関数の時にこの補題が成立することをまず確認する。$a = x_0 < x_1 < \cdots < x_{J-1} < x_J = b$として、$[a,b]$上の階段関数$s$を以下のように定義する。
