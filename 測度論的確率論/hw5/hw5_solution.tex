@@ -246,8 +246,34 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 であり題意は示された。
 
 \section{Ex 5.5}
+\begin{align*}
+	\int_{\mathbb{R}} \left\{ F(x + c) - F(x) \right\}\mathrm{d}x = \int_{\mathbb{R}} \left\{  \mu((-\infty, x+c]) - \mu((-\infty, x]) \right\}\mathrm{d}x = \int_{\mathbb{R}} \int_{(x, x+c]} \mathrm{d}\mu \mathrm{d}x
+\end{align*}
+「Lebesgue測度は$\sigma$ finiteである（主張$2$）」を所与とする。この時$\mu$が有限測度であることから、どちらかの逐次積分が発散しなければフビニの定理を用いることができる。
+\begin{align*}
+	 \int_{\mathbb{R}} \int_{\mathbb{R}} 1_{(x, x+c]} \mathrm{d}x \mathrm{d}\mu = \int_{\mathbb{R}} c \mathrm{d}\mu = c \mu(\mathbb{R}) < \infty
+\end{align*}
+であるのでフビニの定理より上の値が求めたい積分の値と一致する。
+
+\subsection{主張$2$の証明}
 
 \section{Ex 5.6}
+ヒントに従い下の積分を得る。
+\begin{align*}
+	\int_0^a e^{-xy} \sin(x) \mathrm{d}y = -\frac{\sin(x)}{x} e^{-ax} + \frac{\sin(x)}{x}
+\end{align*}
+これより、
+\begin{align*}
+	\int_0^b \frac{\sin(x)}{x} e^{-ax} \mathrm{d}x = \int_0^b \left\{ \frac{\sin(x)}{x} - \int_0^a e^{-xy}\sin(x) \mathrm{d}y \right\} \mathrm{d}x = \int_0^b \frac{\sin(x)}{x} \mathrm{d}x - \int_0^b \int_0^a e^{-xy}\sin(x) \mathrm{d}y \mathrm{d}x
+\end{align*}
+が成立する。「この第2項にフビニの定理を用いることができる（主張$3$）」とすると、さらに以下のように変形できる。
+\begin{align*}
+	\int_0^b \frac{\sin(x)}{x} \mathrm{d}x - \int_0^a \int_0^b e^{-xy}\sin(x) \mathrm{d}x \mathrm{d}y = \int_0^b \frac{\sin(x)}{x} \mathrm{d}x + \int_0^a \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b) -1 \right) \mathrm{d}y
+\end{align*}
+ここで第1項に注目する。同様の議論により、
+\begin{align*}
+	\int_0^b \frac{\sin(x)}{x} \mathrm{d}x = \int_0^b \left( \int_0^{\infty} e^{-xy} \mathrm{d}y \right) \sin(x) \mathrm{d}x
+\end{align*}
 
 
 \end{document}
