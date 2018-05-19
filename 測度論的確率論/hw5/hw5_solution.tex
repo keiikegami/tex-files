@@ -120,8 +120,36 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 
 
 \section{Ex 4.21}
+Billingsleyを見てから書いた方が安心かも
 
 \section{Ex 4.22}
+$f$が階段関数の時にこの補題が成立することをまず確認する。$a = x_0 < x_1 < \cdots < x_{J-1} < x_J = b$として、$[a,b]$上の階段関数$s$を以下のように定義する。
+\begin{align*}
+	s(x) = c_j\ \text{when $x_{j-1} \leq x < x_j $}
+\end{align*}
+この時、
+\begin{align*}
+	\left| \int s(x) \cos(nx) \mathrm{d}x \right|= \left| \sum_{j = 1}^J \int_{x_{j-1}}^{x_j} c_j \cos(nx) \mathrm{d}x \right|= \left| \sum_{j=1}^J c_j \frac{\sin(nx_{j}) - \sin(nx_{j-1})}{n}\right| \leq \left| \sum_{j = 1}^J c_j \frac{2}{n} \right|
+\end{align*}
+であり、$n\to \infty$で$0$に収束する。今、コンパクトな台$[a, b]$を持つ関数$f$についてのみ考えると、階段関数$s(x)$を使って、三角不等式より以下が得られる。
+\begin{align*}
+	\left| \int_a^b f(x) \cos(nx) \mathrm{d}x \right|= \left| \int_a^b (f(x)-s(x)) \cos(nx) + s(x)\cos(nx) \mathrm{d}x \right| \leq \left| \int_a^b (f(x)-s(x)) \cos(nx) \mathrm{d}x \right| + \left| \int_a^b s(x)\cos(nx) \mathrm{d}x \right|
+\end{align*}
+Ex 4.21より任意の$\epsilon > 0$について、最後の第1項を$\frac{\epsilon}{2}$で抑えるような階段関数$s(x)$が必ず存在する。また、階段関数$s(x)$については先の議論よりリーマンルベーグの補題がすでに示されているので、ある大きな$N$で、$n \geq N$であれば第2項を$\frac{\epsilon}{2}$で抑えることができるようなものが存在する。この時、同じ$N$について、
+\begin{align*}
+	n \geq N \Rightarrow \left| \int_a^b f(x) \cos(nx) \mathrm{d}x \right| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+とできるので、コンパクトな台を持つ関数$f$については題意を示すことができた。ここで、$|f(x) \cos(nx)| \leq |f|$であり、仮定より$\int |f| \mathrm{d}\mu < \infty$であるので、DCTが使えて以下が成立する。
+\begin{align*}
+	\lim_{n \to \infty} \int_{\mathbb{R}} f(x) \cos(nx) \mathrm{d}x &= \int \lim_{n \to \infty} f(x) \cos(nx) \mathrm{d}x\\
+	&= \int_{\mathbb{R}} \lim_{m \to \infty} \left( \lim_{n \to \infty} f(x) \cos(nx) \right) 1_{[-m, m]} \mathrm{d}x
+\end{align*}
+さらに、$\left|\lim_{n \to \infty} f(x) \cos(nx) 1_{[-m, m]}\right| < |f|$であるので、同様にDCTを適用でき、
+\begin{align*}
+	\int_{\mathbb{R}} \lim_{m \to \infty} \left( \lim_{n \to \infty} f(x) \cos(nx) \right) 1_{[-m, m]} \mathrm{d}x &= \lim_{m\to \infty} \int_{\mathbb{R}} \lim_{n \to \infty} f(x) \cos(nx) 1_{[-m, m]} \mathrm{d}x\\
+	&= \lim_{m \to \infty} \lim_{n \to \infty} \int_{-m}^m f(x) \cos(nx) \mathrm{d}x
+\end{align*}
+である。ここで任意の$m$について$[-m, m]$はコンパクトな台で、そのような関数に対してはリーマンルベーグの補題が示されているので、上は$0$となり、一般の可測関数$f$について題意が示された。
 
 \section{Ex 5.3}
 
