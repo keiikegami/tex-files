@@ -364,8 +364,26 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 なる表記を得られた。
 
 \subsection{主張$3,4$の証明}
+主張$3$は主張$4$が成立すれば明らかに成立するので、主張$4$のみ示す。ルベーグ測度が$\sigma$ finiteであることに注意すると、以下の積分が発散しないことを示せばフビニの定理が適用できる。
+\begin{align*}
+	\int_0^b \int_0^{\infty} \left| e^{-xy}  \sin(x) \right| \mathrm{d}y \mathrm{d}x
+\end{align*}
+$\left| \sin(x) \right| \leq 1$であることより、
+\begin{align*}
+	\int_0^b \int_0^{\infty} \left| e^{-xy}  \sin(x) \right| \mathrm{d}y \mathrm{d}x \leq \int_0^b \int_0^{\infty} e^{-xy} \mathrm{d}y \mathrm{d}x = \int_0^b \frac{1}{x} \mathrm{d}x = {\rm log}b < \infty
+\end{align*}
+が成立するので確かにフビニの定理が適用できる。
 
 \subsection{主張$5$の証明}
+$x \in (0,1]$の範囲でのみ示せば、それ以外では明らかである。中間値の定理より、
+\begin{align*}
+	\frac{\mathrm{d} \sin(x_0)}{\mathrm{d}x} = \frac{\sin(x)}{x}
+\end{align*}
+を満たす$x_0$が$(0,x)$の範囲で必ず存在する。すなわち、
+\begin{align*}
+	1 > \cos(x_0) = \frac{\sin(x)}{x}
+\end{align*}
+であり主張が示された。
 
 \end{document}
 
