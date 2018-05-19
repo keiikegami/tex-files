@@ -152,6 +152,21 @@ Ex 4.21より任意の$\epsilon > 0$について、最後の第1項を$\frac{\ep
 である。ここで任意の$m$について$[-m, m]$はコンパクトな台で、そのような関数に対してはリーマンルベーグの補題が示されているので、上は$0$となり、一般の可測関数$f$について題意が示された。
 
 \section{Ex 5.3}
+対称性より$\rm(\hspace{.18em}i\hspace{.18em}) \Leftrightarrow \rm(\hspace{.08em}ii\hspace{.08em})$のみ示せば十分である。$\rm(\hspace{.08em}ii\hspace{.08em})$の否定は以下のように書ける。
+\begin{align*}
+	\mu\left( \left\{ x \mid \nu\left( \left\{ y \mid f(x, y) \neq 0 \right\} \right) > 0 \right\} \right) > 0
+\end{align*}
+これは以下と同値である。
+\begin{align*}
+	\exists A \in \mathcal{A}\ \text{s.t.}\ \mu(A) > 0,\ \nu\left( \left\{ y \mid f(x, y) \neq 0 , x\in A \right\} \right) > 0
+\end{align*}
+さらにこれは以下を意味する。
+\begin{align*}
+	\exists A \in \mathcal{A}, B \in \mathcal{C}\ \text{s.t.}\ \begin{cases} \mu(A) > 0, \nu(B) > 0 \\[8pt] f(x, y) \neq 0\ \forall (x, y) \in A \times B \end{cases}
+\end{align*}
+この時$\rho(\left\{ (x, y)\mid f(x, y) \neq 0 \right\}) \geq \rho(A \times B) = \mu(A) \nu(B) > 0$なので、対偶から$\rm(\hspace{.18em}i\hspace{.18em}) \Rightarrow \rm(\hspace{.08em}ii\hspace{.08em})$が示された。
+
+次に$\rm(\hspace{.08em}ii\hspace{.08em}) \Rightarrow \rm(\hspace{.18em}i\hspace{.18em})$を示す。 to be writen.
 
 \section{Ex 5.4}
 
