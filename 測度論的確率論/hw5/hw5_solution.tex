@@ -93,6 +93,31 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 であり、また任意の$x\in \mathbb{R}$に対して十分大きな$N$が存在して、$n \geq N$であれば任意の$\epsilon > 0$よりも$\frac{1}{nx}$を小さくできるので$0$に各点収束することもわかる。しかし、全ての$n$について上の関数列の絶対値を抑えるためには$[1, \infty)]$の範囲で$\frac{1}{x}$よりも大きくないといけない。ここで$\int_1^{\infty} \frac{1}{x} \mathrm{d}x = \lim_{n \to \infty} {\rm log}n = \infty$であるため、そのような関数の積分は必ず無限に発散するため$L^1$に入らないことが確認できた。
 
 \section{Ex 4.15}
+任意の$n$について、$\left| f_n \right| \leq g_n\ \Rightarrow -g_n \leq f_n \leq g_n\ \Rightarrow f_n + g_n \geq 0,\ g_n -f_n \geq 0$が成立する。この時Fatouの補題より、
+\begin{align}
+	\int \liminf_{n\to \infty} (f_n + g_n) \mathrm{d}\mu \leq \liminf_{n\to \infty}\left( \int f_n + g_n \mathrm{d}\mu\right)\\
+	\int \liminf_{n\to \infty} (g_n - f_n) \mathrm{d}\mu \leq \liminf_{n\to \infty}\left(  \int g_n - f_n \mathrm{d}\mu\right)
+\end{align}
+が成立する。上の左辺について、
+\begin{align*}
+	\int \liminf_{n\to \infty}( f_n + g_n) \mathrm{d}\mu = \int (f + g) \mathrm{d}\mu = \int f \mathrm{d}\mu + \int g \mathrm{d}\mu
+\end{align*}
+である。ただし二つ目の等号は、$|f| \leq g$であることから$f$が可積分であることより得られる。右辺については、全ての$n$について$f_n, g_n$が可積分であることと、「$b_n$が$b$に収束する数列の時、$\liminf (a_n + b_n) = \liminf a_n + b$（主張$1$）」を使うと、
+\begin{align*}
+	\liminf_{n\to \infty} \left(  \int f_n + g_n \mathrm{d}\mu\right) = \liminf_{n \to \infty} \left( \int f_n \mathrm{d}\mu + \int g_n \mathrm{d}\mu \right) = \liminf_{n \to \infty} \int f_n \mathrm{d}\mu + \int g \mathrm{d}\mu
+\end{align*}
+以上より、
+\begin{align*}
+	\int f \mathrm{d}\mu + \int g \mathrm{d}\mu \leq  \liminf_{n \to \infty} \int f_n \mathrm{d}\mu + \int g \mathrm{d}\mu\ \Rightarrow \int f \mathrm{d}\mu \leq \liminf_{n \to \infty} \int f_n \mathrm{d}\mu
+\end{align*}
+を得る。同様にして$(1)$の下の不等式から、
+\begin{align*}
+	\limsup_{n \to \infty} \int f_n \mathrm{d}\mu \leq \int f \mathrm{d}\mu
+\end{align*}
+が得られる。以上より、$\liminf_{n \to \infty} \int f_n \mathrm{d}\mu \leq \limsup_{n \to \infty} \int f_n \mathrm{d}\mu$であることから、$\lim_{n \to \infty} \int f_n \mathrm{d}\mu = \int f \mathrm{d}\mu$であることが示された。
+
+\subsection{主張$1$の証明}
+
 
 \section{Ex 4.21}
 
