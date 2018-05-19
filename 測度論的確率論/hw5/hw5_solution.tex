@@ -169,7 +169,29 @@ Ex 4.21より任意の$\epsilon > 0$について、最後の第1項を$\frac{\ep
 次に$\rm(\hspace{.08em}ii\hspace{.08em}) \Rightarrow \rm(\hspace{.18em}i\hspace{.18em})$を示す。 to be writen.
 
 \section{Ex 5.4}
+以下の集合を考える。ただし$\left\{ (z_i ,z_{i+1}] \right\}_{i = 0}^{n-1}$は$(a, b]$の分割で、$a = z_0 < z_1 < \cdots < z_{n-1} < z_n = b$である実数から作られ、これは$[a,b]$を$n$等分する分割であるとする。
+\begin{align*}
+	B_n = \bigcup_{i = 1}^n (a, z_i] \times (z_{i-1}, z_i]
+\end{align*}
+ここで、
+\begin{align}
+	\left\{ (x, y) \mid a < x \leq y \leq b \right\} = \lim_{n\to \infty} B_n
+\end{align}
+であることをまず示す。$B_n$の構成より、任意の$n$について$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset B_n$であるので、$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset \lim_{n\to \infty} B_n$である。また、任意の$n$について$(x, y) \in B_n$であるような点をとると、$B_n$の構成より明らかに$a < x \leq b, a < y \leq b$である。ここでもし$x > y$であるとすると、$\frac{x-y}{\sqrt{2}} > 0$である。$B_n$が$\left\{ (x, y) \mid a < x \leq y \leq b \right\}$からはみ出ている部分は最大でも$y = x$の直線から$\frac{1}{n\sqrt{2}}$だけ離れた部分までであるので、$n$を十分大きく取った時、必ず$x > y$であるような点を含まない$B_n$を作ることができる。すなわちそのような$(x, y)$は$\lim_{n\to \infty} B_n$に含まれず、またその構成から明らかに$x\leq y$となる点は任意の$n$について含まれている。以上より$(3)$が示された。
 
+$B_n$は長方形集合の可算個の和集合でかけているので、$(\mu \times \nu)$を定義に従って計算することができる。測度の連続性より以下を得る。
+\begin{align*}
+	(\mu \times \nu)\left( \left\{ (x, y) \mid a < x \leq y \leq b \right\} \right) = (\mu \times \nu) \left( \lim_{n\to \infty} B_n \right) = \lim_{n \to \infty} (\mu \times \nu)\left( B_n \right)
+\end{align*}
+ここで、$B_n$を構成する長方形集合は互いに排反なので以下のように計算できる。
+\begin{align*}
+	(\mu \times \nu)\left( B_n \right) = \sum_{i = 1}^n \mu \left( (a, z_i] \right) \nu \left( (z_{i-1},z_i] \right) = \sum_{i = 1}^n \nu \left( (z_{i-1},z_i] \right) \left( F(z_i) - F(a) \right)
+\end{align*}
+ここで、$H_n = \sum_{i = 1}^n \left( F(z_i) - F(a) \right) i_{(z_{i-1}, z_i]}$と置くと、単関数についてのルベーグ積分の定義より、
+\begin{align*}
+	\sum_{i = 1}^n \nu \left( (z_{i-1},z_i] \right) \left( F(z_i) - F(a) \right) = \int_a^b H_n \mathrm{d}\nu
+\end{align*}
+が成立する。
 
 \section{Ex 5.5}
 
