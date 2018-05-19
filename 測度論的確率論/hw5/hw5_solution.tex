@@ -189,9 +189,12 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 \end{align*}
 ここで、$H_n = \sum_{i = 1}^n \left( F(z_i) - F(a) \right) i_{(z_{i-1}, z_i]}$と置くと、単関数についてのルベーグ積分の定義より、
 \begin{align*}
-	\sum_{i = 1}^n \nu \left( (z_{i-1},z_i] \right) \left( F(z_i) - F(a) \right) = \int_a^b H_n \mathrm{d}\nu
+	\sum_{i = 1}^n \nu \left( (z_{i-1},z_i] \right) \left( F(z_i) - F(a) \right) = \int_{(a, b]} H_n \mathrm{d}\nu
 \end{align*}
-が成立する。
+が成立する。ここで、$H_n$は可測関数であり、$F$が非現象な関数であることより$F(x) - F(a)$に下から近づいて行く関数であり、さらに$F$が右連続であるからこれは$F$に収束する関数列となる。（$F$が右連続でない時、不連続点において$H_n$の値が右極限よりも小さな左極限に固定されてしまい、これでは$F - F(a)$を近似することはできないから。）従って単調収束定理を適用でき、以下を得る。
+\begin{align*}
+	(\mu \times \nu)\left( \left\{ (x, y) \mid a < x \leq y \leq b \right\} \right) = \lim_{n \to \infty} (\mu \times \nu)\left( B_n \right) =  \lim_{n \to \infty} \int_{(a, b]} H_n \mathrm{d}\nu = \int_{(a,b]}(F(x) - F(a)) \mathrm{d}\nu = \int_{(a, b]} (F(y) - F(a)) \mathrm{d}G(y)
+\end{align*}
 
 \section{Ex 5.5}
 
