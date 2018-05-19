@@ -79,6 +79,18 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 \end{align*}
 
 \section{Ex 4.14}
+以下のような関数列を考える。
+\begin{align*}
+	f_n (x)= \begin{cases}
+	\frac{1}{x} 1_{[1, \infty)} \ \text{$n = 1$}\\[8pt]
+	\frac{1}{nx} 1_{[1, n)} \ \text{otherwise}
+	\end{cases}
+\end{align*}
+この時、
+\begin{align*}
+	\lim_{n \to \infty} \int_{\mathbb{R}} f_n (x) \mathrm{d}x = \lim_{n \to \infty} \int_1^{\infty} \frac{1}{nx} 1_{[1, n]} \mathrm{d}x = \lim_{n \to \infty} \frac{1}{n} \int_1^n \frac{1}{x} \mathrm{d}x = \lim_{n\to \infty} \frac{{\rm log} n}{n} = 0
+\end{align*}
+であり、また任意の$x\in \mathbb{R}$に対して十分大きな$N$が存在して、$n \geq N$であれば任意の$\epsilon > 0$よりも$\frac{1}{nx}$を小さくできるので$0$に各点収束することもわかる。しかし、全ての$n$について上の関数列の絶対値を抑えるためには$[1, \infty)]$の範囲で$\frac{1}{x}$よりも大きくないといけない。ここで$\int_1^{\infty} \frac{1}{x} \mathrm{d}x = \lim_{n \to \infty} {\rm log}n = \infty$であるため、そのような関数の積分は必ず無限に発散するため$L^1$に入らないことが確認できた。
 
 \section{Ex 4.15}
 
