@@ -274,7 +274,26 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 \begin{align*}
 	\int_0^b \frac{\sin(x)}{x} \mathrm{d}x = \int_0^b \left( \int_0^{\infty} e^{-xy} \mathrm{d}y \right) \sin(x) \mathrm{d}x
 \end{align*}
-
+であり、「この積分にはフビニの定理が使える（主張$4$）」ので、
+\begin{align*}
+	\int_0^{\infty} \int_0^b e^{-xy} \sin(x) \mathrm{d}x \mathrm{d}y =\frac{\pi}{2} - \int_0^{\infty} \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b)\right) \mathrm{d}y
+\end{align*}
+とできる。ただし、$\int0^{\infty} \frac{1}{1 + y^2} \mathrm{d}y$が$y = \tan(\theta)$の変数変換で$\frac{\pi}{2}$となることを用いている。以上を合わせると、与式の左辺は以下のように変形できる。
+\begin{align*}
+	\left| \int_0^b \frac{\sin(x)}{x} e^{-ax} \mathrm{d}x - \frac{\pi}{2} \right| &= \left| \int_0^{\infty} \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b)\right) \mathrm{d}y - \int_0^a \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b) \right) \mathrm{d}y \right|\\
+	&= \left| \int_0^a \frac{1}{1 + y^2} \mathrm{d}y +  \int_a^{\infty}  \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b)\right) \mathrm{d}y \right|\\[8pt]
+	&\leq \left|  \int_0^a \frac{1}{1 + y^2} \mathrm{d}y \right| + \left|  \int_a^{\infty}  \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b)\right) \mathrm{d}y \right|
+\end{align*}
+ただし最終行には三角不等式を用いた。ここで$y = \tan(\theta)$で変数変換を行うと、$a > 0$より第1項は$\arctan(a)$。第2項は$b$を極限に飛ばした時の挙動さえ分かれば良いので、優収束定理を適用できることを確認する。
+\begin{align*}
+	 \int_a^{\infty} \left|  \frac{1}{1 + y^2} \left( ye^{-by} \sin(b) + e^{-by} \cos(b)\right) \right| \mathrm{d}y = \int_0^{\frac{\pi}{2}} \left|  \frac{\tan(\theta) \sin(b) + \cos(b)}{e^{b\tan(\theta)}} \right| \mathrm{d}\theta
+\end{align*}
+であり、これに対して、
+\begin{align*}
+	\left|  \frac{\tan(\theta) \sin(b) + \cos(b)}{e^{b\tan(\theta)}} \right| &\leq \left| \frac{\tan(\theta) \sin(b) + \cos(b)}{1 + b\tan(\theta)} \right| \leq \left| \frac{\sin(b)\tan(\theta)}{1 + b\tan(\theta)}\right| +  \left|\frac{\cos(b)}{1 + b\tan(\theta)} \right| \\[8pt]
+	&\leq \left| \frac{\sin(b)}{b} \right| + \left| \cos(b) \right| \leq 2
+\end{align*}
+であることから有界範囲$[0, \frac{\pi}{2}]$についてこれが可積分であるので優収束定理を用いることができる。ただし、一つ目の不等号には$e^x \geq 1 + x$を、二つ目の不等号には三角不等式を用い、三つ目の不等式は$b > 0, \tan(\theta) > 0$であることから得られ、最後の不等式は$\frac{\sin(x)}{x} < 1$から得られる。
 
 \end{document}
 
