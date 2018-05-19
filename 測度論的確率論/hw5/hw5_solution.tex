@@ -178,7 +178,7 @@ Ex 4.21より任意の$\epsilon > 0$について、最後の第1項を$\frac{\ep
 \begin{align}
 	\left\{ (x, y) \mid a < x \leq y \leq b \right\} = \lim_{n\to \infty} B_n
 \end{align}
-であることをまず示す。$B_n$の構成より、任意の$n$について$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset B_n$であるので、$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset \lim_{n\to \infty} B_n$である。また、任意の$n$について$(x, y) \in B_n$であるような点をとると、$B_n$の構成より明らかに$a < x \leq b, a < y \leq b$である。ここでもし$x > y$であるとすると、$\frac{x-y}{\sqrt{2}} > 0$である。$B_n$が$\left\{ (x, y) \mid a < x \leq y \leq b \right\}$からはみ出ている部分は最大でも$y = x$の直線から$\frac{1}{n\sqrt{2}}$だけ離れた部分までであるので、$n$を十分大きく取った時、必ず$x > y$であるような点を含まない$B_n$を作ることができる。すなわちそのような$(x, y)$は$\lim_{n\to \infty} B_n$に含まれず、またその構成から明らかに$x\leq y$となる点は任意の$n$について含まれている。以上より$(3)$が示された。
+であることをまず示す。$B_n$の構成より、任意の$n$について$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset B_n$であるので、$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset \lim_{n\to \infty} B_n$である。また、任意の$n$について$(x, y) \in B_n$であるような点をとると、$B_n$の構成より明らかに$a < x \leq b, a < y \leq b$である。ここでもし$x > y$であるとすると、$\frac{x-y}{\sqrt{2}} > 0$である。$B_n$が$\left\{ (x, y) \mid a < x \leq y \leq b \right\}$からはみ出ている部分は最大でも$y = x$の直線から$\frac{b-a}{n\sqrt{2}}$だけ離れた部分までであるので、$n$を十分大きく取った時、必ず$x > y$であるような点を含まない$B_n$を作ることができる。すなわちそのような$(x, y)$は$\lim_{n\to \infty} B_n$に含まれず、またその構成から明らかに$x\leq y$となる点は任意の$n$について含まれている。以上より$(3)$が示された。
 
 $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu \times \nu)$を定義に従って計算することができる。測度の連続性より以下を得る。
 \begin{align*}
@@ -217,6 +217,20 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 \begin{align*}
 	\lim_{n \to \infty} \sum_{i = 1}^n \nu((z_i,b]) \mu\left( (z_{i-1}, z_i] \right) = (\mu \times \nu) \left( \bigcup_{n=1}^{\infty} C_n \right)
 \end{align*}
+この$C_n$の和集合については以下の関係が成立する。
+\begin{align}
+	\bigcup_{n=1}^{\infty} C_n = \left\{ (x, y) \mid a < x \leq y \leq b \right\} \setminus \left\{ (x, y) \mid a < x = y \leq b \right\}
+\end{align}
+まず$C_n$の構成より、任意の$n$について$C_n \subset  \left\{ (x, y) \mid a < x \leq y \leq b \right\} \setminus \left\{ (x, y) \mid a < x = y \leq b \right\}$である。従って$\bigcup_{n=1}^{\infty} C_n$が右辺に含まれることが確認できる。また、右辺の集合から任意に要素$(x, y)$をとると、
+\begin{align*}
+\begin{cases}
+	a < x \leq b\\
+	a < y \leq b\\
+	x < y
+\end{cases}
+\end{align*}
+を満たす。$C_n$の構成より、$(4)$の右辺の集合において、$y = x$の直線から$\frac{b-a}{\sqrt{2}n}$より離れた部分は全て$C_n$に含まれる。従って、取ってきた点と直線$y = x$との距離である$\frac{y-x}{\sqrt{2}}$は、十分大きな$n$の時に必ず$\frac{b-a}{\sqrt{2}n}$よりも大きくなってしまう。これより、どこかしらの$C_n$に含まれるため、$\bigcup_{n=1}^{\infty} C_n$に含まれることになる。こうして逆向きの包含関係も示されたため$(4)$が示された。
+
 
 
 \section{Ex 5.5}
