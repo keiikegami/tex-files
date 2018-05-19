@@ -200,6 +200,25 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 	&= \int_{(a, b]} (F(y) - F(a)) \mathrm{d}G(y)
 \end{align*}
 
+\subsection{(b)}
+まず以下の積分を考える。
+\begin{align*}
+	\int_{(a,b]} \left( G(b) - G(x) \right) \mathrm{d}F(x)
+\end{align*}
+問題$(a)$と同様の議論によりこれは以下の表現と同じである。
+\begin{align*}
+	\lim_{n \to \infty} \sum_{i = 1}^n \left( G(b) - G(z_i) \right) \mu\left( (z_{i-1}, z_i] \right) = \lim_{n \to \infty} \sum_{i = 1}^n \nu((z_i,b]) \mu\left( (z_{i-1}, z_i] \right)
+\end{align*}
+ここで、以下の集合を考える。
+\begin{align*}
+	C_n = \bigcup_{i = 1}^n (z_{i-1}, z_i] \times (z_i , b]
+\end{align*}
+これを用いると、積測度の定義より以下が成立する。
+\begin{align*}
+	\lim_{n \to \infty} \sum_{i = 1}^n \nu((z_i,b]) \mu\left( (z_{i-1}, z_i] \right) = (\mu \times \nu) \left( \bigcup_{n=1}^{\infty} C_n \right)
+\end{align*}
+
+
 \section{Ex 5.5}
 
 \section{Ex 5.6}
