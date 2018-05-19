@@ -102,7 +102,7 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 \begin{align*}
 	\int \liminf_{n\to \infty}( f_n + g_n) \mathrm{d}\mu = \int (f + g) \mathrm{d}\mu = \int f \mathrm{d}\mu + \int g \mathrm{d}\mu
 \end{align*}
-である。ただし二つ目の等号は、$|f| \leq g$であることから$f$が可積分であることより得られる。右辺については、全ての$n$について$f_n, g_n$が可積分であることと、「$b_n$が$b$に収束する数列の時、$\liminf (a_n + b_n) = \liminf a_n + b$（主張$1$）」を使うと、
+である。ただし二つ目の等号は、$|f| \leq g$であることから$f$が可積分であることより得られる。右辺については、全ての$n$について$f_n, g_n$が可積分であることと、「どちらも有界な数列で、$b_n$が$b$に収束する数列の時、$\liminf (a_n + b_n) = \liminf a_n + b$（主張$1$）」を使うと、
 \begin{align*}
 	\liminf_{n\to \infty} \left(  \int f_n + g_n \mathrm{d}\mu\right) = \liminf_{n \to \infty} \left( \int f_n \mathrm{d}\mu + \int g_n \mathrm{d}\mu \right) = \liminf_{n \to \infty} \int f_n \mathrm{d}\mu + \int g \mathrm{d}\mu
 \end{align*}
@@ -117,7 +117,33 @@ $x \in [0, n]$で$e ^{-x} \geq \left( 1 -\frac{x}{n} \right)^n$を示す。ど�
 が得られる。以上より、$\liminf_{n \to \infty} \int f_n \mathrm{d}\mu \leq \limsup_{n \to \infty} \int f_n \mathrm{d}\mu$であることから、$\lim_{n \to \infty} \int f_n \mathrm{d}\mu = \int f \mathrm{d}\mu$であることが示された。
 
 \subsection{主張$1$の証明}
+$\left\{ a_n \right\}$と$\left\{ b_n \right\}$をどちらも有界な数列とする。この時、まず以下が成立する。
+\begin{align*}
+	\liminf(a_n) + \liminf(b_n) \leq \liminf(a_n + b_n)
+\end{align*}
+なぜなら、任意の$k \geq 1$について、
+\begin{align*}
+	\inf_{n \geq k} a_n + \inf_{n \geq k} b_n \leq a_m + b_m\ \forall\ m \geq k
+\end{align*}
+であるので、
+\begin{align*}
+	\inf_{n \geq k} a_n + \inf_{n \geq k} b_n \leq \inf_{n \geq k} (a_n + b_n)
+\end{align*}
+が成立する。ここで$k \to \infty$をとると、題意を得る。
 
+ここでさらに、$b_n \to n$であるとする。上の結果を使うと、
+\begin{align*}
+	\liminf (a_n + b_n) \geq \liminf(a_n) + \liminf(b_n) = \liminf(a_n) + b
+\end{align*}
+である。$\left\{ -b_n \right\}$も有界な数列であるので、$a_n = (a_n+b_n) + (-b_n)$に対して上の結果を使うと、
+\begin{align*}
+	\liminf(a_n) \geq \liminf(a_n+b_n) + \liminf(-b_n) = \liminf(a_n+b_n) - b\ \Rightarrow \ \liminf(a_n) + b \geq \liminf(a_n+b_n)
+\end{align*}
+以上より両方の向きについて不等号が成立したので、
+\begin{align*}
+	\liminf(a_n+b_n) =  \liminf(a_n) + b
+\end{align*}
+であることが確認できた。
 
 \section{Ex 4.21}
 \subsection{(a)}
