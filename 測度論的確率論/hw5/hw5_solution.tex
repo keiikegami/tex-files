@@ -43,7 +43,7 @@ $f$が可測関数であり、指示関数も可測関数であることからCo
 \begin{align*}
 	 \int \lim_{N \to \infty} f \sum_{n = 1}^N 1_{A_n} \mathrm{d}\mu = \lim_{N \to \infty} \sum_{n = 1}^N \int f 1_{A_n}\mathrm{d}\mu = \sum_{n = 1}^{\infty} \nu(A_n)
 \end{align*}
-であるので確かに$\nu$は測度となる。（$\phi$については後で書く。）
+である。また、$\nu(\phi) = \int_{\phi} f \mathrm{d}\mu$であって、$\mu (\phi) = 0$であるので、$\nu(\phi) = 0$を得る。従って確かに$\nu$は測度となる。
 
 \subsection{(b)}
 簡単な関数から順番に示す。まず、$g = 1_B$のような指示関数の場合は、
@@ -147,7 +147,7 @@ $\left\{ a_n \right\}$と$\left\{ b_n \right\}$をどちらも有界な数列と
 
 \section{Ex 4.21}
 \subsection{(a)}
-単関数$s$で$f$を近似し、階段関数$q$で$s$を近似できることを以下で示す。$\left\{ s_i \right\}_{i = 1}^n \in \mathbb{R}$と排反な$\left\{ A_i \right\} \in \mathcal{A}$を使って$s$を以下で定義する。
+$f$が非負関数の場合についてまず示す。単関数$s$で$f$を近似し、階段関数$q$で$s$を近似できることを以下で示す。$\left\{ s_i \right\}_{i = 1}^n \in \mathbb{R}$と排反な$\left\{ A_i \right\} \in \mathcal{A}$を使って$s$を以下で定義する。
 \begin{align*}
 	s(x) = \sum_{i = 1}^n s_i 1_{A_i}
 \end{align*}
@@ -194,6 +194,15 @@ lemma 2.1より単関数を定義している$A_i$それぞれについて任意
 	\int |f-q|\mathrm{d}\mu \leq \int |f-s| \mathrm{d}\mu + \int |s-q | \mathrm{d}\mu < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
 \end{align*}
 とすることができる。
+
+一般の可測関数$f$について、積分を定義したときと同様に$f^{+}, f^{-}$をそれぞれ非負関数として定義すると、
+\begin{align*}
+	\int |f-q|\mathrm{d}\mu = \int |f^{+} - q^{+}| \mathrm{d}\mu + \int |f^{-} - q^{-}| \mathrm{d}\mu
+\end{align*}
+以下のように分解できるような階段関数$q$を考えて、今ままでの議論から任意の$\epsilon > 0$に対してそれぞれの項を$\frac{\epsilon}{2}$で抑えるように$q$を作ることが必ずできる。従って、
+\begin{align*}
+	\int |f-q|\mathrm{d}\mu < \epsilon
+\end{align*}
 
 \subsection{(b)}
 $q$を$g$で近似できることを確認すれば、$(a)$の結果と合わせて題意を得る。階段関数の各不連続点$a_j$について二点$(a_j-\delta, c_j)$と$(a_j + \delta, c_{j+1})$とを直線で結ぶことで連続関数にする。この時、
