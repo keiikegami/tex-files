@@ -250,7 +250,23 @@ Ex 4.21より任意の$\epsilon > 0$について、最後の第1項を$\frac{\ep
 \end{align*}
 この時$\rho(\left\{ (x, y)\mid f(x, y) \neq 0 \right\}) \geq \rho(A \times B) = \mu(A) \nu(B) > 0$なので、対偶から$\rm(\hspace{.18em}i\hspace{.18em}) \Rightarrow \rm(\hspace{.08em}ii\hspace{.08em})$が示された。
 
-次に$\rm(\hspace{.08em}ii\hspace{.08em}) \Rightarrow \rm(\hspace{.18em}i\hspace{.18em})$を示す。 to be writen.
+次に$\rm(\hspace{.08em}ii\hspace{.08em}) \Rightarrow \rm(\hspace{.18em}i\hspace{.18em})$を示す。こちらについても対偶を考える。
+\begin{align*}
+	\rho\left( (x, y) \mid f(x, y) \neq 0\right) > 0 \ \Rightarrow \ \mu\left( \left\{ x \mid \nu\left( \left\{ y \mid f(x, y) \neq 0 \right\} \right) > 0 \right\} \right) > 0
+\end{align*}
+を示せばよい。左辺は以下を意味する。
+\begin{align*}
+	\exists A\in \mathcal{A}, B \in \mathcal{C}\ \text{s.t.}\ \rho(A \times B) = \mu (A) \nu(B) > 0
+\end{align*}
+ここで、$x\in A$を任意にとると、そのような$x$について$y \in B$は必ず$f(x, y) \neq 0$となる。すなわち、
+\begin{align*}
+	A \subset \left\{ x \mid \nu\left( \left\{ y \mid f(x, y) \neq 0 \right\} \right) > 0 \right\} 
+\end{align*}
+である。測度の単調性より、
+\begin{align*}
+	\mu\left( \left\{ x \mid \nu\left( \left\{ y \mid f(x, y) \neq 0 \right\} \right) > 0 \right\} \right) \geq \mu(A) > 0
+\end{align*}
+を得る。これより対偶が示された。
 
 \section{Ex 5.4}
 \subsection{(a)}
