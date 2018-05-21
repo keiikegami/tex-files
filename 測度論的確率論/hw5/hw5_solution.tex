@@ -162,7 +162,7 @@ $f$が非負関数の場合についてまず示す。単関数$s$で$f$を近�
 \end{align*}
 とかける。ここで、$A \in \mathcal{A}$であることより以下は$\mathcal{A}$に入ることがわかる。
 \begin{align*}
-	A \cap \left( \mathbb{R}\setminus \bigcup_i A_i \right) = \left( \mathbb{R} \cap A \right)  \setminus \bigcup_i A_i = \mathbb{R} \setminus \left( \mathbb{R}\setminus \left( \left( \mathbb{R} \cap A \right)  \setminus \bigcup_i A_i \right)\right) = \mathbb{R} \setminus \bigcup_i \left( \mathbb{R}\setminus \left( (\mathbb{R} \setminus A_i) \cap A \right) \right)
+	A \cap \left( \mathbb{R}\setminus \bigcup_i A_i \right) = A \cap \left( \bigcap_i (\mathbb{R} \setminus A_i) \right) = \bigcap_i \left( (\mathbb{R} \setminus A_i) \cap A \right) = \mathbb{R} \setminus \bigcup_i \left( \mathbb{R}\setminus \left( (\mathbb{R} \setminus A_i) \cap A \right) \right)
 \end{align*}
 $A_i^{*} = \mathbb{R}\setminus \left( (\mathbb{R} \setminus A_i) \cap A \right)$と置き直すと、
 \begin{align*}
