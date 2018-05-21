@@ -199,10 +199,11 @@ lemma 2.1より単関数を定義している$A_i$それぞれについて任意
 \begin{align*}
 	\int |f-q|\mathrm{d}\mu = \int |f^{+} - q^{+}| \mathrm{d}\mu + \int |f^{-} - q^{-}| \mathrm{d}\mu
 \end{align*}
-以下のように分解できるような階段関数$q$を考えて、今ままでの議論から任意の$\epsilon > 0$に対してそれぞれの項を$\frac{\epsilon}{2}$で抑えるように$q$を作ることが必ずできる。従って、
+とできるような階段関数がそれぞれに対して存在することが以上よりわかっている。ここで、階段関数$q = q^{+} + q^{-}$を用いれば、任意の$\epsilon > 0$に対してそれぞれの項を$\frac{\epsilon}{2}$で抑えるように$q$を作ることが必ずできる。従って、
 \begin{align*}
 	\int |f-q|\mathrm{d}\mu < \epsilon
 \end{align*}
+を得る。
 
 \subsection{(b)}
 $q$を$g$で近似できることを確認すれば、$(a)$の結果と合わせて題意を得る。階段関数の各不連続点$a_j$について二点$(a_j-\delta, c_j)$と$(a_j + \delta, c_{j+1})$とを直線で結ぶことで連続関数にする。この時、
@@ -287,7 +288,7 @@ Ex 4.21より任意の$\epsilon > 0$について、最後の第1項を$\frac{\ep
 \begin{align}
 	\left\{ (x, y) \mid a < x \leq y \leq b \right\} = \lim_{n\to \infty} B_n
 \end{align}
-であることをまず示す。$B_n$の構成より、任意の$n$について$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset B_n$であるので、$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset \lim_{n\to \infty} B_n$である。また、任意の$n$について$(x, y) \in B_n$であるような点をとると、$B_n$の構成より明らかに$a < x \leq b, a < y \leq b$である。ここでもし$x > y$であるとすると、$\frac{x-y}{\sqrt{2}} > 0$である。$B_n$が$\left\{ (x, y) \mid a < x \leq y \leq b \right\}$からはみ出ている部分は最大でも$y = x$の直線から$\frac{b-a}{n\sqrt{2}}$だけ離れた部分までであるので、$n$を十分大きく取った時、必ず$x > y$であるような点を含まない$B_n$を作ることができる。すなわちそのような$(x, y)$は$\lim_{n\to \infty} B_n$に含まれず、またその構成から明らかに$x\leq y$となる点は任意の$n$について含まれている。以上より$(3)$が示された。
+であることをまず示す。$B_n$の構成より、任意の$n$について$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset B_n$であるので、$\left\{ (x, y) \mid a < x \leq y \leq b \right\} \subset \lim_{n\to \infty} B_n$である。また、任意の$n$について$(x, y) \in B_n$であるような点をとると、$B_n$の構成より明らかに$a < x \leq b, a < y \leq b$である。ここでもし$x > y$であるとすると、$\frac{x-y}{\sqrt{2}} > 0$である。$B_n$が$\left\{ (x, y) \mid a < x \leq y \leq b \right\}$からはみ出ている部分は、最大でも$y = x$の直線との距離が$\frac{b-a}{\sqrt{2}n}$より短い部分までであるので、$n$を十分大きく取った時、必ず$x > y$であるような点を含まない$B_n$を作ることができる。すなわちそのような$(x, y)$は$\lim_{n\to \infty} B_n$に含まれず、またその構成から明らかに$x\leq y$となる点は任意の$n$について含まれている。以上より$(3)$が示された。
 
 $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu \times \nu)$を定義に従って計算することができる。測度の連続性より以下を得る。
 \begin{align*}
@@ -301,7 +302,7 @@ $B_n$は長方形集合の可算個の和集合でかけているので、$(\mu 
 \begin{align*}
 	\sum_{i = 1}^n \nu \left( (z_{i-1},z_i] \right) \left( F(z_i) - F(a) \right) = \int_{(a, b]} H_n \mathrm{d}\nu
 \end{align*}
-が成立する。ここで、$H_n$は可測関数であり、$F$が非現象な関数であることより$F(x) - F(a)$に下から近づいて行く関数であり、さらに$F$が右連続であるからこれは$F$に収束する関数列となる。（$F$が右連続でない時、不連続点において$H_n$の値が右極限よりも小さな左極限に固定されてしまい、これでは$F - F(a)$を近似することはできないから。）従って単調収束定理を適用でき、以下を得る。
+が成立する。ここで、$H_n$は可測関数であり、$F$が非現象な関数であることより$F(x) - F(a)$に下から近づいて行く関数であり、さらに$F$が右連続であるからこれは$F$に収束する関数列となる。（$F$が右連続でない時、不連続点において$H_n$の値が右極限よりも小さな左極限に固定されてしまい、これでは$F - F(a)$を近似することはできない。）従って単調収束定理を適用でき、以下を得る。
 \begin{align*}
 	(\mu \times \nu)\left( \left\{ (x, y) \mid a < x \leq y \leq b \right\} \right) &= \lim_{n \to \infty} (\mu \times \nu)\left( B_n \right)\\
 	&=  \lim_{n \to \infty} \int_{(a, b]} H_n \mathrm{d}\nu\\
