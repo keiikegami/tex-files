@@ -73,6 +73,13 @@ $p > q > 0$とする。この時、$f(x) = -x^{\frac{q}{p}}$は凸関数であ�
 	\Leftrightarrow&\ \left( E[|X|^q]\right)^{\frac{1}{q}} \leq \left( E[|X|^p]\right)^{\frac{1}{p}}
 \end{align*}
 
+\subsection{(b)}
+$\frac{r-q}{r-p} + \frac{q-p}{r-p} = 1$であるので、ヘルダーの不等式を用いて以下を得る。
+\begin{align*}
+	\left( E[|X|^p] \right)^{\frac{r-q}{r-p}} \left( E[|X|^r] \right)^{\frac{q-p}{r-p}} = \left( E \left[\left( |X|^{p\frac{r-q}{r-p}}\right)^{\frac{r-p}{r-q}} \right] \right)^{\frac{r-q}{r-p}} \left( E \left[\left( |X|^{r\frac{q-p}{r-p}}\right)^{\frac{r-p}{q-p}} \right] \right)^{\frac{q-p}{r-p}} \geq E\left[ |X|^{\frac{p(r-q) + r(q-p)}{r-p}} \right] = E[|X|^q]
+\end{align*}
+よって題意は示された。
+
 \end{document}
 
 
