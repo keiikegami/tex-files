@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage{multirow,array}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{bm}
+
+\begin{document}
+\title{PET/MRI research}
+\author{Kei Ikegami}
+\maketitle
+
+\section{Empirical Strategy}
+
+$i \in \left\{ 1,2, \cdots, I\right\}$ denotes each hospital. And $y_i$ is the welfare variable, $PET_i$ is the number of PET at hospital $i$, $Total_i$ is the total number of owned PETs by hospitals existing in the same prefecture as $i$, $Other_i =Total_i - PET_i$, and $X_i$ is the control variables. Then consider the below model.
+
+\begin{align*}
+	y_i = \alpha + \beta\ PET_i + \gamma\ Total_i + \delta\ Other_i + X_i^{'} \eta + \epsilon_i
+\end{align*}
+$\beta$ is the parameter representing the welfare improvement by introducing PET, $\gamma$ is market expansion parameter, and $\delta$ is business stealing effect parameter. But by the variable construction, we cannot estimate all the parameter due to the perfect collinearlity. 
+
+Then we make use of panel data structure. Now $p$ indicates the prefecture and $t$ refers to year. Let $\alpha_p, \alpha_t$ be the indicator of prefecture and year. Then we get the panel data version model.
+\begin{align*}
+	y_{ipt} = \beta\ PET_{ipt} + \gamma\ Total_{pt} + \delta\ Other_{ipt} + X_{ipt}^{'} \eta +W_{pt}^{'} \xi +  \alpha_t + \alpha_p + \epsilon_{ipt} + \nu_{pt}
+\end{align*}
+where $W_{pt}$ is the characteristics of each prefecture at each year, and $\nu_{pt}$ is the disturbance term common in individual hospitals.
+
+In the first stage, we regress the below
+\begin{align*}
+	y_{ipt} = Z_{pt} + \beta\ PET_{ipt} + \delta\ Other_{ipt} + X_{ipt}^{'} \eta + \epsilon_{ipt}
+\end{align*}
+Then We get the estimates of $Z_{pt}$, denoted as $\hat{Z_{pt}}$.
+
+If the size $P \times T$ is sufficiently large, we can use $\hat{Z_{pt}}$ as the dependent variable in the second stage regression.
+\begin{align*}
+	\hat{Z_{pt}} = \alpha_t + \alpha_p + \gamma\ Total_{pt} + W_{pt}^{'} \xi +  \nu_{pt}
+\end{align*}
+By this panel data regression, we also get the consistent estimate of $\gamma$. This argument is according to Imbens and Wooldridge's NBER summer lecture notes 10.
+
+\end{document}
