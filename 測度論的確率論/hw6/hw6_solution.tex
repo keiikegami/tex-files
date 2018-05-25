@@ -34,7 +34,22 @@ Homework 6}
 \maketitle
 
 \section{Ex6.3}
-
+$F$のサポートを以下で書くことにする。
+\begin{align*}
+	S_F = \left\{ x \in \mathbb{R} \mid \forall \epsilon > 0, \ F(x + \epsilon) - F(x - \epsilon) > 0 \right\}
+\end{align*}
+閉集合の定義より、$\mathbb{R} \setminus S_F$が開集合であることを示せばよい。任意に$x \in \mathbb{R} \setminus S_F$を取る時、$F$が非減少関数であることから、
+\begin{align}
+	\exists \epsilon > 0\ \text{s.t.}\ F(x + \epsilon) - F(x - \epsilon) = 0
+\end{align}
+である。ここで、必ず$\epsilon > \eta > 0$であるような$\eta$が存在し、そのような$\eta$について以下が成立する。
+\begin{align*}
+	\begin{cases}
+	F(x + \epsilon) \geq F(x + \eta)\\
+	F(x -\eta) \geq F(x -\epsilon)
+	\end{cases}
+\end{align*}
+$(1)$より、$F(x + \eta) - F(x - \eta) = 0$であるので$(x-\eta, x+\eta) \subset \mathbb{R} \setminus S_F$である。よって定義より$\mathbb{R} \setminus S_F$は開集合であることが確認できたので題意は示された。
 
 \section{Ex6.8}
 
