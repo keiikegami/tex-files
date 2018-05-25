@@ -65,6 +65,13 @@ Homework 6}
 ここで、$\theta E[X]$よりも小さい値についてしか期待値を取れないので、$E\left[ X 1_{\left\{ X \leq \theta E[X] \right\}} \right] \leq \theta E[X]$であることから上は確かに成立する。よって題意は示された。
 
 \section{Ex6.15}
+\subsection{(a)}
+$p > q > 0$とする。この時、$f(x) = -x^{\frac{q}{p}}$は凸関数である。従ってJensenの不等式より、
+\begin{align*}
+	&E\left[ -\left( |X|^p \right)^{\frac{q}{p}} \right] \geq - \left( E\left[ |X|^p \right]\right)^{\frac{q}{p}}\\[8pt]
+	\Leftrightarrow&\ E[\left( |X|^p \right)^{\frac{q}{p}}] \leq \left( E[|X|^p] \right)^{\frac{q}{p}}\\[8pt]
+	\Leftrightarrow&\ \left( E[|X|^q]\right)^{\frac{1}{q}} \leq \left( E[|X|^p]\right)^{\frac{1}{p}}
+\end{align*}
 
 \end{document}
 
