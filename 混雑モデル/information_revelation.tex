@@ -89,11 +89,21 @@ The first stage game is voting phase. The players are the same as in the second 
 \section{Equilibrium}
 By symmetry I just put a focus on the former half group. Because this is a dynamic model I should solve backwardly. Thus I clarify the equilibrium behavior when the type distribution is given. Let $\left\{ q_k \right\}_{k = 1}^{\frac{K}{2}}$ be the distribution and $\left\{ \sigma_k \right\}_{k = 1}^{\frac{K}{2}}$ be the type $k$ player's probability of choosing the first best train. Note that by assumption $\sigma_1 = 1$. 
 
-In Nash equilibrium, there is no incentive to deviate from the equilibrium strategy for all players. Considering type $k = 1, 2, \cdots, \frac{K}{2} -1$, this is written as below.
+In Nash equilibrium, there is no incentive to deviate from the equilibrium strategy for all players. Considering type $k = 2, \cdots, \frac{K}{2} -1$, this is written as below.
 \begin{align*}
 	u_1 + \alpha \left\{ \sigma_k q_k + (1-\sigma_{k+1}) q_{k+1} \right\} = u_2 + \alpha \left\{ (1-\sigma_k) q_k + \sigma_{k-1} q_{k-1} \right\}
 \end{align*}
 The l.h.s. of the above equation is the expected utility the player whose type is $k$ will get if he remains at his first best train, and the r.h.s. is the one which will be obtained when he wants to avoid the congestion in the first best train and get on the one train before.
+
+Rearranging the formula, I get the below equilibrium condition for type $k = 2, \cdots, \frac{K}{2} -1$.
+\begin{align*}
+	\frac{u_1 - u_2}{\alpha} = \sigma_{k-1} q_{k-1} + (1 - 2 \sigma_{k}) q_k - (1-\sigma_{k+1}) q_{k + 1}
+\end{align*}
+You should be careful about $\frac{K}{2}$ type player, because their first best train is common with the last type of the later half players group. So by symmetry I get the below condition.
+\begin{align*}
+	u_1 + \alpha \left\{ \sigma_{\frac{K}{2}} q_{\frac{K}{2}} + \sigma_{\frac{K}{2}} q_{\frac{K}{2}} \right\} = u_2 + \alpha \left\{ (1-\sigma_{\frac{K}{2}}) q_{\frac{K}{2}} + \sigma_{\frac{K}{2}-1} q_{\frac{K}{2}-1} \right\}
+\end{align*}
+
 
 Then the below equations are satisfied for type $k = 1, 2, \cdots, \frac{K}{2} -1$.
 
