@@ -87,7 +87,7 @@ The first stage game is voting phase. The players are the same as in the second 
 \end{align*}
 
 \section{Equilibrium}
-By symmetry I just put a focus on the former half group. Because this is a dynamic model I should solve backwardly. Thus I clarify the equilibrium behavior when the type distribution is given. Let $\left\{ q_k \right\}_{k = 1}^{\frac{K}{2}}$ be the distribution and $\left\{ \sigma_k \right\}_{k = 1}^{\frac{K}{2}}$ be the type $k$ player's probability of choosing the first best train. Note that by assumption $\sigma_1 = 1$. 
+By symmetry I just put a focus on the former half group. Because this is a dynamic model I should solve backwardly. Thus I clarify the equilibrium behavior when the type distribution is given. Let $\left\{ q_k \right\}_{k = 1}^{\frac{K}{2}}$ be the distribution and $\left\{ \sigma_k \right\}_{k = 1}^{\frac{K}{2}}$ be the type $k$ player's probability of choosing the first best train. 
 
 In Nash equilibrium, there is no incentive to deviate from the equilibrium strategy for all players. Considering type $k = 2, \cdots, \frac{K}{2} -1$, this is written as below.
 \begin{align*}
@@ -101,9 +101,17 @@ Rearranging the formula, I get the below equilibrium condition for type $k = 2, 
 \end{align*}
 You should be careful about $\frac{K}{2}$ type player, because their first best train is common with the last type of the later half players group. So by symmetry I get the below condition.
 \begin{align*}
-	u_1 + \alpha \left\{ \sigma_{\frac{K}{2}} q_{\frac{K}{2}} + \sigma_{\frac{K}{2}} q_{\frac{K}{2}} \right\} = u_2 + \alpha \left\{ (1-\sigma_{\frac{K}{2}}) q_{\frac{K}{2}} + \sigma_{\frac{K}{2}-1} q_{\frac{K}{2}-1} \right\}
+	&u_1 + \alpha \left\{ \sigma_{\frac{K}{2}} q_{\frac{K}{2}} + \sigma_{\frac{K}{2}} q_{\frac{K}{2}} \right\} = u_2 + \alpha \left\{ (1-\sigma_{\frac{K}{2}}) q_{\frac{K}{2}} + \sigma_{\frac{K}{2}-1} q_{\frac{K}{2}-1} \right\}\\[8pt]
+	\Rightarrow\ &\frac{u_1 -u_2}{\alpha} = (1 - 3 \sigma_{\frac{K}{2}}) q_{\frac{K}{2}} +  \sigma_{\frac{K}{2}-1} q_{\frac{K}{2}-1}
 \end{align*}
-
+Note that by assumption $\sigma_1 = 1$. Then by stacking the above equations I have the equilibrium in the second stage game. Denote the equilibrium strategies by $\left\{ \sigma_k^{*} \right\}$. For $i = 1, 2, \cdots, \frac{K}{2} -1$,
+\begin{align*}
+	\sigma_{\frac{K}{2} -i}^{*} q_{\frac{K}{2} -i} = \frac{1}{8(K-1)} \left\{ 4 + 8i - (K - 2(i + 1))((2i+1)K - (8+2i))\epsilon \right\} - q_{\frac{K}{2}} - \cdots - q_{\frac{K}{2} - i + 1}
+\end{align*}
+where $\epsilon = \frac{u_1 - u_2}{\alpha}$. But this is not my point The more important is the realized equilibrium boarding distribution denoted by $\left\{ q_k^{*} \right\}$. Surprisingly this model has very simple equilibrium as follows.
+\begin{align*}
+	l
+\end{align*}
 
 Then the below equations are satisfied for type $k = 1, 2, \cdots, \frac{K}{2} -1$.
 
