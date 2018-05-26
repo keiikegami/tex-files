@@ -45,9 +45,17 @@ The first assumption is that the players in the former group have the one train 
 
 The main reason why there exists super crowded trains in rush hour is that such trains arrive at the time when both groups of players are in the station. I model this situation by overlapping the two groups of trains. That is the last train in the former half train group is the first train in the later half train group. For example, when $K = 6$, there are $5$ trains. And the player in the first half player group prefer $1,2$, or $3$, while the player in the second half player group prefer $3,4$, or $5$. This is the second assumption.
 
-The third assumption is the symmetric distribution of types in both of the groups. This absolutely simplify the computation. And I think this is not so unrealistic that it diminishes the importance of the model, because the commuters deriving the biased distribution should move their residence to the next station since they have the subsidy from their company. Furthermore the players are assumed to be divided into the first half and the second half with the same fraction, i.e. $\frac{1}{2}$. Then It is sufficient to put focus on the first half group. I denote the type distribution by $\left\{ q_t \right\}_{t = 1}^{\frac{K}{2}}$ where $\sum_{i = 1}^{\frac{K}{2}} q_t = \frac{1}{2}$.
+The third assumption is the symmetric distribution of types in both of the groups. This absolutely simplify the computation. And I think this is not so unrealistic that it diminishes the importance of the model, because the commuters deriving the biased distribution should move their residence to the next station since they have the subsidy from their company. Furthermore the players are assumed to be divided into the first half and the second half with the same fraction, i.e. $\frac{1}{2}$. Then It is sufficient to put focus on the first half group. I denote the type distribution by $\left\{ q_k \right\}_{k = 1}^{\frac{K}{2}}$ where $\sum_{i = 1}^{\frac{K}{2}} q_t = \frac{1}{2}$.
 
-Next we model the preference of players.
+Next we model the preference of players. All players have the common base utility $u_1, u_2$ specific to boarding the first best train and the second best train. And the key component is the disutility term resulted from the congestion. Let $\left\{ p_k \right\}$ be the realized distribution of passengers, the players boarding the train $k$ as his first best have the below form of utility.
+
+\begin{align*}
+	v_k = u_1 + \alpha p_k
+\end{align*}
+where $\alpha$ is the coefficient representing the marginal disutility from the congestion at the train. And of course those who board train $k$ as the second best have the below utility.
+\begin{align*}
+	v_k = u_2 + \alpha p_k
+\end{align*} 
 
 
 \end{document}
