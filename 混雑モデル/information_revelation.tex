@@ -66,6 +66,23 @@ Then I think there remains a opportunity to change their behavior by providing t
 
 Belief formation is by Bayesian updating since  this case is modeled as Dirichlet - Multinomial. All players have the same Dirichlet prior and the voting result can be seen as the realization of multinomial distribution whose parameters is drawn from the Dirichlet prior. These two are conjugate, and so the posterior distribution is also Dirichlet distribution. The posterior mean or mode is used as an estimate of the type distribution.
 
+In general,
+\begin{align*}
+	\begin{cases}
+	x \sim Dir(\alpha_1, \cdots, \alpha_K)\\
+	p \sim Multi(x_1,\cdots,x_K, N)
+	\end{cases}
+	\Rightarrow\ 
+	x\mid p \sim Dir(\alpha_1 -1 + p_1, \cdots, \alpha_K -1 + p_K)
+\end{align*}
+and
+\begin{align*}
+	E[x \mid p] = \left( \frac{\alpha_1 - 1 + p_1}{\sum_{k = 1}^K \alpha_i -1 + p_i} , \cdots, \frac{\alpha_K - 1 + p_K}{\sum_{k = 1}^K \alpha_i -1 + p_i}\right)
+\end{align*}
+In current setting $N$ is the population using the station in rush hour. Note that the parameter of Dirichlet distribution is actually under the restriction for deriving the symmetric belief. This is described in detail later.
+
+
+
 \section{Equilibrium}
 
 
