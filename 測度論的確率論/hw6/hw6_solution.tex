@@ -34,6 +34,7 @@ Homework 6}
 \maketitle
 
 \section{Ex6.3}
+\subsection{(a)}
 $F$のサポートを以下で書くことにする。
 \begin{align*}
 	S_F = \left\{ x \in \mathbb{R} \mid \forall \epsilon > 0, \ F(x + \epsilon) - F(x - \epsilon) > 0 \right\}
@@ -50,6 +51,21 @@ $F$のサポートを以下で書くことにする。
 	\end{cases}
 \end{align*}
 $(1)$より、$F(x + \eta) - F(x - \eta) = 0$であるので$(x-\eta, x+\eta) \subset \mathbb{R} \setminus S_F$である。よって定義より$\mathbb{R} \setminus S_F$は開集合であることが確認できたので題意は示された。
+
+\subsection{(b)}
+対偶を示す。すなわち以下を仮定して$F$が左連続でないことを示す。
+\begin{align*}
+	\exists x \in S_F\ \text{s.t.}\ \exists \epsilon > 0\ \text{s.t.}\ (x-\epsilon, x+\epsilon) \cap S_F = \left\{ x \right\}
+\end{align*}
+今、$x-\epsilon = x_0$として、左から$x$に収束する数列$\left\{ x_n \right\}_{n = 0}^{\infty}$を任意の$n$について$x_n < x$であるようにとる。この時、仮定よりこの数列の要素はどれもサポートに入らないので、
+\begin{align*}
+	\forall n,\ F(x_n) = F(x_{x+1})
+\end{align*}
+である。これより、$\lim_{n \to \infty} F(x_n) = f(x-\epsilon)$である。また右側から近づく数列についても同様に考えることができ、$f(x) = F(x + \epsilon)$である。一方で$F(\lim_{n \to \infty} x_n) = F(x)$である。仮に$F$が連続だとすると、
+\begin{align*}
+F(x - \epsilon) = F(x) = F(x + \epsilon)
+\end{align*}
+となり、これは$x$がサポートに入ることに矛盾する。
 
 \section{Ex6.8}
 
