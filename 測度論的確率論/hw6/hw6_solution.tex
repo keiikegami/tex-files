@@ -65,11 +65,47 @@ $(1)$より、$F(x + \eta) - F(x - \eta) = 0$であるので$(x-\eta, x+\eta) \s
 \begin{align*}
 F(x - \epsilon) = F(x) = F(x + \epsilon)
 \end{align*}
-となり、これは$x$がサポートに入ることに矛盾する。
+となり、これは$x$がサポートに入ることに矛盾する。従って題意は示された。
 
 \section{Ex6.8}
+任意に$p \in [0,1]$を取る。この時、$F^{-1}$の定義より以下は$F$が連続でなくても成立する。
+\begin{align*}
+	P\left( F(x) \leq p \right) = P\left( x \leq F^{-1}(p) \right) = F \left(F^{-1} (p)\right)
+\end{align*}
+$F$が連続でないとする。不連続点における左極限を$a$、右極限を$b$とすると、$p\in [a, b)$の時に、
+\begin{align*}
+	F \left(F^{-1} (p)\right) = b
+\end{align*}
+であるので、確かに$F$が連続でない時$F(X)$が一様分布に従わないことがわかる。一方で$F$が連続の時は、右極限と左翼弦が一致するため上のように$p$を取ることができない。従って、
+\begin{align*}
+	F \left(F^{-1} (p)\right) = p
+\end{align*}
+が成立する。よって題意は示された。
 
 \section{Ex6.10}
+\subsection{(a)}
+測度の単調性と、アトムを持たないという仮定より以下が成立する。
+\begin{align*}
+	A_1 \subset A,\ A_1 \in \mathcal{F}\ \Rightarrow P(A) > P(A_1) > 0
+\end{align*}
+この論法で$A_1$に対しても同様に$A_2\ \text{s.t.}\ A_2 \subset A_1,\ A_2 \in \mathcal{F},\ P(A_1) > P(A_2) > 0$となる$A_2$が作れる。これを繰り返して減少列$A_1, A_2, A_3, \cdots$を作る。この時、
+\begin{align}
+	\lim_{n \to \infty} P(A_n) = 0
+\end{align}
+であることを示せば、任意の$\epsilon > 0$に対して、ある大きな$N$が存在して、$n \geq N \Rightarrow P(A_n) < \epsilon$であるので、そのような$n$のうちで一つの$A_n$を$B$とすれば題意は示されている。よって$(1)$を以下で示す。
+
+減少列であることから、
+\begin{align*}
+	\lim_{n \to \infty} P(A_n) = P(\bigcap_n A_n)
+\end{align*}
+である。ここで、$\left\{ A_n \right\}$の構成の仕方から$\bigcap_n A_n \in \mathcal{F}$である。$P\left( \bigcap_n A_n \right) > 0$とすると、アトムを持たないという仮定より、
+\begin{align*}
+	\exists C \subset \bigcap_n A_n,\ C \in \mathcal{F} \ \Rightarrow\ P\left( \bigcap_n A_n \right) > p(C) > 0
+\end{align*}
+である。しかし、そのような$C$は明らかに$\left\{ A_n \right\}$のどこかに含まれるため、$P(C)\geq P\left( \bigcap_n A_n \right)$であり矛盾する。よって、$P\left( \bigcap_n A_n \right) = 0$であるので題意は示された。
+
+\subsection{(b)}
+
 
 \section{Ex6.12}
 
