@@ -112,8 +112,26 @@ $F$が連続でないとする。不連続点における左極限を$a$、右�
 である。$P(C) \leq a - \frac{1}{N}$の時、$P(A \setminus C) > \frac{1}{N} > 0$であるので$(a)$より、$D \subset A \setminus C$で任意に小さな$\epsilon > 0$に対して$0 < P(D) < \epsilon$であるような$D \in \mathcal{F}$が存在する。ここで$C$と$D$はその構成より排反なので、$P(C \cup D) = P(C) + P(D)$である。これは$a - \frac{1}{N} < P(C\cup D) < a + \frac{1}{N}$とできるような$D$がkならず存在することを意味する。$P(C) \geq a + \frac{1}{N}$のケースについても同様に考えることで$a - \frac{1}{N} < P(C\setminus D) < a + \frac{1}{N}$となるような$D$を適切にとってくることができる。
 以上より、先の否定は成立しないので題意は示された。
 
-
 \section{Ex6.12}
+Lecture noteより任意の内点$x \in I$に対して任意の$y \in I$と任意の$a \in \left[ D_{-}\phi(x), D_{+}\phi(x) \right]$が取れて
+\begin{align}
+	\varphi(y) \geq \varphi(x) + a(y-x)
+\end{align}
+である。今、$S = \left\{ x_i \mid i \in \mathbb{N} \right\}$を$I$の可算稠密集合とする。これは$\mathbb{R}$が可分であることより必ず存在する。ここで$(3)$より、任意の$x\in I$に対して、
+\begin{align}
+	\varphi(x) \geq \varphi(x_i) + D_{+}\phi(x_i) (x - x_i)
+\end{align}
+が任意の$i$について成り立つ。ここで、
+\begin{align*}
+	&a_i = D_{+}\phi(x_i)\\
+	&b_i = \varphi(x_i) - D_{+}\phi(x_i) x_i
+\end{align*}
+とおいて、
+\begin{align*}
+	\psi(x) = a_i x + b_i
+\end{align*}
+と定義する。$(4)$より$\varphi(x) \geq \psi(x)$が成立することが確認できた。
+
 
 \section{Ex6.14}
 \begin{align*}
