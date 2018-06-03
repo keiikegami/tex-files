@@ -119,19 +119,54 @@ Lecture noteより任意の内点$x \in I$に対して任意の$y \in I$と任�
 \end{align}
 である。今、$S = \left\{ x_i \mid i \in \mathbb{N} \right\}$を$I$の可算稠密集合とする。これは$\mathbb{R}$が可分であることより必ず存在する。ここで$(3)$より、任意の$x\in I$に対して、
 \begin{align}
-	\varphi(x) \geq \varphi(x_i) + D_{+}\phi(x_i) (x - x_i)
+	\varphi(x) \geq \varphi(x_i) + D_{+}\varphi(x_i) (x - x_i)
 \end{align}
 が任意の$i$について成り立つ。ここで、
 \begin{align*}
-	&a_i = D_{+}\phi(x_i)\\
-	&b_i = \varphi(x_i) - D_{+}\phi(x_i) x_i
+	&a_i = D_{+}\varphi(x_i)\\
+	&b_i = \varphi(x_i) - D_{+}\varphi(x_i) x_i
 \end{align*}
 とおいて、
 \begin{align*}
 	\psi(x) = a_i x + b_i
 \end{align*}
-と定義する。$(4)$より$\varphi(x) \geq \psi(x)$が成立することが確認できた。
+と定義する。$(4)$より$\varphi(x) \geq \psi(x)$が成立することが確認できた。従って逆向きの不等号を証明すれば題意を示したことになる。
 
+$(3)$より以下が成立する。
+\begin{align*}
+	\varphi(x_i) \geq \varphi(x) + D_{+}\varphi(x) (x_i - x)
+\end{align*}
+これより、
+\begin{align*}
+	\psi(x) &\geq \varphi(x_i) + D_{+}\varphi(x_i) (x - x_i)\\
+	&\geq \varphi(x) - (x_i - x) (D_{+}\varphi(x_i) - D_{+}\varphi(x))
+\end{align*}
+が任意の$i$について成立する。ここで、「$D_{+} \varphi(x)$が右連続である（主張$1$）」を所与とすると、$x_i \downarrow x$の時に右辺第二項が$0$となるので、確かに$\psi(x) \geq \varphi(x)$が成立する。よって両方の不等号が示されたので、$\psi(x) =  \varphi(x)$が示された。
+
+\subsection{主張$1$の証明}
+$x < z < y$とする。
+\begin{align*}
+	\frac{\varphi(y) - \varphi(z)}{y-z}
+\end{align*}
+を考えると、lecture noteよりこれは$z$より大きな$y \in I$について非減少関数である。従って、そのような$y^{*}$について以下が成立する。
+\begin{align*}
+	\lim_{y\downarrow z} \frac{\varphi(y) -\varphi(z)}{y-z} \leq \frac{\varphi(y^{*})- \varphi(z)}{y^{*}-z}
+\end{align*}
+この両辺で$z\downarrow x$をとると、
+\begin{align*}
+	\lim_{z\downarrow x} D_{+}\varphi(z) \leq \lim_{z\downarrow x} \frac{\varphi(y^{*})- \varphi(z)}{y^{*}-z} = \frac{\varphi(y^{*})- \varphi(x)}{y^{*}-x}
+\end{align*}
+となる。ただし、等号は$\varphi(x)$が内部で連続であることより得られる。ここで、$y^{*} \downarrow x$を両辺でとると、左辺は関係ないので変化せず、
+\begin{align*}
+	\lim_{z\downarrow x} D_{+}\varphi(z) \leq \lim_{y^{*} \downarrow x} \frac{\varphi(y^{*})- \varphi(x)}{y^{*}-x} = D_{+}\varphi(x)
+\end{align*}
+を得る。
+
+あとは逆向きの不等号も示せば題意が示されたことになる。つまり、$x < z$で常に$D_{+}\varphi(x) \leq D_{+}\varphi(z)$が成立することを示せば良い。ここで、$x < y < z < w$が内点として撮れる時、凸関数の性質から、
+\begin{align*}
+	\frac{\varphi(y) - \varphi(x)}{y-x} \leq \frac{\varphi(z) - \varphi(x)}{z-x} \leq \frac{\varphi(w) - \varphi(z)}{w-z}
+\end{align*}
+である。この両端に注目すると、確かに$D_{+}\varphi(x) \leq D_{+}\varphi(z)$であることがわかる。これより逆向きの不等号も示されたので、$D_{+}\varphi(x) = \lim_{z\downarrow x} D_{+}\varphi(z)$である。これは$D_{+}\varphi(z)$が右連続であることを示している。
 
 \section{Ex6.14}
 \begin{align*}
