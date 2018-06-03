@@ -87,6 +87,7 @@ The first stage game is voting phase. The players are the same as in the second 
 \end{align*}
 
 \section{Equilibrium}
+\subsection{Second stage}
 By symmetry I just put a focus on the former half group. Because this is a dynamic model I should solve backwardly. Thus I clarify the equilibrium behavior when the type distribution is given. Let $\left\{ q_k \right\}_{k = 1}^{\frac{K}{2}}$ be the distribution and $\left\{ \sigma_k \right\}_{k = 1}^{\frac{K}{2}}$ be the type $k$ player's probability of choosing the first best train. 
 
 In Nash equilibrium, there is no incentive to deviate from the equilibrium strategy for all players. Considering type $k = 2, \cdots, \frac{K}{2} -1$, this is written as below.
@@ -108,12 +109,14 @@ Note that by assumption $\sigma_1 = 1$. Then by stacking the above equations I h
 \begin{align*}
 	\sigma_{\frac{K}{2} -i}^{*} q_{\frac{K}{2} -i} = \frac{1}{8(K-1)} \left\{ 4 + 8i - (K - 2(i + 1))((2i+1)K - (8+2i))\epsilon \right\} - q_{\frac{K}{2}} - \cdots - q_{\frac{K}{2} - i + 1}
 \end{align*}
-where $\epsilon = \frac{u_1 - u_2}{\alpha}$. But this is not my point The more important is the realized equilibrium boarding distribution denoted by $\left\{ q_k^{*} \right\}$. Surprisingly this model has very simple equilibrium as follows.
+where $\epsilon = \frac{u_1 - u_2}{\alpha}$. But this is not my point The more important is the realized equilibrium boarding distribution denoted by $\left\{ q_k^{*} \right\}$. Surprisingly this model has very simple equilibrium distribution as follows. For $i = 1, 2, \cdots, \frac{K}{2} -1$,
 \begin{align*}
-	l
+	&q_{\frac{K}{2}}^{*} = \frac{1}{K-1} \left( 1 - \frac{\epsilon}{4} (K-2)(K-8) \right)\\[8pt]
+	&q_{\frac{K}{2} - i}^{*} = q_{\frac{K}{2}}^{*} + (i-2) \epsilon
 \end{align*}
 
-Then the below equations are satisfied for type $k = 1, 2, \cdots, \frac{K}{2} -1$.
+\subsection{Belief formation and the first stage game}
+
 
 
 \end{document}
