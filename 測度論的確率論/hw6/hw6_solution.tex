@@ -90,13 +90,13 @@ $F$が連続でないとする。不連続点における左極限を$a$、右�
 \end{align*}
 この論法で$A_1$に対しても同様に$A_2\ \text{s.t.}\ A_2 \subset A_1,\ A_2 \in \mathcal{F},\ P(A_1) > P(A_2) > 0$となる$A_2$が作れる。これを繰り返して減少列$A_1, A_2, A_3, \cdots$を作る。この時、
 \begin{align}
-	\lim_{n \to \infty} P(A_n) = 0
+	\lim_{n \to \infty} P\left(A_n \right) = 0
 \end{align}
 であることを示せば、任意の$\epsilon > 0$に対して、ある大きな$N$が存在して、$n \geq N \Rightarrow P(A_n) < \epsilon$であるので、そのような$n$のうちで一つの$A_n$を$B$とすれば題意は示されている。よって$(1)$を以下で示す。
 
 減少列であることから、
 \begin{align*}
-	\lim_{n \to \infty} P(A_n) = P(\bigcap_n A_n)
+	\lim_{n \to \infty} P(A_n) = P\left(\bigcap_n A_n \right)
 \end{align*}
 である。ここで、$\left\{ A_n \right\}$の構成の仕方から$\bigcap_n A_n \in \mathcal{F}$である。$P\left( \bigcap_n A_n \right) > 0$とすると、アトムを持たないという仮定より、
 \begin{align*}
@@ -109,7 +109,7 @@ $F$が連続でないとする。不連続点における左極限を$a$、右�
 \begin{align*}
 	\exists N > 0\ \text{s.t.}\ n \geq N\ \Rightarrow\ P(C) \leq a - \frac{1}{n}\ \text{or}\ a + \frac{1}{n} \leq P(C)\ \forall C \subset A, C \in \mathcal{F}
 \end{align*}
-である。$P(C) \leq a - \frac{1}{N}$の時、$P(A \setminus C) > \frac{1}{N} > 0$であるので$(a)$より、$D \subset A \setminus C$で任意に小さな$\epsilon > 0$に対して$0 < P(D) < \epsilon$であるような$D \in \mathcal{F}$が存在する。ここで$C$と$D$はその構成より排反なので、$P(C \cup D) = P(C) + P(D)$である。これは$a - \frac{1}{N} < P(C\cup D) < a + \frac{1}{N}$とできるような$D$がkならず存在することを意味する。$P(C) \geq a + \frac{1}{N}$のケースについても同様に考えることで$a - \frac{1}{N} < P(C\setminus D) < a + \frac{1}{N}$となるような$D$を適切にとってくることができる。
+である。$P(C) \leq a - \frac{1}{N}$の時、$P(A \setminus C) > \frac{1}{N} > 0$であるので$(a)$より、$D \subset A \setminus C$で任意に小さな$\epsilon > 0$に対して$0 < P(D) < \epsilon$であるような$D \in \mathcal{F}$が存在する。ここで$C$と$D$はその構成より排反なので、$P(C \cup D) = P(C) + P(D)$である。これは$a - \frac{1}{N} < P(C\cup D) < a + \frac{1}{N}$とできるような$D$が必ず存在することを意味する。$P(C) \geq a + \frac{1}{N}$のケースについても同様に考えることで$a - \frac{1}{N} < P(C\setminus D) < a + \frac{1}{N}$となるような$D$を適切にとってくることができる。
 以上より、先の否定は成立しないので題意は示された。
 
 \section{Ex6.12}
@@ -128,7 +128,7 @@ Lecture noteより任意の内点$x \in I$に対して任意の$y \in I$と任�
 \end{align*}
 とおいて、
 \begin{align*}
-	\psi(x) = a_i x + b_i
+	\psi(x) = \sup_i \left\{ a_i x + b_i \right\}
 \end{align*}
 と定義する。$(4)$より$\varphi(x) \geq \psi(x)$が成立することが確認できた。従って逆向きの不等号を証明すれば題意を示したことになる。
 
@@ -162,7 +162,7 @@ $x < z < y$とする。
 \end{align*}
 を得る。
 
-あとは逆向きの不等号も示せば題意が示されたことになる。つまり、$x < z$で常に$D_{+}\varphi(x) \leq D_{+}\varphi(z)$が成立することを示せば良い。ここで、$x < y < z < w$が内点として撮れる時、凸関数の性質から、
+あとは逆向きの不等号も示せば題意が示されたことになる。つまり、$x < z$で常に$D_{+}\varphi(x) \leq D_{+}\varphi(z)$が成立することを示せば良い。ここで、$x < y < z < w$が内点としてとれる時、凸関数の性質から、
 \begin{align*}
 	\frac{\varphi(y) - \varphi(x)}{y-x} \leq \frac{\varphi(z) - \varphi(x)}{z-x} \leq \frac{\varphi(w) - \varphi(z)}{w-z}
 \end{align*}
@@ -184,7 +184,7 @@ $x < z < y$とする。
 \begin{align*}
 	\left( E\left[ X 1_{\left\{ X \leq \theta E[X] \right\}} \right] - E[X] \right)^2 \geq \left( E[X] - \theta E[X] \right)^2
 \end{align*}
-上から打ち切って期待値を撮っているため、$E\left[ X 1_{\left\{ X \leq \theta E[X] \right\}} \right] < E[X$であるので、左辺の中身は負である。一方で、$\theta \in [0,1]$であるので右辺の中身は正である。これより、以下を示せばよい。
+上から打ち切って期待値をとっているため、$E\left[ X 1_{\left\{ X \leq \theta E[X] \right\}} \right] < E[X]$であるので、左辺の中身は負である。一方で、$\theta \in [0,1]$であるので右辺の中身は正である。これより、以下を示せばよい。
 \begin{align*}
 	E[X] - E\left[ X 1_{\left\{ X \leq \theta E[X] \right\}} \right]  \geq E[X] - \theta E[X] 
 \end{align*}
