@@ -69,13 +69,30 @@ Homework 7}
 \begin{align*}
 	L\left( \left(X_1, \cdots, X_n\right), X_{n+1} \right) &= L\left( X_1, \cdots, X_n \right) \times L(X_{n+1})\\
 	&= L\left( \left(X_1, \cdots, X_{n-1}\right), X_n \right) \times L(X_{n+1})\\
-	&= L\left( \left(X_1, \cdots, X_{n-1}\right)\right) \times L(X_{n}) \times L(X_{n+1})\\
+	&= L\left( \left(X_1, \cdots, X_{n-1}\right)\right) \times L(X_{n}) times L(X_{n+1})\\
 	& \vdots\\
 	&= L\left( X_1 \right)\times \cdots \times L\left( X_{n+1} \right)
 \end{align*}
 が成立する。任意に$\left\{ i_1, i_2, \cdots, i_m \right\} \subset \mathbb{N}$をとった時、上記の議論より$\left( X_1, \cdots, X_{i_m} \right)$が独立なので、そのサブセットによって構成される$\left( X_{i_1}, \cdots, X_{i_m} \right)$も独立となる。
 
 \section{Ex 7.3}
+$X$と同じ確率変数をもう一つ用意し$Y$とする。この時分布を$\mu(x),\mu(y)$と書いて以下の積分を考える。
+\begin{align*}
+	\int_{\mathbb{R}}\int_{\mathbb{R}} \left( f(x) - f(y) \right)  \left( g(x) - g(y)\right) \mathrm{d}\mu(x) \mathrm{d}\mu(y)
+\end{align*}
+$f,g$はどちらも非減少関数であるので、$x \geq y$の時は$f(x) - f(y), g(x) - g(y) \geq 0$であり、$x < y$の時は$f(x) - f(y), g(x) - g(y) \leq 0$である。これより被積分関数は常に非負であることがわかる。従って上記の積分は非負である。$x,y$は同一視できるので、積分の線型性より以下を得る。
+\begin{align*}
+	\int_{\mathbb{R}}\int_{\mathbb{R}} \left( f(x) - f(y) \right)  \left( g(x) - g(y)\right) \mathrm{d}\mu(x) \mathrm{d}\mu(y) = 2 E \left[ f(x)g(x) \right] - 2E\left[ f(x) \right] E\left[ g(y) \right]
+\end{align*}
+これより、
+\begin{align*}
+	2 E \left[ f(x)g(x) \right] - 2E\left[ f(x) \right] E\left[ g(x) \right] \geq 0\ \Leftrightarrow\ E \left[ f(x)g(x) \right] \geq E\left[ f(x) \right] E\left[ g(x) \right]
+\end{align*}
+
+また、$g$が非増加関数の時、$-g$が非減少関数であり、上記が適用できる。
+\begin{align*}
+	E \left[ -f(x)g(x) \right] \geq E\left[ f(x) \right] E\left[ -g(x) \right] \ \Leftrightarrow\ E \left[ f(x)g(x) \right] \leq E\left[ f(x) \right] E\left[ g(x) \right]
+\end{align*}
 
 \section{Ex 7.8}
 
