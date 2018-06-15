@@ -56,6 +56,24 @@ Homework 7}
 
 
 \section{Ex 7.1}
+レクチャーノートより$\left\{ X_n \mid n \in \mathbb{N}\right\}$が独立であることは以下と同値である。
+\begin{align*}
+	\forall \left\{ i_1, i_2, \cdots, i_m \right\} \subset \mathbb{N},\ L\left( X_{i_1}, \cdots, X_{i_m} \right) = L\left( X_{i_1} \right)\times \cdots \times L\left( X_{i_m} \right)
+\end{align*}
+従って$\left\{ X_n \mid n \in \mathbb{N}\right\}$が独立の時、任意の$n \in \mathbb{N}$に対して、
+\begin{align*}
+	L\left( X_1, \cdots, X_n \right) \times L(X_{n+1}) &= L\left( X_{1} \right)\times \cdots \times L\left( X_{n} \right) \times L\left( X_{n+1} \right)\\
+	&= L\left( X_1, \cdots, X_n, X_{n+1} \right)\\ &= L\left( \left(X_1, \cdots, X_n\right), X_{n+1} \right)
+\end{align*}
+なので確かに$\left(X_1, \cdots, X_n\right)$と$X_{n+1}$は独立である。また逆に、任意の$n$について$\left(X_1, \cdots, X_n\right)$と$X_{n+1}$が独立の時、
+\begin{align*}
+	L\left( \left(X_1, \cdots, X_n\right), X_{n+1} \right) &= L\left( X_1, \cdots, X_n \right) \times L(X_{n+1})\\
+	&= L\left( \left(X_1, \cdots, X_{n-1}\right), X_n \right) \times L(X_{n+1})\\
+	&= L\left( \left(X_1, \cdots, X_{n-1}\right)\right) \times L(X_{n}) \times L(X_{n+1})\\
+	& \vdots\\
+	&= L\left( X_1 \right)\times \cdots \times L\left( X_{n+1} \right)
+\end{align*}
+が成立する。任意に$\left\{ i_1, i_2, \cdots, i_m \right\} \subset \mathbb{N}$をとった時、上記の議論より$\left( X_1, \cdots, X_{i_m} \right)$が独立なので、そのサブセットによって構成される$\left( X_{i_1}, \cdots, X_{i_m} \right)$も独立となる。
 
 \section{Ex 7.3}
 
