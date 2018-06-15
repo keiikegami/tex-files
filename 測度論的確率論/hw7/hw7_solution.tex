@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{測度論的確率論 2018 S1S2 \\ 
+Homework 7}
+\author{経済学研究科現代経済コース修士1年 / 池上　慧 (29186009) / sybaster.x@gmail.com}
+\maketitle
+
+\section{Theorem 7.2}
+まず$P(\epsilon_i = 0) = P(\epsilon_i = 1) = \frac{1}{2}$を示す。$\epsilon_i \in \left\{ 0,1\right\}$なので、$1$となる確率のみ求めれば良い。$i = 1$の時は、
+\begin{align*}
+	P(\epsilon_1 = 1) = P\left(\omega \mid \omega \in \left[\frac{1}{2}, 1\right)\right) = \frac{1}{2}
+\end{align*}
+より確かに成り立つ。$i > 1$の時は、
+\begin{align*}
+	P(\epsilon_i = 1) = 2^{i-1} \times \frac{1}{2^i} = \frac{1}{2}
+\end{align*}
+ここで$2^{i-1}$は$\left\{ \epsilon_j \right\}_1^{i-1}$が取りうる場合の数であり、$\frac{1}{2^i}$は実現した$\left\{ \epsilon_j \right\}_1^{i-1}$に対して$\left\{ \epsilon_j \right\}_i^{\infty}$を使って表現できる$\omega$の集合の測度、すなわち$P\left(\omega \mid \omega \in \left[0, \frac{1}{2^i}\right) \right)$である。よって確かに任意の$i$について$P(\epsilon_i = 0) = P(\epsilon_i = 1) = \frac{1}{2}$が確かめられた。
+
+次に独立性を示す。$D_i \in \left\{ 0,1\right\}$として、任意の$\left\{ i_1, i_2, \cdots, i_m \right\} \subset \mathbb{N}$に対して以下が成立することを示す。
+\begin{align*}
+	P\left( \epsilon_{i_1} = D_1, \cdots, \epsilon_{i_m} = D_m \right) = P\left( \epsilon_{i_1} = D_1\right) \times \cdots \times P\left( \epsilon_{i_m} = D_,\right)
+\end{align*}
+先の結果より、右辺は$\frac{1}{2^m}$なので、左辺もこの値を取ることを示せばよい。先と同じように考えて以下をえる。
+\begin{align*}
+	P\left( \epsilon_{i_1} = D_1, \cdots, \epsilon_{i_m} = D_m \right) = 2^{i_m - m} \times \frac{1}{2^{i_m}} = \frac{1}{2^m}
+\end{align*}
+ここで$2^{i_m - m}$は少数第$i_m$位までに自由に動かせる桁を組み合わせた時の場合の数であり、$\frac{1}{2^{i_m}}$は各組み合わせに対して動かせる幅の測度である。よって題意は示された。
+
+
+\section{Ex 7.1}
+
+\section{Ex 7.3}
+
+\section{Ex 7.8}
+
+\section{Durrett 2.1.10}
+
+\section{Durrett 2.1.11}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
