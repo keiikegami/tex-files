@@ -93,12 +93,25 @@ $f,g$はどちらも非減少関数であるので、$x \geq y$の時は$f(x) - 
 \begin{align*}
 	E \left[ -f(x)g(x) \right] \geq E\left[ f(x) \right] E\left[ -g(x) \right] \ \Leftrightarrow\ E \left[ f(x)g(x) \right] \leq E\left[ f(x) \right] E\left[ g(x) \right]
 \end{align*}
+よって題意は示された。
 
 \section{Ex 7.8}
 
 \section{Durrett 2.1.10}
+積分の線型性より以下を得る。
+\begin{align*}
+	P(X+Y = n) &= E\left[ 1(x + y = n) \right] = E\left[ \sum_m 1(x = m) 1(y = n-m) \right]\\ &= \sum_m E\left[ 1(x = m) 1(y = n-m) \right] = \sum_m E\left[ 1(x = m) \right] E\left[1(y = n-m) \right] = \sum_m P(X = m) p(Y = n-m)
+\end{align*}
 
 \section{Durrett 2.1.11}
+前問より以下が成立する。
+\begin{align*}
+	P(X+Y = n) &= \sum_m P(X = m) P(Y = n-m) = \sum_m \frac{e^{-\lambda} \lambda^m}{m!} \frac{e^{-\mu} \mu^{(n-m)}}{(n-m)!}\\[8pt]
+	&=\frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} \sum_m \frac{n!}{(\lambda + \mu)^n} \frac{\lambda^m \mu^{(n-m)}}{m! (n-m)!}\\[8pt]
+	&= \frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} \sum_m \binom nm \left( \frac{\lambda}{\lambda + \mu} \right)^m \left( 1 - \frac{\lambda}{\lambda + \mu} \right)^{(n-m)}\\[8pt]
+	&= \frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} 
+\end{align*}
+よって題意は示された。
 
 \end{document}
 
