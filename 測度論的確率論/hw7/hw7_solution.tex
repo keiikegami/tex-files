@@ -96,6 +96,26 @@ $f,g$はどちらも非減少関数であるので、$x \geq y$の時は$f(x) - 
 よって題意は示された。
 
 \section{Ex 7.8}
+まず連続性を示す。$z, z^{\prime} \in \mathbb{R}$をとる。積分の線型性とEx 4.3より以下を得る。
+\begin{align*}
+	\left| f\star g(z) - f\star g(z^{\prime}) \right| \leq \int \left| f(z-y) - f(z^{\prime} -y) \right| \left| g(y) \right| \mathrm{d}y
+\end{align*}
+ここで関数に対して以下を定義する。ただし$\mu$は関数の定義域に対して定義された測度である。
+\begin{align*}
+	\| g \|_{\infty}  = \inf \left\{ C \mid \mu\left( \left\{ \left| g \right| > C \right\} \right) = 0 \right\}
+\end{align*}
+これを用いて、
+\begin{align*}
+	\int \left| f(z-y) - f(z^{\prime} -y) \right| \left| g(y) \right| \mathrm{d}y \leq \| g \|_{\infty} \int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y
+\end{align*}
+である。仮定より$\| g \|_{\infty} < \infty$であるので、$\left| z-z^{\prime} \right| < \delta$ならば$\int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y$が任意に小さい$\epsilon > 0$で抑えられるような、$\delta$が存在することを示せば定義より連続性が示されたことになる。以下ではこれを示す。
+
+$z^{\prime} - y = w$で変数変換することで以下を得る。
+\begin{align*}
+	\int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y
+\end{align*}
+
+
 
 \section{Durrett 2.1.10}
 積分の線型性より以下を得る。
