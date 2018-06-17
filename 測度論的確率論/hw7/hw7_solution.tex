@@ -134,16 +134,34 @@ $z^{\prime} - y = w$で変数変換し、適当な$R > 0$に対して$B_R = [-R,
 	\int \left| f- \phi_{\epsilon} \right| \mathrm{d}x < \epsilon
 \end{align*}
 を満たすようなコンパクトな台を持つ連続関数$\phi_{\epsilon}$が必ず存在する。この関数を使って以下のように抑える。
+\begin{align}
+	\int \left| \left( f(z-z^{\prime}+w) - f(w)\right) 1_{B_R} \right| \mathrm{d}w &\leq \int \left| \left( f(z-z^{\prime} +w) - \phi_{\epsilon}(z-z^{\prime} +w) \right)1_{B_R} \right| \mathrm{d}w \nonumber \\&\quad +  \int \left| \left( \phi_{\epsilon}(z-z^{\prime} +w) - \phi_{\epsilon}(w) \right)1_{B_R} \right| \mathrm{d}w \nonumber \\ &\quad +  \int \left| \left( \phi_{\epsilon}(w) - f(w) \right)1_{B_R} \right| \mathrm{d}w \nonumber \\[8pt]
+	&\leq 2\epsilon + \int \left| \left( \phi_{\epsilon}(z-z^{\prime} +w) - \phi_{\epsilon}(w) \right)1_{B_R} \right| \mathrm{d}w
+\end{align}
+$\phi_{\epsilon}(x)$はその定義より以下を満たす。$R > R_{\epsilon}$を固定して、任意の$\epsilon > 0$に対して
 \begin{align*}
-	\int \left| \left( f(z-z^{\prime}+w) - f(w)\right) 1_{B_R} \right| \mathrm{d}w &\leq \int \left| \left( f(z-z^{\prime} +w) - \phi_{\epsilon}(z-z^{\prime} +w) \right)1_{B_R} \right| \mathrm{d}w \\&\quad +  \int \left| \left( \phi_{\epsilon}(z-z^{\prime} +w) - \phi_{\epsilon}(w) \right)1_{B_R} \right| \mathrm{d}w\\ &\quad +  \int \left| \left( \phi_{\epsilon}(w) - f(w) \right)1_{B_R} \right| \mathrm{d}w
+	\exists \delta_{\epsilon, R} > 0\ \text{s.t.}\ \forall y \in \mathbb{R}, \left| x \right| < \delta_{\epsilon, R}, \left| \phi_{\epsilon}(x + y) \phi_{\epsilon}(y) \right| \leq \frac{\epsilon}{2R}
 \end{align*}
+である。従って、各$R$に対して$\left| z-z^{\prime} \right| < \delta_{\epsilon, R}$で、
+\begin{align}
+	\int \left| \left( \phi_{\epsilon}(z-z^{\prime} +w) - \phi_{\epsilon}(w) \right)1_{B_R} \right| \mathrm{d}w \leq \int \frac{\epsilon}{2R} 1_{B_R}\mathrm{d}w = \epsilon
+\end{align}
+とする事ができる。$(1)$に$(2),(3),(4)$の結果を使って、
+\begin{align*}
+	\forall \epsilon > 0, \exists \delta > 0\ \text{s.t.}\ \forall z,z^{\prime}\ \text{s.t.}\ \left| z-z^{\prime} \right| < \delta, \int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y \leq 5\epsilon
+\end{align*}
+以上より確かに上の項を任意に小さくできるので連続性が示された。
 
-
+次に有界であることを示す。$f$が確率密度関数であるので非負であることと、変数変換公式より、
+\begin{align*}
+	\left| f\star g(z) \right| \leq \int \left| f(z-y) g(y) \right| \mathrm{d}y \leq \| g \|_{\infty} \int f(z-y) \mathrm{d}y = \| g \|_{\infty} < \infty
+\end{align*}
+を得る。従って今考えている畳み込みが有界であることが示された。
 
 \section{ 2.1.10}
 積分の線型性より以下を得る。
 \begin{align*}
-	P(X+Y = n) &= E\left[ 1(x + y = n) \right] = E\left[ \sum_m 1(x = m) 1(y = n-m) \right]\\ &= \sum_m E\left[ 1(x = m) 1(y = n-m) \right] = \sum_m E\left[ 1(x = m) \right] E\left[1(y = n-m) \right] = \sum_m P(X = m) p(Y = n-m)
+	P(X+Y = n) &= E\left[ 1(x + y = n) \right] = E\left[ \sum_m 1(x = m) 1(y = n-m) \right]\\ &= \sum_m E\left[ 1(x = m) 1(y = n-m) \right] = \sum_m E\left[ 1(x = m) \right] E\left[1(y = n-m) \right] = \sum_m P(X = m) p(Y = n-m)\\[8pt]
 \end{align*}
 
 \section{Durrett 2.1.11}
