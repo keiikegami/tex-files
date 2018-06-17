@@ -110,14 +110,37 @@ $f,g$はどちらも非減少関数であるので、$x \geq y$の時は$f(x) - 
 \end{align*}
 である。仮定より$\| g \|_{\infty} < \infty$であるので、$\left| z-z^{\prime} \right| < \delta$ならば$\int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y$が任意に小さい$\epsilon > 0$で抑えられるような、$\delta$が存在することを示せば定義より連続性が示されたことになる。以下ではこれを示す。
 
-$z^{\prime} - y = w$で変数変換することで以下を得る。
+$z^{\prime} - y = w$で変数変換し、適当な$R > 0$に対して$B_R = [-R, R]$と定義して、三角不等式より以下を得る。
+\begin{align}
+	\int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y &= \int \left| f(z-z^{\prime}+w) - f(w) \right| \mathrm{d}w \nonumber \\[8pt]
+	&\leq \int \left| \left( f(z-z^{\prime}+w) - f(w)\right) 1_{B_R} \right| \mathrm{d}w + \int \left| \left( f(z-z^{\prime}+w) - f(w)\right) 1_{B_R^c} \right| \mathrm{d}w
+\end{align}
+ここで$\left| z-z^{\prime} \right| < \frac{R}{2}$の時、第2項は以下のように抑えられる。
 \begin{align*}
-	\int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y
+	\int \left| \left( f(z-z^{\prime}+w) - f(w)\right) 1_{B_R^c} \right| \mathrm{d}w \leq \int \left| f(z-z^{\prime}+w)1_{B_R^c} \right| \mathrm{d}w + \int \left| f(w)1_{B_R^c} \right| \mathrm{d}w \leq 2\left( \int \left| f(w)1_{B_{\frac{R}{2}}^c} \right| \mathrm{d}w \right)
+\end{align*}
+なぜなら、$\left| z-z^{\prime} \right| < \frac{R}{2}$の時、$w \in B_R^c\ \Rightarrow\ z-z^{\prime}+w \in B_{\frac{R}{2}}^c$となるからである。仮定より$f$は可積分関数なので、単調収束定理が適用でき、
+\begin{align*}
+	\lim_{R\to \infty} \int \left| f(w)1_{B_{\frac{R}{2}}^c} \right| \mathrm{d}w = 0
+\end{align*}
+すなわち、
+\begin{align}
+	\forall \epsilon > 0, \exists R_{\epsilon} > 0\ \text{s.t.}\ \forall R> R_{\epsilon},  \int \left| f(w)1_{B_{\frac{R}{2}}^c} \right| \mathrm{d}w \leq \epsilon
+\end{align}
+を得る。
+
+次に$(1)$の第1項を抑えることを考える。まず、Ex 4.21より、任意の$\epsilon > 0$に対して、
+\begin{align*}
+	\int \left| f- \phi_{\epsilon} \right| \mathrm{d}x < \epsilon
+\end{align*}
+を満たすようなコンパクトな台を持つ連続関数$\phi_{\epsilon}$が必ず存在する。この関数を使って以下のように抑える。
+\begin{align*}
+	\int \left| \left( f(z-z^{\prime}+w) - f(w)\right) 1_{B_R} \right| \mathrm{d}w &\leq \int \left| \left( f(z-z^{\prime} +w) - \phi_{\epsilon}(z-z^{\prime} +w) \right)1_{B_R} \right| \mathrm{d}w \\&\quad +  \int \left| \left( \phi_{\epsilon}(z-z^{\prime} +w) - \phi_{\epsilon}(w) \right)1_{B_R} \right| \mathrm{d}w\\ &\quad +  \int \left| \left( \phi_{\epsilon}(w) - f(w) \right)1_{B_R} \right| \mathrm{d}w
 \end{align*}
 
 
 
-\section{Durrett 2.1.10}
+\section{ 2.1.10}
 積分の線型性より以下を得る。
 \begin{align*}
 	P(X+Y = n) &= E\left[ 1(x + y = n) \right] = E\left[ \sum_m 1(x = m) 1(y = n-m) \right]\\ &= \sum_m E\left[ 1(x = m) 1(y = n-m) \right] = \sum_m E\left[ 1(x = m) \right] E\left[1(y = n-m) \right] = \sum_m P(X = m) p(Y = n-m)
