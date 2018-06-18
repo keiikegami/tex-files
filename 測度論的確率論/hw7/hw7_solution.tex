@@ -42,7 +42,7 @@ Homework 7}
 \begin{align*}
 	P(\epsilon_i = 1) = 2^{i-1} \times \frac{1}{2^i} = \frac{1}{2}
 \end{align*}
-ここで$2^{i-1}$は$\left\{ \epsilon_j \right\}_1^{i-1}$が取りうる場合の数であり、$\frac{1}{2^i}$は実現した$\left\{ \epsilon_j \right\}_1^{i-1}$に対して$\left\{ \epsilon_j \right\}_i^{\infty}$を使って表現できる$\omega$の集合の測度、すなわち$P\left(\omega \mid \omega \in \left[0, \frac{1}{2^i}\right) \right)$である。よって確かに任意の$i$について$P(\epsilon_i = 0) = P(\epsilon_i = 1) = \frac{1}{2}$が確かめられた。
+ここで$2^{i-1}$は$\left\{ \epsilon_j \right\}_{j = 1}^{i-1}$が取りうる場合の数であり、$\frac{1}{2^i}$は実現した$\left\{ \epsilon_j \right\}_{j=1}^{i-1}$に対して$\left\{ \epsilon_j \right\}_{j =i}^{\infty}$を使って表現できる$\omega$の集合の測度である。ここでは$\omega$が一様分布であるので、$P\left(\omega \mid \omega \in \left[0, \frac{1}{2^i}\right) \right) = \frac{1}{2^i}$である。よって確かに任意の$i$について$P(\epsilon_i = 0) = P(\epsilon_i = 1) = \frac{1}{2}$が確かめられた。
 
 次に独立性を示す。$D_i \in \left\{ 0,1\right\}$として、任意の$\left\{ i_1, i_2, \cdots, i_m \right\} \subset \mathbb{N}$に対して以下が成立することを示す。
 \begin{align*}
@@ -52,7 +52,7 @@ Homework 7}
 \begin{align*}
 	P\left( \epsilon_{i_1} = D_1, \cdots, \epsilon_{i_m} = D_m \right) = 2^{i_m - m} \times \frac{1}{2^{i_m}} = \frac{1}{2^m}
 \end{align*}
-ここで$2^{i_m - m}$は少数第$i_m$位までに自由に動かせる桁を組み合わせた時の場合の数であり、$\frac{1}{2^{i_m}}$は各組み合わせに対して動かせる幅の測度である。よって題意は示された。
+ここで$2^{i_m - m}$は小数第$i_m$位までに自由に動かせる桁を組み合わせた時の場合の数であり、$\frac{1}{2^{i_m}}$は各組み合わせに対して動かせる幅の測度である。よって題意は示された。
 
 
 \section{Ex 7.1}
@@ -140,7 +140,7 @@ $z^{\prime} - y = w$で変数変換し、適当な$R > 0$に対して$B_R = [-R,
 \end{align}
 $\phi_{\epsilon}(x)$はその定義より以下を満たす。$R > R_{\epsilon}$を固定して、任意の$\epsilon > 0$に対して
 \begin{align*}
-	\exists \delta_{\epsilon, R} > 0\ \text{s.t.}\ \forall y \in \mathbb{R}, \left| x \right| < \delta_{\epsilon, R}, \left| \phi_{\epsilon}(x + y) \phi_{\epsilon}(y) \right| \leq \frac{\epsilon}{2R}
+	\exists \delta_{\epsilon, R} > 0\ \text{s.t.}\ \forall y \in \mathbb{R}, \left| x \right| < \delta_{\epsilon, R}, \left| \phi_{\epsilon}(x + y)- \phi_{\epsilon}(y) \right| \leq \frac{\epsilon}{2R}
 \end{align*}
 である。従って、各$R$に対して$\left| z-z^{\prime} \right| < \delta_{\epsilon, R}$で、
 \begin{align}
@@ -148,20 +148,20 @@ $\phi_{\epsilon}(x)$はその定義より以下を満たす。$R > R_{\epsilon}$
 \end{align}
 とする事ができる。$(1)$に$(2),(3),(4)$の結果を使って、
 \begin{align*}
-	\forall \epsilon > 0, \exists \delta > 0\ \text{s.t.}\ \forall z,z^{\prime}\ \text{s.t.}\ \left| z-z^{\prime} \right| < \delta, \int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y \leq 5\epsilon
+	\forall \epsilon > 0, \exists \delta > 0\ \text{s.t.}\  z, z^{\prime} \in \mathbb{R}, \left| z-z^{\prime} \right| < \delta\ \Rightarrow\ \int \left| f(z-y) - f(z^{\prime} -y) \right| \mathrm{d}y \leq 5\epsilon
 \end{align*}
 以上より確かに上の項を任意に小さくできるので連続性が示された。
 
-次に有界であることを示す。$f$が確率密度関数であるので非負であることと、変数変換公式より、
+次に有界であることを示す。$f$が確率密度関数であり非負であることと、変数変換公式より、
 \begin{align*}
 	\left| f\star g(z) \right| \leq \int \left| f(z-y) g(y) \right| \mathrm{d}y \leq \| g \|_{\infty} \int f(z-y) \mathrm{d}y = \| g \|_{\infty} < \infty
 \end{align*}
 を得る。従って今考えている畳み込みが有界であることが示された。
 
 \section{ 2.1.10}
-積分の線型性より以下を得る。
+積分の線型性と二つの確率変数が独立であることより以下を得る。
 \begin{align*}
-	P(X+Y = n) &= E\left[ 1(x + y = n) \right] = E\left[ \sum_m 1(x = m) 1(y = n-m) \right]\\ &= \sum_m E\left[ 1(x = m) 1(y = n-m) \right] = \sum_m E\left[ 1(x = m) \right] E\left[1(y = n-m) \right] = \sum_m P(X = m) p(Y = n-m)\\[8pt]
+	P(X+Y = n) &= E\left[ 1(x + y = n) \right] = E\left[ \sum_m 1(x = m) 1(y = n-m) \right]\\ &= \sum_m E\left[ 1(x = m) 1(y = n-m) \right] = \sum_m E\left[ 1(x = m) \right] E\left[1(y = n-m) \right] = \sum_m P(X = m) P(Y = n-m)\\[8pt]
 \end{align*}
 
 \section{Durrett 2.1.11}
@@ -169,10 +169,10 @@ $\phi_{\epsilon}(x)$はその定義より以下を満たす。$R > R_{\epsilon}$
 \begin{align*}
 	P(X+Y = n) &= \sum_m P(X = m) P(Y = n-m) = \sum_m \frac{e^{-\lambda} \lambda^m}{m!} \frac{e^{-\mu} \mu^{(n-m)}}{(n-m)!}\\[8pt]
 	&=\frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} \sum_m \frac{n!}{(\lambda + \mu)^n} \frac{\lambda^m \mu^{(n-m)}}{m! (n-m)!}\\[8pt]
-	&= \frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} \sum_m \binom nm \left( \frac{\lambda}{\lambda + \mu} \right)^m \left( 1 - \frac{\lambda}{\lambda + \mu} \right)^{(n-m)}\\[8pt]
+	&= \frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} \underbrace{\sum_m \binom nm \left( \frac{\lambda}{\lambda + \mu} \right)^m \left( 1 - \frac{\lambda}{\lambda + \mu} \right)^{(n-m)}}_{\star}\\[8pt]
 	&= \frac{e^{-(\lambda + \mu) (\lambda + \mu)^n}}{n!} 
 \end{align*}
-よって題意は示された。
+ただし最後の等式$\star$部が二項分布の確率分布関数の和となっており、$\star = 1$であることによって得られる。よって題意は示された。
 
 \end{document}
 
