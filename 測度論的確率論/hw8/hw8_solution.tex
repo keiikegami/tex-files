@@ -50,6 +50,34 @@ Homework 8}
 である。$K$は$n$に依存しないので$\lim \frac{1}{n^2} E[S_n^2] \leq \epsilon$である。従って$0$に$L^2$収束するので$0$に確率収束する。
 
 \section{2.2.3}
+Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従うことより以下が成立。
+\begin{align*}
+	E\left[ I_n \right] = E\left[ f(U_i) \right] = \int f(x) \mathrm{d}x
+\end{align*}
+さらに、$B$を$\mathbb{R}$上の可測集合とすると、$f$が可測関数であることより以下が成立する。
+\begin{align*}
+	P\left( \omega \in U_1^{-1}\left( f^{-1}(B) \right) \right) \times \cdots \times P\left( \omega \in U_n^{-1}\left( f^{-1}(B) \right) \right) = P\left( \omega \in \left(f\circ U_1\right)^{-1}(B) \right)\times \cdots \times  P\left( \omega \in \left(f\circ U_n\right)^{-1}(B) \right)
+\end{align*}
+また、
+\begin{align*}
+	P\left( \omega \in U_1^{-1}\left( f^{-1}(B) \right), \cdots, \omega \in U_n^{-1}\left( f^{-1}(B) \right) \right) = P\left( \omega \in \left(f\circ U_1\right)^{-1}(B), \cdots, \omega \in \left(f\circ U_n\right)^{-1}(B) \right)
+\end{align*}
+である。$\left\{ U_i \right\}$は独立であることより上二つの左辺は等しい。従って右辺も等しくなり、$\left\{ f(U_i) \right\}$も独立な確率変数である。以上でTh2.2.14の条件が成立することが確認されたので、$I_n \xrightarrow{p} \int_0^1 f(x) \mathrm{d}x$である。
+
+次に$P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right)$を推定するために一様分布の実現値$\left\{ u_i \right\}_{i=1}^n$を$M$セット発生させる。この時得られた$I_n$を$I_n^m$と記し、$\bar{I_n} = \frac{1}{M} \sum_{m=1}^M I_n^m$とする。
+\begin{align*}
+	P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right) = E\left[ 1\left(  | I_n^m - I | > \frac{a}{\sqrt{n}} \right) \right]
+\end{align*}
+であるので、右辺のサンプル表記である$\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right)$が題意の推定をうまく行えることを以下で示す。
+\begin{align*}
+	E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] &= P\left( | (I_n^m - I) + (I - \bar{I_n}) |  > \frac{a}{\sqrt{n}} \right) \\
+	&\leq P\left( | I_n^m - I |+ |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
+	& \leq P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) + P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)
+\end{align*}
+$M$個のサンプルは独立に生成され、上より可積分なのでWLLNより、
+\begin{align*}
+\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right]
+\end{align*}
 
 \section{2.2.4}
 
