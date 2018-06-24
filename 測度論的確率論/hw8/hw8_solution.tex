@@ -34,6 +34,7 @@ Homework 8}
 \maketitle
 
 \section{2.2.1}
+ここはちゃんとやるべき
 
 \section{2.2.2}
 \begin{align*}
@@ -92,6 +93,19 @@ $M$個のサンプルは独立に生成され、上より可積分なのでWLLN�
 であり、題意が示された。
 
 \section{2.2.4}
+まず絶対値の期待値が発散することを確認する。
+\begin{align*}
+	E\left[ |X_i| \right] = \sum_{k = 2}^{\infty} k \frac{C}{k^2 \log k} = C \lim_{N \to \infty} \sum_{k = 2}^{N} \frac{1}{k \log k}
+\end{align*}
+$k \geq 2$において$\frac{1}{k \log k}$が単調減少であることより積分判定法が使える。
+\begin{align*}
+	\int_2^{\infty} \frac{1}{x\log x} \mathrm{d}x = \int_2^{\infty} \frac{\left( \log x \right)^{\prime}}{\log x} \mathrm{d}x > \lim_{x\to \infty} \log \log x = \infty
+\end{align*}
+これより確かに先の期待値は発散する。一方で、$k P\left( |X_i| > k \right) \to 0\ \text{as}\ k \to \infty$は成立することが以下のようにして確認できる。
+\begin{align*}
+	s
+\end{align*}
+
 
 \section{2.2.5}
 
