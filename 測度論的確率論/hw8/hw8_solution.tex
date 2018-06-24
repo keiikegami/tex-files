@@ -78,6 +78,18 @@ $M$個のサンプルは独立に生成され、上より可積分なのでWLLN�
 \begin{align*}
 \frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right]
 \end{align*}
+である。さらに、チェビシェフの不等式より
+\begin{align*}
+	\| E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] - P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)  \| &\leq P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
+	&\leq \frac{n}{a^2} E\left[ \left( \bar{I_n} - I \right)^2 \right]\\
+	&= \frac{n}{Ma^2} Var\left(I_n^m \right)\\
+	&= \frac{1}{a^2M} Var\left( f(U_i) \right)
+\end{align*}
+を得る。従って$M\to \infty$で$E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] \to P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)$である。ここで「$a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$」であることより
+\begin{align*}
+	\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) = P\left( | I_n - I |> \frac{a}{\sqrt{n}} \right)
+\end{align*}
+であり、題意が示された。
 
 \section{2.2.4}
 
