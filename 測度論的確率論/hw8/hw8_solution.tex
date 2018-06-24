@@ -34,7 +34,22 @@ Homework 8}
 \maketitle
 
 \section{2.2.1}
-ここはちゃんとやるべき
+$E\left[ \frac{S_n}{n} \right] = \frac{S_n}{n} = v_n$であることより
+\begin{align*}
+	E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right] = Var\left(\frac{S_n}{n}\right) = \frac{1}{n^2} \left( Var(X_1) + Var(X_2) + \cdots + Var(X_n) \right)
+\end{align*}
+を得る。ただし、最後の等式は各確率変数が無相関であることによる。$n\to \infty$での挙動を考える。仮定より$\forall \epsilon > 0\ \exists I \ \text{s.t.}\ i \geq I \Rightarrow  \frac{Var(X_i)}{i} < \epsilon$であるので、
+\begin{align*}
+	\lim_{n\to \infty} E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right] &= \lim_{n\to \infty} \sum_{i=1}^{\infty} \frac{i}{n^2} \frac{Var(X_i)}{i}\\
+	&\leq \lim_{n\to \infty} \sum_{i=1}^{I-1}  \frac{i}{n^2} \frac{Var(X_i)}{i} + \lim_{n\to \infty} \sum_{i=I}^{n}  \frac{i}{n^2} \frac{Var(X_i)}{i} \\
+	&\leq \lim_{n\to \infty} \sum_{i=1}^{I-1}  \frac{i}{n^2} \frac{Var(X_i)}{i} +  \lim_{n\to \infty} \frac{\epsilon}{n^2} \sum_{i=I}^n i\\
+	&\leq \frac{\epsilon}{2}
+\end{align*}
+従って任意の$\epsilon > 0$で上から押さえることができるので$\frac{S_n}{n} - v_n \to 0\ \text{in $L^2$}$である。チェビシェフの不等式より任意の$\epsilon > 0$に対して、
+\begin{align*}
+	P\left( \left| \frac{S_n}{n} - v_n \right| > \epsilon \right) \leq \frac{E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right]}{\epsilon^2} \to 0\ \text{as}\ n\to \infty
+\end{align*}
+であるので確かに確率収束もする。
 
 \section{2.2.2}
 \begin{align*}
@@ -86,11 +101,25 @@ $M$個のサンプルは独立に生成され、上より可積分なのでWLLN�
 	&= \frac{n}{Ma^2} Var\left(I_n^m \right)\\
 	&= \frac{1}{a^2M} Var\left( f(U_i) \right)
 \end{align*}
-を得る。従って$M\to \infty$で$E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] \to P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)$である。ここで「$a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$」であることより
+を得る。従って$M\to \infty$で$E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] \to P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)$である。ここで「$a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$（主張$1$）」であることより
 \begin{align*}
 	\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) = P\left( | I_n - I |> \frac{a}{\sqrt{n}} \right)
 \end{align*}
 であるので推定できる。
+\subsection{主張$1$の証明}
+$a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$を示す。任意の$\epsilon, \delta > 0$に対して、
+\begin{align*}
+	\exists N\ \text{s.t.}\ n > N\ \Rightarrow\ P(\| a_n -b_n \| > \epsilon) \leq \delta
+\end{align*}
+である。また、
+\begin{align*}
+	\exists M\ \text{s.t.}\ m > M\ \Rightarrow\ \|b_m-b\| < \epsilon
+\end{align*}
+である。ここで三角不等式より、
+\begin{align*}
+	n > \max(N,M)\ \Rightarrow\ P\left( \| a_n - b \| > \epsilon \right) \leq P\left( \| a_n - b_n \| > \epsilon \right) + P\left( \| b_n - b \| > \epsilon \right) \leq \delta
+\end{align*}
+が成立するため、題意は示された。
 
 \section{2.2.4}
 まず絶対値の期待値が発散することを確認する。
