@@ -139,7 +139,26 @@ $k \geq 2$において$\frac{1}{k \log k}$が単調減少であることより�
 \begin{align*}
 	\mu_n = E\left[ X_i 1\left( |X_i| \leq n \right) \right] = \sum_{k = 2}^{n} (-1)^k \frac{C}{k \log k}
 \end{align*}
-とおくと、$\frac{S_n}{n} - \mu_n \xrightarrow{p} 0$である。さらに「交項級数は各項の絶対値が単調減少で$0$に収束するなら収束する」ので、$\mu_n$がこの性質を満たすことから、$\mu_n \to \mu$なる$\mu$が存在する。以上より$\frac{S_n}{n} - \mu \xrightarrow{p} 0$である。
+とおくと、$\frac{S_n}{n} - \mu_n \xrightarrow{p} 0$である。さらに「交項級数は各項の絶対値が単調減少で$0$に収束するなら収束する（主張$2$）」ので、$\mu_n$がこの性質を満たす（すなわち$\frac{C}{k\log k}$が$k \geq2$において単調に$0$に収束する）ことから、$\mu_n \to \mu$なる$\mu$が存在する。よって先の主張$1$より$\frac{S_n}{n} - \mu \xrightarrow{p} 0$である。
+
+\subsection{主張$2$の証明}
+$S_n = \sum_{k=1}^n (-1)^k a_k$と置く。ただし$\left\{a_k\right\}_{k=1}^{\infty}$は非負の単調減少な数列で$0$に収束するとする。この時、
+\begin{align*}
+	\begin{cases}
+	S_{2k+1} = S_{2k-1} + (a_{2k} - a_{2k+1}) > S_{2k-1}\\
+	S_{2k} = S_{2k-2} - (a_{2k-1} - a_{2k}) < S_{2k-2}
+	\end{cases}
+\end{align*}
+が任意の$k$について成立する。また、$2m+1 > 2n$について
+\begin{align*}
+	S_{2m+1} = S_{2n} - (a_{2n+1} - a_{2n+2}) - \cdots - (a_{2m-1} - a_{2m}) - a_{2m+1}
+\end{align*}
+であり、右辺で引かれる各項は$\left\{a_k\right\}_{k=1}^{\infty}$が単調減少であることから非負であるので$S_{2n} > S_{2m+1}$である。すなわち$\left\{ S_{2k+1} \right\}$は偶数項で上から抑えられた単調増加な数列であるため収束先（$L_1$）を持つ。同様に$\left\{ S_{2k} \right\}$は奇数項で下から抑えられた単調減少な数列なので収束先（$L_2$）を持つ。さらに、
+\begin{align*}
+	\lim_{m\to \infty} a_{2m} = \lim_{m\to \infty} (S_{2m} - S_{2m-1}) = L_2-L_1
+\end{align*}
+であり、仮定より$\lim_{m\to \infty} a_{2m} = 0$であることから$L_2 = L_1$である。従って題意は示された。
+
 
 
 \section{2.2.5}
