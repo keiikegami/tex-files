@@ -66,9 +66,10 @@ $E\left[ \frac{S_n}{n} \right] = \frac{E[S_n]}{n} = v_n$であることより
 である。$K$は$n$に依存しないので$\lim_{n\to \infty} \frac{1}{n^2} E[S_n^2] \leq \epsilon$である。従って$0$に$L^2$収束するのでWLLNより$0$に確率収束する。
 
 \section{2.2.3}
+これダメだわ。
 Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従うことより以下が成立。
 \begin{align*}
-	E\left[ I_n \right] = E\left[ f(U_i) \right] = \int f(x) \mathrm{d}x
+	E\left[ I_n \right] = E\left[ f(U_i) \right] = \int_0^1 f(x) \mathrm{d}x
 \end{align*}
 さらに、$B$を$\mathbb{R}$上の可測集合とすると、$f$が可測関数であることより以下が成立する。
 \begin{align*}
@@ -78,25 +79,25 @@ Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従�
 \begin{align*}
 	P\left( \omega \in U_1^{-1}\left( f^{-1}(B) \right), \cdots, \omega \in U_n^{-1}\left( f^{-1}(B) \right) \right) = P\left( \omega \in \left(f\circ U_1\right)^{-1}(B), \cdots, \omega \in \left(f\circ U_n\right)^{-1}(B) \right)
 \end{align*}
-である。$\left\{ U_i \right\}$は独立であることより上二つの左辺は等しい。従って右辺も等しくなり、$\left\{ f(U_i) \right\}$も独立な確率変数である。以上でTh2.2.14の条件が成立することが確認されたので、$I_n \xrightarrow{p} \int_0^1 f(x) \mathrm{d}x$である。
+である。$\left\{ U_i \right\}$は独立であることより上二つの左辺は等しい。従って右辺も等しくなり、$\left\{ f(U_i) \right\}$も独立な確率変数であることがわかる。以上でTh2.2.14の条件が成立することが確認されたので、$I_n \xrightarrow{p} \int_0^1 f(x) \mathrm{d}x$である。
 
-次に$P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right)$を推定するために一様分布の実現値$\left\{ u_i \right\}_{i=1}^n$を$M$セット発生させる。この時得られた$I_n$を$I_n^m$と記し、$\bar{I_n} = \frac{1}{M} \sum_{m=1}^M I_n^m$とする。
+次に$P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right)$を推定するために一様分布の実現値$\left\{ u_i \right\}_{i=1}^n$を$M$セット発生させる。この時得られた$I_n$を$\left\{I_n^m\right\}_{m=1}^M$と記し、$\bar{I_n} = \frac{1}{M} \sum_{m=1}^M I_n^m$とする。
 \begin{align*}
 	P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right) = E\left[ 1\left(  | I_n^m - I | > \frac{a}{\sqrt{n}} \right) \right]
 \end{align*}
-であるので、右辺のサンプル表記である$\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right)$が題意の推定をうまく行えることを以下で示す。
+であるので、右辺のサンプル表記である$\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right)$が題意の推定をうまく行えることを以下で示す。三角不等式より、
 \begin{align*}
 	E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] &= P\left( | (I_n^m - I) + (I - \bar{I_n}) |  > \frac{a}{\sqrt{n}} \right) \\
 	&\leq P\left( | I_n^m - I |+ |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
-	& \leq P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) + P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)
+	& \leq P\left( | I_n^m - I |> \frac{a}{2\sqrt{n}} \right) + P\left( |I - \bar{I_n}|  > \frac{a}{2\sqrt{n}} \right)
 \end{align*}
 $M$個のサンプルは独立に生成され、上より可積分なのでWLLNより、
 \begin{align*}
-\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right]
+\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right]\ \text{s.t.}\ M\to \infty
 \end{align*}
 である。さらに、チェビシェフの不等式より
 \begin{align*}
-	\| E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] - P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)  \| &\leq P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
+	\left| E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] - P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)  \right| &\leq P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
 	&\leq \frac{n}{a^2} E\left[ \left( \bar{I_n} - I \right)^2 \right]\\
 	&= \frac{n}{Ma^2} Var\left(I_n^m \right)\\
 	&= \frac{1}{a^2M} Var\left( f(U_i) \right)
@@ -128,7 +129,7 @@ $a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$を示す。任
 \end{align*}
 $k \geq 2$において$\frac{1}{k \log k}$が単調減少であることより積分判定法が使える。
 \begin{align*}
-	\int_2^{\infty} \frac{1}{x\log x} \mathrm{d}x = \int_2^{\infty} \frac{\left( \log x \right)^{\prime}}{\log x} \mathrm{d}x > \lim_{x\to \infty} \log \log x = \infty
+	\int_2^{\infty} \frac{1}{x\log x} \mathrm{d}x = \int_2^{\infty} \frac{\left( \log x \right)^{\prime}}{\log x} \mathrm{d}x = \lim_{x\to \infty}\left( \log \log x  - \log \log 2 \right)= \infty
 \end{align*}
 これより確かに先の期待値は発散する。一方で、$k P\left( |X_i| > k \right) \to 0\ \text{as}\ k \to \infty$は成立することが以下のようにして確認できる。
 \begin{align*}
