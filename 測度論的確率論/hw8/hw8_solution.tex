@@ -66,7 +66,7 @@ $E\left[ \frac{S_n}{n} \right] = \frac{E[S_n]}{n} = v_n$であることより
 である。$K$は$n$に依存しないので$\lim_{n\to \infty} \frac{1}{n^2} E[S_n^2] \leq \epsilon$である。従って$0$に$L^2$収束するのでWLLNより$0$に確率収束する。
 
 \section{2.2.3}
-Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従うことより以下が成立。
+まずTh2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従うことより以下が成立。
 \begin{align*}
 	E\left[ I_n \right] = E\left[ f(U_i) \right] = \int_0^1 f(x) \mathrm{d}x
 \end{align*}
@@ -80,6 +80,24 @@ Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従�
 \end{align*}
 である。$\left\{ U_i \right\}$は独立であることより上二つの左辺は等しい。従って右辺も等しくなり、$\left\{ f(U_i) \right\}$も独立な確率変数であることがわかる。以上でTh2.2.14の条件が成立することが確認されたので、$I_n \xrightarrow{p} \int_0^1 f(x) \mathrm{d}x$である。
 
+以下問題の意図がよくわからないので二つ解答を書きます。
+\subsection{解答$1$}
+チェビシェフの不等式より
+\begin{align*}
+	P\left( \left| I_n - I \right| > \frac{a}{\sqrt{n}} \right) \leq \frac{nVar(I_n)}{a^2} = \frac{n}{a^2} \frac{1}{n^2} nVar\left( f(X_1) \right) = \frac{Var\left( f(X_1) \right)}{a^2}
+\end{align*}
+である。ここで最後の$Var\left( f(X_1) \right) = \int_0^1 {f(x)}^2 \mathrm{d}x - \left( \int_0^1 f(x) \mathrm{d}x \right)^2$であり、$f^2$も可積分関数であるので
+\begin{align*}
+	\frac{1}{n} \sum_{i=1}^n f(u_i)^2 \xrightarrow{p} \int_0^1 f(x)^2 \mathrm{d}x
+\end{align*}
+が先の結果より得られる。また、Continuous mapping theoremより
+\begin{align*}
+	I_n^2 \xrightarrow{p} \left( \int_0^1 f(x) \mathrm{d}x \right)^2
+\end{align*}
+も成立する。従って$\frac{1}{n} \sum_{i=1}^n f(u_i)^2 - I_n^2$で$Var\left( f(X_1) \right)$を推定することができることがわかり、これでバウンドを推定することができた。
+
+
+\subsection{解答$2$}
 次に$P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right)$を推定するために一様分布の実現値$\left\{ u_i \right\}_{i=1}^n$を$M$セット発生させる。この時得られた$I_n$を$\left\{I_n^m\right\}_{m=1}^M$と記し、$\bar{I_n} = \frac{1}{M} \sum_{m=1}^M I_n^m$とする。
 \begin{align*}
 	P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right) = E\left[ 1\left(  | I_n^m - I | > \frac{a}{\sqrt{n}} \right) \right]
@@ -106,7 +124,7 @@ $M$個のサンプルは独立に生成され、上より可積分なのでWLLN�
 	\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \xrightarrow{p} P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) = P\left( | I_n - I |> \frac{a}{\sqrt{n}} \right)
 \end{align*}
 であるので確かに推定できる。
-\subsection{主張$1$の証明}
+\subsubsection{主張$1$の証明}
 $a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$を示す。任意の$\epsilon, \delta > 0$に対して、
 \begin{align*}
 	\exists N\ \text{s.t.}\ n > N\ \Rightarrow\ P(\| a_n -b_n \| > \epsilon) \leq \delta
