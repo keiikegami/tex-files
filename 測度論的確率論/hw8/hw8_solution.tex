@@ -53,17 +53,17 @@ $E\left[ \frac{S_n}{n} \right] = \frac{E[S_n]}{n} = v_n$であることより
 
 \section{2.2.2}
 \begin{align*}
-	E\left[ \left(\frac{S_n}{n}\right)^2 \right] = \frac{1}{n^2} \sum_{1\geq i,j\geq n} E\left[ X_i X_j \right]
+	E\left[ \left(\frac{S_n}{n}\right)^2 \right] = \frac{1}{n^2} \sum_{1\leq i,j\leq n} E\left[ X_i X_j \right]
 \end{align*}
 である。コーシーシュワルツの不等式より、$E\left[ X_i X_j \right] \leq \left( E\left[ X_i^2 \right] E\left[ X_j^2 \right] \right)^{\frac{1}{2}} = r(0)$である。また仮定より、
 \begin{align*}
 	\forall \epsilon > 0, \exists K > 0\ \text{s.t.}\ k \geq K\ \Rightarrow\ r(k) < \epsilon
 \end{align*}
-である。これより、$|i-j| \leq K$に対しては$E[X_i X_j] \leq r(0)$とし、$|i-j| > K$に対しては$E[X_i X_j] \leq \epsilon$で抑えられる。すなわち、
+である。これより、$|i-j| \leq K$に対しては$E[X_i X_j] \leq r(0)$で、$|i-j| > K$に対しては$E[X_i X_j] \leq \epsilon$で抑えられる。すなわち、
 \begin{align*}
 	\frac{1}{n^2} \sum_{1\geq i,j\geq n} E\left[ X_i X_j \right] \leq \frac{1}{n^2} \left( n(2K-1)r(0) + n^2\epsilon \right) = \frac{2K+1}{n}r(0) + \epsilon
 \end{align*}
-である。$K$は$n$に依存しないので$\lim \frac{1}{n^2} E[S_n^2] \leq \epsilon$である。従って$0$に$L^2$収束するので$0$に確率収束する。
+である。$K$は$n$に依存しないので$\lim_{n\to \infty} \frac{1}{n^2} E[S_n^2] \leq \epsilon$である。従って$0$に$L^2$収束するのでWLLNより$0$に確率収束する。
 
 \section{2.2.3}
 Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従うことより以下が成立。
