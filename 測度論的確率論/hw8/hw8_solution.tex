@@ -34,18 +34,18 @@ Homework 8}
 \maketitle
 
 \section{2.2.1}
-$E\left[ \frac{S_n}{n} \right] = \frac{S_n}{n} = v_n$であることより
+$E\left[ \frac{S_n}{n} \right] = \frac{E[S_n]}{n} = v_n$であることより
 \begin{align*}
 	E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right] = Var\left(\frac{S_n}{n}\right) = \frac{1}{n^2} \left( Var(X_1) + Var(X_2) + \cdots + Var(X_n) \right)
 \end{align*}
-を得る。ただし、最後の等式は各確率変数が無相関であることによる。$n\to \infty$での挙動を考える。仮定より$\forall \epsilon > 0\ \exists I \ \text{s.t.}\ i \geq I \Rightarrow  \frac{Var(X_i)}{i} < \epsilon$であるので、
+を得る。ただし、最後の等式は各確率変数が無相関であることによる。仮定より$\forall \epsilon > 0\ \exists I \ \text{s.t.}\ i \geq I \Rightarrow  \frac{Var(X_i)}{i} < \epsilon$であるので、$n > I$であれば、
 \begin{align*}
-	\lim_{n\to \infty} E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right] &= \lim_{n\to \infty} \sum_{i=1}^{\infty} \frac{i}{n^2} \frac{Var(X_i)}{i}\\
-	&\leq \lim_{n\to \infty} \sum_{i=1}^{I-1}  \frac{i}{n^2} \frac{Var(X_i)}{i} + \lim_{n\to \infty} \sum_{i=I}^{n}  \frac{i}{n^2} \frac{Var(X_i)}{i} \\
-	&\leq \lim_{n\to \infty} \sum_{i=1}^{I-1}  \frac{i}{n^2} \frac{Var(X_i)}{i} +  \lim_{n\to \infty} \frac{\epsilon}{n^2} \sum_{i=I}^n i\\
-	&\leq \frac{\epsilon}{2}
+	E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right] &= \sum_{i=1}^{\infty} \frac{i}{n^2} \frac{Var(X_i)}{i}\\
+	&\leq \sum_{i=1}^{I-1}  \frac{i}{n^2} \frac{Var(X_i)}{i} + \sum_{i=I}^{n}  \frac{i}{n^2} \frac{Var(X_i)}{i}\\
+	&\leq  \sum_{i=1}^{I-1}  \frac{i}{n^2} \frac{Var(X_i)}{i} +  \frac{\epsilon}{n^2} \sum_{i=I}^n i \\
+	&=\frac{1}{n^2} \sum_{i=1}^{I-1} Var(X_i) + \frac{\epsilon}{2}\left( 1 + \frac{1}{n} - \frac{I^2}{n^2} +\frac{I}{n^2} \right)
 \end{align*}
-従って任意の$\epsilon > 0$で上から押さえることができるので$\frac{S_n}{n} - v_n \to 0\ \text{in $L^2$}$である。チェビシェフの不等式より任意の$\epsilon > 0$に対して、
+を得る。$n\to \infty$での挙動を考えるとき、$I$が$n$によらず決定され、$Var(X_i) \to \infty$であっても$\forall i\ Var(X_i) < \infty$であるとき最終行の第一項は$0$に、第二項は$\frac{\epsilon}{2}$に収束する。従って任意の$\epsilon > 0$で上から押さえることができるので$\frac{S_n}{n} - v_n \to 0\ \text{in $L^2$}$である。チェビシェフの不等式より任意の$\epsilon > 0$に対して、
 \begin{align*}
 	P\left( \left| \frac{S_n}{n} - v_n \right| > \epsilon \right) \leq \frac{E\left[ \left( \frac{S_n}{n} - v_n \right)^2 \right]}{\epsilon^2} \to 0\ \text{as}\ n\to \infty
 \end{align*}
