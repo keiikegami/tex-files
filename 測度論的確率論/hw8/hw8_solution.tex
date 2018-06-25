@@ -66,7 +66,6 @@ $E\left[ \frac{S_n}{n} \right] = \frac{E[S_n]}{n} = v_n$であることより
 である。$K$は$n$に依存しないので$\lim_{n\to \infty} \frac{1}{n^2} E[S_n^2] \leq \epsilon$である。従って$0$に$L^2$収束するのでWLLNより$0$に確率収束する。
 
 \section{2.2.3}
-これダメだわ。
 Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従うことより以下が成立。
 \begin{align*}
 	E\left[ I_n \right] = E\left[ f(U_i) \right] = \int_0^1 f(x) \mathrm{d}x
@@ -85,28 +84,28 @@ Th2.2.14の条件を満たすことを確認する。$U_i$が一様分布に従�
 \begin{align*}
 	P\left( | I_n - I | > \frac{a}{\sqrt{n}} \right) = E\left[ 1\left(  | I_n^m - I | > \frac{a}{\sqrt{n}} \right) \right]
 \end{align*}
-であるので、右辺のサンプル表記である$\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right)$が題意の推定をうまく行えることを以下で示す。三角不等式より、
+である。ここで$\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right)$が題意の推定をうまく行えることを以下で示す。三角不等式より、
 \begin{align*}
-	E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] &= P\left( | (I_n^m - I) + (I - \bar{I_n}) |  > \frac{a}{\sqrt{n}} \right) \\
-	&\leq P\left( | I_n^m - I |+ |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
-	& \leq P\left( | I_n^m - I |> \frac{a}{2\sqrt{n}} \right) + P\left( |I - \bar{I_n}|  > \frac{a}{2\sqrt{n}} \right)
+	E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \right] &= P\left( | (I_n^m - I) + (I - \bar{I_n}) |  > \frac{2a}{\sqrt{n}} \right) \\
+	&\leq P\left( | I_n^m - I |+ |I - \bar{I_n}|  > \frac{2a}{\sqrt{n}} \right)\\
+	& \leq P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) + P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)
 \end{align*}
 $M$個のサンプルは独立に生成され、上より可積分なのでWLLNより、
 \begin{align*}
-\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right]\ \text{s.t.}\ M\to \infty
+\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \xrightarrow{p} E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \right]\ \text{s.t.}\ M\to \infty
 \end{align*}
 である。さらに、チェビシェフの不等式より
 \begin{align*}
-	\left| E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] - P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)  \right| &\leq P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
+	\left| E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \right] - P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)  \right| &\leq P\left( |I - \bar{I_n}|  > \frac{a}{\sqrt{n}} \right)\\
 	&\leq \frac{n}{a^2} E\left[ \left( \bar{I_n} - I \right)^2 \right]\\
 	&= \frac{n}{Ma^2} Var\left(I_n^m \right)\\
 	&= \frac{1}{a^2M} Var\left( f(U_i) \right)
 \end{align*}
-を得る。従って$M\to \infty$で$E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \right] \to P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)$である。ここで「$a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$（主張$1$）」であることより
+を得る。従って$M\to \infty$で$E\left[ 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \right] \to P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right)$である。ここで「$a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$（主張$1$）」であることより
 \begin{align*}
-	\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{a}{\sqrt{n}} \right) \xrightarrow{p} P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) = P\left( | I_n - I |> \frac{a}{\sqrt{n}} \right)
+	\frac{1}{M} \sum_{m=1}^M 1\left(  | I_n^m - \bar{I_n} | > \frac{2a}{\sqrt{n}} \right) \xrightarrow{p} P\left( | I_n^m - I |> \frac{a}{\sqrt{n}} \right) = P\left( | I_n - I |> \frac{a}{\sqrt{n}} \right)
 \end{align*}
-であるので推定できる。
+であるので確かに推定できる。
 \subsection{主張$1$の証明}
 $a_n \xrightarrow{p} b_n \to b \Rightarrow a_n \xrightarrow{p} b$を示す。任意の$\epsilon, \delta > 0$に対して、
 \begin{align*}
