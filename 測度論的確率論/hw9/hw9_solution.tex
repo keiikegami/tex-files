@@ -59,8 +59,40 @@ Homework 9}
 であり、今仮定より$P(A_n\ \text{i.o.}) = 0$なので上の結果より確かに右側が成立する。
 
 \section{2.3.13}
+何らかの正の無限大に発散する正実数列$\left\{ c_n \right\}$に対して、任意に$\epsilon > 0$を取ったときに$P\left( \frac{|X_n|}{c_n} > \epsilon\ \text{i.o.} \right) = 0$とできることを示す。Borel-Cantelliより、そのためには$\sum_n P\left( \frac{|X_n|}{c_n} > \epsilon \right) < \infty$とできることを示せば良い。すなわち足していく確率を級数が収束するように十分小さく抑えれば良い。
+\begin{align}
+	P\left( \frac{|X_n|}{c_n} > \epsilon \right) = P\left( \frac{|X_n|}{\epsilon} > c_n \right) \leq \frac{1}{2^n}
+\end{align}
+これを満たすような$c_n\to \infty$が存在すれば、$\sum_n \frac{1}{2^n} < \infty$なので題意は示される。以下ではこのような正実数列$\left\{ c_n \right\}\to \infty$が存在することを確認する。
+
+まず各$n$について$(1)$を満たす$c_n$が存在することを確認する。$X_n$は$\mathbb{R}$ valued 確率変数であるので$\frac{|X_n|}{\epsilon} < \infty$である。従って、
+\begin{align*}
+	P\left( \frac{|X_n|}{\epsilon} > c \right)\to 0\ \text{as}\ c\to \infty
+\end{align*}
+である。この事実より、$(1)$を満たす$c_n$は各$n$について存在する。さらにこのような$c_n$について、
+\begin{align*}
+	P\left( \frac{|X_n|}{c_n} \leq \epsilon \right) \geq 1-\frac{1}{2^n}
+\end{align*}
+であるので、両辺$n\to \infty$とすると、
+\begin{align*}
+	\lim_{n\to \infty} P\left( \frac{|X_n|}{c_n} \leq \epsilon \right)= 1
+\end{align*}
+である。$c_n \to \infty$であるとき$\frac{1}{c_n} \to 0$であるので確かに上の式を満たす。以上より条件を満たす正の実数列$\left\{ c_n \right\}$が必ず存在することがわかった。
 
 \section{2.3.14}
+$\sup X_n < \infty\ \text{a.s.}\ \Leftrightarrow\ \sum_n P\left( X_n > A \right) < \infty\ \text{for some $A$}$を示す。右側を仮定すると、Borel-Cantelliとドモルガンの定理から
+\begin{align*}
+	\sum_n P\left( X_n > A \right) < \infty\ \Rightarrow\ P\left( X_n > A\ \text{i.o.} \right) = 0 = P\left( X_n \leq A\ \text{a.a.} \right) = 1
+\end{align*}
+である。ただしここで$a.a.$はDurrettにおける$\liminf A_n$に対応する記号であるとする。これは確かに左側が成立していることを意味している。逆向きは対偶を示す。すなわち、
+\begin{align*}
+	\forall A, \sum_n P\left( X_n > A \right) = \infty\ \Rightarrow\ P\left( \sup X_n < \infty \right) < 1
+\end{align*}
+を示す。任意に$A$を取って、$X_n$が独立な確率変数であることに注意すると、$X_n > A$という事象も独立であるのでTheorem 2.3.7より、
+\begin{align*}
+	\sum_n P\left( X_n > A \right) = \infty\ \Rightarrow\ P\left( X_n > A\ \text{i.o.} \right) = 1
+\end{align*}
+が成立する。これは$X_n$が確率$1$で任意の$A$をどこかの$n$で上回ることを意味しているので確かに$P\left( \sup X_n < \infty \right) = 0 < 1$が満たされる。以上で題意は示された。
 
 \section{2.5.9}
 
