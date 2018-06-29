@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{測度論的確率論 2018 S1S2 \\ 
+Homework 9}
+\author{経済学研究科現代経済コース修士1年 / 池上　慧 (29186009) / sybaster.x@gmail.com}
+\maketitle
+
+\section{2.3.11}
+まず$X_n \xrightarrow{p} 0\ \Leftrightarrow\ p_n \to 0$を示す。右側を仮定する。この時、任意に$\epsilon, \delta > 0$を取ると、
+\begin{align*}
+	\exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\ P\left( |X_n| > \delta \right) = P(X_n = 1) = p_n < \epsilon
+\end{align*}
+であるので確率収束の定義より確かに$X_n \xrightarrow{p} 0$である。逆に左側を仮定すると、任意の$\epsilon, \delta > 0$に対して
+\begin{align*}
+	\exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\ p_n = P(X_n = 1) = P(|X_n| > \delta) < \epsilon
+\end{align*}
+であるので収束の定義より確かに$p_n \to 0$である。
+
+次に$X_n \to 0\ \text{a.s.}\ \Leftrightarrow\ \sum_n p_n < \infty$を示す。右側を仮定する。この時、$A_n = \left\{ |X_n| > \epsilon \right\}$とすると、
+\begin{align*}
+	\sum_n p_n = \sum_n P(A_n) < \infty
+\end{align*}
+なのでBorel-Cantelliより$P(A_n\ \text{i.o.}) = 0$であり、$P(A_n\ \text{i.o.}) = 0\ \Leftrightarrow\ X_n\ \to 0 \ \text{a.s.}$より確かに日代理側が成立する。次に逆向きを示す。$A_n$が独立な事象であることからTheorem 2.3.7より、
+\begin{align*}
+	\sum_n p_n = \sum P(A_n) = \infty\ \Rightarrow\ P(A_n\ \text{i.o.}) = 1
+\end{align*}
+である。この対偶は、
+\begin{align*}
+	P(A_n\ \text{i.o.}) < 1\ \Rightarrow\ \sum_n p_n < \infty
+\end{align*}
+であり、今仮定より$P(A_n\ \text{i.o.}) = 0$なので上の結果より確かに右側が成立する。
+
+\section{2.3.13}
+
+\section{2.3.14}
+
+\section{2.5.9}
+
+\section{2.5.10}
+
+\section{2.5.11}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
