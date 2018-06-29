@@ -95,6 +95,29 @@ $\sup X_n < \infty\ \text{a.s.}\ \Leftrightarrow\ \sum_n P\left( X_n > A \right)
 が成立する。これは$X_n$が確率$1$で任意の$A$をどこかの$n$で上回ることを意味しているので確かに$P\left( \sup X_n < \infty \right) = 0 < 1$が満たされる。以上で題意は示された。
 
 \section{2.5.9}
+まず$P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right)$について考える。
+\begin{align*}
+	A_j = \left\{ \omega\mid \left| S_{m,j} \right| > 2a\ \text{and}\ \left| S_{m,i} \right| \leq 2a\ m < \forall i < j \right\}
+\end{align*}
+とするとこれは独立な事象である。ここで、
+\begin{align*}
+	P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right) = P\left( \bigcup_{j=m+1}^n A_j \right) \leq \sum_{j=m+1}^n P\left( A_j \right)
+\end{align*}
+とできるので、
+\begin{align*}
+	P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right) \min_{m<k \leq n}P\left( \left| S_{k, n} \right| \leq a \right) &\leq \left(\sum_{j=m+1}^n P\left( A_j \right) \right)  \min_{m<k \leq n}P\left( \left| S_{k, n} \right| \leq a \right)\\[10pt]
+	&\leq \sum_{j=m+1}^n P\left( A_j \right) P\left( \left| S_{j,n} \right| \leq a \right)
+\end{align*}
+を得る。ここで、$A_j$は$\sigma\left\{ X_{m+1}, \cdots, X_j \right\}$に含まれていて、$\left\{ \left| S_{j,n} \right| \leq a \right\}$は$\sigma\left\{ X_{j+1}, \cdots, X_n \right\}$に含まれている。つまりこれらの事象は独立であるので、$P\left( A_j \right) P\left( \left| S_{j,n} \right| \leq a \right) = P\left( A_j \ \text{and}\ \left| S_{j,n} \right| < a \right)$である。さらに、$\left| S_{j,n} \right| \leq a$かつ$ \left| S_{m,j} \right| > 2a$であれば$ \left| S_{m,n} \right| > a$であるので、
+\begin{align*}
+	P\left( A_j \ \text{and}\ \left| S_{j,n} \right| < a \right) \leq P\left( A_j \ \text{and}\ \left| S_{m,n} \right| > a \right)
+\end{align*}
+である。以上の議論より、
+\begin{align*}
+	P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right) \min_{m<k \leq n}P\left( \left| S_{k, n} \right| \leq a \right) &\leq \sum_{j=m+1}^n P\left( A_j \ \text{and}\ \left| S_{m,n} \right| > a \right)\\[10pt]
+	&\leq P\left( \left| S_{m,n} \right| > a \right)
+\end{align*}
+ただし最後の不等式は$A_j$がそれぞれ排反な事象であることによるものである。以上で題意の不等式が示された。
 
 \section{2.5.10}
 
