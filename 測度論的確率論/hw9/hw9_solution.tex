@@ -151,9 +151,25 @@ Ex 2.5.9を使うと、任意の$a,m > 0$について以下の不等式を得る
 	P\left( \sup_{l > m}  \left|S_l - S_m\right| > 2a \right) \leq \frac{P\left( \left| S_m - S \right| > \frac{a}{2} \right)}{1 - 2 \sup_{l > m} P\left( \left| S_l - S \right| > \frac{a}{2} \right)}
 \end{align*}
 この両辺で$m \to \infty$にすることを考える。$S_m \xrightarrow{p} S$であることより、右辺分子は$0$に、右辺分母は$1$に収束する。従って、
-\begin{align*}
+\begin{align}
 	\lim_{m \to \infty} P\left( \sup_{l > m}  \left|S_l - S_m\right| > 2a \right)  = 0
+\end{align}
+である。
+
+$\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示せば、実数の完備性より$\lim_{n\to \infty} S_n$が確率$1$で存在する。よって以下では$(4)$を用いて$\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示す。まず、
+\begin{align*}
+	\sup_{j,k > m} \left| S_j - S_k \right| > 4a\ \Rightarrow\ \sup_{j,k > m} \left| S_j - S_m \right| + \left| S_k - S_m \right| > 4a\ \Rightarrow\ 2 \sup_{l > m} \left| S_l - S_m \right| > 4a\ \Rightarrow\ \sup_{l > m} \left| S_l - S_m \right| > 2a
 \end{align*}
+であることより、
+\begin{align*}
+	P\left( \sup_{j,k > m} \left| S_j - S_k \right| > 4a \right) \leq P\left( \sup_{l > m} \left| S_l - S_m \right| > 2a \right)
+\end{align*}
+である。これと$(4)$の結果より、
+\begin{align*}
+	\lim_{m \to \infty} P\left( \sup_{j,k > m} \left| S_j - S_k \right| > 4a \right) = 0
+\end{align*}
+である。
+
 
 \section{2.5.11}
 
