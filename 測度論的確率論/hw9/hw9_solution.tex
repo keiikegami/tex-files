@@ -168,7 +168,20 @@ $\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示�
 \begin{align*}
 	\lim_{m \to \infty} P\left( \sup_{j,k > m} \left| S_j - S_k \right| > 4a \right) = 0
 \end{align*}
-である。
+である。$a > 0$は任意に取れるので、$T_m = \sup_{j,k > m} \left| S_j - S_k \right|$と新たに確率変数を置いた時に、上の式は$T_m \xrightarrow{p} 0$を意味する。また$T_m(\omega)$は事象$\omega$を固定した時に$m$についての単調減少な列となる。ここで
+\begin{itemize}
+	\item $T_m \xrightarrow{p} 0\ \Rightarrow\ \left\{ T_{m_k} \right\}_{k=1}^{\infty}$で$0$にa.s.で収束するものが存在する。
+	\item 単調な数列の部分列の収束先は元の数列の収束先と同じになる。
+\end{itemize}
+の二つの事実より、$T_m \to 0\ \text{a.s.}$である。すなわち、$P\left( \left\{ \omega\mid T_m(\omega) \to 0 \right\} \right) = 1$である。$T_m$の定義より、
+\begin{align*}
+	T_m(\omega) \to 0\ \Leftrightarrow\ \lim_{m\to \infty} \sup_{j,k > m} \left| S_j(\omega) - S_k(\omega) \right| = 0
+\end{align*}
+である。ここで、
+\begin{align*}
+	\lim_{m,n \to \infty} \left| S_m(\omega) - S_n(\omega) \right| \leq \lim_{m\to \infty} \sup_{j,k > m} \left| S_j(\omega) - S_k(\omega) \right| = 0
+\end{align*}
+であるので確かに$\left\{S_n\right\}$が確率$1$でコーシー列であることが示され、よって題意は示された。
 
 
 \section{2.5.11}
