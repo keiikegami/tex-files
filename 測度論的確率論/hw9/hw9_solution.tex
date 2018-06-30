@@ -138,7 +138,22 @@ Ex 2.5.9を使うと、任意の$a,m > 0$について以下の不等式を得る
 	&\geq 1 - \max_{m<k\leq n} \left[ P\left( \left| S_n - S \right| > \frac{a}{2} \right) + P\left( \left| S_k - S \right| > \frac{a}{2} \right) \right]\\[8pt]
 	&\geq 1 - 2 \sup_{l > m} P\left( \left| S_l - S \right| > \frac{a}{2} \right)
 \end{align*}
-が得られる。ただし一つ目の不等号は三角不等式より、二つ目の不等式は最大値の候補となる個数を増やしたことにより得られる。
+が得られる。ただし一つ目の不等号は三角不等式より、二つ目の不等式は最大値の候補となる個数を増やしたことにより得られる。以上の結果より、$(2)$からさらに以下の不等式が得られる。
+\begin{align}
+	\lim_{n\to \infty}P\left( \max_{m<j\leq n} \left|S_j - S_m\right| > 2a \right) \leq \frac{P\left( \left| S_m - S \right| > \frac{a}{2} \right)}{1 - 2 \sup_{l > m} P\left( \left| S_l - S \right| > \frac{a}{2} \right)}
+\end{align}
+ここで$\left\{ \max_{m<j\leq n} \left|S_{m,j}\right| > 2a  \right\}$は$n$が増えると$2a$を超える候補が増えていくので増大列である。従って、
+\begin{align*}
+	\lim_{n\to \infty}P\left( \max_{m<j\leq n} \left|S_j - S_m\right| > 2a \right) = P\left( \sup_{l > m}  \left|S_l - S_m\right| > 2a \right)
+\end{align*}
+が成立する。これより$(3)$から以下の不等式が得られる。
+\begin{align*}
+	P\left( \sup_{l > m}  \left|S_l - S_m\right| > 2a \right) \leq \frac{P\left( \left| S_m - S \right| > \frac{a}{2} \right)}{1 - 2 \sup_{l > m} P\left( \left| S_l - S \right| > \frac{a}{2} \right)}
+\end{align*}
+この両辺で$m \to \infty$にすることを考える。$S_m \xrightarrow{p} S$であることより、右辺分子は$0$に、右辺分母は$1$に収束する。従って、
+\begin{align*}
+	\lim_{m \to \infty} P\left( \sup_{l > m}  \left|S_l - S_m\right| > 2a \right)  = 0
+\end{align*}
 
 \section{2.5.11}
 
