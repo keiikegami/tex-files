@@ -120,10 +120,34 @@ $\sup X_n < \infty\ \text{a.s.}\ \Leftrightarrow\ \sum_n P\left( X_n > A \right)
 ただし最後の不等式は$A_j$がそれぞれ排反な事象であることによるものである。以上で題意の不等式が示された。
 
 \section{2.5.10}
+Ex 2.5.9を使うと、任意の$a,m > 0$について以下の不等式を得る。
+\begin{align}
+	P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right) \leq\frac{P\left( \left| S_n -S_m \right| > a \right)}{\min_{m<k \leq n}P\left( \left| S_{k, n} \right| \leq a \right)}
+\end{align}
+まず右辺の分子について考える。$S_n$の確率収束する先を$S$と書くと、三角不等式より以下が成立する。
+\begin{align*}
+	P\left( \left| S_n - S_m \right| > a \right) \leq P\left( \left| S_n - S \right| > \frac{a}{2} \right) + P\left( \left| S_m - S \right| > \frac{a}{2} \right)
+\end{align*}
+ここで両辺$n\to \infty$とすると、確率収束の定義より
+\begin{align*}
+	\lim_{n\to \infty} P\left( \left| S_n - S_m \right| > a \right) \leq P\left( \left| S_m - S \right| > \frac{a}{2} \right)
+\end{align*}
+を得る。$(2)$の右辺分母に対しては、
+\begin{align*}
+	\min_{m<k \leq n}P\left( \left| S_n - S_k \right| \leq a \right) &= 1 - \max_{m<k\leq n} P\left( \left| S_n - S_k \right| > a \right)\\[8pt]
+	&\geq 1 - \max_{m<k\leq n} \left[ P\left( \left| S_n - S \right| > \frac{a}{2} \right) + P\left( \left| S_k - S \right| > \frac{a}{2} \right) \right]\\[8pt]
+	&\geq 1 - 2 \sup_{l > m} P\left( \left| S_l - S \right| > \frac{a}{2} \right)
+\end{align*}
+が得られる。ただし一つ目の不等号は三角不等式より、二つ目の不等式は最大値の候補となる個数を増やしたことにより得られる。
 
 \section{2.5.11}
 
 \end{document}
+
+
+
+
+
 
 
 
