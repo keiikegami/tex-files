@@ -185,6 +185,35 @@ $\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示�
 
 
 \section{2.5.11}
+仮定より、
+\begin{align*}
+	\forall \epsilon, \delta > 0, \exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\  P\left( \left| \frac{S_n}{n} \right| > \epsilon \right) < \delta
+\end{align*}
+である。この$N$について$\star$の不等式を用いると、
+\begin{align*}
+	P\left( \max_{N<k\leq n} \left|S_k - S_N\right| > 4\epsilon n \right) \leq\frac{P\left( \left| S_n -S_N \right| > 2\epsilon n \right)}{\min_{N<k \leq n}P\left( \left| S_n - S_k \right| \leq 2\epsilon n \right)}
+\end{align*}
+を得る。ここで右辺の分母については三角不等式から
+\begin{align*}
+	\min_{N<k \leq n}P\left( \left| S_n - S_k \right| \leq 2\epsilon n \right) &\geq 1 - \max_{N<k \leq n} \left[ P\left( \left| S_n \right| > \epsilon n \right) + P\left( \left| S_k \right| > \epsilon n \right) \right]\\[10pt]
+	&\geq 1- \max_{N<k \leq n} \left[ P\left( \left| \frac{S_n}{n} \right| > \epsilon \right) + P\left( \left| \frac{S_k}{k} \right| > \epsilon \right) \right]\\[10pt]
+	&\geq 1 - 2 \delta
+\end{align*}
+のように抑えられる。また分子についても同様にして$2\delta$で上から抑えられるので、最初の不等式は以下のように変形できる。
+\begin{align}
+	P\left( \max_{N<k\leq n} \left|S_k - S_N\right| > 4\epsilon n \right) \leq \frac{2\delta}{1 - 2\delta}
+\end{align}
+ここで、$\max_{N<k\leq n} \frac{\left| S_k - S_N \right|}{n} \geq \left| \max_{N<k\leq n} \frac{S_k - S_N}{n} \right|$であるので、$(5)$より以下が成立している。
+\begin{align*}
+	\forall \eta, \xi > 0, \exists N\ \text{s.t.}\ P\left( \left| \frac{\max_{N<k\leq n} S_k}{n} - \frac{S_N}{n} \right| > \eta \right) < \xi
+\end{align*}
+これより、
+\begin{align*}
+	 \frac{\max_{N<k\leq n} S_k}{n} - \frac{S_N}{n} \xrightarrow{p} 0
+\end{align*}
+であり、$\frac{S_N}{n} \to 0$より$\frac{\max_{N<k\leq n} S_k}{n} \xrightarrow{p} 0$である。あとは、$P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) = 0$を示せば題意は示される。
+
+
 
 \end{document}
 
