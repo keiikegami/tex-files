@@ -211,9 +211,21 @@ $\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示�
 \begin{align*}
 	 \frac{\max_{N<k\leq n} S_k}{n} - \frac{S_N}{n} \xrightarrow{p} 0
 \end{align*}
-であり、$\frac{S_N}{n} \to 0$より$\frac{\max_{N<k\leq n} S_k}{n} \xrightarrow{p} 0$である。あとは、$P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) = 0$を示せば題意は示される。
+であり、$\frac{S_N}{n} \to 0$より$\frac{\max_{N<k\leq n} S_k}{n} \xrightarrow{p} 0$である。あとは、任意の$N$について$P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) = 0$を示せば題意は示される。
 
-
+$N^{*}$を$N$まででの最大を与えるindexであるとすると、
+\begin{align*}
+	P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) &= P\left( X_{N^{*} + 1} + \cdots + X_m < 0,\ N < \forall m \right)
+\end{align*}
+であり、Kolmogorov's 0-1 lawよりこれは$0$か$1$である。もしこの確率が$1$なら、
+\begin{align*}
+	P\left( \frac{X_{N^{*} + 1} + \cdots + X_m}{m-N^{*}} < 0,\ N < \forall m \right) = 1
+\end{align*}
+である。この時、$\epsilon > 0$をうまくとれば、任意の$m > N$に対して、
+\begin{align*}
+	P\left( \left| \frac{X_{N^{*} + 1} + \cdots + X_m}{m-N^{*}}\right| > \epsilon \right) = 1
+\end{align*}
+となる。すなわち任意の$\delta > 0$で抑えられない。$\left\{ X_n \right\}$がi.i.d.であることより、これは仮定されている$\frac{S_n}{n} \xrightarrow{p} 0$に反することになる。従って$P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) = 0$であり、題意は示された。
 
 \end{document}
 
