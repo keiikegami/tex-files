@@ -189,7 +189,7 @@ $\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示�
 \begin{align*}
 	\forall \epsilon, \delta > 0, \exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\  P\left( \left| \frac{S_n}{n} \right| > \epsilon \right) < \delta
 \end{align*}
-である。この$N$について$\star$の不等式を用いると、
+である。この$N$について$(\star)$の不等式を用いると、
 \begin{align*}
 	P\left( \max_{N<k\leq n} \left|S_k - S_N\right| > 4\epsilon n \right) \leq\frac{P\left( \left| S_n -S_N \right| > 2\epsilon n \right)}{\min_{N<k \leq n}P\left( \left| S_n - S_k \right| \leq 2\epsilon n \right)}
 \end{align*}
@@ -203,7 +203,7 @@ $\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示�
 \begin{align}
 	P\left( \max_{N<k\leq n} \left|S_k - S_N\right| > 4\epsilon n \right) \leq \frac{2\delta}{1 - 2\delta}
 \end{align}
-ここで、$\max_{N<k\leq n} \frac{\left| S_k - S_N \right|}{n} \geq \left| \max_{N<k\leq n} \frac{S_k - S_N}{n} \right|$であるので、$(5)$より以下が成立している。
+ここで、$\max_{N<k\leq n} \frac{\left| S_k - S_N \right|}{n} \geq \left| \max_{N<k\leq n} \frac{S_k - S_N}{n} \right|$であるので、$\epsilon, \delta > 0$が任意に取れることから、$(5)$より以下が成立している。
 \begin{align*}
 	\forall \eta, \xi > 0, \exists N\ \text{s.t.}\ P\left( \left| \frac{\max_{N<k\leq n} S_k}{n} - \frac{S_N}{n} \right| > \eta \right) < \xi
 \end{align*}
@@ -221,11 +221,11 @@ $N^{*}$を$N$まででの最大を与えるindexであるとすると、
 \begin{align*}
 	P\left( \frac{X_{N^{*} + 1} + \cdots + X_m}{m-N^{*}} < 0,\ N < \forall m \right) = 1
 \end{align*}
-である。この時、$\epsilon > 0$をうまくとれば、任意の$m > N$に対して、
+である。この時、実数の連続性から$\epsilon > 0$をうまくとることで任意の$m > N$に対して、
 \begin{align*}
 	P\left( \left| \frac{X_{N^{*} + 1} + \cdots + X_m}{m-N^{*}}\right| > \epsilon \right) = 1
 \end{align*}
-となる。すなわち任意の$\delta > 0$で抑えられない。$\left\{ X_n \right\}$がi.i.d.であることより、これは仮定されている$\frac{S_n}{n} \xrightarrow{p} 0$に反することになる。従って$P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) = 0$であり、題意は示された。
+とできる。すなわち任意の$\delta > 0$で抑えられない。$\left\{ X_n \right\}$がi.i.d.であることより、これは仮定されている$\frac{S_n}{n} \xrightarrow{p} 0$に反することになる。従って$P\left( \frac{\max_{N<k\leq n} S_k}{n} \neq \frac{\max_{1\leq k\leq n} S_k}{n}\ \text{i.o.}\ \right) = 0$であり、題意は示された。
 
 \end{document}
 
