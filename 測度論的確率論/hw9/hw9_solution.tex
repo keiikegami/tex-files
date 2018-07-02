@@ -48,7 +48,7 @@ Homework 9}
 \begin{align*}
 	\sum_n p_n = \sum_n P(A_n) < \infty
 \end{align*}
-なのでBorel-Cantelliより$P(A_n\ \text{i.o.}) = 0$であり、$P(A_n\ \text{i.o.}) = 0\ \Leftrightarrow\ X_n\ \to 0 \ \text{a.s.}$より確かに日代理側が成立する。次に逆向きを示す。$A_n$が独立な事象であることからTheorem 2.3.7より、
+なのでBorel-Cantelliより$P(A_n\ \text{i.o.}) = 0$であり、$P(A_n\ \text{i.o.}) = 0\ \Leftrightarrow\ X_n\ \to 0 \ \text{a.s.}$より確かに左側が成立する。次に逆向きを示す。$A_n$が独立な事象であることからTheorem 2.3.7より、
 \begin{align*}
 	\sum_n p_n = \sum P(A_n) = \infty\ \Rightarrow\ P(A_n\ \text{i.o.}) = 1
 \end{align*}
@@ -59,11 +59,11 @@ Homework 9}
 であり、今仮定より$P(A_n\ \text{i.o.}) = 0$なので上の結果より確かに右側が成立する。
 
 \section{2.3.13}
-何らかの正の無限大に発散する正実数列$\left\{ c_n \right\}$に対して、任意に$\epsilon > 0$を取ったときに$P\left( \frac{|X_n|}{c_n} > \epsilon\ \text{i.o.} \right) = 0$とできることを示す。Borel-Cantelliより、そのためには$\sum_n P\left( \frac{|X_n|}{c_n} > \epsilon \right) < \infty$とできることを示せば良い。すなわち足していく確率を級数が収束するように十分小さく抑えれば良い。
+何らかの正の無限大に発散する正実数列$\left\{ c_n \right\}$に対して、任意に$\epsilon > 0$を取ったときに$P\left( \frac{|X_n|}{c_n} > \epsilon\ \text{i.o.} \right) = 0$とできることを示す。Borel-Cantelliより、そのためには$\sum_{n=1}^{\infty} P\left( \frac{|X_n|}{c_n} > \epsilon \right) < \infty$とできることを示せば良い。すなわち足していく確率を級数が収束するように十分小さく抑えれば良い。
 \begin{align}
 	P\left( \frac{|X_n|}{c_n} > \epsilon \right) = P\left( \frac{|X_n|}{\epsilon} > c_n \right) \leq \frac{1}{2^n}
 \end{align}
-これを満たすような$c_n\to \infty$が存在すれば、$\sum_n \frac{1}{2^n} < \infty$なので題意は示される。以下ではこのような正実数列$\left\{ c_n \right\}\to \infty$が存在することを確認する。
+これを満たすような$c_n\to \infty$が存在すれば、$\sum_{n=1}^{\infty} \frac{1}{2^n} < \infty$なので題意は示される。以下ではこのような正実数列$\left\{ c_n \right\}\to \infty$が存在することを確認する。
 
 まず各$n$について$(1)$を満たす$c_n$が存在することを確認する。$X_n$は$\mathbb{R}$ valued 確率変数であるので$\frac{|X_n|}{\epsilon} < \infty$である。従って、
 \begin{align*}
@@ -77,12 +77,12 @@ Homework 9}
 \begin{align*}
 	\lim_{n\to \infty} P\left( \frac{|X_n|}{c_n} \leq \epsilon \right)= 1
 \end{align*}
-である。$c_n \to \infty$であるとき$\frac{1}{c_n} \to 0$であるので確かに上の式を満たす。以上より条件を満たす正の実数列$\left\{ c_n \right\}$が必ず存在することがわかった。
+である。$c_n \to \infty$であるとき$\frac{1}{c_n} \to 0$であるので確かに上の式を満たす。以上より条件を満たす正の実数列$\left\{ c_n \right\}$が必ず存在することがわかったので題意は示された。
 
 \section{2.3.14}
 $\sup X_n < \infty\ \text{a.s.}\ \Leftrightarrow\ \sum_n P\left( X_n > A \right) < \infty\ \text{for some $A$}$を示す。右側を仮定すると、Borel-Cantelliとドモルガンの定理から
 \begin{align*}
-	\sum_n P\left( X_n > A \right) < \infty\ \Rightarrow\ P\left( X_n > A\ \text{i.o.} \right) = 0 = P\left( X_n \leq A\ \text{a.a.} \right) = 1
+	\sum_n P\left( X_n > A \right) < \infty\ \Rightarrow\ P\left( X_n > A\ \text{i.o.} \right) = 0\ \Leftrightarrow\ P\left( X_n \leq A\ \text{a.a.} \right) = 1
 \end{align*}
 である。ただしここで$a.a.$はDurrettにおける$\liminf A_n$に対応する記号であるとする。これは確かに左側が成立していることを意味している。逆向きは対偶を示す。すなわち、
 \begin{align*}
@@ -97,9 +97,9 @@ $\sup X_n < \infty\ \text{a.s.}\ \Leftrightarrow\ \sum_n P\left( X_n > A \right)
 \section{2.5.9}
 まず$P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right)$について考える。
 \begin{align*}
-	A_j = \left\{ \omega\mid \left| S_{m,j} \right| > 2a\ \text{and}\ \left| S_{m,i} \right| \leq 2a\ m < \forall i < j \right\}
+	A_j = \left\{ \omega\mid \left| S_{m,j} \right| > 2a\ \text{and}\ \left| S_{m,i} \right| \leq 2a,\ m < \forall i < j \right\}
 \end{align*}
-とするとこれは独立な事象である。ここで、
+とするとこれは排反な事象である。ここで、
 \begin{align*}
 	P\left( \max_{m<j\leq n} \left|S_{m,j}\right| > 2a \right) = P\left( \bigcup_{j=m+1}^n A_j \right) \leq \sum_{j=m+1}^n P\left( A_j \right)
 \end{align*}
@@ -156,7 +156,7 @@ Ex 2.5.9を使うと、任意の$a,m > 0$について以下の不等式を得る
 \end{align}
 である。
 
-$\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示せば、実数の完備性より$\lim_{n\to \infty} S_n$が確率$1$で存在する。よって以下では$(4)$を用いて$\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示す。まず、
+$\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示せば、実数の完備性より$\lim_{n\to \infty} S_n$が確率$1$で存在することになる。よって以下では$(4)$を用いて$\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示す。まず、
 \begin{align*}
 	\sup_{j,k > m} \left| S_j - S_k \right| > 4a\ \Rightarrow\ \sup_{j,k > m} \left| S_j - S_m \right| + \left| S_k - S_m \right| > 4a\ \Rightarrow\ 2 \sup_{l > m} \left| S_l - S_m \right| > 4a\ \Rightarrow\ \sup_{l > m} \left| S_l - S_m \right| > 2a
 \end{align*}
@@ -181,7 +181,7 @@ $\left\{S_n(\omega)\right\}$が確率$1$でコーシー列であることを示�
 \begin{align*}
 	\lim_{m,n \to \infty} \left| S_m(\omega) - S_n(\omega) \right| \leq \lim_{m\to \infty} \sup_{j,k > m} \left| S_j(\omega) - S_k(\omega) \right| = 0
 \end{align*}
-であるので確かに$\left\{S_n\right\}$が確率$1$でコーシー列であることが示され、よって題意は示された。
+であるので確かに$\left\{S_n\right\}$が確率$1$でコーシー列であることがわかる。よって題意は示された。
 
 
 \section{2.5.11}
