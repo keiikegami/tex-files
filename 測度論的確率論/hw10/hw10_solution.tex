@@ -118,10 +118,79 @@ $(\Leftarrow part)$
 
 
 \section{3.2.9}
+「分布関数$F$が連続であるならば$F$は一様連続である（主張$1$）」を所与とする。この時、
+\begin{align*}
+	\forall \epsilon > 0, \exists \delta > 0, \text{s.t.}\ |x-y| \leq \delta\ \Rightarrow\ \left| F(x) - F(y) \right| \leq \epsilon
+\end{align*}
+である。$F_n \Rightarrow F$であるのでEx 3.2.6.より$\rho\left( F_n, F \right) \to 0$である。すなわち一般性を失うことなく、$\epsilon \geq \delta \geq 0$に対して、
+\begin{align*}
+	F\left( x-\delta \right) -\delta \leq F_n(x) \leq F(x + \delta) + \delta
+\end{align*}
+である。ここで、$|x - (x-\delta)| \leq \delta$であるので一様連続性から$\left| F(x) - F(x-\delta) \right| \leq \epsilon$である。すなわち、$F(x) - \epsilon \leq F(x - \delta) \leq F(x) + \delta$である。同様の議論を$x, x+\delta$に対しても適用することで先と合わせて以下を得る。
+\begin{align*}
+	F(x) - \delta - \epsilon \leq F_n(x) \leq F(x) + \delta + \epsilon
+\end{align*}
+$\epsilon \geq \delta$であるので、十分大きな$n$において$F(x) - 2\epsilon \leq F_n(x) \leq F(x)+ 2\epsilon$が任意の$\epsilon > 0$に対して任意の$x$で成立することがわかった。すなわち、
+\begin{align*}
+	\sup_{x\in \mathbb{R}} \left| F_n(x) - F(x) \right| \leq 2\epsilon
+\end{align*}
+が十分大きな$n$について成立するので題意は示された。
+
+\subsection{主張$1$の証明}
+任意に$m \in \mathbb{N}$を取る。これに対して$(0,1)$を$\left( \frac{j-1}{m}, \frac{j}{m} \right), j = 1,\cdots, m$で$m$個に分割することを考える。$F$が連続で非減少関数であるので開集合の逆像は開集合となるので、$F^{-1}\left( \left( \frac{j-1}{m}, \frac{j}{m} \right) \right)$は各$j$について開区間である。この$m$個の区間のルベーグ測度で最小のものを$\delta$とかく。この時、
+\begin{align*}
+	|x-y| < \delta\ \Rightarrow\ \left| F(x) - F(y) \right| < \frac{2}{m}
+\end{align*}
+が成立する。なぜなら$x,y$を上のようにとレバ$[x, y]$に最小区間以外の区間が丸々入ることはあり得ないからである。従って、任意の$\epsilon > 0$に対して、$\frac{2}{m} < \epsilon\ \Rightarrow\ \frac{2}{\epsilon} < m$を満たすように$m$をとりその時の最小区間の長さを取ってくれば一様連続性を満たすことがわかる。
 
 \section{3.2.11}
+$X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\left( X_{\infty} = m \right)\ \forall m$を示す。$X_n$の分布関数を$F_n$でかくと、$a \in (m-1, m), b \in (m, m+1)$として$P\left( X_n = m \right) = F_n(b) - F_n(a)$である。$X_{\infty}$の分布関数を$F$とかくとすると、仮定より以下を得る。
+\begin{align*}
+	P\left( X_n = m \right) = F_n(b) - F_n(a) \to F(b) - F(a)
+\end{align*}
+ここで$b\downarrow m, a\uparrow m$とすることを考えると、
+\begin{align*}
+	F(b) - F(a) \to F(m_{+}) - F(m_{-}) = P\left( X_{\infty} = m\right)
+\end{align*}
+従って、$P\left( X_n = m \right) \to P\left( X_{\infty} = m \right)\ \forall m$を得る。
+
+次に$X_n\ \xrightarrow{w}\ X_{\infty}\ \Leftarrow\ P\left( X_n = m \right) \to P\left( X_{\infty} = m \right)\ \forall m$を示す。$G$を$\mathbb{R}$の開集合とする。この時、
+\begin{align*}
+	\liminf_{n\to \infty} P\left( X_n \in G \right) &= \liminf_{n\to \infty} \sum_{m \in G \cap \mathbb{Z}} P\left( X_n = m \right)\\
+	&= \liminf_{n\to \infty} E\left[ 1\left( X_n \in G\cap \mathbb{Z} \right) \right]\\
+	&\geq E\left[ \liminf_{n\to \infty} 1\left( X_n \in G\cap \mathbb{Z} \right) \right]\\
+	&= \sum_{m \in G \cap \mathbb{Z}} \liminf_{n\to \infty} P\left( X_n = m \right)\\
+	&= \sum_{m \in G \cap \mathbb{Z}} P\left( X_{\infty} = m \right)\\
+	&= P\left( X_{\infty} \in G\cap \mathbb{Z} \right)
+\end{align*}
+を得る。ただし、不等号はFatouの補題より得られ、4番目の等号は仮定より得られる。従って、Th 3.2.11(2)より確かに$X_n \xrightarrow{w} X_{\infty}$である。
 
 \section{3.2.12}
+まず確率収束するなら分布収束することを示す。まず、
+\begin{align*}
+	X_n > x\ \text{and}\ |X - X_n| \leq \epsilon\ \Rightarrow\ x-\epsilon < X
+\end{align*}
+が成立する。これの対偶より$x - \epsilon \geq X\ \Rightarrow\ X_n \leq X\ \text{or}\ |X- X_n| > \epsilon$が成立する。すなわち、
+\begin{align*}
+	P\left( X \leq x-\epsilon \right) \leq P\left( X_n \leq x \right) + P\left(  |X- X_n| > \epsilon \right)
+\end{align*}
+である。これより$F(x-\epsilon) - P\left(  |X- X_n| > \epsilon \right) \leq F_n(x)$であり、$X_n \xrightarrow{p}X$であることより左辺第二項は$0$に収束することから、$F(x-\epsilon) \leq \liminf_{n} F_n(x)$である。同じように以下が成立することを使う。
+\begin{align*}
+	X > x+ \epsilon\ \text{and}\ |X-X_n| \leq \epsilon\ \Rightarrow\ x < X_n
+\end{align*}
+この対偶は$X_n\leq x\ \Rightarrow\ X\leq x + \epsilon\ \text{or}\ |X-X_n| > \epsilon$であるので、以下を得る。
+\begin{align*}
+	P\left(X_n\leq x \right) \leq P\left( X\leq x + \epsilon \right) + P\left( |X-X_n| > \epsilon \right)
+\end{align*}
+仮定より右辺第2項は$0$に収束するので$\limsup_n F_n(x) \leq F(x+\epsilon)$を得る。以上を合わせると、任意の$\epsilon > 0$に対して、
+\begin{align*}
+	F(x-\epsilon) \leq \liminf_{n} F_n(x) \leq \limsup_n F_n(x) \leq F(x+\epsilon)
+\end{align*}
+が成立している。$x$が$F$の連続点であるならば、$\epsilon \to 0$とすることを考えて$F(x) = \lim_n F_n(x)$である。また、$x$が$F$の連続点でない場合に関しても、不連続点は高々可算個なので$x$に上から近く連続点の列$\left\{ x_m \right\}$を取ることができる。これに対して、$F, F_n$が右連続であることと、連続点においては収束が示されていることより、
+\begin{align*}
+	F(x) = \lim_m F(x_m) = \lim_m \lim_n F_n(x_m) = \lim_n F_n(x)
+\end{align*}
+が成立する。従って各$x$について$\lim_n F_n(x) = F(x)$となっていることが示されたので分布収束することが確かめられた。
 
 \section{3.2.13}
 
