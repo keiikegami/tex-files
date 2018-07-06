@@ -57,6 +57,7 @@ Homework 10}
 
 \section{3.2.6}
 まず距離の公理を満たすことを確認する。
+
 \subsection{対称性}
 $y = x - \epsilon, z = x + \epsilon$と置くと、
 \begin{align*}
@@ -64,6 +65,7 @@ $y = x - \epsilon, z = x + \epsilon$と置くと、
 	&= \left\{ \epsilon \mid G(x - \epsilon) - \epsilon \leq F(x) \leq G(x + \epsilon) + \epsilon, \forall x \right\}
 \end{align*}
 であるので$\inf$を取る対象となる集合が変わらないため$\rho\left( F, G \right) = \rho\left( G, F \right)$である。
+
 \subsection{非負性}
 $\rho\left( F, G \right) < 0$とすると実数の連続性より$\rho\left( F, G \right) < \alpha < 0$なる実数$\alpha$が必ず存在し、この時以下が満たされる。
 \begin{align*}
@@ -71,6 +73,22 @@ $\rho\left( F, G \right) < 0$とすると実数の連続性より$\rho\left( F, 
 \end{align*}
 しかし、$x - \alpha > x > x + \alpha$であるので、分布関数の定義より$F(x-\alpha) \geq F(x + \alpha)$であり、さらに$F(x-\alpha) -\alpha \geq F(x + \alpha) + \alpha$である。これは先と矛盾するので$\rho\left( F, G \right) \geq 0$である。
 
+\subsection{$\rho\left( F, G \right)  =  0 \Leftrightarrow F = G$}
+$(\Leftarrow part)$ 
+\begin{align*}
+	\rho\left( F, G \right) = \inf\left\{ \epsilon \mid F(x-\epsilon) - \epsilon \leq F(x) \leq F(x+\epsilon) + \epsilon, \forall x \right\}
+\end{align*}
+任意の$\epsilon \geq 0$について$F(x-\epsilon) \leq F(x), F(x + \epsilon) \geq F(x)$であるので、$\inf$を取る集合は任意の$\epsilon \geq 0$を含む。非負であることは先に示したので、この時確かに$\rho\left( F, G \right)  =  0$である。
+
+\noindent $(\Rightarrow part)$
+\begin{align*}
+	F(x - \epsilon) - \epsilon \leq G(x) \leq F(x + \epsilon) + \epsilon
+\end{align*}
+に対して$\epsilon \to 0$とすると、仮定より$F(x_{-}) \leq G(x) \leq F(x_{+})$が成立する。これより、もし$x$が$F$の連続点であれば、$G(x) = F(x)$である。また、もし$x$が連続点でない場合出会っても、不連続点が高々可算個しかないことから上から不連続点$x$に近づく連続点の列$\left\{ x_m \right\}$を考えることができ、分布関数の右連続性と、連続点においては$F.G$が等しいという先の結果より、
+\begin{align*}
+	G(x) = G(x_{+}) = \lim_{x_m \downarrow x} G(x_m) = \lim_{x_m \downarrow x} F(x_m) = F(x_{+}) = F(x)
+\end{align*}
+となり、不連続点においても$F = G$となることが確認できる。
 
 \section{3.2.9}
 
