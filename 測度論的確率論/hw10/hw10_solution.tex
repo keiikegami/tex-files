@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[margin = .7in]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\lstset{%
+  language={python},
+  basicstyle={\small},%
+  identifierstyle={\small},%
+  commentstyle={\small\itshape},%
+  keywordstyle={\small\bfseries},%
+  ndkeywordstyle={\small},%
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},%
+  numbers=left,%
+  xrightmargin=0zw,%
+  xleftmargin=3zw,%
+  numberstyle={\scriptsize},%
+  stepnumber=1,
+  numbersep=1zw,%
+  lineskip=-0.5ex%
+}
+
+\begin{document}
+\title{測度論的確率論 2018 S1S2 \\ 
+Homework 10}
+\author{経済学研究科現代経済コース修士1年 / 池上　慧 (29186009) / sybaster.x@gmail.com}
+\maketitle
+
+\section{3.2.1}
+\begin{align*}
+	f_n(x) = \begin{cases} 0 & \text{when $\left[ 2^n x \right]$ is even}\\[8pt]
+	2 & \text{when $\left[ 2^n x \right]$ is odd}
+	\end{cases}
+\end{align*}
+なる関数列を考える。ただし$\left[ x \right]$は$x$を超えない最大の整数を表す記号とする。この時、任意の$n$について$f_n(x)$は$0,2$のいずれかしか取り得ないので、明らかに$n \to \infty$で$f_n(x) \neq 1 ,\forall x \in \mathbb{R}$である。しかし分布関数を考えると、任意の$x \in \mathbb{R}$を考えると、
+\begin{align*}
+	F_n(x) = \int_0^x f_n(y) \mathrm{d}y = \begin{cases} \frac{\left[ 2^n x \right] - 1}{2} \times 2 \times \frac{1}{2^n} + 2\left( x - \frac{\left[ 2^n x \right]}{2^n} \right) & \text{when $\left[ 2^n x \right]$ is odd} \\[8pt]
+	\frac{\left[ 2^n x \right] }{2} \times 2 \times \frac{1}{2^n}  & \text{when $\left[ 2^n x \right]$ is even}
+	\end{cases}
+\end{align*}
+である。前者は整理すると$2x - \frac{1 + \left[ 2^n x \right]}{2^n}$であり、$2^n x - 1 \leq \left[ 2^n x \right] \leq 2^n x$なので、
+\begin{align*}
+	x - \frac{1}{2^n}\leq 2x - \frac{1 + \left[ 2^n x \right]}{2^n} \leq x
+\end{align*}
+であり、はさみうちの原理から$n \to \infty$で$x$に収束する。また後者についても同様の議論から、
+\begin{align*}
+	x-\frac{1}{2^n} \leq \frac{\left[ 2^n x \right]}{2^n} \leq x
+\end{align*}
+となるのでこちらも$x$に収束する。従って、$x \in \mathbb{R}$に各点で分布関数$F_n$が一様分布の分布関数に収束するので分布収束していることがわかる。
+
+\section{3.2.6}
+
+\section{3.2.9}
+
+\section{3.2.11}
+
+\section{3.2.12}
+
+\section{3.2.13}
+
+\section{3.2.14}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
