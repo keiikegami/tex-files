@@ -56,9 +56,10 @@ Homework 10}
 となるのでこちらも$x$に収束する。従って、$x \in \mathbb{R}$に各点で分布関数$F_n$が一様分布の分布関数に収束するので分布収束していることがわかる。
 
 \section{3.2.6}
+\subsection{距離の公理}
 まず距離の公理を満たすことを確認する。
 
-\subsection{対称性}
+\subsubsection{対称性}
 $y = x - \epsilon, z = x + \epsilon$と置くと、
 \begin{align*}
 	\left\{ \epsilon \mid F(x-\epsilon) - \epsilon \leq G(x) \leq F(x+\epsilon) + \epsilon, \forall x \right\} &= \left\{ \epsilon \mid F(y) \leq G(y + \epsilon) + \epsilon\ \text{and}\  G(z-\epsilon) - \epsilon \leq F(z), \forall y , z\right\} \\
@@ -66,14 +67,14 @@ $y = x - \epsilon, z = x + \epsilon$と置くと、
 \end{align*}
 であるので$\inf$を取る対象となる集合が変わらないため$\rho\left( F, G \right) = \rho\left( G, F \right)$である。
 
-\subsection{非負性}
+\subsubsection{非負性}
 $\rho\left( F, G \right) < 0$とすると実数の連続性より$\rho\left( F, G \right) < \alpha < 0$なる実数$\alpha$が必ず存在し、この時以下が満たされる。
 \begin{align*}
 	\forall x, F\left( x - \alpha \right) - \alpha \leq G(x) \leq F\left( x + \alpha \right) + \alpha
 \end{align*}
 しかし、$x - \alpha > x > x + \alpha$であるので、分布関数の定義より$F(x-\alpha) \geq F(x + \alpha)$であり、さらに$F(x-\alpha) -\alpha \geq F(x + \alpha) + \alpha$である。これは先と矛盾するので$\rho\left( F, G \right) \geq 0$である。
 
-\subsection{$\rho\left( F, G \right)  =  0 \Leftrightarrow F = G$}
+\subsubsection{$\rho\left( F, G \right)  =  0 \Leftrightarrow F = G$}
 $(\Leftarrow part)$ 
 \begin{align*}
 	\rho\left( F, G \right) = \inf\left\{ \epsilon \mid F(x-\epsilon) - \epsilon \leq F(x) \leq F(x+\epsilon) + \epsilon, \forall x \right\}
@@ -89,6 +90,28 @@ $(\Leftarrow part)$
 	G(x) = G(x_{+}) = \lim_{x_m \downarrow x} G(x_m) = \lim_{x_m \downarrow x} F(x_m) = F(x_{+}) = F(x)
 \end{align*}
 となり、不連続点においても$F = G$となることが確認できる。
+
+\subsubsection{三角不等式}
+三つの分布関数$F,G,H$について、
+\begin{align*}
+	\rho\left( F, G \right) + \rho\left( G, H \right) \geq \rho\left( F, H \right)
+\end{align*}
+が成立することを示す。まず、$\rho\left( F, G \right) = \epsilon_1, \rho\left( G, H \right) = \epsilon_2, \epsilon = \epsilon_1 + \epsilon_2$と置く。この時任意の$x$について、
+\begin{align*}
+	F\left( x - \epsilon \right) - \epsilon = F\left(x - \epsilon_1 - \epsilon_2 \right) - \epsilon_1 - \epsilon_2 \leq G\left( x - \epsilon_2 \right) - \epsilon_2 \leq H(x)
+\end{align*}
+が成立する。ただし一つ目の不等号は$\epsilon_1$の定義より二つめの不等号は$\epsilon_2$の定義より得られる。同様にして、
+\begin{align*}
+	F\left( x + \epsilon \right) + \epsilon = F\left(x + \epsilon_1 + \epsilon_2 \right) +\epsilon_1 + \epsilon_2 \geq G\left( x + \epsilon_2 \right) + \epsilon_2 \geq H(x)
+\end{align*}
+も得られる。以上より、
+\begin{align*}
+	F\left( x - \epsilon \right) - \epsilon \leq H(x) \leq F\left( x + \epsilon \right) + \epsilon
+\end{align*}
+が任意の$x$について満たされるので、$\rho\left( F, H \right)$は$\epsilon$以下の値となることがわかる。以上より題意の不等式が示された。
+
+\subsection{分布収束との同値性}
+次に$\rho\left( F_n, F \right) \to 0\ \Leftrightarrow\ F_n \xrightarrow{w} F$を示す。
 
 \section{3.2.9}
 
