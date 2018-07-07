@@ -115,6 +115,23 @@ $(\Leftarrow part)$
 
 \noindent $(\Rightarrow part)$
 
+仮定より任意の$\epsilon > 0$と任意の$x$に対して十分大きな$n$をとれば、
+\begin{align*}
+	F(x-\epsilon) - \epsilon \leq F_n(x) \leq F(x+\epsilon) + \epsilon
+\end{align*}
+である。左側の不等式に注目して両辺$\liminf$を取ることを考えると、$\epsilon \to 0$とできることより、$F(x_{-}) \leq \liminf_n F_n(x)$を得る。また同様に右の不等式に注目すると$\limsup_n F_n(x) \leq F(x_{+})$を得る。$\liminf_n F_n(x) \leq \limsup_n F_n(x)$は定義より常に成立するので、
+\begin{align*}
+	F(x_{-}) \leq \liminf_n F_n(x) \leq \limsup_n F_n(x) \leq F(x_{+})
+\end{align*}
+が成立する。従ってもし$x$が$F$の連続点であれば、$F(x) = F(x_{-}) = F(x_{+})$であるので、はさみうちの原理より、$F(x) = \lim_n F_n(x)$である。仮に$x$が$F$の不連続点であるならば、不連続点は高々可算個であることより$x$に上から近く連続点の列$\left\{ x_m \right\}$が存在して、分布関数が右連続であることより、
+\begin{align*}
+	F(x) = \lim_m F(x_m) = \lim_m \lim_n F_n(x_m) = \lim_n F_n(x)
+\end{align*}
+である。これより不連続点においても収束するので$F_n(x) \to F(x), \forall x$であり、分布収束することが示された。
+
+\noindent $(\Leftarrow part)$
+
+
 
 
 \section{3.2.9}
