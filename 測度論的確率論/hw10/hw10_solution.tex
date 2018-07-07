@@ -131,7 +131,15 @@ $(\Leftarrow part)$
 
 \noindent $(\Leftarrow part)$
 
-
+仮定より、
+\begin{align*}
+	\forall \epsilon > 0, \exists N\ \text{s.t.}\ n\geq N \Rightarrow\ \left| F_n(x) - F(x) \right| < \epsilon\ \forall x
+\end{align*}
+である。分布関数は非減少なので、$F_n(x-\epsilon) \leq F_n(x), F_n(x) \leq F_n(x+\epsilon)$であることから、
+\begin{align*}
+	\forall \epsilon > 0, \exists N\ \text{s.t.}\ n\geq N \Rightarrow\ F_n(x-\epsilon) - \epsilon < F(x) < F_n(x+\epsilon) + \epsilon\ \forall x
+\end{align*}
+である。$\rho(F_n, F)$の定義よりこれは$rho(F_n, F) \to 0$を意味する。
 
 
 \section{3.2.9}
