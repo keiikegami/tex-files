@@ -207,7 +207,7 @@ $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\le
 であるので、確かに$X_n \xrightarrow{p} c$であることが確認された。
 
 \section{3.2.13}
-任意の$z \in \mathbb{R}$に対して成立する以下二つの関係を使う。
+任意の$z \in \mathbb{R}$と任意の$\epsilon > 0$に対して成立する以下二つの関係を使う。
 \begin{align*}
 	\begin{cases}
 	X_n > z-c\ \text{and}\ |Y_n - c| \leq \epsilon\ \Rightarrow\ z-\epsilon < X_n + Y_n\\
@@ -235,9 +235,51 @@ $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\le
 	F_X(z-c-\epsilon) \leq \liminf_n F_{Z_n}(z)
 	\end{cases}
 \end{align*}
+従って以下が成立する。
+\begin{align*}
+	F_X(z-c-\epsilon) \leq \liminf_n F_{Z_n}(z) \leq \limsup_n F_{Z_n}(z) \leq F_X(z-c+\epsilon)
+\end{align*}
+これより、$z-c$が$F_X$の連続点であるならば$\epsilon \to 0$とすることで、
+\begin{align*}
+	F_X(z-c) = \lim_n F_{Z_n}(z)
+\end{align*}
+である。また、$z-c$が不連続点であっても、不連続点は高々可算個であることより、$z-c$に上から近く連続点の列$\left\{ y_m \right\}$が存在して、分布関数が右連続であることより、
+\begin{align*}
+	F_X(z-c) = \lim_m F_X(y_m) = \lim_m \lim_n F_{Z_n}(y_m + c) = \lim_n F_{Z_n}(z)
+\end{align*}
+であるので不連続点においても収束している。従って$X_n + Y_n \xrightarrow{w} X + c$である。
 
 \section{3.2.14}
-
+任意の$z \in \mathbb{R}$と任意の$\epsilon > 0$に対して成立する以下の関係を使う。
+\begin{align*}
+	\begin{cases}
+	X_n > \frac{z}{c}\ \text{and}\ |Y_n - c| \leq \epsilon\ \Rightarrow\ X_n Y_n > z\frac{c-\epsilon}{c}\\[8pt]
+	X_n Y_n > cz\ \text{and}\ |Y_n - c| \leq \epsilon\ \Rightarrow\ X_n > \frac{c}{c+\epsilon}z
+	\end{cases}
+\end{align*}
+これの対偶が真であることより以下が成立する。
+\begin{align*}
+	\begin{cases}
+	P\left( X_n Y_n \leq z\frac{c-\epsilon}{c} \right) \leq P\left( X_n \leq \frac{z}{c} \right) + P\left(  |Y_n - c| > \epsilon \right)\\[8pt]
+	P\left( X_n \leq \frac{c}{c+\epsilon}z \right) - P\left( |Y_n - c| > \epsilon \right)  \leq P\left( X_n Y_n \leq cz \right)
+	\end{cases}
+\end{align*}
+1つ目の式において両辺$\limsup$をとり、2つ目の式において$\liminf$を取ることを考える。仮定から$P\left( |Y_n - c| > \epsilon \right) \to 0$であることと、$X_n$の分布関数$F_{X_n}$が$X$の分布関数$F_X$に各点収束することより、
+\begin{align*}
+	\begin{cases}
+	\limsup_n P\left( X_n Y_n \leq z\frac{c-\epsilon}{c} \right) \leq F_X\left( \frac{z}{c} \right)\\[8pt]
+	F_X\left( \frac{c}{c+\epsilon}z \right) \leq \liminf_n P\left( X_n Y_n \leq cz \right)
+	\end{cases}
+\end{align*}
+ここで、上の式において$z$を$\frac{c^2}{c-\epsilon}z$で置き換えても成立するので以下を得る。
+\begin{align*}
+	F_X\left( \frac{c}{c+\epsilon} z \right) \leq \liminf_n P\left( X_n Y_n \leq cz \right) \leq \limsup_n P\left( X_n Y_n \leq cz \right) \leq F_X\left( \frac{c}{c-\epsilon} z \right)
+\end{align*}
+従って$z$が$F_X$の連続点であるなら$\epsilon \to 0$で$F_X(z) = \lim_n P\left( X_n Y_n \leq cz \right)$である。また、$z$が$F_X$の不連続点であっても、不連続点は高々可算個であることより、$z$に上から近く連続点の列$\left\{ y_m \right\}$が存在して、分布関数が右連続であることより、
+\begin{align*}
+	F_X(z) = \lim_m F_X(y_m) = \lim_m \lim_n P\left( X_n Y_n \leq cy_m \right) = \lim_n P\left( X_n Y_n \leq cz \right)
+\end{align*}
+であるので、不連続点においても$F_X(z)$に収束する。従って$X_n Y_n \xrightarrow{w} cX$であることが示された。
 
 \end{document}
 
