@@ -192,7 +192,49 @@ $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\le
 \end{align*}
 が成立する。従って各$x$について$\lim_n F_n(x) = F(x)$となっていることが示されたので分布収束することが確かめられた。
 
+次に、定数に分布収束するのであれば上記の逆も成立することを確かめる。定数に分布収束するということは、ある定数$c$について、
+\begin{align*}
+	F_n(x) \to 1\left( c \leq x \right)\ \text{as}\ n\to \infty
+\end{align*}
+を意味する。この時、任意の$\epsilon > 0$について
+\begin{align*}
+	P\left( |X_n - c| > \epsilon \right) = 1 - P\left( |X_n - c| \leq \epsilon \right) = 1- \left( F_n(c+\epsilon) - F_n(c-\epsilon) \right)
+\end{align*}
+であり、両辺$n\to \infty$での極限を考えると、
+\begin{align*}
+	\lim_{n\to \infty} P\left( |X_n - c| > \epsilon \right) = 1-\lim_{n\to \infty} F_n(c+\epsilon) + \lim_{n\to \infty} F_n(c-\epsilon) = 1-1+0 = 0
+\end{align*}
+であるので、確かに$X_n \xrightarrow{p} c$であることが確認された。
+
 \section{3.2.13}
+任意の$z \in \mathbb{R}$に対して成立する以下二つの関係を使う。
+\begin{align*}
+	\begin{cases}
+	X_n > z-c\ \text{and}\ |Y_n - c| \leq \epsilon\ \Rightarrow\ z-\epsilon < X_n + Y_n\\
+	X_n + Y_n > z\ \text{and}\ |Y_n - c| \leq \epsilon\ \Rightarrow\ z-c-\epsilon < X_n
+	\end{cases}
+\end{align*}
+これらの対偶より以下が成立する。
+\begin{align*}
+	\begin{cases}
+	P\left( z-\epsilon \geq X_n + Y_n \right) \leq P\left( X_n \leq z-c \right) + P\left( |Y_n - c| > \epsilon \right)\\[8pt]
+	P\left( z-c-\epsilon \geq X_n \right) \leq P\left( X_n + Y_n \leq z \right) + P\left( |Y_n - c| > \epsilon \right)
+	\end{cases}
+\end{align*}
+ここで$X_n + Y_n = Z_n$と書き、その分布関数を$F_{Z_n}$と表記し、$X_n$の分布関数を$F_{X_n}$と表記することにすると、以下を得る。
+\begin{align*}
+	\begin{cases}
+	F_{Z_n}\left( z-\epsilon \right) \leq F_{X_n}\left( z-c \right) + P\left( |Y_n - c| > \epsilon \right)\\[8pt]
+	F_{X_n}(z-c-\epsilon) - P\left( |Y_n - c| > \epsilon \right) \leq F_{Z_n}(z)
+	\end{cases}
+\end{align*}
+1つ目の式に対しては両辺$\limsup$を、2つ目の式に対しては両辺$\liminf$を取ることを考える。仮定よりどちらの式においても$P\left( |Y_n - c| > \epsilon \right) \to 0$であり、$X_n \xrightarrow{w} X$である。$X$の分布関数を$F_X$で書くことにすると、1つ目の式において$z$を$z+\epsilon$に置き換えると、
+\begin{align*}
+	\begin{cases}
+	\limsup_n F_{Z_n}(z) \leq F_X(z-c+\epsilon)\\
+	F_X(z-c-\epsilon) \leq \liminf_n F_{Z_n}(z)
+	\end{cases}
+\end{align*}
 
 \section{3.2.14}
 
