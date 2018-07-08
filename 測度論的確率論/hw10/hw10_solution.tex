@@ -53,7 +53,7 @@ Homework 10}
 \begin{align*}
 	x-\frac{1}{2^n} \leq \frac{\left[ 2^n x \right]}{2^n} \leq x
 \end{align*}
-となるのでこちらも$x$に収束する。従って、$x \in \mathbb{R}$に各点で分布関数$F_n$が一様分布の分布関数に収束するので分布収束していることがわかる。
+となるのでこちらも$x$に収束する。従って、$x \in \mathbb{R}$に各点で分布関数$F_n$が一様分布の分布関数に収束するので一様分布に分布収束していることがわかる。
 
 \section{3.2.6}
 \subsection{距離の公理}
@@ -72,7 +72,7 @@ $\rho\left( F, G \right) < 0$とすると実数の連続性より$\rho\left( F, 
 \begin{align*}
 	\forall x, F\left( x - \alpha \right) - \alpha \leq G(x) \leq F\left( x + \alpha \right) + \alpha
 \end{align*}
-しかし、$x - \alpha > x > x + \alpha$であるので、分布関数の定義より$F(x-\alpha) \geq F(x + \alpha)$であり、さらに$F(x-\alpha) -\alpha \geq F(x + \alpha) + \alpha$である。これは先と矛盾するので$\rho\left( F, G \right) \geq 0$である。
+しかし、$x - \alpha > x > x + \alpha$であるので、分布関数の定義より$F(x-\alpha) \geq F(x + \alpha)$であり、さらに$F(x-\alpha) -\alpha \geq F(x + \alpha) + \alpha$である。これと先の不等式より、$G(x) = F(x-\alpha) -\alpha = F(x + \alpha) + \alpha$が任意の$x$について成立していることになる。しかしこの時、$x\to \infty$で$G(x) \to 1+\alpha,1 -\alpha$であり、$1$には収束しないので分布関数の定義を満たさない。従って、$\rho\left( F, G \right) \geq 0$である。
 
 \subsubsection{$\rho\left( F, G \right)  =  0 \Leftrightarrow F = G$}
 $(\Leftarrow part)$ 
