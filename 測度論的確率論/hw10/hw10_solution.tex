@@ -127,7 +127,7 @@ $(\Leftarrow part)$
 \begin{align*}
 	F(x) = \lim_m F(x_m) = \lim_m \lim_n F_n(x_m) = \lim_n F_n(x)
 \end{align*}
-である。これより不連続点においても収束するので$F_n(x) \to F(x), \forall x$であり、分布収束することが示された。
+である。ただし極限の交換は任意の$n$について$F_n$も分布関数であることより右極限が存在することと、連続点であれば$F$に各点で収束することから保証される（この議論は後の問題でも必要となるが、同様の議論であるため以下では省略する）。これより不連続点においても収束するので$F_n(x) \to F(x), \forall x$であり、分布収束することが示された。
 
 \noindent $(\Leftarrow part)$
 
@@ -139,7 +139,7 @@ $(\Leftarrow part)$
 \begin{align*}
 	\forall \epsilon > 0, \exists N\ \text{s.t.}\ n\geq N \Rightarrow\ F_n(x-\epsilon) - \epsilon < F(x) < F_n(x+\epsilon) + \epsilon\ \forall x
 \end{align*}
-である。$\rho(F_n, F)$の定義よりこれは$rho(F_n, F) \to 0$を意味する。
+である。$\rho(F_n, F)$の定義よりこれは$\rho(F_n, F) \to 0$を意味する。
 
 
 \section{3.2.9}
@@ -148,10 +148,10 @@ $(\Leftarrow part)$
 	\forall \epsilon > 0, \exists \delta > 0, \text{s.t.}\ |x-y| \leq \delta\ \Rightarrow\ \left| F(x) - F(y) \right| \leq \epsilon
 \end{align*}
 である。$F_n \Rightarrow F$であるのでEx 3.2.6.より$\rho\left( F_n, F \right) \to 0$である。すなわち一般性を失うことなく、$\epsilon \geq \delta \geq 0$に対して、
-\begin{align*}
+\begin{align}
 	F\left( x-\delta \right) -\delta \leq F_n(x) \leq F(x + \delta) + \delta
-\end{align*}
-である。ここで、$|x - (x-\delta)| \leq \delta$であるので一様連続性から$\left| F(x) - F(x-\delta) \right| \leq \epsilon$である。すなわち、$F(x) - \epsilon \leq F(x - \delta) \leq F(x) + \delta$である。同様の議論を$x, x+\delta$に対しても適用することで先と合わせて以下を得る。
+\end{align}
+である。ここで、$|x - (x-\delta)| \leq \delta$であるので一様連続性から$\left| F(x) - F(x-\delta) \right| \leq \epsilon$である。すなわち、$F(x) - \epsilon \leq F(x - \delta) \leq F(x) + \epsilon$である。同様の議論を$x, x+\delta$に対しても適用することで先の$(1)$と合わせて以下を得る。
 \begin{align*}
 	F(x) - \delta - \epsilon \leq F_n(x) \leq F(x) + \delta + \epsilon
 \end{align*}
@@ -162,11 +162,11 @@ $\epsilon \geq \delta$であるので、十分大きな$n$において$F(x) - 2\
 が十分大きな$n$について成立するので題意は示された。
 
 \subsection{主張$1$の証明}
-任意に$m \in \mathbb{N}$を取る。これに対して$(0,1)$を$\left( \frac{j-1}{m}, \frac{j}{m} \right), j = 1,\cdots, m$で$m$個に分割することを考える。$F$が連続で非減少関数であるので開集合の逆像は開集合となるので、$F^{-1}\left( \left( \frac{j-1}{m}, \frac{j}{m} \right) \right)$は各$j$について開区間である。この$m$個の区間のルベーグ測度で最小のものを$\delta$とかく。この時、
+任意に$m \in \mathbb{N}$を取る。これに対して$(0,1)$を$\left( \frac{j-1}{m}, \frac{j}{m} \right), j = 1,\cdots, m$で$m$個に分割することを考える。$F$が連続で非減少関数であるので、開集合の連続関数による逆像は開集合となることから、$F^{-1}\left( \left( \frac{j-1}{m}, \frac{j}{m} \right) \right)$は各$j$について開区間である。この$m$個の区間のルベーグ測度で最小のものを$\delta$とかく。この時、
 \begin{align*}
 	|x-y| < \delta\ \Rightarrow\ \left| F(x) - F(y) \right| < \frac{2}{m}
 \end{align*}
-が成立する。なぜなら$x,y$を上のようにとレバ$[x, y]$に最小区間以外の区間が丸々入ることはあり得ないからである。従って、任意の$\epsilon > 0$に対して、$\frac{2}{m} < \epsilon\ \Rightarrow\ \frac{2}{\epsilon} < m$を満たすように$m$をとりその時の最小区間の長さを取ってくれば一様連続性を満たすことがわかる。
+が成立する。なぜなら$x,y$を上のようにとる時、$[x, y]$に最小区間以外の区間が丸々入ることはあり得ないからである。従って、任意の$\epsilon > 0$に対して、$\frac{2}{m} < \epsilon\ \Rightarrow\ \frac{2}{\epsilon} < m$を満たすように$m$をとりその時の最小区間の長さを取ってくれば良いので一様連続性を満たすことがわかる。
 
 \section{3.2.11}
 $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\left( X_{\infty} = m \right)\ \forall m$を示す。$X_n$の分布関数を$F_n$でかくと、$a \in (m-1, m), b \in (m, m+1)$として$P\left( X_n = m \right) = F_n(b) - F_n(a)$である。$X_{\infty}$の分布関数を$F$とかくとすると、仮定より以下を得る。
