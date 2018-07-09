@@ -188,7 +188,7 @@ $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\le
 	&= \sum_{m \in G \cap \mathbb{Z}} P\left( X_{\infty} = m \right)\\
 	&= P\left( X_{\infty} \in G\cap \mathbb{Z} \right)
 \end{align*}
-を得る。ただし、不等号はFatouの補題より得られ、4番目の等号は仮定より得られる。従って、Th 3.2.11(2)より確かに$X_n \xrightarrow{w} X_{\infty}$である。
+を得る。ただし、不等号はFatouの補題より得られ、4番目の等号は仮定より得られる。従って、Theorem 3.2.11(2)より確かに$X_n \xrightarrow{w} X_{\infty}$である。
 
 \section{3.2.12}
 まず確率収束するなら分布収束することを示す。まず、
@@ -199,7 +199,7 @@ $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\le
 \begin{align*}
 	P\left( X \leq x-\epsilon \right) \leq P\left( X_n \leq x \right) + P\left(  |X- X_n| > \epsilon \right)
 \end{align*}
-である。これより$F(x-\epsilon) - P\left(  |X- X_n| > \epsilon \right) \leq F_n(x)$であり、$X_n \xrightarrow{p}X$であることより左辺第二項は$0$に収束することから、$F(x-\epsilon) \leq \liminf_{n} F_n(x)$である。同じように以下が成立することを使う。
+である。$X, X_n$の分布関数をそれぞれ$F. F_n$で書くとすると、これより$F(x-\epsilon) - P\left(  |X- X_n| > \epsilon \right) \leq F_n(x)$であり、$X_n \xrightarrow{p}X$であることより左辺第二項は$0$に収束することから、両辺$\liminf$をとると、$F(x-\epsilon) \leq \liminf_{n} F_n(x)$である。同じように以下が成立することを使う。
 \begin{align*}
 	X > x+ \epsilon\ \text{and}\ |X-X_n| \leq \epsilon\ \Rightarrow\ x < X_n
 \end{align*}
@@ -207,7 +207,7 @@ $X_n\ \xrightarrow{w}\ X_{\infty}\ \Rightarrow\ P\left( X_n = m \right) \to P\le
 \begin{align*}
 	P\left(X_n\leq x \right) \leq P\left( X\leq x + \epsilon \right) + P\left( |X-X_n| > \epsilon \right)
 \end{align*}
-仮定より右辺第2項は$0$に収束するので$\limsup_n F_n(x) \leq F(x+\epsilon)$を得る。以上を合わせると、任意の$\epsilon > 0$に対して、
+仮定より右辺第2項は$0$に収束するので、両辺$\limsup$をとると、$\limsup_n F_n(x) \leq F(x+\epsilon)$を得る。以上を合わせると、任意の$\epsilon > 0$に対して、
 \begin{align*}
 	F(x-\epsilon) \leq \liminf_{n} F_n(x) \leq \limsup_n F_n(x) \leq F(x+\epsilon)
 \end{align*}
