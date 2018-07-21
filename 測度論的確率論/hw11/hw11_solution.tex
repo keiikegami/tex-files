@@ -58,14 +58,78 @@ Homework 11}
 \begin{align*}
 	\forall \epsilon , \delta > 0,\ \exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\ 1-\mathcal{L}(X_n)\left( \frac{\epsilon}{\left| c_n \right|} \right) + \mathcal{L}(X_n)\left( -\frac{\epsilon}{\left| c_n \right|} \right) \leq \delta
 \end{align*}
+また、$c_n\to 0$であることより、
+\begin{align*}
+	\forall \epsilon , M_{\delta} > 0, \ \exists N_1\ \text{s.t.}\ n\geq N_1\ \Rightarrow\ \left| c_n \right| \leq \frac{\epsilon}{M_{\delta}}
+\end{align*}
+である。よって、$N^{\star} = \max\left\{ N, N_1 \right\}$と置くと、
+\begin{align*}
+	\forall \delta, M_{\delta} > 0, \  n\geq N^{\star} \ \Rightarrow\ P\left( \left| X_n \right| \geq M_{\delta} \right) = 1-\mathcal{L}(X_n)\left( M_{\delta} \right) + \mathcal{L}(X_n)\left(- M_{\delta} \right) \leq \delta
+\end{align*}
+であり、これより$X_n\xrightarrow{p}0$である。確率収束するならば分布収束するので$X_n\xrightarrow{d}0$であり、Th11.7より分布収束する確率変数列は明らかに一様タイトなので題意は示された。
 
 \section{Ex12.2}
+${\rm Var}(X_{n,m}) = {\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]$と置いて、以下の変数を考える。
+\begin{align*}
+	Y_{n,m} = \frac{X_{n,m} - \theta_n}{\sqrt{n} \sqrt{{\rm Var}(X_{n,m})}}
+\end{align*}
+これに対して、${\rm E}\left[ X_{n,m} \right] = \theta_n$であることより、
+\begin{align*}
+	{\rm E}\left[ Y_{n,m} \right] = \frac{{\rm E}\left[ X_{n,m} \right] - \theta_n}{\sqrt{n} \sqrt{{\rm Var}(X_{n,m})}} = 0
+\end{align*}
+である。また、
+\begin{align*}
+	 \sum_{m=1}^n{\rm E}\left[ Y_{n,m}^2 \right] =\sum_{m=1}^n \frac{{\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]}{n{\rm Var}(X_{n,m})} = 1
+\end{align*}
+である。あとはこの確率変数に対してのLindeberg条件を確認すれば良い。
+\begin{align*}
+	g_n(\epsilon) &= \sum_{m=1}^n {\rm E} \left[ \frac{ \left( X_{n,m} - \theta_n \right)^2}{n{\rm Var}(X_{n,m})} 1\left\{  \frac{X_{n,m} - \theta_n}{\sqrt{n} \sqrt{{\rm Var}(X_{n,m})}} > \epsilon \right\} \right]\\[8pt]
+	&= {\rm E}\left[  \frac{ \left( X_{n,m} - \theta_n \right)^2}{{\rm Var}(X_{n,m})} 1\left\{  \frac{X_{n,m} - \theta_n}{\sqrt{{\rm Var}(X_{n,m})}} > \epsilon \sqrt{n} \right\} \right]
+\end{align*}
+とおく。ここで、
+\begin{align*}
+	{\rm E}\left[  \frac{ \left( X_{n,m} - \theta_n \right)^2}{{\rm Var}(X_{n,m})}  \right] = 1 < \infty
+\end{align*}
+なので優収束定理が適用でき、$\lim_n g_n(\epsilon) = 0$である。これよりLindeberg条件は満たされるので、Th12.1より
+\begin{align*}
+	\sum_{m=1}^n \frac{X_{n,m} - \theta_n}{\sqrt{n} \sqrt{{\rm Var}(X_{n,m})}}\ \xrightarrow{d}\ N(0,1)
+\end{align*}
+である。仮定より${\rm Var}(X_{n,m}) \to 1$であるので、スラツキーの定理より、
+\begin{align*}
+	\frac{1}{\sqrt{n}} \sum_{m=1}^n (X_{n,m} - \theta_n) = \sqrt{n} (\bar{X_n} - \theta_n) \xrightarrow{d}\ N(0,1)
+\end{align*}
+である。
 
 \section{Ex12.3}
+まず$n$を固定して、$\sup_{x\in \mathbb{R}} \left| P\left( \frac{S_n}{\sqrt{n}} \leq x \right) - \Phi(x) \right|$を与える$x$について考える。対称性より$x \geq 0$についてのみ考えれば良い。
+
 
 \section{Ex12.4}
+以下のような確率変数列$\left\{ Y_n \right\}$を考える。ただし$p\in (0,1)$とする。
+\begin{align*}
+\begin{cases}
+	P\left( Y_n = 1 \right) = p\\[8pt]
+	P\left( Y_n = 0 \right) = 1-p
+\end{cases}
+\end{align*}
+この時、$S_n = \sum_{m=1}^n Y_m$として、$X_n = \frac{S_n -np}{\sqrt{npq}}$とおくと、ド・モアブル-ラプラスの定理からこれは標準正規分布に分布収束する。収束先を$X$で書くとする。ここで、
+\begin{align*}
+	A = \left\{ \frac{k-np}{\sqrt{npq}} \mid k \geq 0, n\geq 0, k,n \in \mathbb{N} \right\}
+\end{align*}
+とすると、$A\in \mathcal{B}$であるが、定義より任意の$n$について$P\left( X_n \in A \right) = 1$であり、同時に$X$は連続確率変数であることより$P\left( X \in A \right) = 0$である。従って全ての$A\in \mathcal{B}$に対して$P\left( X_n \in A \right)\to P\left( X\in A\right)$となるわけではないことがわかった。
 
-\section{Ex12.6}
+\section{Ex12.7}
+任意に$\epsilon > 0$を取る。この時、Lyapunov条件における$\delta > 0$に対して、
+\begin{align*}
+	\left| X_n \right| \geq \epsilon \ \Rightarrow\ \frac{\left| X_n \right|}{\epsilon} \geq 1\ \Rightarrow\ \left(  \frac{\left| X_n \right|}{\epsilon} \right)^{\delta} \geq 1
+\end{align*}
+である。これより、
+\begin{align*}
+	\sum_{m=1}^n {\rm E}\left[ X_{n,m}^2 1\left\{ \left| X_{n,m} \right| \geq \epsilon \right\} \right] &\leq \sum_{m=1}^n {\rm E}\left[ X_{n,m}^2  \left(  \frac{\left| X_n \right|}{\epsilon} \right)^{\delta} 1\left\{ \left| X_{n,m} \right| \geq \epsilon \right\} \right] \\[8pt]
+	&=\frac{1}{\epsilon^{\delta}} \sum_{m=1}^n {\rm E}\left[ \left| X_{n,m} \right|^{2+\delta} 1\left\{ \left| X_{n,m} \right| \geq \epsilon \right\} \right]\\
+	&\leq \frac{1}{\epsilon^{\delta}} \sum_{m=1}^n {\rm E}\left[ \left| X_{n,m} \right|^{2+\delta} \right]
+\end{align*}
+である。最終行はLyapunov条件が成立する時$n\to \infty$で$0$に収束するので、Lindeberg条件も成立することが確認できた。
 
 \end{document}
 
