@@ -131,12 +131,22 @@ $n$が奇数の時をまず考える。$S_n$の定義より$P\left( S_n \leq x \
 $\Phi(0) = \frac{1}{2}$であり、$n$が奇数の時必ず$P\left( S_n \leq 0 \right) = \frac{1}{2}$となっているので、以上二つの事実をから、$n$についての$\liminf$を取るのであれば$x\geq0$における最初のジャンプ大きさの極限を考えれば良いことがわかった。
 
 次に$n$が偶数で十分大きいときを考える。このときは$x=0$でジャンプが起こるので奇数の時とは少し事情が異なるので注意が必要である。定義より$0\leq k\leq \frac{n}{2}$として$x\in \left[ \frac{2k}{\sqrt{n}}, \frac{2k+2}{\sqrt{n}} \right)$において$P\left( S_n \leq \sqrt{n} x \right) = \frac{1}{2} + \sum_{i=0,\ \text{i is even}}^{2k} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2}$である。奇数の時と同様に収束先の$\Phi(x)$との大小を比較すると以下の結果が得られる。
-\begin{align*}
+\begin{align}
 	\begin{cases}
 	\Phi(x) \leq \frac{1}{2} + \sum_{i=0,\ \text{i is even}}^{2k} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2} & \text{when}\ k=0\\[8pt]
 	\Phi(x) \geq \frac{1}{2} + \sum_{i=0,\ \text{i is even}}^{2k} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2} & \text{otherwise}
 	\end{cases}
+\end{align}
+
+また、$(2)$の結果より$n$が偶数の場合でも$x\geq0$におけるジャンプは初項を$x=0$におけるジャンプの半分とすれば減少列であることがわかっているので、$(3)$の結果と合わせて$n$についての$\liminf$を考えるのであれば、$x=0$におけるジャンプの半分の大きさについて考えれば良いことがわかった。
+
+以上を合わせると、$j=0$におけるヒントの記法を使って、
+\begin{align*}
+	\liminf_n \sup_{x\in \mathbb{R}} \sqrt{n} \left| P\left( S_n \leq \sqrt{n} x \right) - \Phi(x) \right| \geq \frac{1}{2} \lim_n \sqrt{n} P\left( S_n = j_n \right)
 \end{align*}
+と書けることがわかった。最後に$\lim_n \sqrt{n} P\left( S_n = j_n \right) = \frac{1}{\sqrt{2\pi}}$であることを示す。そうであれば上式左辺は$0$以上であることが保証され題意は示される。
+
+
 
 \section{Ex12.4}
 以下のような確率変数列$\left\{ Y_n \right\}$を考える。ただし$p\in (0,1)$とする。
