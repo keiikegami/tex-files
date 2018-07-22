@@ -35,7 +35,7 @@ Homework 11}
 
 
 \section{Ex11.6}
-確率変数列$\left\{ X_n : n \in \mathbb{N}\right\}$に対して$\left\{ \mathcal{L}(X_n) : n \in \mathbb{N} \right\}$が一様にタイトであることを仮定する。この時、任意に$\epsilon > 0$と$c_n \to 0$を取ると、
+確率変数列$\left\{ X_n : n \in \mathbb{N}\right\}$に対してその分布$\left\{ \mathcal{L}(X_n) : n \in \mathbb{N} \right\}$が一様にタイトであることを仮定する。この時、任意に$\epsilon > 0$と$c_n \to 0$を取ると、
 \begin{align*}
 	P\left( \left| c_n X_n \right| \geq \epsilon \right) = P\left( \left| X_n \right| \geq \frac{\epsilon}{|c_n|} \right)
 \end{align*}
@@ -43,11 +43,11 @@ Homework 11}
 \begin{align*}
 	n\geq N\ \Rightarrow\ P\left( \left| c_n X_n \right| \geq \epsilon \right) \leq P\left( \left| X_n \right| \geq \frac{\epsilon}{\delta} \right) = 1-\mathcal{L}(X_n)\left( \frac{\epsilon}{\delta} \right) + \mathcal{L}(X_n)\left(- \frac{\epsilon}{\delta} \right)
 \end{align*}
-つまり、
+$\epsilon, \delta$が任意であることより$\frac{\epsilon}{\delta}$も任意に取ることができるので、
 \begin{align*}
 	\forall \epsilon,M > 0, \exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\ P\left( \left| c_n X_n \right| \geq \epsilon \right) \leq 1-\mathcal{L}(X_n)\left( M \right) + \mathcal{L}(X_n)\left(-M \right)
 \end{align*}
-である。一葉タイト性の仮定より、任意の$n$について上式の右辺を任意に小さい$\eta$で上から抑えることのできる$M$が必ず存在するので、
+である。一様タイト性の仮定より、任意の$n$について上式の右辺を任意に小さい$\eta$で上から抑えることのできる$M$が必ず存在するので、
 \begin{align*}
 	\forall \epsilon, \eta > 0,\ \exists N\ \text{s.t.}\ n\geq N\ \Rightarrow\ P\left( \left| c_n X_n \right| \geq \epsilon \right) \leq \eta
 \end{align*}
@@ -64,12 +64,12 @@ Homework 11}
 \end{align*}
 である。よって、$N^{\star} = \max\left\{ N, N_1 \right\}$と置くと、
 \begin{align*}
-	\forall \delta, M_{\delta} > 0, \  n\geq N^{\star} \ \Rightarrow\ P\left( \left| X_n \right| \geq M_{\delta} \right) = 1-\mathcal{L}(X_n)\left( M_{\delta} \right) + \mathcal{L}(X_n)\left(- M_{\delta} \right) \leq \delta
+	\forall \delta, M_{\delta} > 0, \  n\geq N^{\star} \ \Rightarrow\ 1-\mathcal{L}(X_n)\left( M_{\delta} \right) + \mathcal{L}(X_n)\left(- M_{\delta} \right) \leq \delta
 \end{align*}
-であり、これより$X_n\xrightarrow{p}0$である。確率収束するならば分布収束するので$X_n\xrightarrow{d}0$であり、Th11.7より分布収束する確率変数列は明らかに一様タイトなので題意は示された。
+であり、また$P\left( \left| X_n \right| \geq M_{\delta} \right) = 1-\mathcal{L}(X_n)\left( M_{\delta} \right) + \mathcal{L}(X_n)\left(- M_{\delta} \right)$である。これより$X_n\xrightarrow{p}0$である。確率収束するならば分布収束するので$X_n\xrightarrow{d}0$であり、Th11.7より分布収束する確率変数列は明らかに一様タイトなので題意は示された。
 
 \section{Ex12.2}
-${\rm Var}(X_{n,m}) = {\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]$と置いて、以下の変数を考える。
+${\rm Var}(X_{n,m}) = {\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]$と置いて、以下の確率変数を考える。
 \begin{align*}
 	Y_{n,m} = \frac{X_{n,m} - \theta_n}{\sqrt{n} \sqrt{{\rm Var}(X_{n,m})}}
 \end{align*}
@@ -81,7 +81,7 @@ ${\rm Var}(X_{n,m}) = {\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]$
 \begin{align*}
 	 \sum_{m=1}^n{\rm E}\left[ Y_{n,m}^2 \right] =\sum_{m=1}^n \frac{{\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]}{n{\rm Var}(X_{n,m})} = 1
 \end{align*}
-である。あとはこの確率変数に対してのLindeberg条件を確認すれば良い。
+である。あとはLindeberg条件を確認すれば良い。
 \begin{align*}
 	g_n(\epsilon) &= \sum_{m=1}^n {\rm E} \left[ \frac{ \left( X_{n,m} - \theta_n \right)^2}{n{\rm Var}(X_{n,m})} 1\left\{  \frac{X_{n,m} - \theta_n}{\sqrt{n} \sqrt{{\rm Var}(X_{n,m})}} > \epsilon \right\} \right]\\[8pt]
 	&= {\rm E}\left[  \frac{ \left( X_{n,m} - \theta_n \right)^2}{{\rm Var}(X_{n,m})} 1\left\{  \frac{X_{n,m} - \theta_n}{\sqrt{{\rm Var}(X_{n,m})}} > \epsilon \sqrt{n} \right\} \right]
@@ -106,17 +106,17 @@ ${\rm Var}(X_{n,m}) = {\rm E}\left[ \left( X_{n,m} - \theta_n \right)^2 \right]$
 	\Phi(x) = \frac{1}{2} + \frac{1}{\sqrt{2\pi}} e^{- \frac{x^2}{2}} \left[ x + \frac{x^3}{3} + \frac{x^5}{3\times 5} + \cdots + \frac{x^{2m+1}}{(2m+1)!!} + \cdots \right]
 \end{align}
 
-$n$が奇数の時をまず考える。$S_n$の定義より$P\left( S_n \leq x \sqrt{n} \right)$は、$k\in\mathbb{N}$に対して$\left[ \frac{2k-1}{\sqrt{n}}, \frac{2k+1}{\sqrt{n}} \right)$の範囲で定数$\frac{1}{2} + \sum_{i=1, i\ \text{is odd}}^{2k-1} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2}$を取る。ここで十分大きな$n$においては以下の関係が成立する。
+$n$が奇数の時をまず考える。$S_n$の定義より$P\left( S_n \leq x \sqrt{n} \right)$は、$0\leq k \leq \frac{n-1}{2}$の整数に対して$\left[ \frac{2k-1}{\sqrt{n}}, \frac{2k+1}{\sqrt{n}} \right)$の範囲で定数$\frac{1}{2} + \sum_{i=1, i\ \text{is odd}}^{2k-1} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2}$を取る。またそれ以降は$1$を取る。ここで十分大きな$n$においては以下の関係が成立する。
 \begin{align*}
 	\sum_{i=1, i\ \text{is odd}}^{2k-1} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2} \leq \Phi \left(\frac{2k-1}{\sqrt{n}} \right)
 \end{align*}
-なぜなら、スターリングの公式と$(1)$より十分大きな$n$において
+なぜなら、スターリングの公式と$(1)$より、十分大きな$n$において
 \begin{align*}
 	\sum_{i=1, i\ \text{is odd}}^{2k-1} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2} - \Phi \left(\frac{2k-1}{\sqrt{n}} \right) &= \frac{1}{\sqrt{2\pi n}} \left\{ \left( \frac{1}{2} \sum_{i=1, i\ \text{is odd}}^{2k-1} e^{-\frac{i}{2n}}\right) - e^{- \frac{(2k-1)^2}{2n}} \left( 2k-1 + \frac{1}{3} \frac{1}{n} (2k-1)^3 + \cdots \right) \right\}\\[10pt]
 	&\leq \frac{1}{\sqrt{2\pi n}} e^{- \frac{(2k-1)^2}{2n}} (2k-1) \left\{ \frac{k}{2} \frac{1}{2k-1}\exp \left(2 \frac{k(k-1)}{n}\right) - \left(1 + \frac{1}{3} \frac{1}{n} (2k-1)^2 + \cdots \right) \right\}\\[10pt]
 	&\to \frac{k}{2(2k-1)} -1 \leq 0\ \forall k
 \end{align*}
-となるからである。これより、十分大きな$n$においては任意の$k \leq \frac{n+1}{2}$に対して、$x \geq 0$における$P\left( S_n \leq \sqrt{n} x \right)$が定数となる$k$番目の区間は収束先の$\Phi(x)$よりも下に位置することがわかった。
+となるからである。これより、十分大きな$n$においては任意の$0\leq k \leq \frac{n-1}{2}$に対して、$x \geq 0$における$P\left( S_n \leq \sqrt{n} x \right)$が定数となる$k$番目の区間は収束先の$\Phi(x)$よりも下に位置することがわかった。
 
 また、$k < \frac{n}{2}$について、
 \begin{align}
@@ -128,9 +128,9 @@ $n$が奇数の時をまず考える。$S_n$の定義より$P\left( S_n \leq x \
 \end{align*}
 なる列は単調減少の列であることがわかる。すなわち$x\geq 0$における$P\left( S_n \leq \sqrt{n} x \right)$のジャンプは最初のジャンプが一番大きくなることがわかった。
 
-$\Phi(0) = \frac{1}{2}$であり、$n$が奇数の時必ず$P\left( S_n \leq 0 \right) = \frac{1}{2}$となっているので、以上二つの事実をから、$n$についての$\liminf$を取るのであれば$x\geq0$における最初のジャンプ大きさの極限を考えれば良いことがわかった。
+$\Phi(0) = \frac{1}{2}$であり、$n$が奇数の時必ず$P\left( S_n \leq 0 \right) = \frac{1}{2}$となっているので、以上の議論と合わせると、$n$についての$\liminf$を取るのであれば$x\geq0$における$P\left( S_n \leq \sqrt{n} x \right)$の最初のジャンプの大きさについて極限を考えれば良いことがわかった。
 
-次に$n$が偶数で十分大きいときを考える。このときは$x=0$でジャンプが起こるので奇数の時とは少し事情が異なるので注意が必要である。定義より$0\leq k\leq \frac{n}{2}$として$x\in \left[ \frac{2k}{\sqrt{n}}, \frac{2k+2}{\sqrt{n}} \right)$において$P\left( S_n \leq \sqrt{n} x \right) = \frac{1}{2} + \sum_{i=0,\ \text{i is even}}^{2k} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2}$である。奇数の時と同様に収束先の$\Phi(x)$との大小を比較すると以下の結果が得られる。
+次に$n$が偶数で十分大きいときを考える。このときは$x=0$でジャンプが起こるので奇数の時とは少し事情が異なるので注意が必要である。定義より$0\leq k\leq \frac{n-2}{2}$として$x\in \left[ \frac{2k}{\sqrt{n}}, \frac{2k+2}{\sqrt{n}} \right)$において$P\left( S_n \leq \sqrt{n} x \right) = \frac{1}{2} + \sum_{i=0,\ \text{i is even}}^{2k} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2}$である。またそれ以降は$1$を取る。奇数の時と同様に収束先の$\Phi(x)$との大小を比較すると以下の結果が得られる。
 \begin{align}
 	\begin{cases}
 	\Phi(x) \leq \frac{1}{2} + \sum_{i=0,\ \text{i is even}}^{2k} \frac{1}{2} \frac{1}{2^n} {}_n \mathrm{C} _\frac{n-i}{2} & \text{when}\ k=0\\[8pt]
@@ -138,7 +138,7 @@ $\Phi(0) = \frac{1}{2}$であり、$n$が奇数の時必ず$P\left( S_n \leq 0 \
 	\end{cases}
 \end{align}
 
-また、$(2)$の結果より$n$が偶数の場合でも$x\geq0$におけるジャンプは初項を$x=0$におけるジャンプの半分とすれば減少列であることがわかっているので、$(3)$の結果と合わせて$n$についての$\liminf$を考えるのであれば、$x=0$におけるジャンプの半分の大きさについて考えれば良いことがわかった。
+また、$(2)$の結果より$n$が偶数の場合でも$x\geq0$におけるジャンプは初項を$x=0$におけるジャンプの半分とすれば減少列であることがわかっているので、$(3)$の結果と合わせて$n$についての$\liminf$を考えるのであれば、$P\left( S_n \leq \sqrt{n} x \right)$の$x=0$におけるジャンプの半分の大きさについて極限を考えれば良いことがわかった。
 
 以上を合わせると、$j=0$におけるヒントの記法を使って、
 \begin{align*}
