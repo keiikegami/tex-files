@@ -146,6 +146,18 @@ $\Phi(0) = \frac{1}{2}$であり、$n$が奇数の時必ず$P\left( S_n \leq 0 \
 \end{align*}
 と書けることがわかった。最後に$\lim_n \sqrt{n} P\left( S_n = j_n \right) = \frac{1}{\sqrt{2\pi}}$であることを示す。そうであれば上式左辺は$0$以上であることが保証され題意は示される。
 
+任意の$j \in \mathbb{N}$について、
+\begin{align*}
+	\sqrt{n} P\left( S_n = j_n \right) &= \sqrt{n} \frac{1}{2} \frac{ {}_n \mathrm{C} _\frac{n+j_n}{2}}{2^n} = \frac{1}{\sqrt{2\pi}} \left( 1 + \frac{j_n}{n} \right)^{-\frac{n+j_n+1}{2}}\left( 1 - \frac{j_n}{n} \right)^{-\frac{n-j_n+1}{2}}\\[10pt]
+	&= \left( 1- \frac{j_n^2}{n^2} \right)^{-\frac{n}{2}} \left( 1+\frac{j_n}{n} \right)^{-\frac{j_n}{2}} \left( 1- \frac{j_n}{n} \right)^{\frac{j_n}{2}}\left( 1+\frac{j_n}{n} \right)^{-\frac{1}{2}} \left( 1-\frac{j_n}{n} \right)^{-\frac{1}{2}}
+\end{align*}
+である。ただし二つ目の等式は十分大きな$n$に対してスターリングの公式より成立する（瑣末な計算なので省略する）。Durrett lemma 3.1.1より以下が成立する。ただし$x = \frac{j_n}{\sqrt{n}}$とおく。
+\begin{align*}
+	&\left( 1-\frac{j_n^2}{n^2} \right)^{-\frac{n}{2}}\ \to \exp\left( \frac{x^2}{2} \right)\\[8pt]
+	&\left( 1+\frac{j_n}{n} \right)^{-\frac{j_n}{2}}\ \to \exp\left( -\frac{x^2}{2} \right)\\[8pt]
+	&\left( 1-\frac{j_n}{n} \right)^{\frac{j_n}{2}}\ \to \exp\left( -\frac{x^2}{2} \right)
+\end{align*}
+これより、$\sqrt{n} P\left( S_n = j_n \right)\ \to\ \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{j_n^2}{2n} \right) \to \frac{1}{\sqrt{2\pi}}$であるので題意は示された。
 
 
 \section{Ex12.4}
